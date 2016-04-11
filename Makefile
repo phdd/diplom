@@ -34,7 +34,7 @@ html:
         --csl style/ieee.csl \
 		--to=html \
 		--output=document.html \
-		--css=style/buttondown.css \
+		--css=style/style.css \
 
 epub: 
 	pandoc \
@@ -43,7 +43,7 @@ epub:
         style/literatur.md \
         --csl style/ieee.csl \
 		--output=document.epub \
-		--css=style/buttondown.css \
+		--css=style/style.css \
 		--epub-metadata=epub.xml \
 
 build-latex:
