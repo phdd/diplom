@@ -2,7 +2,6 @@ ARGS = \
 	document.md \
 	--from=markdown \
 	--standalone \
-	--table-of-contents \
 	--bibliography=bibliography.bib \
 
 LATEX_ARGS = \
@@ -22,6 +21,7 @@ pdf: latex build-latex
 latex: compile-appendix-tex
 	pandoc \
 		$(LATEX_ARGS) \
+        --table-of-contents \
 		--to=latex \
 		--output=document.tex \
 
@@ -31,8 +31,10 @@ html:
 		$(HTML_ARGS) \
         appendix.md \
         style/literatur.md \
+        --table-of-contents \
         --self-contained \
         --csl style/ieee.csl \
+        --number-sections \
 		--to=html \
 		--output=document.html \
 		--css=style/html.css \
@@ -42,10 +44,10 @@ epub:
 		$(ARGS) \
         appendix.md \
         style/literatur.md \
+        --number-sections \
         --csl style/ieee.csl \
 		--output=document.epub \
 		--epub-stylesheet=style/epub.css \
-		--epub-metadata=epub.xml \
 
 build-latex:
 	xelatex document
