@@ -31,10 +31,11 @@ html:
 		$(HTML_ARGS) \
         appendix.md \
         style/literatur.md \
+        --self-contained \
         --csl style/ieee.csl \
 		--to=html \
 		--output=document.html \
-		--css=style/style.css \
+		--css=style/html.css \
 
 epub: 
 	pandoc \
@@ -43,7 +44,7 @@ epub:
         style/literatur.md \
         --csl style/ieee.csl \
 		--output=document.epub \
-		--css=style/style.css \
+		--epub-stylesheet=style/epub.css \
 		--epub-metadata=epub.xml \
 
 build-latex:
