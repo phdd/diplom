@@ -18,6 +18,8 @@
   
 * Use `make pdf`, `make html`, `make epub` to generate the thesis in your desired output format.
 
+## Acknowledgments
+
 Thanks to the Budapest University of Technology and Economics for the template ([github.com/FTSRG/thesis-template-markdown](https://github.com/FTSRG/thesis-template-markdown))
 
 ## License
@@ -25,5 +27,4 @@ Thanks to the Budapest University of Technology and Economics for the template (
 Thesis (c) by Peter Heisig
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
-
 You should have received a copy of the license along with this work. If not, see <http://creativecommons.org/licenses/by-nc-nd/4.0/>.
