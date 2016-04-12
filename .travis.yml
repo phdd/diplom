@@ -5,16 +5,11 @@ before_script:
 addons:
   apt:
     packages:
-    - pandoc
-    - pandoc-citeproc
-    - texlive-full
-    - texlive-xetex
-    - texlive-latex-extra
-    - texlive-fonts-extra
-    - texlive-bibtex-extra 
-    - texlive-fonts-recommended
-    - texlive-lang-german 
-    - biber
+      - biber
+      - pandoc
+      - pandoc-citeproc
+      - texlive-full
+      - texlive-xetex 
 
 script:
   - make html
