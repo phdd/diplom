@@ -1,8 +1,11 @@
 before_script:
   - wget https://github.com/jgm/pandoc/releases/download/1.17.0.2/pandoc-1.17.0.2-1-amd64.deb
   - ar p pandoc-*.deb data.tar.gz | sudo tar xvz --strip-components 2 -C /usr/local
-  - sudo apt-get install -y pandoc-citeproc
+  - sudo apt-get install -y inkscape pandoc-citeproc
   - sudo apt-get install -y texlive-full texlive-xetex biber
+  - "export DISPLAY=:99.0" # for inkscape
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script:
   - make html

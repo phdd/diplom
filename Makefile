@@ -11,7 +11,7 @@ LATEX_ARGS = \
 	--natbib \
 
 HTML_ARGS = \
-	--mathjax \
+	--webtex \
 	--filter pandoc-citeproc \
 
 NON_LATEX_ARGS = \
@@ -28,8 +28,8 @@ pdf: latex build-latex
 latex: compile-appendix-tex
 	pandoc \
 		$(LATEX_ARGS) \
+		--listings \
 		--table-of-contents \
-		--to=latex \
 		--output=document.tex \
 
 html: figures-png
@@ -39,7 +39,6 @@ html: figures-png
 		$(NON_LATEX_ARGS) \
 		--table-of-contents \
 		--self-contained \
-		--to=html \
 		--output=document.html \
 		--css=style/html.css \
 
@@ -59,8 +58,7 @@ build-latex: figures-pdf
 compile-appendix-tex:
 	pandoc \
 		appendix.md \
-		--from=markdown \
-		--to=latex \
+		--listings \
 		--variable=documentclass:report \
 		--output=appendix.tex \
 
