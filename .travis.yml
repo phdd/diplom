@@ -1,6 +1,6 @@
 before_script:
   - sudo sed -i "s/precise/wily/" /etc/apt/sources.list		
-  - sudo dpkg --foreign-architecture i386
+  - sudo rm /etc/dpkg/dpkg.cfg.d/multiarch 
   - sudo apt-get update
   - sudo apt-get install -y pandoc pandoc-citeproc
   - sudo apt-get install -y texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-xetex texlive-lang-german texlive-bibtex-extra biber
