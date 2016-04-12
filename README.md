@@ -2,6 +2,6 @@
 
 ## Bauen
 
-make pdf
-make html
-make epub
+- make pdf
+- make html
+- make epub
