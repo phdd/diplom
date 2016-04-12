@@ -1,6 +1,8 @@
 # Diploma Thesis
 
-[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom) [PDF](https://phdd.github.io/diplom/thesis.pdf) [EPUB](https://phdd.github.io/diplom/thesis.epub)
+[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom)
+
+[PDF](https://phdd.github.io/diplom/thesis.pdf), [EPUB](https://phdd.github.io/diplom/thesis.epub), [HTML](https://phdd.github.io/diplom)
 
 ### Requirements
 
