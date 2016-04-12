@@ -7,7 +7,7 @@ ARGS = \
 LATEX_ARGS = \
 	$(ARGS) \
 	--include-after-body=appendix.tex \
-	--template=style/latex.tex \
+	--template=./style/latex.tex \
 	--natbib \
 
 HTML_ARGS = \
