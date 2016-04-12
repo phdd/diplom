@@ -3,8 +3,6 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install -y pandoc pandoc-citeproc
   - sudo apt-get install -y texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-lang-hungarian
-  - mkdir -p templates/style/
-  - cp style/latex.tex templates/style/
 
 script:
   - make html
