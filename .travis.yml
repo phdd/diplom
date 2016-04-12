@@ -1,8 +1,8 @@
 before_script:
-  - add-apt-repository -y ppa:marutter/c2d4u 
-  - apt-get update
-  - apt-get install pandoc pandoc-citeproc
-  - apt-get install texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-xetex texlive-lang-german texlive-bibtex-extra biber
+  - sudo add-apt-repository ppa:marutter/c2d4u 
+  - sudo apt-get update
+  - sudo apt-get install pandoc pandoc-citeproc
+  - sudo apt-get install texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-xetex texlive-lang-german texlive-bibtex-extra biber
 
 script:
   - make html
