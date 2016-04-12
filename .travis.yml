@@ -8,3 +8,11 @@ script:
   - make html
   - make epub
   - make pdf
+
+after_script:
+  - bash deploy.sh
+
+env:
+  global:
+    - GH_REF: github.com/phdd/diplom.git
+    - secure: KiLDYjgTsVb5ZrefWRJh4WuOAi9EOoqAD8zHLH2lP1emWyL1/kvGlj8RmYgXRphK2ETsF38kONDD5SzUfczH11iO8QJR2aY1osCRR/WJYKyWcvfPus2En+iE2G0+w2LYev8OUt84K5mKOwYobsVvkLBCMTtpLRry0R+Auc2ru+X+Po4CUVFcU54/D+03y4V9OEEcwp59+3AWrVZnLreOS1DpNGmNAQKDfcZo+KSZ0hHcGQF7q9HoNexNkQQvyPThLvVFV3KlGE5s76P7buWNoukoBFdvJeL7q3MmVDGeK58cMh8aW+RcRedhUSoDfdDmuyPHN8eDgGpKc5J/WSKCrjjO1zztvvPJmg0Lq1EeP3l4Bbtlwkyau3aN9/oWBd+vPURwQostc/h2+CNZM5K+3MaoQcfCFWbmrYy/Zkc1+4AQSt6hKJJGMCox9x1zSTqGVbI1Ji3ytdsQplABeIquSLVVvQgFwxPzN8kqV6L6hzsAsM6GZWd+vaIZBOZngvW/w5N1Md2Cidv1g8j+wXn3cdlfS2xAyzRhh1lVzd1JiNyz51HBvl10Y0zNB+j8oI6oIIzAI6brwvB47WLKFkvb6DvxsyjjSqsOFSefRKQnhk+5srdsn5i22pnbdhKMKZe4HLmyIjnCueemrqFGU7KxqNuyr0g+h72aNlrQhokdVrA=
