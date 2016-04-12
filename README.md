@@ -1,6 +1,6 @@
 # Diploma Thesis
 
-[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom)
+[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom) [PDF](https://phdd.github.io/diplom/thesis.pdf) [EPUB](https://phdd.github.io/diplom/thesis.epub)
 
 ### Requirements
 
@@ -11,7 +11,7 @@
 
 * Clone this repository:
   ```bash
-  git clone git@github.com:FTSRG/thesis-template-markdown.git
+  git clone git@github.com:phdd/diplom.git
   ```
   
 * Use `make pdf`, `make html`, `make epub` to generate the thesis in your desired output format.
