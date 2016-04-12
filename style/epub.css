@@ -210,8 +210,8 @@ img {
   box-sizing: border-box;
   border: white 0.5em solid;
   /* Don't go too big on images, let reader zoom in if they care to */
-  max-width: 80%;
-  max-height: 80%; }
+  max-width: 90%;
+  max-height: 90%; }
 
 img.pwhack {
   /* Paperwhite hack */
@@ -714,3 +714,7 @@ tt, pre, .mono {
 /*  .color */
 /*    color: $green */
 /* */
+
+.figure, .caption {
+  text-align: center; 
+}

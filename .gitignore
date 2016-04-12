@@ -94,12 +94,9 @@ sympy-plots-for-*.tex/
 
 *.tex
 
-!style/latex.tex
-
 *.html
 *.cb
 *.epub
 *.pdf
 
-!figures/logo.pdf
-!figures/tud.pdf
+!style/latex.tex

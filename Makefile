@@ -14,6 +14,15 @@ HTML_ARGS = \
 	--mathjax \
 	--filter pandoc-citeproc \
 
+NON_LATEX_ARGS = \
+	appendix.md \
+	style/literatur.md \
+	--number-sections \
+	--default-image-extension=png \
+	--csl style/ieee.csl \
+
+FIGURES = $(wildcard figures/*.svg)
+
 pdf: latex build-latex
 
 latex: compile-appendix-tex
@@ -23,31 +32,25 @@ latex: compile-appendix-tex
 		--to=latex \
 		--output=document.tex \
 
-html:
+html: figures-png
 	pandoc \
 		$(ARGS) \
 		$(HTML_ARGS) \
-		appendix.md \
-		style/literatur.md \
+		$(NON_LATEX_ARGS) \
 		--table-of-contents \
 		--self-contained \
-		--csl style/ieee.csl \
-		--number-sections \
 		--to=html \
 		--output=document.html \
 		--css=style/html.css \
 
-epub: 
+epub: figures-png
 	pandoc \
 		$(ARGS) \
-		appendix.md \
-		style/literatur.md \
-		--number-sections \
-		--csl style/ieee.csl \
+		$(NON_LATEX_ARGS) \
 		--output=document.epub \
 		--epub-stylesheet=style/epub.css \
 
-build-latex:
+build-latex: figures-pdf
 	xelatex document
 	biber   document
 	xelatex document
@@ -61,7 +64,19 @@ compile-appendix-tex:
 		--variable=documentclass:report \
 		--output=appendix.tex \
 
+
+figures-pdf: $(FIGURES:%.svg=%.pdf)
+figures-png: $(FIGURES:%.svg=%.png)
+
+%.pdf: %.svg
+	inkscape -A $*.pdf $*.svg
+
+%.png: %.svg
+	inkscape -d 192 -e $*.png $*.svg
+
 clean:
-	rm -f *.tex *.aux *.dvi *.log *.pdf *.html *.mobi \
+	rm -f \
+		*.tex *.aux *.dvi *.log *.pdf *.html *.mobi \
 		*.out *.epub *.toc *.thm *.lot *.lof *.blg  \
-		*.bbl *.nlo *.lol *.cb *.bcf *.run.xml
+		*.bbl *.nlo *.lol *.cb *.bcf *.run.xml \
+		figures/*.png figures/*.pdf

@@ -352,3 +352,7 @@ table td {
 #TOC > ul {
     padding-left: 0;
 }
+
+.figure, .caption {
+  text-align: center; 
+}
