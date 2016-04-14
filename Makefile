@@ -46,6 +46,7 @@ epub: figures-png
 	pandoc \
 		$(ARGS) \
 		$(NON_LATEX_ARGS) \
+		--write=epub3 \
 		--output=document.epub \
 		--epub-stylesheet=style/epub.css \
 

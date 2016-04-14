@@ -714,6 +714,9 @@ tt, pre, .mono {
 /*    color: $green */
 /* */
 
-.figure, .caption {
+figure, figcaption {
   text-align: center; 
+  background-color: transparent;
+  border: none;
+  font-weight: normal;
 }
