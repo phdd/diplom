@@ -3,9 +3,9 @@ before_script:
   - ar p pandoc-*.deb data.tar.gz | sudo tar xvz --strip-components 2 -C /usr/local
   - sudo apt-get install -y inkscape pandoc-citeproc
   - sudo apt-get install -y texlive-full texlive-xetex biber
-  - "export DISPLAY=:99.0" # for inkscape
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  #- "export DISPLAY=:99.0" # for inkscape
+  #- "sh -e /etc/init.d/xvfb start"
+  #- sleep 3 # give xvfb some time to start
 
 script:
   - make html
