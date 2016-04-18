@@ -1,0 +1,79 @@
+body {
+	background: none;
+}
+
+.reveal h1 { font-size: 120%; }
+.reveal h2 { font-size: 95%; }
+.reveal h3 { font-size: 90%; }
+
+.reveal h1.subtitle { font-size: 100%; }
+
+.reveal section#TOC ul li a {
+	font-size: 70%;
+}
+
+.reveal .subtitle,
+.reveal .author,
+.reveal .date {
+	font-weight: 100;
+	text-transform: none;
+}
+
+.reveal .author,
+.reveal .date {
+	font-size: 60%;
+}
+
+.reveal a { color: black; }
+
+.reveal section figure, .reveal section figure img {
+	border: none!important;
+	box-shadow: none!important;
+	background: none;
+}
+
+.reveal .slides {
+	text-align: left;
+}
+
+.reveal .slides > section {
+	padding-top: 3em;
+}
+
+.reveal figure {
+	text-align: center;
+}
+
+.reveal figcaption {
+	font-size: 60%;
+	text-align: center;
+}
+
+.reveal .toc h1 { padding-bottom: 1em; }
+.reveal .toc ul { margin-left: 0; }
+.reveal .toc ul li {
+	font-size: 100%;
+	list-style-type: none;
+	padding-left: 0;
+	padding-bottom: 0.4em;
+}
+
+.reveal pre {
+	box-shadow: none;
+}
+
+.reveal .master.header div, .reveal .master.footer div {
+	z-index: 100;
+}
+
+.reveal .master.header div {
+	padding: 1.5em!important;
+}
+
+.reveal .master.footer div {
+	padding: 1em!important;
+}
+
+.reveal .references div p {
+	font-size: 70%;
+}
