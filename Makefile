@@ -58,13 +58,13 @@ presentation: figures-png
 		metadata.yml \
 		presentation.md \
 		--template=style/presentation.html \
+		--variable=css:style/presentation.css \
 		--standalone \
 		--webtex \
 		--to=revealjs \
 		--output=presentation.html \
 		--default-image-extension=png \
 		--mathjax \
-		--base-header-level=2 \
 		--table-of-contents
 
 build-latex: figures-pdf

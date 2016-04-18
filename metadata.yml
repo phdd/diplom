@@ -14,13 +14,8 @@ language:  &lang de-DE
 lang:      *lang
 
 # Presentation
-subtitle:     Verteidigung - Diplomarbeit
-theme:        white
+presentation: Verteidigung - Diplomarbeit
+theme:        sky
 transition:   convex
 revealjs-url: http://lab.hakim.se/reveal-js
-custom-style: style/presentation.css
-slideNumber:  \'c/t\'
-controls:     'false'
-progress:     'false'
-center:       'true'
 ...

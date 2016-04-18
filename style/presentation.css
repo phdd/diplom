@@ -1,7 +1,16 @@
-.reveal .title    { font-size: 100%; }
-.reveal .subtitle { font-size: 90%; }
-.reveal .author   { font-size: 90%; }
-.reveal .date     { font-size: 90%; }
+body {
+	background: none;
+}
+
+.reveal h1 { font-size: 120%; }
+.reveal h2 { font-size: 95%; }
+.reveal h3 { font-size: 90%; }
+
+.reveal h1.subtitle { font-size: 100%; }
+
+.reveal section#TOC ul li a {
+	font-size: 70%;
+}
 
 .reveal .subtitle,
 .reveal .author,
@@ -10,70 +19,17 @@
 	text-transform: none;
 }
 
-.reveal .subtitle {
-	padding-bottom: 1em;
-	margin-bottom: 1em;
-	border-bottom: 2px solid #aaa;
-}
-
 .reveal .author,
 .reveal .date {
 	font-size: 60%;
 }
 
-.reveal h1 { font-size: 120%; }
-.reveal h2 { font-size: 100%; }
-
-.reveal .slide-number {
-	font-size: 50%;
-	color: #888;
-	background: none;
-	bottom: 2em;
-	right: 2em;
-	padding: 0;
-}
-
 .reveal a { color: black; }
 
-img {
+.reveal section figure, .reveal section figure img {
 	border: none!important;
 	box-shadow: none!important;
-}
-
-.header {
-	position: fixed;
-	left: 2em;
-	right: 2em;
-	top: 2em;
-}
-.header img { height: 4em; }
-.header .left  { float: left; }
-.header .right { float: right; }
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.footer {
-	position: fixed;
-	bottom: 0em;
-	left: 0;
-	right: 0;
-	padding: 2em;
-}
-.footer .left  {
-	position: fixed;
-}
-.footer .center {
-	text-align: center;
-	left: 0;
-	right: 0; 
-}
-.footer span {
-	font-size: 120%;
-	line-height: 1.7em;
-	color: #888;
+	background: none;
 }
 
 .reveal .slides {
@@ -102,3 +58,14 @@ img {
 	box-shadow: none;
 }
 
+.reveal .master.header div, .reveal .master.footer div {
+	z-index: 100;
+}
+
+.reveal .master.header div {
+	padding: 1.5em!important;
+}
+
+.reveal .master.footer div {
+	padding: 1em!important;
+}

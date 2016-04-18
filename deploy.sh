@@ -6,12 +6,16 @@ git config --global user.email "joe@travis-ci.org"
 git clone "https://${GH_TOKEN}@${GH_REF}" pages
 
 cd pages
+mkdir style
 
 git checkout gh-pages
 
 cp ../document.html index.html
 cp ../document.pdf  thesis.pdf
 cp ../document.epub thesis.epub
+
+cp ../presentation.html presentation.html
+cp ../style/presentation.css style/presentation.css
 
 git add .
 git commit -m "Deploy to GitHub Pages"
