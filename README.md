@@ -17,7 +17,8 @@
   git clone git@github.com:phdd/diplom.git
   ```
   
-* Use `make pdf`, `make html`, `make epub` to generate the thesis in your desired output format.
+* Use `make pdf`, `make html`, `make epub` to generate the thesis in your desired output format. 
+* `make presentation` is responsible for creatíng the slides for a defense.
 
 ## Acknowledgments
 
