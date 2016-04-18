@@ -27,6 +27,7 @@ pdf: latex build-latex
 
 latex: compile-appendix-tex
 	pandoc \
+		metadata.yml \
 		$(LATEX_ARGS) \
 		--listings \
 		--table-of-contents \
@@ -34,6 +35,7 @@ latex: compile-appendix-tex
 
 html: figures-png
 	pandoc \
+		metadata.yml \
 		$(ARGS) \
 		$(HTML_ARGS) \
 		$(NON_LATEX_ARGS) \
@@ -44,11 +46,26 @@ html: figures-png
 
 epub: figures-png
 	pandoc \
+		metadata.yml \
 		$(ARGS) \
 		$(NON_LATEX_ARGS) \
 		--write=epub3 \
 		--output=document.epub \
 		--epub-stylesheet=style/epub.css \
+
+presentation: figures-png
+	pandoc \
+		metadata.yml \
+		presentation.md \
+		--template=style/presentation.html \
+		--standalone \
+		--webtex \
+		--to=revealjs \
+		--output=presentation.html \
+		--default-image-extension=png \
+		--mathjax \
+		--base-header-level=2 \
+		--table-of-contents
 
 build-latex: figures-pdf
 	xelatex document
@@ -58,11 +75,11 @@ build-latex: figures-pdf
 
 compile-appendix-tex:
 	pandoc \
+		metadata.yml \
 		appendix.md \
 		--listings \
 		--variable=documentclass:report \
 		--output=appendix.tex \
-
 
 figures-pdf: $(FIGURES:%.svg=%.pdf)
 figures-png: $(FIGURES:%.svg=%.png)

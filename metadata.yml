@@ -1,0 +1,26 @@
+---
+# General
+
+title:     Eine Middleware zur Abstraktion von Maschinensteuerungen
+type:      Diplomarbeit
+author:    Peter Heisig
+matrikel:  3521226
+advisor:   Dipl.-Medieninf. Gordon Lemme
+teacher:   Prof. Dr. Uwe Aßmann
+institute: Institut für Software- und Multimediatechnik
+date:      14\. April 2016
+
+language:  &lang de-DE
+lang:      *lang
+
+# Presentation
+subtitle:     Verteidigung - Diplomarbeit
+theme:        white
+transition:   convex
+revealjs-url: http://lab.hakim.se/reveal-js
+custom-style: style/presentation.css
+slideNumber:  \'c/t\'
+controls:     'false'
+progress:     'false'
+center:       'true'
+...
