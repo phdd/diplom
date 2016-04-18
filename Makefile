@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := all
+
 ARGS = \
 	document.md \
 	--from=markdown \
@@ -22,6 +24,8 @@ NON_LATEX_ARGS = \
 	--csl style/ieee.csl \
 
 FIGURES = $(wildcard figures/*.svg)
+
+all: pdf html epub presentation
 
 pdf: latex build-latex
 
