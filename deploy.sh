@@ -6,10 +6,11 @@ git config --global user.email "joe@travis-ci.org"
 git clone "https://${GH_TOKEN}@${GH_REF}" pages
 
 cd pages
-mkdir style
-mkdir figures
 
 git checkout gh-pages
+
+mkdir -p style/
+mkdir -p figures/
 
 cp ../document.html index.html
 cp ../document.pdf  thesis.pdf

@@ -8,6 +8,14 @@
 - [Evaluation](#evaluation)
 - [Zusammenfassung](#zusammenfassung)
 
+<div class="notes">
+This is my note.
+
+- It can contain Markdown
+- like this list
+
+</div>
+
 
 # Einleitung
 
