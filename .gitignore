@@ -102,3 +102,5 @@ sympy-plots-for-*.tex/
 
 !style/latex.tex
 !style/presentation.html
+*.vpp~*
+*.vux
