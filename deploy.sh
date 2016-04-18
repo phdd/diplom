@@ -7,6 +7,7 @@ git clone "https://${GH_TOKEN}@${GH_REF}" pages
 
 cd pages
 mkdir style
+mkdir figures
 
 git checkout gh-pages
 
@@ -16,6 +17,7 @@ cp ../document.epub thesis.epub
 
 cp ../presentation.html presentation.html
 cp ../style/presentation.css style/presentation.css
+cp ../figures/*.png figures/
 
 git add .
 git commit -m "Deploy to GitHub Pages"
