@@ -55,17 +55,19 @@ epub: figures-png
 
 presentation: figures-png
 	pandoc \
+		$(HTML_ARGS) \
 		metadata.yml \
 		presentation.md \
+		style/literatur.md \
 		--template=style/presentation.html \
 		--variable=css:style/presentation.css \
+		--bibliography=bibliography.bib \
 		--standalone \
-		--webtex \
 		--to=revealjs \
 		--output=presentation.html \
 		--default-image-extension=png \
 		--mathjax \
-		--table-of-contents
+		--csl style/ieee.csl \
 
 build-latex: figures-pdf
 	xelatex document
