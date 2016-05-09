@@ -1,14 +1,14 @@
 ---
 # General
 
-title:     Abstraktion verteilter Produktionsmaschinen in CPPS
+title:     Abstraktion verteilter Produktionsmaschinen in cyber-physischen Produktionssystemen
 type:      Diplomarbeit
 author:    Peter Heisig
 matrikel:  3521226
 advisor:   Dipl.-Medieninf. Gordon Lemme
 teacher:   Prof. Dr. Uwe Aßmann
 institute: Institut für Software- und Multimediatechnik
-date:      14\. April 2016
+date:      10\. September 2016
 
 language:  &lang de-DE
 lang:      *lang

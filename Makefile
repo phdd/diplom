@@ -25,6 +25,12 @@ NON_LATEX_ARGS = \
 
 FIGURES = $(wildcard figures/*.svg)
 
+WATCH_SCRIPT = \
+	from livereload import Server, shell; \
+	server = Server(); \
+	server.watch('*.md', shell('make html', cwd = '.')); \
+	server.serve(root = '.'); \
+
 all: pdf html epub presentation
 
 pdf: latex build-latex
@@ -72,6 +78,9 @@ presentation: figures-png
 		--default-image-extension=png \
 		--mathjax \
 		--csl style/ieee.csl \
+
+watch: 
+	echo "$(WATCH_SCRIPT)" | python
 
 build-latex: figures-pdf
 	xelatex document
