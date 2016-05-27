@@ -104,3 +104,6 @@ sympy-plots-for-*.tex/
 !style/presentation.html
 *.vpp~*
 *.vux
+
+.idea
+*.iml
