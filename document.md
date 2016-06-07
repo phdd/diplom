@@ -21,6 +21,12 @@
 
 # Konzeption
 
+## Abgrenzung
+
+* nur CNC in der Fertigungstechnik
+* Verfahrenstechnik wird nicht betrachtet
+
+
 ## Zusammenfassung
 
 
