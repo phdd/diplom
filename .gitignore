@@ -105,6 +105,7 @@ sympy-plots-for-*.tex/
 *.vpp~*
 *.vpp.*
 *.vux
+*.vux.bak
 
 .idea
 *.iml
