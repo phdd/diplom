@@ -27,7 +27,10 @@
 <li><a href="#zusammenfassung"><span class="toc-section-number">2.2</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#forschungsstand"><span class="toc-section-number">3</span> Forschungsstand</a><ul>
-<li><a href="#remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="toc-section-number">3.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></a></li>
+<li><a href="#shop-floor-ebene"><span class="toc-section-number">3.1</span> Shop-Floor Ebene</a><ul>
+<li><a href="#remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="toc-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></a></li>
+<li><a href="#legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="toc-section-number">3.1.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></a></li>
+</ul></li>
 <li><a href="#zusammenfassung-1"><span class="toc-section-number">3.2</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#konzeption"><span class="toc-section-number">4</span> Konzeption</a><ul>
@@ -52,33 +55,58 @@
 <h2 id="motivation"><span class="header-section-number">1.1</span> Motivation</h2>
 <p>Durch sinkende Losgrößen und steigende Produktvariabilität sind Echtzeitüberwachung und -kontrolle in verteilten, rekonfigurierbaren Fertigungssystemen notwendig <span class="citation">[1]</span>.</p>
 <p>Die Infrastruktur für eine Verbindung zwischen automatisiertem Equipment und E-Manufacturing fehlt <span class="citation">[1]</span>.</p>
+<p>Heutige Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen. Gerade ältere Modelle (Altmaschinen) besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer modernen Fertigungsstrecke. So sind geschlossene Architekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automation <span class="citation">[2]</span>.</p>
+<p>Bisher basierten Produktionseinrichtungen auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen. Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Maschine und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit Teil der Fertigungsindustrie <span class="citation">[2]</span>.</p>
 <h2 id="zielsetzung"><span class="header-section-number">1.2</span> Zielsetzung</h2>
 <h2 id="aufbau-der-arbeit"><span class="header-section-number">1.3</span> Aufbau der Arbeit</h2>
 <h1 id="grundlagen"><span class="header-section-number">2</span> Grundlagen</h1>
+<p>Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein <em>Application Programming Interface</em> (API) <span class="citation">[2]</span>.</p>
 <h2 id="cyber-physische-produktionssysteme"><span class="header-section-number">2.1</span> Cyber-physische Produktionssysteme</h2>
 <h2 id="zusammenfassung"><span class="header-section-number">2.2</span> Zusammenfassung</h2>
 <h1 id="forschungsstand"><span class="header-section-number">3</span> Forschungsstand</h1>
-<h2 id="remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="header-section-number">3.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></h2>
+<h2 id="shop-floor-ebene"><span class="header-section-number">3.1</span> Shop-Floor Ebene</h2>
+<h3 id="remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="header-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></h3>
 <dl>
 <dt>Purpose</dt>
 <dd><p>Das Ziel von Wang et al. war die Entwicklung einer offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen.</p>
 </dd>
 <dt>Design/Methodology/Approach</dt>
-<dd><p>Ein Web-basierter Thin-Client des <em>Wise-ShopFloor</em> ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke. Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster. Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt. Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt. Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst. In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert. Die Schnittstelle zwischen dem Server und der Maschine wurde durch OAC<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> bereitgestellt. Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.</p>
-</dd>
-<dt>Findings</dt>
-<dd><p>Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation. Die gezielte Verbreitung dieser stellt ein ehöhtes wirtschafliches Risiko dar und muss in besonderem Maße geschützt werden. Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar. Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.</p>
+<dd><p>Ein Web-basierter Thin-Client des <em>Wise-ShopFloor</em> ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke. Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster. Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt. Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt. Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst. In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert. Die Schnittstelle zwischen Server und Maschine wurde durch einen <em>Open Architecture Controller</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> bereitgestellt. Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.</p>
 </dd>
 </dl>
 <dl>
+<dt>Findings</dt>
+<dd><p>Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation. Die gezielte Verbreitung dieser stellt ein ehöhtes wirtschafliches Risiko dar und muss in besonderem Maße geschützt werden. Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar. Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.</p>
+</dd>
 <dt>Research Limitations/Implications</dt>
-<dd><p>Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen. So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden. Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.</p>
+<dd><p>Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen. So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden. Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich. Jedoch setzt dieses System eine bestehende Anbindung</p>
 </dd>
 <dt>Practical Implications</dt>
-<dd><p>Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich. Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar. Für künftige Machinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.</p>
+<dd><p>Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich. Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar. Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.</p>
 </dd>
 <dt>Originality/Value</dt>
 <dd><p>Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform. Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt. Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.</p>
+</dd>
+</dl>
+<h3 id="legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="header-section-number">3.1.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></h3>
+<dl>
+<dt>Purpose</dt>
+<dd><p>Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.</p>
+</dd>
+<dt>Design/Methodology/Approach</dt>
+<dd><p>Durch das Abgreifen des Stromverbrauchs über eine <em>Universal Power Cell</em> (UPC), dem Sensor an der Maschine, können Informationen via TCP und UDP an eine externe Komponente übergeben und ausgewertet werden. Die in Kilowatt eingehenden Verbrauchsdaten wurden durch an Bedingungen gekoppelte Schwellwerte in Status (an, aus, Leerlauf), Energieverbrauch, Werkzeugwechsel und Werkstückdurchsatz unterschieden. Für die Case Study und einen anschließenden Vergleich hatten Deshpande et al. auch moderne Maschinen mit der UPC ausgestattet. Verglichen wurde die zeitabhängige Auslastung von drei unterschiedlichen Modellen.</p>
+</dd>
+<dt>Findings</dt>
+<dd><p>Mit einer Genauigkeit von 95% für den Status und 99% für Werkzeugwechsel und Durchsatz wurde das Konzept erfolgreich getestet.</p>
+</dd>
+<dt>Research Limitations/Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Practical Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Originality/Value</dt>
+<dd><p>TODO</p>
 </dd>
 </dl>
 <h2 id="zusammenfassung-1"><span class="header-section-number">3.2</span> Zusammenfassung</h2>
@@ -98,11 +126,17 @@
 <div id="ref-Wang2004">
 <p>[1] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
 </div>
+<div id="ref-Deshpande2011">
+<p>[2] A. Deshpande und R. Pieper, „Legacy Machine Monitoring Using Power Signal Analysis“, in <em>ASME 2011 international manufacturing science and engineering conference, volume 2</em>, 2011, S. 207–214. </p>
+</div>
+<div id="ref-Yonglin2004">
+<p>[3] C. Yonglin, „An evaluation space for open architecture controllers“, <em>The International Journal of Advanced Manufacturing Technology</em>, Bd. 26, Nr. 4, S. 351–358, 2004. </p>
+</div>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Open Architecture Controller<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Steuerungskomponente, die Modifikationen über das API hinaus zulässt <span class="citation">[3]</span><a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 </body>
