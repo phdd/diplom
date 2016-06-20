@@ -1,0 +1,830 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ref",
+				"ref_file"
+			],
+			[
+				"end",
+				"end{itemize}	cv-de.tex"
+			],
+			[
+				"toggle",
+				"toggleDuration"
+			],
+			[
+				"style",
+				"stylesheet"
+			],
+			[
+				"is",
+				"isOverview"
+			],
+			[
+				"va",
+				"variables"
+			],
+			[
+				"rplace",
+				"replaceVariables"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"ready",
+				"readyEvent"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fade",
+				"fadeIn"
+			],
+			[
+				"header",
+				"headerAnimation"
+			],
+			[
+				"fo",
+				"footerAnimation"
+			],
+			[
+				"head",
+				"headerAnimation"
+			],
+			[
+				"slide",
+				"slideUp"
+			],
+			[
+				"sli",
+				"slideChanged"
+			],
+			[
+				"read",
+				"readyEvent"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"pre",
+				"prepareMasterElementConfig"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"figures",
+				"figures-png"
+			],
+			[
+				"f",
+				"figures-png"
+			],
+			[
+				"fi",
+				"figures-png"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"bib",
+				"bibliography"
+			],
+			[
+				"note",
+				"note{note text}	class-beamer"
+			],
+			[
+				"beginitemi",
+				"begin{itemize}\\item	latex-document"
+			],
+			[
+				"iss",
+				"issueId"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "document.md",
+			"settings":
+			{
+				"buffer_size": 4225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 1662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "diplom.sublime-project",
+			"settings":
+			{
+				"buffer_size": 580,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 92.0,
+		"last_filter": "remove",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git ",
+				"Git: Status"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"build",
+				"Build With: Make - Clean"
+			],
+			[
+				"bui",
+				"Build With: Make HTML"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"settings",
+				"Preferences: MarkdownEditing Settings – Default"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"reove",
+				"Package Control: Remove Channel"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"search",
+				"Citer: Search"
+			],
+			[
+				"searc",
+				"Citer: Search"
+			],
+			[
+				"book",
+				"Bookmarks: Toggle"
+			],
+			[
+				"mark",
+				"Markmon launch"
+			],
+			[
+				"folders",
+				"Project: Refresh Folders"
+			],
+			[
+				"citer",
+				"Citer: Search"
+			],
+			[
+				"sear",
+				"Citer: Search"
+			],
+			[
+				"project",
+				"Project Manager"
+			],
+			[
+				"sea",
+				"Citer: Search"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"remp",
+				"Package Control: Remove Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"packages",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"packeses",
+				"Package Control: Discover Packages"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"view",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"pan",
+				"Package Control: Enable Package"
+			],
+			[
+				"citebib",
+				"CiteBibTeX: Extract citations in current file"
+			],
+			[
+				"files",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"comment",
+				"Toggle Comment"
+			],
+			[
+				"status",
+				"View: Toggle Status Bar"
+			],
+			[
+				"groov",
+				"Set Syntax: Groovy"
+			],
+			[
+				"bookmark",
+				"Bookmarks: Toggle"
+			],
+			[
+				"m",
+				"Set Syntax: MATLAB"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 268.0,
+		"history":
+		[
+			"clear();",
+			"clear()",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/peter/Documents/Uni/Diplom"
+	],
+	"file_history":
+	[
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.py",
+		"/home/peter/Documents/Uni/Diplom/document.md",
+		"/home/peter/Documents/Uni/Diplom/diplom.sublime-project",
+		"/home/peter/Documents/Uni/Diplom/diplom.sublime-workspace",
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+		"/home/peter/Documents/Uni/Diplom/CiteBibtex.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/User/CiteBibtex.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Installed Packages/MarkdownEditing.sublime-package",
+		"/home/peter/.config/sublime-text-3/Packages/SmartMarkdown/SmartMarkdown.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/Citer/Citer.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/User/Citer.sublime-settings",
+		"/home/peter/Documents/Uni/Diplom/Citer.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/Citer/Default.sublime-commands",
+		"/home/peter/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/README.md",
+		"/home/peter/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/peter/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/Default.sublime-keymap",
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-commands",
+		"/home/peter/Documents/Uni/Diplom/bibliography.bib",
+		"/home/peter/Documents/WHK-PH/sonstiges.txt",
+		"/home/peter/Documents/Uni/Diplom/.gitignore",
+		"/home/peter/.config/Trolltech.conf",
+		"/home/peter/.cache/kioexec/krun/10103_0_.htaccess",
+		"/home/peter/.htaccess",
+		"/home/peter/.cache/kioexec/krun/9348_0_.htaccess",
+		"/home/peter/.cache/kioexec/krun/9266_0_.htaccess",
+		"/home/peter/.cache/kioexec/krun/9310_0_.htaccess",
+		"/home/peter/Downloads/files_markdown/README.md",
+		"/home/peter/Downloads/xwiki-enterprise-jetty-hsqldb-8.0/webapps/xwiki/WEB-INF/xwiki.properties",
+		"/home/peter/Downloads/xwiki-enterprise-jetty-hsqldb-8.0/webapps/xwiki/WEB-INF/xwiki.cfg",
+		"/home/peter/Downloads/xwiki-enterprise-jetty-hsqldb-8.0/webapps/xwiki/WEB-INF/hibernate.cfg.xml",
+		"/home/peter/Downloads/MES.bibtex",
+		"/home/peter/Downloads/pw",
+		"/home/peter/.cache/kioexec/krun/22342_0_Bitte_vertraulich_behandeln.txt",
+		"/home/peter/Downloads/open62541.h",
+		"/home/peter/Downloads/open62541.c",
+		"/home/peter/Downloads/FirstExample-PartI/src/FirstExample/Starter.java",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/gen/initialization/Initializer.java",
+		"/home/peter/Downloads/FirstExample-PartI/models/firstExample.madl",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/gen/porttypes/INewsProvider.java",
+		"/home/peter/Downloads/FirstExample-PartI/src/FirstExample/components/JDummyNewsRepository.java",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/gen/components/AbstractNewsRepository.java",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/types/NewsCategory.java",
+		"/home/peter/Downloads/FirstExample-PartI/src/FirstExample/components/JConsoleNewsDisplay.java",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/gen/components/AbstractNewsDisplay.java",
+		"/home/peter/Downloads/FirstExample-PartI/src-gen/FirstExample/types/AbstractNews.java",
+		"/home/peter/Downloads/FirstExample-PartI/src/FirstExample/types/News.java",
+		"/home/peter/Downloads/FirstExample-PartI/models/firstExample.app",
+		"/home/peter/Downloads/FirstExample-PartI/models/firstExample.sal",
+		"/tmp/node-opcua-htmlpanel/app.js",
+		"/tmp/node-opcua-htmlpanel/node_modules/node-opcua/bin/simple_server.js",
+		"/tmp/node-opcua-htmlpanel/index.html",
+		"/tmp/weather.js",
+		"/tmp/worldweatheronline.key",
+		"/home/peter/.bashrc",
+		"/home/peter/Documents/Uni/Diplom/metadata.yml",
+		"/home/peter/Documents/Arbeit/TUD/Interaction/Gesture descriptions",
+		"/home/peter/Documents/Projekte/wio-link-test/app.js",
+		"/home/peter/.zshrc",
+		"/home/peter/Documents/Projekte/wio-link-test/package.json",
+		"/home/peter/Documents/Projekte/wio-link-test/lib/index.js",
+		"/home/peter/Documents/Projekte/wio-link-test/test/index.js",
+		"/home/peter/Documents/Projekte/wio-link-test/gulpfile.js",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/cv-en.tex",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/cv-de.tex",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/cv-en.aux",
+		"/opt/ganttproject/plugins/org.ganttproject.impex.htmlpdf/plugin.xml",
+		"/home/peter/Downloads/GesturesDemos/GesturesListDemo/res/raw/actions.txt",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/header-de.tex",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/awesome-cv.cls",
+		"/home/peter/Documents/Bewerbungen/curriculum-vitae/header.tex",
+		"/home/peter/.IntelliJIdea2016.1/system/log/idea.log",
+		"/home/peter/Software/android-sdk/tools/proguard/proguard-android.txt",
+		"/home/peter/Documents/Projekte/wire-gradle-plugin/build.gradle",
+		"/home/peter/Documents/Uni/Diplom/Makefile",
+		"/home/peter/Documents/Uni/Diplom/README.md",
+		"/home/peter/Documents/Uni/Diplom/style/presentation.css",
+		"/home/peter/Documents/Arbeit/TUD/LNdW/svn/development/LNdW/trunk/app/build.gradle",
+		"/home/peter/Documents/Projekte/Design-Demo-master/build.gradle",
+		"/home/peter/Documents/Projekte/Design-Demo-master/app/build.gradle",
+		"/home/peter/Pictures/material-design-icons/alert/drawable-anydpi-v21/ic_add_alert_black_24dp.xml",
+		"/home/peter/Documents/Uni/Diplom/.travis.yml",
+		"/home/peter/Documents/Uni/Diplom/presentation.md",
+		"/home/peter/Documents/Uni/Diplom/style/literatur.md",
+		"/home/peter/Documents/Uni/Diplom/style/presentation.html",
+		"/home/peter/Documents/Uni/Diplom/deploy.sh",
+		"/home/peter/Documents/Projekte/revealjs-master/example.html",
+		"/home/peter/Documents/Projekte/revealjs-master/master.js",
+		"/home/peter/Documents/Projekte/revealjs-master/README.md",
+		"/home/peter/Documents/Projekte/revealjs-master/LICENSE",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/math/math.js",
+		"/home/peter/Documents/Projekte/reveal.js/test/examples/math.html",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/master/master.js",
+		"/home/peter/Documents/Projekte/revealjs-master/.gitignore",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/master/master.css",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/markdown/markdown.js",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/highlight/highlight.js",
+		"/home/peter/Documents/Projekte/reveal.js/test/examples/embedded-media.html",
+		"/home/peter/Documents/Projekte/reveal.js/test/examples/barebones.html",
+		"/home/peter/Documents/Projekte/reveal.js/plugin/master/footer.css",
+		"/home/peter/Documents/Uni/Diplom/presentation.html",
+		"/home/peter/Documents/Uni/Diplom/style/latex.tex",
+		"/home/peter/Documents/Uni/Diplom/style/presentation.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/Verteidigung/verteidigung.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/Verteidigung/header.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/Verteidigung/begin.tex",
+		"/home/peter/Documents/Uni/Diplom/style/epub.css",
+		"/tmp/chef-lctp-master-cb9d5991c3133e8a074f7e48b31e4f4b4f725a45/presentation/Gruntfile.js",
+		"/tmp/chef-lctp-master-cb9d5991c3133e8a074f7e48b31e4f4b4f725a45/presentation/presentation.md",
+		"/home/peter/Documents/Uni/Diplom/style/html.css",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/_includes/header.tex",
+		"/home/peter/Documents/Uni/Diplom/document.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/chapters/implementierung.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/main.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/chapters/konzeption.tex",
+		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/do",
+		"/home/peter/Documents/Uni/Diplom/LICENSE.txt",
+		"/home/peter/Documents/Uni/Diplom/style/annotate.html",
+		"/home/peter/Documents/Uni/Diplom/style/jquery.min.js",
+		"/home/peter/Documents/Uni/Diplom/style/ieee.csl",
+		"/home/peter/Documents/Uni/Diplom/meta.mdown",
+		"/home/peter/Documents/Uni/Diplom/epub.xml",
+		"/home/peter/Documents/Uni/Diplom/document.html",
+		"/home/peter/Documents/Uni/Diplom/style/style.css"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"font",
+			"	",
+			"f10",
+			"style",
+			"https",
+			"ssl",
+			"opc",
+			"tcp",
+			"presentation.css",
+			"center",
+			"1",
+			"')",
+			"createElement",
+			"createElementFor",
+			"createMasterElementFor",
+			"prepareMasterElementConfig",
+			"prepareConfig",
+			"jqueryUrl",
+			"jQueryUrl",
+			"	",
+			"style",
+			"date",
+			"\\today",
+			"$style",
+			"tyle$",
+			"img",
+			"figures",
+			"    ",
+			"SVGFILES",
+			"pandoc ",
+			"pandoc",
+			"#TOC",
+			"media",
+			"locator",
+			"title",
+			"url",
+			"refere",
+			"indent",
+			"section",
+			"ieee",
+			"chicago",
+			"epub.",
+			"template.tex",
+			"\\SEUSsupervisor",
+			"\\SEUSmatNr",
+			"\\SEUSauthor",
+			"\\SEUSsubmissionDate",
+			"\\\\SEUSsubmissionDate",
+			"\\\\SEUStitle",
+			"\\SEUStitle",
+			"_includes",
+			"lot",
+			"    ",
+			"	",
+			"thesection",
+			"3",
+			"german",
+			"twoside",
+			"\\\n",
+			"BEFORE_FILE",
+			"56bb340f47986.jpg",
+			"377",
+			"6",
+			"kw",
+			"log",
+			"letteropening",
+			"./adb",
+			"dynaps",
+			"&",
+			"fatal",
+			"\"",
+			" \\cite",
+			"TODO",
+			"bib",
+			"]\n",
+			"title graphic",
+			"frametitle",
+			"ex",
+			"frame numbering",
+			"footline",
+			"foot",
+			"defbeamertemplate{title",
+			"page",
+			"titlegraphic",
+			"titlegr",
+			"titlegraphic",
+			"\\sffamily",
+			"860",
+			"870",
+			"contexts/",
+			"~/\n",
+			"~/",
+			"trac",
+			"scripts/content/gitlab"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"    ",
+			"populate",
+			"createElement",
+			"createElementFor",
+			"prepareConfig",
+			"jquery",
+			"jqueryUrl",
+			"    ",
+			"\\t",
+			"FIGURES",
+			"chicago",
+			"ieee",
+			"latex.tex",
+			"$advisor$",
+			"$matrikel$",
+			"$author$",
+			"\\today",
+			"$title$",
+			"latex",
+			"\\t",
+			"    ",
+			"~/Software/android-sdk/platform-tools/adb",
+			"&\\n",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "document.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2027,
+								2027
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "diplom.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 232.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "",
+	"project": "diplom.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
