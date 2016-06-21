@@ -15,22 +15,54 @@ Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten
 
 ## Zielsetzung
 
-## Aufbau der Arbeit
+## Arbeitsrahmen
+
+* nur Fertigungsindustrie
+* nur CNC-Maschinen
+
+## Methode und Aufbau
 
     
 # Grundlagen
 
 Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
 
+Value-Stream Mapping (VSM) ist eine Methode der _Lean Production_, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. 
+Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts @Meyer2009.
 
 ## Cyber-physische Produktionssysteme
+
+## Informationsmodelle
+
+### OPC Unified Architecture
+
+Hoppe 2014 @Hoppe2014
+
+> Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for
+> Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und
+> PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:
+> 
+> * Wie geben sich z. B. ein „Temperatursensor“ oder eine „Ventilsteuerung“ zu erkennen?
+> * Welche Objekte, Methoden, Variablen und Ereignisse definieren die
+> 
+> Schnittstelle für Konfiguration, Initialisierung, Diagnose und Laufzeit?
+> OPC-UA hat das Potential, sich als De-facto-Standard für den Daten- und Informationsaustausch
+> in der Automatisierungspyramide für nicht-echtzeitkritische Anwendungen
+> zu etablieren. Eine sichere, horizontale und vertikale Kommunikation
+> vom Sensor bis in die IT-Systeme ist damit bereits heute umsetzbar. Die Verbände
+> BITCOM, VDMA und ZVEI werden durch die Industrie-4.0-Arbeitskreise keinen
+> neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber
+> eine gute Grundlage zum Informationsaustausch. 
+
+
+### MTConnect
 
 ## Zusammenfassung
 
 
 # Forschungsstand
 
-## Shop-Floor Ebene
+## Steuerungsebene?
 
 ### Remote real-time CNC machining for web-based manufacturing @Wang2004 
 
@@ -56,7 +88,7 @@ Findings
 
 :   Das Internet ist ein zentraler Aspekt verteilter Produktion.
     Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation.
-    Die gezielte Verbreitung dieser stellt ein ehöhtes wirtschafliches Risiko dar und muss in besonderem Maße geschützt werden.
+    Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden.
     Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar.
     Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.
 
@@ -66,7 +98,7 @@ Research Limitations/Implications
 :   Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen.
     So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden.
     Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.
-    Jedoch setzt dieses System eine bestehende Anbindung 
+    Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.
 
 
 Practical Implications
@@ -105,17 +137,20 @@ Findings
 
 Research Limitations/Implications
 
-:   TODO
+:   Das Konzept nutzt ausschließlich den Eingangsstrom der Maschine, wodurch Genauigkeit und Umfang der Daten begrenzt werden.
 
 
 Practical Implications
 
-:   TODO
+:   Für den Einsatz in einer realen Produktionsumgebung fehlen UI und API.
+    Anforderungen an die Energieversorgung, sowie der Verbrauch von Teilsystemen der Produktionskette werden messbar.
+    Die periodische Planung der Wartung kann aufgrund tatsächlicher Nutzung und Auslastung geschehen.
+    Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere Produktivität.
 
 
 Originality/Value
 
-:   TODO
+:   Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
 
 ## Zusammenfassung 
