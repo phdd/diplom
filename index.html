@@ -20,14 +20,19 @@
 <li><a href="#einleitung"><span class="toc-section-number">1</span> Einleitung</a><ul>
 <li><a href="#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
 <li><a href="#zielsetzung"><span class="toc-section-number">1.2</span> Zielsetzung</a></li>
-<li><a href="#aufbau-der-arbeit"><span class="toc-section-number">1.3</span> Aufbau der Arbeit</a></li>
+<li><a href="#arbeitsrahmen"><span class="toc-section-number">1.3</span> Arbeitsrahmen</a></li>
+<li><a href="#methode-und-aufbau"><span class="toc-section-number">1.4</span> Methode und Aufbau</a></li>
 </ul></li>
 <li><a href="#grundlagen"><span class="toc-section-number">2</span> Grundlagen</a><ul>
 <li><a href="#cyber-physische-produktionssysteme"><span class="toc-section-number">2.1</span> Cyber-physische Produktionssysteme</a></li>
-<li><a href="#zusammenfassung"><span class="toc-section-number">2.2</span> Zusammenfassung</a></li>
+<li><a href="#informationsmodelle"><span class="toc-section-number">2.2</span> Informationsmodelle</a><ul>
+<li><a href="#opc-unified-architecture"><span class="toc-section-number">2.2.1</span> OPC Unified Architecture</a></li>
+<li><a href="#mtconnect"><span class="toc-section-number">2.2.2</span> MTConnect</a></li>
+</ul></li>
+<li><a href="#zusammenfassung"><span class="toc-section-number">2.3</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#forschungsstand"><span class="toc-section-number">3</span> Forschungsstand</a><ul>
-<li><a href="#shop-floor-ebene"><span class="toc-section-number">3.1</span> Shop-Floor Ebene</a><ul>
+<li><a href="#steuerungsebene"><span class="toc-section-number">3.1</span> Steuerungsebene?</a><ul>
 <li><a href="#remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="toc-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></a></li>
 <li><a href="#legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="toc-section-number">3.1.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></a></li>
 </ul></li>
@@ -58,13 +63,31 @@
 <p>Heutige Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen. Gerade ältere Modelle (Altmaschinen) besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer modernen Fertigungsstrecke. So sind geschlossene Architekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automation <span class="citation">[2]</span>.</p>
 <p>Bisher basierten Produktionseinrichtungen auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen. Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Maschine und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit Teil der Fertigungsindustrie <span class="citation">[2]</span>.</p>
 <h2 id="zielsetzung"><span class="header-section-number">1.2</span> Zielsetzung</h2>
-<h2 id="aufbau-der-arbeit"><span class="header-section-number">1.3</span> Aufbau der Arbeit</h2>
+<h2 id="arbeitsrahmen"><span class="header-section-number">1.3</span> Arbeitsrahmen</h2>
+<ul>
+<li>nur Fertigungsindustrie</li>
+<li>nur CNC-Maschinen</li>
+</ul>
+<h2 id="methode-und-aufbau"><span class="header-section-number">1.4</span> Methode und Aufbau</h2>
 <h1 id="grundlagen"><span class="header-section-number">2</span> Grundlagen</h1>
 <p>Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein <em>Application Programming Interface</em> (API) <span class="citation">[2]</span>.</p>
+<p>Value-Stream Mapping (VSM) ist eine Methode der <em>Lean Production</em>, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts <span class="citation">[3]</span>.</p>
 <h2 id="cyber-physische-produktionssysteme"><span class="header-section-number">2.1</span> Cyber-physische Produktionssysteme</h2>
-<h2 id="zusammenfassung"><span class="header-section-number">2.2</span> Zusammenfassung</h2>
+<h2 id="informationsmodelle"><span class="header-section-number">2.2</span> Informationsmodelle</h2>
+<h3 id="opc-unified-architecture"><span class="header-section-number">2.2.1</span> OPC Unified Architecture</h3>
+<p>Hoppe 2014 <span class="citation">[4]</span></p>
+<blockquote>
+<p>Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:</p>
+<ul>
+<li>Wie geben sich z. B. ein „Temperatursensor“ oder eine „Ventilsteuerung“ zu erkennen?</li>
+<li>Welche Objekte, Methoden, Variablen und Ereignisse definieren die</li>
+</ul>
+<p>Schnittstelle für Konfiguration, Initialisierung, Diagnose und Laufzeit? OPC-UA hat das Potential, sich als De-facto-Standard für den Daten- und Informationsaustausch in der Automatisierungspyramide für nicht-echtzeitkritische Anwendungen zu etablieren. Eine sichere, horizontale und vertikale Kommunikation vom Sensor bis in die IT-Systeme ist damit bereits heute umsetzbar. Die Verbände BITCOM, VDMA und ZVEI werden durch die Industrie-4.0-Arbeitskreise keinen neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber eine gute Grundlage zum Informationsaustausch.</p>
+</blockquote>
+<h3 id="mtconnect"><span class="header-section-number">2.2.2</span> MTConnect</h3>
+<h2 id="zusammenfassung"><span class="header-section-number">2.3</span> Zusammenfassung</h2>
 <h1 id="forschungsstand"><span class="header-section-number">3</span> Forschungsstand</h1>
-<h2 id="shop-floor-ebene"><span class="header-section-number">3.1</span> Shop-Floor Ebene</h2>
+<h2 id="steuerungsebene"><span class="header-section-number">3.1</span> Steuerungsebene?</h2>
 <h3 id="remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="header-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></h3>
 <dl>
 <dt>Purpose</dt>
@@ -76,10 +99,10 @@
 </dl>
 <dl>
 <dt>Findings</dt>
-<dd><p>Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation. Die gezielte Verbreitung dieser stellt ein ehöhtes wirtschafliches Risiko dar und muss in besonderem Maße geschützt werden. Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar. Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.</p>
+<dd><p>Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation. Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden. Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar. Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.</p>
 </dd>
 <dt>Research Limitations/Implications</dt>
-<dd><p>Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen. So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden. Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich. Jedoch setzt dieses System eine bestehende Anbindung</p>
+<dd><p>Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen. So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden. Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich. Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.</p>
 </dd>
 <dt>Practical Implications</dt>
 <dd><p>Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich. Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar. Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.</p>
@@ -100,13 +123,13 @@
 <dd><p>Mit einer Genauigkeit von 95% für den Status und 99% für Werkzeugwechsel und Durchsatz wurde das Konzept erfolgreich getestet.</p>
 </dd>
 <dt>Research Limitations/Implications</dt>
-<dd><p>TODO</p>
+<dd><p>Das Konzept nutzt ausschließlich den Eingangsstrom der Maschine, wodurch Genauigkeit und Umfang der Daten begrenzt werden.</p>
 </dd>
 <dt>Practical Implications</dt>
-<dd><p>TODO</p>
+<dd><p>Für den Einsatz in einer realen Produktionsumgebung fehlen UI und API. Anforderungen an die Energieversorgung, sowie der Verbrauch von Teilsystemen der Produktionskette werden messbar. Die periodische Planung der Wartung kann aufgrund tatsächlicher Nutzung und Auslastung geschehen. Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere Produktivität.</p>
 </dd>
 <dt>Originality/Value</dt>
-<dd><p>TODO</p>
+<dd><p>Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.</p>
 </dd>
 </dl>
 <h2 id="zusammenfassung-1"><span class="header-section-number">3.2</span> Zusammenfassung</h2>
@@ -129,14 +152,20 @@
 <div id="ref-Deshpande2011">
 <p>[2] A. Deshpande und R. Pieper, „Legacy Machine Monitoring Using Power Signal Analysis“, in <em>ASME 2011 international manufacturing science and engineering conference, volume 2</em>, 2011, S. 207–214. </p>
 </div>
+<div id="ref-Meyer2009">
+<p>[3] H. Meyer, F. Fuchs, und K. Thiel, <em>Manufacturing Execution Systems - Optimal Design, Planning, and Deployment</em>, Bd. 53. 2009. </p>
+</div>
+<div id="ref-Hoppe2014">
+<p>[4] S. Hoppe, „Standardisierte horizontale und vertikale Kommunikation: Status und Ausblick“, in <em>Industrie 4.0 in produktion, automatisierung und logistik</em>, Wiesbaden: Springer Fachmedien Wiesbaden, 2014, S. 325–341. </p>
+</div>
 <div id="ref-Yonglin2004">
-<p>[3] C. Yonglin, „An evaluation space for open architecture controllers“, <em>The International Journal of Advanced Manufacturing Technology</em>, Bd. 26, Nr. 4, S. 351–358, 2004. </p>
+<p>[5] C. Yonglin, „An evaluation space for open architecture controllers“, <em>The International Journal of Advanced Manufacturing Technology</em>, Bd. 26, Nr. 4, S. 351–358, 2004. </p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Steuerungskomponente, die Modifikationen über das API hinaus zulässt <span class="citation">[3]</span><a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Steuerungskomponente, die Modifikationen über das API hinaus zulässt <span class="citation">[5]</span><a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 </body>
