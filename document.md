@@ -30,6 +30,8 @@ Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit ext
 Value-Stream Mapping (VSM) ist eine Methode der _Lean Production_, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. 
 Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts @Meyer2009.
 
+G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
+
 ## Cyber-physische Produktionssysteme
 
 ## Informationsmodelle
@@ -153,12 +155,138 @@ Originality/Value
 :   Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
 
+### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
+
+Purpose
+
+:   TODO
+
+
+Design/Methodology/Approach
+
+:   TODO
+
+
+Findings
+
+:   TODO
+
+
+Research Limitations/Implications
+
+:   TODO
+
+
+Practical Implications
+
+:   TODO
+
+
+Originality/Value
+
+:   TODO
+
+
+### Remote control of CNC machines using the CyberOPC communication system over public networks @Torrisi2008
+
+Purpose
+
+:   TODO
+
+
+Design/Methodology/Approach
+
+:   TODO
+
+
+Findings
+
+:   TODO
+
+
+Research Limitations/Implications
+
+:   TODO
+
+
+Practical Implications
+
+:   TODO
+
+
+Originality/Value
+
+:   TODO
+
+
+### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
+
+Purpose
+
+:   TODO
+
+
+Design/Methodology/Approach
+
+:   TODO
+
+
+Findings
+
+:   TODO
+
+
+Research Limitations/Implications
+
+:   TODO
+
+
+Practical Implications
+
+:   TODO
+
+
+Originality/Value
+
+:   TODO
+
+
+### Multi Agent based Control Architectures @Fallah2016
+
+Purpose
+
+:   TODO
+
+
+Design/Methodology/Approach
+
+:   TODO
+
+
+Findings
+
+:   TODO
+
+
+Research Limitations/Implications
+
+:   TODO
+
+
+Practical Implications
+
+:   TODO
+
+
+Originality/Value
+
+:   TODO
+
+
 ## Zusammenfassung 
 
 
 # Konzeption
-
-## Abgrenzung
 
 ## Zusammenfassung
 

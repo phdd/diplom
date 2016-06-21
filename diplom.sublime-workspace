@@ -127,23 +127,26 @@
 			"file": "document.md",
 			"settings":
 			{
-				"buffer_size": 4225,
+				"buffer_size": 8488,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+			"contents": "Package Control Messages\n========================\n\nCiter\n-----\n\n  # Citations from BibTeX for Sublime Text\n  \n  This [Sublime Text 3](https://www.sublimetext.com/3) plugin provides citation search and Tab-completion for citations stored in a BibTeX file. Configure the file path and you are good to go!\n  \n  The default set up is optimized to work with [AcademicMarkdown](https://github.com/mangecoeur/AcademicMarkdown).\n  \n  Uses the [bibtexparser](https://github.com/sciunto/python-bibtexparser) library from sciunto.\n  \n  # Configuration\n  \n  You must specify the location of your BibTeX file in preferences. \n  Optionally you can define the BibTeX fields to search in when using Citer: Search, the default citation format, and the list of scopes to limit the operation of the plugin (by default, Citer will only suggest citations within plain text scopes and is disabled in source code).\n  \n  See below for example configuration\n  \n  \n  ```js\n  {\n      //REQUIRED:\n  \n      \"bibtex_file_path\": \"example/path/to/file.bib\",\n  \n      //OPTIONAL:\n  \n      //By default Citer Search looks for your keyword in the \n      //author, title, year, and Citekey (id) fields\n      \"search_fields\": [\"author\", \"title\", \"year\", \"id\"] ,\n      //Default format is @Citekey\n      \"citation_format\": \"@%s\",\n      //list of scopes. Could be top level \"text\" or \"source\", or limit to\n      // e.g \"text.html.markdown\"\n      \"completions_scopes\": [\"text\"],\n      \"enable_completions\": true\n  }\n  ```\n  \n  \n  # Commands\n  \n  **Citer: Search** - enter a search term. All results where the term is found in the author, title, citekey, or year fields will be shown (the searched fields are configurable)\n  \n  **Citer: Show All** - show all the entries in your BibTeX in a quick view (you can then search in the title)\n  \n  # Completions\n  \n  Citer provides autocompletions for your citekeys, these are enabled by default and can be disabled in the config.\n",
 			"settings":
 			{
-				"buffer_size": 1662,
-				"line_ending": "Unix"
+				"buffer_size": 1934,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
 			}
 		},
 		{
-			"file": "diplom.sublime-project",
+			"file": "/home/peter/.config/sublime-text-3/Packages/User/Citer.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 580,
+				"buffer_size": 520,
 				"line_ending": "Unix"
 			}
 		}
@@ -155,20 +158,36 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 92.0,
-		"last_filter": "remove",
+		"height": 152.0,
+		"last_filter": "menu",
 		"selected_items":
 		[
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
+				"bui",
+				"Build With: HTML"
 			],
 			[
-				"install",
+				"build",
+				"Build With: HTML"
+			],
+			[
+				"git dif",
+				"Git: Diff All Files"
+			],
+			[
+				"insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -186,18 +205,6 @@
 			[
 				"install ",
 				"Package Control: Install Package"
-			],
-			[
-				"build",
-				"Build With: Make - Clean"
-			],
-			[
-				"bui",
-				"Build With: Make HTML"
-			],
-			[
-				"menu",
-				"View: Toggle Menu"
 			],
 			[
 				"settings",
@@ -361,11 +368,17 @@
 	],
 	"file_history":
 	[
+		"/home/peter/Documents/Uni/Diplom/document.tex",
+		"/home/peter/mendeley.py",
+		"/home/peter/Documents/Uni/Diplom/style/latex.tex",
+		"/home/peter/.zshrc",
+		"/home/peter/.bashrc",
+		"/home/peter/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+		"/home/peter/Documents/Uni/Diplom/diplom.sublime-project",
 		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.py",
 		"/home/peter/Documents/Uni/Diplom/document.md",
-		"/home/peter/Documents/Uni/Diplom/diplom.sublime-project",
 		"/home/peter/Documents/Uni/Diplom/diplom.sublime-workspace",
-		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
 		"/home/peter/Documents/Uni/Diplom/CiteBibtex.sublime-settings",
 		"/home/peter/.config/sublime-text-3/Packages/User/CiteBibtex.sublime-settings",
 		"/home/peter/.config/sublime-text-3/Packages/MarkdownEditing/Markdown.sublime-settings",
@@ -375,7 +388,6 @@
 		"/home/peter/.config/sublime-text-3/Packages/Citer/Citer.sublime-settings",
 		"/home/peter/.config/sublime-text-3/Packages/User/Citer.sublime-settings",
 		"/home/peter/Documents/Uni/Diplom/Citer.sublime-settings",
-		"/home/peter/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/peter/.config/sublime-text-3/Packages/Citer/Default.sublime-commands",
 		"/home/peter/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
 		"/home/peter/.config/sublime-text-3/Packages/CiteBibtex/README.md",
@@ -419,11 +431,9 @@
 		"/tmp/node-opcua-htmlpanel/index.html",
 		"/tmp/weather.js",
 		"/tmp/worldweatheronline.key",
-		"/home/peter/.bashrc",
 		"/home/peter/Documents/Uni/Diplom/metadata.yml",
 		"/home/peter/Documents/Arbeit/TUD/Interaction/Gesture descriptions",
 		"/home/peter/Documents/Projekte/wio-link-test/app.js",
-		"/home/peter/.zshrc",
 		"/home/peter/Documents/Projekte/wio-link-test/package.json",
 		"/home/peter/Documents/Projekte/wio-link-test/lib/index.js",
 		"/home/peter/Documents/Projekte/wio-link-test/test/index.js",
@@ -466,7 +476,6 @@
 		"/home/peter/Documents/Projekte/reveal.js/test/examples/barebones.html",
 		"/home/peter/Documents/Projekte/reveal.js/plugin/master/footer.css",
 		"/home/peter/Documents/Uni/Diplom/presentation.html",
-		"/home/peter/Documents/Uni/Diplom/style/latex.tex",
 		"/home/peter/Documents/Uni/Diplom/style/presentation.tex",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/Verteidigung/verteidigung.tex",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/Verteidigung/header.tex",
@@ -476,7 +485,6 @@
 		"/tmp/chef-lctp-master-cb9d5991c3133e8a074f7e48b31e4f4b4f725a45/presentation/presentation.md",
 		"/home/peter/Documents/Uni/Diplom/style/html.css",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/_includes/header.tex",
-		"/home/peter/Documents/Uni/Diplom/document.tex",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/chapters/implementierung.tex",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/main.tex",
 		"/home/peter/Documents/Uni/Beleg/Ausarbeitung/chapters/konzeption.tex",
@@ -487,8 +495,7 @@
 		"/home/peter/Documents/Uni/Diplom/style/ieee.csl",
 		"/home/peter/Documents/Uni/Diplom/meta.mdown",
 		"/home/peter/Documents/Uni/Diplom/epub.xml",
-		"/home/peter/Documents/Uni/Diplom/document.html",
-		"/home/peter/Documents/Uni/Diplom/style/style.css"
+		"/home/peter/Documents/Uni/Diplom/document.html"
 	],
 	"find":
 	{
@@ -506,6 +513,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ält",
+			"alt",
 			"font",
 			"	",
 			"f10",
@@ -641,7 +650,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -650,22 +659,53 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4225,
+						"buffer_size": 8488,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2027,
-								2027
+								8212,
+								8212
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								947,
+								947
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -675,26 +715,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/peter/.config/sublime-text-3/Packages/CiteBibtex/CiteBibtex.sublime-settings",
+					"buffer": 2,
+					"file": "/home/peter/.config/sublime-text-3/Packages/User/Citer.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1662,
+						"buffer_size": 520,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								64,
+								64
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -703,43 +743,13 @@
 					},
 					"stack_index": 1,
 					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "diplom.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 580,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								110,
-								110
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -784,7 +794,7 @@
 	"project": "diplom.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
