@@ -13,9 +13,11 @@ So sind geschlossene Architekturen und fehlende Schnittstellen verantwortlich f�
 Bisher basierten Produktionseinrichtungen auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
 Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Maschine und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit Teil der Fertigungsindustrie @Deshpande2011.
 
+Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
+
 ## Zielsetzung
 
-## Arbeitsrahmen
+## Rahmen dieser Arbeit
 
 * nur Fertigungsindustrie
 * nur CNC-Maschinen
@@ -32,9 +34,14 @@ Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzei
 
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
 
+In einer _Flexible Manufacturing Cell_ (FMC) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein _Flexible Manufacturing System_ (FMS) bilden @Groover2008.
+
 ## Cyber-physische Produktionssysteme
 
 ## Informationsmodelle
+
+Hersteller von Software für die _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
+Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
 ### OPC Unified Architecture
 
@@ -59,14 +66,13 @@ Hoppe 2014 @Hoppe2014
 
 ### MTConnect
 
+
 ## Zusammenfassung
 
 
 # Forschungsstand
 
-## Steuerungsebene?
-
-### Remote real-time CNC machining for web-based manufacturing @Wang2004 
+## Remote real-time CNC machining for web-based manufacturing @Wang2004 
 
 Purpose
 
@@ -117,7 +123,7 @@ Originality/Value
     Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 
-### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
+## Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 Purpose
 
@@ -155,11 +161,12 @@ Originality/Value
 :   Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
 
-### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
+## Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
 
 Purpose
 
-:   TODO
+:   In der Arbeit von Ayatollahi et al. wird das Design eines OPC UA Servers vorgestellt.
+    Mit diesem wird auf Basis des Standards die Steuerung von CNC-Maschinen ermöglicht.
 
 
 Design/Methodology/Approach
@@ -187,71 +194,7 @@ Originality/Value
 :   TODO
 
 
-### Remote control of CNC machines using the CyberOPC communication system over public networks @Torrisi2008
-
-Purpose
-
-:   TODO
-
-
-Design/Methodology/Approach
-
-:   TODO
-
-
-Findings
-
-:   TODO
-
-
-Research Limitations/Implications
-
-:   TODO
-
-
-Practical Implications
-
-:   TODO
-
-
-Originality/Value
-
-:   TODO
-
-
-### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
-
-Purpose
-
-:   TODO
-
-
-Design/Methodology/Approach
-
-:   TODO
-
-
-Findings
-
-:   TODO
-
-
-Research Limitations/Implications
-
-:   TODO
-
-
-Practical Implications
-
-:   TODO
-
-
-Originality/Value
-
-:   TODO
-
-
-### Multi Agent based Control Architectures @Fallah2016
+## Multi Agent based Control Architectures @Fallah2016
 
 Purpose
 

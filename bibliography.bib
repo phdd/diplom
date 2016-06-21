@@ -1,3 +1,32 @@
+@book{Groover2008,
+author = {Groover, Mikell P.},
+isbn = {0132393212},
+pages = {815},
+publisher = {Prentice Hall},
+title = {{Automation, production systems, and computer-integrated manufacturing}},
+year = {2008}
+}
+@inproceedings{Jin-LungChirn2000,
+author = {{Jin-Lung Chirn}, Jin-Lung and McFarlane, D.C.},
+booktitle = {Proceedings 11th International Workshop on Database and Expert Systems Applications},
+doi = {10.1109/DEXA.2000.875030},
+file = {:home/peter/Documents/Mendeley Desktop/Jin-Lung Chirn, McFarlane - 2000 - A holonic component-based approach to reconfigurable manufacturing control architecture.pdf:pdf},
+pages = {219--223},
+publisher = {IEEE Comput. Soc},
+title = {{A holonic component-based approach to reconfigurable manufacturing control architecture}},
+year = {2000}
+}
+@inproceedings{Zhang2008,
+author = {Zhang, Xuhui and Wang, Sunan and Liu, Qin},
+booktitle = {2008 IEEE International Conference on Automation and Logistics},
+doi = {10.1109/ICAL.2008.4636699},
+file = {:home/peter/Documents/Mendeley Desktop/Zhang, Wang, Liu - 2008 - Development of an open CNC based on industrial Ethernet.pdf:pdf},
+month = {sep},
+pages = {3033--3038},
+publisher = {IEEE},
+title = {{Development of an open CNC based on industrial Ethernet}},
+year = {2008}
+}
 @article{Torrisi2008,
 author = {Torrisi, Nunzio M. and Oliveira, Jo{\~{a}}o F. G.},
 doi = {10.1007/s00170-007-1244-0},
@@ -33,16 +62,6 @@ publisher = {IEEE},
 title = {{Fog Computing: The Cloud-IoT/IoE Middleware Paradigm}},
 volume = {35},
 year = {2016}
-}
-@inproceedings{Girbea2011,
-abstract = {The paper introduces generalized algorithms for the automatic generation of the address space structure for an UA server. First the generalized address space generation scheme for an OPC UA server is described. Afterwards we present the specialized algorithms for the generation of the type nodes, of object and variable nodes and for the method nodes. Finally the additional references are added to the fully meshed address space. Two basic ideas of the algorithms are: the splitting of the nodes into groups and the sequential addition of the groups to the address space, and the naming of a main reference for every target node. The algorithms have been applied for an aggregating UA server which models the devices of a flexible manufacturing system. The main advantages are: shorter development time, easier maintenance and the possibility to add nodes to the address space in both online and offline mode.},
-author = {Girbea, A. and Demeter, R. and Sisak, F.},
-booktitle = {SACI 2011 - 6th IEEE International Symposium on Applied Computational Intelligence and Informatics, Proceedings},
-doi = {10.1109/SACI.2011.5873052},
-isbn = {9781424491094},
-pages = {483--488},
-title = {{Automatic address space generation for an OPC UA server of a flexible manufacturing system}},
-year = {2011}
 }
 @inproceedings{Ayatollahi2013,
 abstract = {A robotized manufacturing cell is a distributed system composed of elements such as robots, machine tools and peripheral devices whose actions must be coordinated by a cell controller. Robotized manufacturing cells usually are preconfigured, often available commercially off-the-shelf for a specific type of processing, and may not be reconfigured outside of the pre-defined level of automation due to poor communication capabilities. This lack of reconfigurability often implies low usage of equipment. This fully applies to Small and Medium-Sized Enterprises (SMEs) due to rather small and often varying lot sizes. This fact presents a technological and economical barrier to the automation of many manufacturing processes in SMEs. OPC Unified Architecture (OPC UA) is a promising standard specification for interconnectivity in state-of-the-art industrial automation technology, enabling rich information modelling capabilities. In this paper we present the design of a prototype OPC UA server for numerically controlled machine tools (such as milling and turning machines) providing a semantic communication interface for the cell controller and neighbouring automation components. The OPC UA server exposes all relevant objects of the machine tool such as automation equipment, tools and NC-programs with the respective variables, methods, and properties. Methods represent functions of the machine tool that can be called by an OPC UA client (e.g. open work area door, close fixture), allowing easy orchestration of all operations necessary for automated job execution. The OPC UA Server has been implemented and tested in an existing manufacturing cell composed of an EMCO Concept Turn 55 machine tool, an ABB IRB 120 industrial robot and a cell controller. Communication between OPC UA server and numerical control of the machine tool is based on a proprietary DNC protocol. Introduction In a robotized manufacturing cell material flow and NC program selection and start may be managed by the numerical control or the robot control. Delegating these tasks to a dedicated cell controller that orchestrates activities of the cell devices allows more flexibility and operating comfort. But the implementation of a cell controller is a complex task due to different communication protocols and machines supplied from different vendors. During the 1970ies the first flexible manufacturing systems came into existence and vendor specific communication protocols for file related operations, data collection and remote control of NC machine tools evolved. In the beginning these protocols were based on the LSV2-or DK3964R procedures for serial point-to-point communication [1, 2]. Later on communication based on Ethernet and TCP/IP came into use, such as MCIS RPC Sinumerik Computer Link developed by Siemens [3]. In the 1990ies an attempt was made to standardize the communication in flexible manufacturing cells and systems by introducing the Manufacturing Message Specification (MMS). Leit{\~{a}}o et al. [4] presented an integration solution for two CNC machines and an anthropomorphic robot, where all system components were equipped with MAP (Manufacturing Automation Protocol) / MMS interface boards. But only a small subset of the MMS services defined in ISO 9506 was implemented by the MMS communication modules due to the limitations on the objects and services implemented by server applications. The high expectations concerning MMS could not be fulfilled. For simple cell configurations the use of digital inputs and outputs for signal exchange is still widely accepted. In 2011 the German Engineering Foundation (VDMA) released a specification of signals for the organization of the machine tending process (VDMA 34180). This specification is aimed at reducing the expense for integrating robots and machine tools [5]. The German initiative known as " Industry 4.0. " is about connecting machines with goods via the internet, for example in a production facility. This means that products and machines will be able to communicate with each other in a common language. Reality looks somewhat different. The suppliers of SCADA (Supervisory Control and Data Acquisition) software provide a huge number of communication drivers for different automation and information systems, and system integrators struggle with a whole lot of different communication protocols and message frames. OPC Unified Architecture (OPC UA), a communications and data modelling standard for the exchange of information over TCP/IP networks, could solve this problem as it provides data and semantics of data at the same time. At the Institute for Production Engineering and Laser Technology (IFT), Vienna University of Technology, the use of OPC UA is being evaluated for remote control of machine tools in robotized manufacturing cells. Although Classic OPC DA is already an established standard for machine data and process data collection, the recent OPC UA is still not common in this field. Especially with the introduction of methods, OPC UA seems to be very promising for use in the field of production automation. The clear semantics of the address space not only allows sophisticated M2M communication, it can also empower manufacturing cell operators to comprehensively browse and easily control the automation components with any OPC UA client available. This article presents a prototype OPC UA server for a machine tool control enabling communication in a robotized manufacturing cell. The cell controller may collect data from the machine tool and is able to remotely control the machine tool. The prototype has been tested in a robotized manufacturing cell composed of an EMCO Concept Turn 55 (a turning lathe designed for educational purposes) and an ABB IRB 120 industrial robot (see Fig. 1). Development of the prototype application is based on the " C++ UA Server SDK " and " .NET UA Client SDK " provided by Unified Automation.},
@@ -144,17 +163,6 @@ title = {{Machining Process Monitoring and Control: The State-of-the-Art}},
 volume = {126},
 year = {2004}
 }
-@article{Baker1998,
-abstract = {This paper describes various multi-agent architectures, including the heterarchical architecture. It reviews the claimed advantages for multi-agent heterarchies and describes the types of factories that could use this architecture. It surveys the three common types of factory control algorithms: dispatching algorithms, scheduling algorithms, and pull algorithms. It then asks the question: which of these algorithms can be implemented in a multi-agent heterarchy? This paper describes how all common factory control algorithms used in industry can be implemented in a multi-agent heterarchy. It discusses how many of the algorithms that are popular in current research can be implemented in a multi-agent heterarchy, while others will require further research.},
-author = {Baker, Albert D},
-doi = {10.1016/S0278-6125(98)80077-0},
-journal = {Journal of Manufacturing Systems},
-number = {4},
-pages = {297--320},
-title = {{A survey of factory control algorithms that can be implemented in a multi-agent heterarchy: Dispatching, scheduling, and pull}},
-volume = {17},
-year = {1998}
-}
 @article{Leitao2009,
 abstract = {Manufacturing has faced significant changes during the last years, namely the move from a local economy towards a global and competitive economy, with markets demanding for highly customized products of high quality at lower costs, and with short life cycles. In this environment, manufacturing enterprises, to remain competitive, must respond closely to customer demands by improving their flexibility and agility, while maintaining their productivity and quality. Dynamic response to emergence is becoming a key issue in manufacturing field because traditional manufacturing control systems are built upon rigid control architectures, which cannot respond efficiently and effectively to dynamic change. In these circumstances, the current challenge is to develop manufacturing control systems that exhibit intelligence, robustness and adaptation to the environment changes and disturbances. The introduction of multi-agent systems and holonic manufacturing systems paradigms addresses these requirements, bringing the advantages of modularity, decentralization, autonomy, scalability and re-usability. This paper surveys the literature in manufacturing control systems using distributed artificial intelligence techniques, namely multi-agent systems and holonic manufacturing systems principles. The paper also discusses the reasons for the weak adoption of these approaches by industry and points out the challenges and research opportunities for the future.},
 author = {Leit{\~{a}}o, Paulo},
@@ -167,22 +175,10 @@ title = {{Agent-based distributed manufacturing control: A state-of-the-art surv
 volume = {22},
 year = {2009}
 }
-@article{Trentesaux2009,
-abstract = {This editorial introduces the special issue of the Elsevier journal, Engineering Application of Artificial Intelligence, on Distributed control of production systems. The current technology in communication and embedded systems allows products and production resources to play a more active role in the production process. This new active capacity will generate major changes in organizations and information systems (e.g., Enterprise Resource Planning (ERP) and Manufacturing Execution Systems (MES)). New approaches are now required for modelling, testing and assessing the features made possible by the decisional and informational capabilities of these new active entities. One among the many possibilities is to use agents and holons, since agent and holon-based approaches assume interaction between intelligent entities to facilitate the emergence of a global behavior. This special issue thus focuses on the possible applications of distributed approaches for the design, evaluation and implementation of new control architectures for production systems. Both fundamental and applied research papers are presented.},
-author = {Trentesaux, Damien},
-doi = {10.1016/j.engappai.2009.05.001},
-file = {:home/peter/Documents/Mendeley Desktop/Trentesaux - 2009 - Distributed control of production systems.pdf:pdf},
-journal = {Engineering Applications of Artificial Intelligence},
-number = {7},
-pages = {971--978},
-title = {{Distributed control of production systems}},
-volume = {22},
-year = {2009}
-}
 @article{Xu2006a,
 author = {Xu, X.W. and {Lihui Wang}, Lihui and {Yiming Rong}, Yiming},
 doi = {10.1109/TASE.2005.862147},
-file = {:home/peter/Documents/Mendeley Desktop/Xu, Lihui Wang, Yiming Rong - 2006 - STEP-NC and function blocks for interoperable manufacturing.pdf:pdf},
+file = {:home/peter/Documents/Mendeley Desktop/Xu, Lihui Wang, Yiming Rong - 2006 - STEP-NC and function blocks for interoperable manufacturing(2).pdf:pdf},
 journal = {IEEE Transactions on Automation Science and Engineering},
 month = {jul},
 number = {3},
@@ -202,15 +198,6 @@ pages = {517--527},
 title = {{Current status and advancement of cyber-physical systems in manufacturing}},
 volume = {37},
 year = {2015}
-}
-@article{Koc2002,
-abstract = {This paper gives an introduction about e-Manufacturing strategies, its fundamental elements and requirements to meet the changing needs of the manufacturing industry in transition to an e-business environment. Briefly speaking, e-Manufacturing is a transformation system that enables the manufacturing operations to achieve predictive near-zero-downtime performance as well as to synchronize with the business systems through the use of web-enabled and tether-free (i.e. wireless, web, etc.) infotronics technologies. It integrates information and decisions in data flow (of machine/process level), information level (of factory and supply system level), and cash flow (of business system level). This transition is dependent upon the advancement of next-generation manufacturing practices on “e-factory and e-automation ” which is focused on the use of information to make things happen collaboratively on a global basis.},
-author = {Koc, M and Ni, J and Lee, Jay and Bandyopadhyay, Prabir Kumar},
-file = {:home/peter/Documents/Mendeley Desktop/Koc et al. - 2002 - Introduction of e-manufacturing.pdf:pdf},
-isbn = {0849319854},
-journal = {Proceedings of the 31st North American manufacturing research conference (NAMRC)},
-title = {{Introduction of e-manufacturing}},
-year = {2002}
 }
 @article{Yusof2015,
 author = {Yusof, Yusri and Latif, Kamran},
@@ -269,34 +256,6 @@ title = {{Making CNC machine tools more open, interoperable and intelligent - a 
 volume = {57},
 year = {2006}
 }
-@article{Cucinotta2009,
-author = {Cucinotta, T. and Mancina, A. and Anastasi, G.F. and Lipari, G. and Mangeruca, L. and Checcozzo, R. and Rusina, F.},
-doi = {10.1109/TII.2009.2027013},
-file = {:home/peter/Documents/Mendeley Desktop/Cucinotta et al. - 2009 - A Real-Time Service-Oriented Architecture for Industrial Automation(2).pdf:pdf},
-journal = {IEEE Transactions on Industrial Informatics},
-month = {aug},
-number = {3},
-pages = {267--277},
-publisher = {IEEE},
-title = {{A Real-Time Service-Oriented Architecture for Industrial Automation}},
-volume = {5},
-year = {2009}
-}
-@article{Jammes2005,
-abstract = {This paper outlines opportunities and challenges in the development of next-generation embedded devices, applications, and services, resulting from their increasing intelligence - it plots envisioned future directions for intelligent device networking based on service-oriented high-level protocols, in particular as regards the industrial automation sector - and outlines the approach adopted by the Service Infrastructure for Real-Time Embedded Networked Applications project, as well as the business advantages this approach is expected to provide.},
-author = {Jammes, Fran{\c{c}}ois and Smit, Harm},
-doi = {10.1109/TII.2005.844419},
-file = {:home/peter/Documents/Mendeley Desktop/Jammes, Smit - 2005 - Service-oriented paradigms in industrial automation.pdf:pdf},
-isbn = {1551-3203},
-issn = {15513203},
-journal = {IEEE Transactions on Industrial Informatics},
-keywords = {Holonic architectures,Industrial automation,Service-oriented architectures (SOA),Web services},
-number = {1},
-pages = {62--70},
-title = {{Service-oriented paradigms in industrial automation}},
-volume = {1},
-year = {2005}
-}
 @article{Monostori2006,
 abstract = {The emerging paradigm of agent-based computation has revolutionized the building of intelligent and decentralized systems. The new technologies met well the requirements in all domains of manufacturing where problems of uncertainty and temporal dynamics, information sharing and distributed operation, or coordination and cooperation of autonomous entities had to be tackled. In the paper software agents and multi-agent systems are introduced and through a comprehensive survey, their potential manufacturing applications are outlined. Special emphasis is laid on methodological issues and deployed industrial systems. After discussing open issues and strategic research directions, we conclude that the evolution of agent technologies and manufacturing will probably proceed hand in hand. The former can receive real challenges from the latter, which, in turn, will have more and more benefits in applying agent technologies, presumably together with well-established or emerging approaches of other disciplines.},
 author = {Monostori, L. and V{\'{a}}ncza, J. and Kumara, S.R.T.},
@@ -342,33 +301,6 @@ publisher = {Springer Fachmedien Wiesbaden},
 title = {{Grundlagen zur Automatisierung}},
 year = {2015}
 }
-@misc{Abels2012,
-author = {Abels, Helmut},
-file = {:home/peter/Documents/Mendeley Desktop/Abels - 2012 - Organisationsformen der Produktion.pdf:pdf},
-title = {{Organisationsformen der Produktion}},
-year = {2012}
-}
-@inproceedings{Piechnick2014,
-abstract = {The establishment of mobile devices had a high impact on the use and development of software systems. It is expected that the ability to automatically adapt to changing environments will be a crucial property for future apps running on mobile devices. The problem with current approaches for self-adaptive systems is that developers must define the adaptive behaviour at design-time. In many cases, however, the developer cannot predict all situations at design-time, which should trigger adaptation at runtime. Furthermore, applications for mobile devices are usually optimized for a small set of use cases and have a narrow, well-defined scope. In order to support more complex tasks, the functionality of several apps has to be composed dynamically. Another problem arises from the ever increasing number of available applications. In this paper, we address these problems by proposing a novel infrastructure for self-adaptive systems in smart environments, namely ContextPoint. Our goal is to describe an architecture which supports unanticipated adaptation for single systems, as well as the automatic integration of actuators and sensors, situated in the environment, with services and data from both, mobile devices and the cloud. Therefore, a distributed adaptation technique is proposed, where adaptation logic and rules are provided by the environment itself. This decentralization simplifies the development of self-adaptive systems with dynamic adaptive adaptation processes (meta-adaptation) and, thus, the design and operation of systems with unanticipated adaptation. Furthermore, our approach provides means for describing context-dependent collaboration between varying systems enabling the design of ad-hoc system-of-systems.},
-author = {Piechnick, Christian and Richly, Sebastian and K{\"{u}}hn, Thomas and G{\"{o}}tz, Sebastian and P{\"{u}}schel, Georg and A{\ss}mann, Uwe},
-booktitle = {ADAPTIVE 2014, The Sixth International Conference on Adaptive and Self-Adaptive Systems and Applications},
-file = {:home/peter/Documents/Mendeley Desktop/Piechnick et al. - 2014 - ContextPoint An Architecture for Extrinsic Meta-Adaptation in Smart Environments.pdf:pdf},
-isbn = {978-1-61208-341-4},
-keywords = {adaptation,all individual cases,architecture,context-aware,e,g,is located,location-aware,meta-adaptation,same room the user,self-adaptive,sleeping within the,the,to address this problem,when a baby is},
-pages = {121--128},
-title = {{ContextPoint: An Architecture for Extrinsic Meta-Adaptation in Smart Environments}},
-year = {2014}
-}
-@article{Steimann2000,
-abstract = {The duality of objects and relationships is so deeply embedded in our thinking that almost all modelling languages include it as a fundamental distinction. Yet there is evidence that the two are naturally complemented by a third, equally fundamental notion: that of roles. Although de{\textregistered}nitions of the role concept abound in the literature, we maintain that only few are truly original, and that even fewer acknowledge the intrinsic role of roles as intermediaries between relationships and the objects that engage in them. After discussing the major families of role conceptualiza-tions, we present our own basic de{\textregistered}nition and demonstrate how it naturally accounts for many modelling issues, in-cluding multiple and dynamic classi{\textregistered}cation, object collaboration, polymorphism, and substitutability. {\'{O}}},
-author = {Steimann, Friedrich},
-file = {:home/peter/Documents/Mendeley Desktop/Steimann - 2000 - On the representation of roles in object-oriented and conceptual modelling.pdf:pdf},
-journal = {Data {\&} Knowledge Engineering},
-number = {35},
-pages = {83--106},
-title = {{On the representation of roles in object-oriented and conceptual modelling}},
-year = {2000}
-}
 @inproceedings{Engelsberger2014,
 address = {Pforzheim},
 author = {Engelsberger, Maximilian and Greiner, Thomas},
@@ -409,7 +341,7 @@ author = {Piechnick, Christian and Richly, Sebastian and G{\"{o}}tz, Sebastian a
 file = {:home/peter/Documents/Mendeley Desktop/Piechnick et al. - 2012 - Using Role-Based Composition to Support Unanticipated, Dynamic Adaptation - Smart Application Grids.pdf:pdf},
 isbn = {978-1-61208-219-6},
 journal = {ADAPTIVE 2012, The Fourth International Conference on Adaptive and Self-Adaptive Systems and Applications},
-keywords = {- dynamic variation,composition,repository,role-modeling,unanticipated},
+keywords = {composition,dynamic variation,repository,role-modeling,unanticipated},
 pages = {93--102},
 title = {{Using Role-Based Composition to Support Unanticipated, Dynamic Adaptation - Smart Application Grids}},
 year = {2012}
@@ -426,14 +358,6 @@ file = {:home/peter/Documents/Mendeley Desktop/Hoppe - Unknown - Internet of Thi
 title = {{Internet of Things {\&} Industrie 4.0: Their differences and why OPC UA is the solution for both}},
 url = {https://opcfoundation.org/wp-content/uploads/2014/08/2{\_}Industrial-Revolution-2014-StefanHoppe.pdf}
 }
-@book{Vogel-Heuser2011,
-author = {Vogel-Heuser, Birgit and Witsch, Maria},
-file = {:home/peter/Documents/Mendeley Desktop/Vogel-Heuser, Witsch - 2011 - Erhöhte Verfügbarkeit und transparente Produktion.pdf:pdf},
-isbn = {9783862191789},
-publisher = {Kassel Univ. Press},
-title = {{Erhöhte Verfügbarkeit und transparente Produktion}},
-year = {2011}
-}
 @book{Meyer2009,
 author = {Meyer, Heiko and Fuchs, Franz and Thiel, Klaus},
 file = {:home/peter/Documents/Mendeley Desktop/Meyer, Fuchs, Thiel - 2009 - Manufacturing Execution Systems - Optimal Design, Planning, and Deployment.pdf:pdf},
@@ -442,40 +366,6 @@ number = {9},
 title = {{Manufacturing Execution Systems - Optimal Design, Planning, and Deployment}},
 volume = {53},
 year = {2009}
-}
-@inproceedings{Nechaev2013,
-abstract = {This paper discusses and the main features of MES software architecture. Based on considered requirements we offer implementation of one of the possible options of the software architecture. In addition, generic scheme and architectural principles were proposed. Paper describes the level of service and the level of client that uses services, design pattern for a client that effectively meets the architectural requirements and shows the possibility of joint development using given architecture.},
-author = {Nechaev, K.A. and Matveev, V.V. and Zykov, D.D.},
-booktitle = {2013 International Siberian Conference on Control and Communications (SIBCON)},
-doi = {10.1109/SIBCON.2013.6693646},
-file = {:home/peter/Documents/Mendeley Desktop/Nechaev, Matveev, Zykov - 2013 - Development of manufacturing execution system service oriented software architecture.pdf:pdf},
-month = {sep},
-pages = {1--3},
-publisher = {IEEE},
-title = {{Development of manufacturing execution system service oriented software architecture}},
-year = {2013}
-}
-@article{Baumer1997,
-abstract = {Adapt an object to different client's needs through transparently$\backslash$nattached role objects, each one representing a role the object has$\backslash$nto play in that client's context. The object manages its role set$\backslash$ndynamically. By representing roles as individual objects, different$\backslash$ncontexts are kept separate and system configuration is simplified.},
-author = {B{\"{a}}umer, Dirk and Riehle, Dirk and Siberski, Wolf and Wulf, Martina},
-file = {:home/peter/Documents/Mendeley Desktop/B{\"{a}}umer et al. - 1997 - Role Object.pdf:pdf},
-journal = {Pattern Languages of Programming (PLOP'97)},
-pages = {15--32},
-title = {{Role Object}},
-url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.38.9491},
-year = {1997}
-}
-@inproceedings{Cabri2004,
-abstract = {The development of agent-based systems must take into account interactions, carefully modelling and engineering them. Roles represent a good concept that can help designers and developers dealing with interactions. So far, several role approaches for agents have been proposed. This paper presents a survey on the most important existing approaches. This survey evaluates the above approaches presenting their main characteristics and comparing them each other to find out how they provide support for analysis, design, implementation, interoperability and openness. Also the support for a formal notation is evaluated. This survey does not try to find out the best role approach, but to expose to designers and developers advantages and drawbacks of several approaches, so that they can recognize the conditions under which their use is preferable rather than others.},
-author = {Cabri, G. and Ferrari, L. and Leonardi, L.},
-booktitle = {2004 IEEE International Conference on Systems, Man and Cybernetics (IEEE Cat. No.04CH37583)},
-doi = {10.1109/ICSMC.2004.1401064},
-file = {:home/peter/Documents/Mendeley Desktop/Cabri, Ferrari, Leonardi - 2004 - Agent role-based collaboration and coordination a survey about existing approaches.pdf:pdf},
-pages = {5473--5478},
-publisher = {IEEE},
-title = {{Agent role-based collaboration and coordination: a survey about existing approaches}},
-volume = {6},
-year = {2004}
 }
 @inproceedings{Fowler1997,
 abstract = {This paper is an analysis patterns paper, hence I'm looking at the alternatives from a conceptual point of view, rather than an implementation point of view. I'm asking how we represent our view of the world in our software, and I'm not looking at important implemenation issues such as performance, distribution, concurrency etc. I've provided some code samples, but they are there to illustrate the conceptual ideas rather than as statements of what the implementation should look like.},
@@ -522,19 +412,6 @@ pages = {1--16},
 publisher = {Springer Berlin Heidelberg},
 title = {{Designing Application Domain Models with Roles}},
 year = {2005}
-}
-@article{Kendall1999,
-abstract = {Due to their autonomy and social behaviour, agents will play important roles in emerging enterprises; they will fill key positions and provide essential capabilities. This paper describes role modelling as a software engineering technique for specifying, analysing, and designing systems on the basis of the roles that the agents will play. This paper builds on our earlier research in patterns of agent systems. A pattern is a useful solution to a reoccurring problem in a particular context; patterns can be used to solve software engineering problems in analysis, design, and implementation. This paper explains how object-oriented role models can be extended to represent patterns of agent interaction that can then be employed to engineer agent systems. Role theory deals with collaboration and co-ordination. Roles have also been applied to distributed systems management, and to agent and robot systems. However, there has to date not been a methodology for realising these representations in an automated or semi-automated system, due to the lack of adequate formalism and corresponding abstractions in software. Role models rectify this situation for software analysis, design, and implementation.},
-author = {Kendall, E. A.},
-doi = {10.1023/A:1009690824323},
-file = {:home/peter/Documents/Mendeley Desktop/Kendall - 1999 - Role Models — Patterns of Agent System Analysis and Design.pdf:pdf},
-journal = {BT Technology Journal},
-number = {4},
-pages = {46--57},
-publisher = {Kluwer Academic Publishers},
-title = {{Role Models — Patterns of Agent System Analysis and Design}},
-volume = {17},
-year = {1999}
 }
 @techreport{Gausemeier2014,
 address = {Paderborn},
