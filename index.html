@@ -20,7 +20,7 @@
 <li><a href="#einleitung"><span class="toc-section-number">1</span> Einleitung</a><ul>
 <li><a href="#motivation"><span class="toc-section-number">1.1</span> Motivation</a></li>
 <li><a href="#zielsetzung"><span class="toc-section-number">1.2</span> Zielsetzung</a></li>
-<li><a href="#arbeitsrahmen"><span class="toc-section-number">1.3</span> Arbeitsrahmen</a></li>
+<li><a href="#rahmen-dieser-arbeit"><span class="toc-section-number">1.3</span> Rahmen dieser Arbeit</a></li>
 <li><a href="#methode-und-aufbau"><span class="toc-section-number">1.4</span> Methode und Aufbau</a></li>
 </ul></li>
 <li><a href="#grundlagen"><span class="toc-section-number">2</span> Grundlagen</a><ul>
@@ -32,15 +32,14 @@
 <li><a href="#zusammenfassung"><span class="toc-section-number">2.3</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#forschungsstand"><span class="toc-section-number">3</span> Forschungsstand</a><ul>
-<li><a href="#steuerungsebene"><span class="toc-section-number">3.1</span> Steuerungsebene?</a><ul>
-<li><a href="#remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="toc-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></a></li>
-<li><a href="#legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="toc-section-number">3.1.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></a></li>
-</ul></li>
-<li><a href="#zusammenfassung-1"><span class="toc-section-number">3.2</span> Zusammenfassung</a></li>
+<li><a href="#remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="toc-section-number">3.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></a></li>
+<li><a href="#legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="toc-section-number">3.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></a></li>
+<li><a href="#prototype-opc-ua-server-for-remote-control-of-machine-tools-ayatollahi2013"><span class="toc-section-number">3.3</span> Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation">[7]</span></a></li>
+<li><a href="#multi-agent-based-control-architectures-fallah2016"><span class="toc-section-number">3.4</span> Multi Agent based Control Architectures <span class="citation">[10]</span></a></li>
+<li><a href="#zusammenfassung-1"><span class="toc-section-number">3.5</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#konzeption"><span class="toc-section-number">4</span> Konzeption</a><ul>
-<li><a href="#abgrenzung"><span class="toc-section-number">4.1</span> Abgrenzung</a></li>
-<li><a href="#zusammenfassung-2"><span class="toc-section-number">4.2</span> Zusammenfassung</a></li>
+<li><a href="#zusammenfassung-2"><span class="toc-section-number">4.1</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#implementation"><span class="toc-section-number">5</span> Implementation</a><ul>
 <li><a href="#zusammenfassung-3"><span class="toc-section-number">5.1</span> Zusammenfassung</a></li>
@@ -62,8 +61,9 @@
 <p>Die Infrastruktur für eine Verbindung zwischen automatisiertem Equipment und E-Manufacturing fehlt <span class="citation">[1]</span>.</p>
 <p>Heutige Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen. Gerade ältere Modelle (Altmaschinen) besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer modernen Fertigungsstrecke. So sind geschlossene Architekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automation <span class="citation">[2]</span>.</p>
 <p>Bisher basierten Produktionseinrichtungen auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen. Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Maschine und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit Teil der Fertigungsindustrie <span class="citation">[2]</span>.</p>
+<p>Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren <span class="citation">[3]</span>.</p>
 <h2 id="zielsetzung"><span class="header-section-number">1.2</span> Zielsetzung</h2>
-<h2 id="arbeitsrahmen"><span class="header-section-number">1.3</span> Arbeitsrahmen</h2>
+<h2 id="rahmen-dieser-arbeit"><span class="header-section-number">1.3</span> Rahmen dieser Arbeit</h2>
 <ul>
 <li>nur Fertigungsindustrie</li>
 <li>nur CNC-Maschinen</li>
@@ -71,11 +71,14 @@
 <h2 id="methode-und-aufbau"><span class="header-section-number">1.4</span> Methode und Aufbau</h2>
 <h1 id="grundlagen"><span class="header-section-number">2</span> Grundlagen</h1>
 <p>Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein <em>Application Programming Interface</em> (API) <span class="citation">[2]</span>.</p>
-<p>Value-Stream Mapping (VSM) ist eine Methode der <em>Lean Production</em>, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts <span class="citation">[3]</span>.</p>
+<p>Value-Stream Mapping (VSM) ist eine Methode der <em>Lean Production</em>, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts <span class="citation">[4]</span>.</p>
+<p>G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability <span class="citation">[5]</span>.</p>
+<p>In einer <em>Flexible Manufacturing Cell</em> (FMC) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein <em>Flexible Manufacturing System</em> (FMS) bilden <span class="citation">[6]</span>.</p>
 <h2 id="cyber-physische-produktionssysteme"><span class="header-section-number">2.1</span> Cyber-physische Produktionssysteme</h2>
 <h2 id="informationsmodelle"><span class="header-section-number">2.2</span> Informationsmodelle</h2>
+<p>Hersteller von Software für die <em>Supervisory Control and Data Aquisiton</em> (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme. Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme <span class="citation">[7]</span>.</p>
 <h3 id="opc-unified-architecture"><span class="header-section-number">2.2.1</span> OPC Unified Architecture</h3>
-<p>Hoppe 2014 <span class="citation">[4]</span></p>
+<p>Hoppe 2014 <span class="citation">[8]</span></p>
 <blockquote>
 <p>Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:</p>
 <ul>
@@ -87,8 +90,7 @@
 <h3 id="mtconnect"><span class="header-section-number">2.2.2</span> MTConnect</h3>
 <h2 id="zusammenfassung"><span class="header-section-number">2.3</span> Zusammenfassung</h2>
 <h1 id="forschungsstand"><span class="header-section-number">3</span> Forschungsstand</h1>
-<h2 id="steuerungsebene"><span class="header-section-number">3.1</span> Steuerungsebene?</h2>
-<h3 id="remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="header-section-number">3.1.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></h3>
+<h2 id="remote-real-time-cnc-machining-for-web-based-manufacturing-wang2004"><span class="header-section-number">3.1</span> Remote real-time CNC machining for web-based manufacturing <span class="citation">[1]</span></h2>
 <dl>
 <dt>Purpose</dt>
 <dd><p>Das Ziel von Wang et al. war die Entwicklung einer offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen.</p>
@@ -111,7 +113,7 @@
 <dd><p>Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform. Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt. Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.</p>
 </dd>
 </dl>
-<h3 id="legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="header-section-number">3.1.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></h3>
+<h2 id="legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="header-section-number">3.2</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></h2>
 <dl>
 <dt>Purpose</dt>
 <dd><p>Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.</p>
@@ -132,10 +134,51 @@
 <dd><p>Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.</p>
 </dd>
 </dl>
-<h2 id="zusammenfassung-1"><span class="header-section-number">3.2</span> Zusammenfassung</h2>
+<h2 id="prototype-opc-ua-server-for-remote-control-of-machine-tools-ayatollahi2013"><span class="header-section-number">3.3</span> Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation">[7]</span></h2>
+<dl>
+<dt>Purpose</dt>
+<dd><p>In der Arbeit von Ayatollahi et al. wird das Design eines OPC UA Servers vorgestellt. Mit diesem wird auf Basis des Standards die Steuerung von CNC-Maschinen ermöglicht.</p>
+</dd>
+<dt>Design/Methodology/Approach</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Findings</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Research Limitations/Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Practical Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Originality/Value</dt>
+<dd><p>TODO</p>
+</dd>
+</dl>
+<h2 id="multi-agent-based-control-architectures-fallah2016"><span class="header-section-number">3.4</span> Multi Agent based Control Architectures <span class="citation">[10]</span></h2>
+<dl>
+<dt>Purpose</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Design/Methodology/Approach</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Findings</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Research Limitations/Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Practical Implications</dt>
+<dd><p>TODO</p>
+</dd>
+<dt>Originality/Value</dt>
+<dd><p>TODO</p>
+</dd>
+</dl>
+<h2 id="zusammenfassung-1"><span class="header-section-number">3.5</span> Zusammenfassung</h2>
 <h1 id="konzeption"><span class="header-section-number">4</span> Konzeption</h1>
-<h2 id="abgrenzung"><span class="header-section-number">4.1</span> Abgrenzung</h2>
-<h2 id="zusammenfassung-2"><span class="header-section-number">4.2</span> Zusammenfassung</h2>
+<h2 id="zusammenfassung-2"><span class="header-section-number">4.1</span> Zusammenfassung</h2>
 <h1 id="implementation"><span class="header-section-number">5</span> Implementation</h1>
 <h2 id="zusammenfassung-3"><span class="header-section-number">5.1</span> Zusammenfassung</h2>
 <h1 id="evaluation"><span class="header-section-number">6</span> Evaluation</h1>
@@ -152,20 +195,35 @@
 <div id="ref-Deshpande2011">
 <p>[2] A. Deshpande und R. Pieper, „Legacy Machine Monitoring Using Power Signal Analysis“, in <em>ASME 2011 international manufacturing science and engineering conference, volume 2</em>, 2011, S. 207–214. </p>
 </div>
+<div id="ref-Grigoriev2016">
+<p>[3] S. N. Grigoriev und G. M. Martinov, „An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines“, <em>Procedia CIRP</em>, Bd. 46, S. 525–528, 2016. </p>
+</div>
 <div id="ref-Meyer2009">
-<p>[3] H. Meyer, F. Fuchs, und K. Thiel, <em>Manufacturing Execution Systems - Optimal Design, Planning, and Deployment</em>, Bd. 53. 2009. </p>
+<p>[4] H. Meyer, F. Fuchs, und K. Thiel, <em>Manufacturing Execution Systems - Optimal Design, Planning, and Deployment</em>, Bd. 53. 2009. </p>
+</div>
+<div id="ref-Xu2006a">
+<p>[5] X. Xu, L. Lihui Wang, und Y. Yiming Rong, „STEP-NC and function blocks for interoperable manufacturing“, <em>IEEE Transactions on Automation Science and Engineering</em>, Bd. 3, Nr. 3, S. 297–308, Juli 2006. </p>
+</div>
+<div id="ref-Groover2008">
+<p>[6] M. P. Groover, <em>Automation, production systems, and computer-integrated manufacturing</em>. Prentice Hall, 2008, S. 815. </p>
+</div>
+<div id="ref-Ayatollahi2013">
+<p>[7] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International conference on innovative technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
 </div>
 <div id="ref-Hoppe2014">
-<p>[4] S. Hoppe, „Standardisierte horizontale und vertikale Kommunikation: Status und Ausblick“, in <em>Industrie 4.0 in produktion, automatisierung und logistik</em>, Wiesbaden: Springer Fachmedien Wiesbaden, 2014, S. 325–341. </p>
+<p>[8] S. Hoppe, „Standardisierte horizontale und vertikale Kommunikation: Status und Ausblick“, in <em>Industrie 4.0 in produktion, automatisierung und logistik</em>, Wiesbaden: Springer Fachmedien Wiesbaden, 2014, S. 325–341. </p>
 </div>
 <div id="ref-Yonglin2004">
-<p>[5] C. Yonglin, „An evaluation space for open architecture controllers“, <em>The International Journal of Advanced Manufacturing Technology</em>, Bd. 26, Nr. 4, S. 351–358, 2004. </p>
+<p>[9] C. Yonglin, „An evaluation space for open architecture controllers“, <em>The International Journal of Advanced Manufacturing Technology</em>, Bd. 26, Nr. 4, S. 351–358, 2004. </p>
+</div>
+<div id="ref-Fallah2016">
+<p>[10] S. M. Fallah, „Multi Agent based Control Architectures“, <em>26th DAAAM International Symposium on intelligent Manufacturing and Automation</em>, S. 1166–1170, 2016. </p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Steuerungskomponente, die Modifikationen über das API hinaus zulässt <span class="citation">[5]</span><a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Steuerungskomponente, die Modifikationen über das API hinaus zulässt <span class="citation">[9]</span><a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 </body>
