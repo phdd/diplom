@@ -40,10 +40,14 @@ In einer _Flexible Manufacturing Cell_ (FMC) befinden sich zwei oder mehr CNC-Ma
 
 ## Informationsmodelle
 
-Hersteller von Software für die _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
+Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
 ### OPC Unified Architecture
+
+Die _OPC Unified Architecture_ (OPC UA) ist ein semantischer Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP @Ayatollahi2013.
+
+![OPC UA Übersicht](figures/opc-ua-architecture "OPC UA Übersicht")
 
 Hoppe 2014 @Hoppe2014
 
