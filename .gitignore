@@ -108,4 +108,5 @@ sympy-plots-for-*.tex/
 *.vux.bak
 
 .idea
-*.iml*.sublime-workspace
+*.iml
+*.sublime-workspace
