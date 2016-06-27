@@ -20,6 +20,8 @@ body {
   background: #fefefe;
 }
 
+q { quotes: "„" "“" "‚" "‘" !important; }
+
 a {
   color: #0645ad;
   text-decoration: none;

@@ -5,6 +5,7 @@ ARGS = \
 	--from=markdown \
 	--standalone \
 	--bibliography=bibliography.bib \
+	--smart \
 
 LATEX_ARGS = \
 	$(ARGS) \
@@ -49,6 +50,7 @@ html: figures-png
 		$(ARGS) \
 		$(HTML_ARGS) \
 		$(NON_LATEX_ARGS) \
+		--html-q-tags \
 		--table-of-contents \
 		--self-contained \
 		--output=document.html \
