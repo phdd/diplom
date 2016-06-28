@@ -203,9 +203,9 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 * Purpose
     * Untersuchung von CNC mit ARM-Computern
-        (@) Portierung eines CNC-Kernels auf Pi 2 durch Virtualisierung mit gemeinsamen Bibliotheken (Cross-Compile)
-        (@) Kontrolle mehrerer paralleler Kanäle mit Schrittmotoren und Spindel
-        (@) Kommunikation über EtherCAT Feldbus (Echtzeit)
+        * Portierung eines CNC-Kernels auf Pi 2 durch Virtualisierung mit gemeinsamen Bibliotheken (Cross-Compile)
+        * Kontrolle mehrerer paralleler Kanäle mit Schrittmotoren und Spindel
+        * Kommunikation über EtherCAT Feldbus (Echtzeit)
 * Design/Methodology/Approach
     * Soft-SPS, RT-Linux auf ARM-Computer
     * ARM/PC-Anbindung
@@ -217,8 +217,8 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
       (Load, Run, Start, Stop, Reset, Wait, Sleep)
 * Findings
     * Ressourcen eines Einplatinencomputers sind ausreichend
-    * parallele Portierung PC/ARM von NC-Software bei guter Arch. mgl.
-    * lediglich individuelle Konfiguration der Werkzeuge notwendig
+    * parallele Portierung PC/ARM von NC-Software bei guter Kernel-Arch. mgl.
+    * lediglich individuelle Konfiguration der Werkzeuge/Maschinen notwendig
     * CNC-Kernel braucht idle 20% ARM-CPU / 3% PC-CPU => steigt mit #Kanäle #Achsen
 * Research Limitations/Implications
     * weitere Forschung auf Basis dessen
@@ -236,18 +236,22 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 ## Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
 
-__Purpose.__ In der Arbeit von Ayatollahi et al. wird der Prototyp eines OPC UA Servers, mit der Fähigkeit Maschinen innerhalb einer FMC zu steuern, vorgestellt.
-Die Case Study wurde mit einer CNC-Drehmaschine und einem Industrieroboter durchgeführt.
-
-__Design/Methodology/Approach.__
-
-__Findings.__
-
-__Research Limitations/Implications.__
-
-__Practical Implications.__
-
-__Originality/Value.__
+* Purpose
+    * OPC UA Server für CNC innerhalb einer flexiblen Fertigungszelle
+    * semantische Kommunikationsschnittstelle
+* Design/Methodology/Approach
+    * OPC UA Methoden für Maschinenbefehle
+    * Kommunikation zw. Server und Maschine via propriät. Direct Numerical Control (DNC)
+    * Case-Study an CNC-Drehmaschine & Industrieroboter
+    * C++ UA Server SDK, .NET UA Client SDK (Unified Automation)
+* Findings
+    * 
+* Research Limitations/Implications
+    * 
+* Practical Implications
+    * 
+* Originality/Value
+    * OPC UA Methoden als Steuerungsschnittstelle
 
 ## Information Architecture for Reconfigurable production systems @Pauker2013
 
