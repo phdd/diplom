@@ -1,4 +1,7 @@
+
 # Einleitung
+
+
 
 ## Motivation
 
@@ -33,9 +36,13 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
     
 # Grundlagen
 
+## Produktion und deren Automatisierung
+
 * Ebenen der Automatisierungspyramide
     * MES
     * ... 
+   
+Feldbusse (EtherCAT, etc.)
 
 ![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
 
@@ -50,8 +57,7 @@ G-code is considered a “dumb” language as it only documents instructional an
 
 In einer _Flexible Manufacturing Cell_ (FMC) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein _Flexible Manufacturing System_ (FMS) bilden @Groover2008.
 
-
-## Industrie 4.0 & Cyber-physische Produktionssysteme
+## Cyber-physische Produktionssysteme
 
 * Überblick: Wang 2015 @Wang2015
 
@@ -120,11 +126,14 @@ Hoppe 2014 @Hoppe2014
 
 ## Zusammenfassung
 
+# Anforderungen
+
+* Echtzeit der Steuerung
+* Kontrollschleife?
+
 # Forschungsstand
 
-## Überwachung
-
-Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
+## Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 __Purpose.__ 
 Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.
@@ -150,9 +159,7 @@ Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere
 __Originality/Value.__ 
 Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
-## Kontrolle
-
-Remote real-time CNC machining for web-based manufacturing @Wang2004 
+## Remote real-time CNC machining for web-based manufacturing @Wang2004 
 
 __Purpose.__ 
 Das Ziel von Wang et al. war die Entwicklung einer offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen.
@@ -192,9 +199,42 @@ Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung a
 Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
-### Kontrollstrukturen mit OPC UA
+## An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
 
-Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
+* Purpose
+    * Untersuchung von CNC mit ARM-Computern
+        (@) Portierung eines CNC-Kernels auf Pi 2 durch Virtualisierung mit gemeinsamen Bibliotheken (Cross-Compile)
+        (@) Kontrolle mehrerer paralleler Kanäle mit Schrittmotoren und Spindel
+        (@) Kommunikation über EtherCAT Feldbus (Echtzeit)
+* Design/Methodology/Approach
+    * Soft-SPS, RT-Linux auf ARM-Computer
+    * ARM/PC-Anbindung
+        * Spindel- und Motortreiber via EtherCAT
+        * Feldbus-Koppler via EtherCAT
+        * NC-Terminal via TCP
+    * Case-Study mit einer Dreh-/Fräsmaschine
+    * Synch. der Kanäle durch High-Level-Funktionen
+      (Load, Run, Start, Stop, Reset, Wait, Sleep)
+* Findings
+    * Ressourcen eines Einplatinencomputers sind ausreichend
+    * parallele Portierung PC/ARM von NC-Software bei guter Arch. mgl.
+    * lediglich individuelle Konfiguration der Werkzeuge notwendig
+    * CNC-Kernel braucht idle 20% ARM-CPU / 3% PC-CPU => steigt mit #Kanäle #Achsen
+* Research Limitations/Implications
+    * weitere Forschung auf Basis dessen
+        * Verarbeitungspräzision/-Stabilität (Precision Engineering)
+        * Adaptive Kontrolle
+        * Diagnose/Prognose
+* Practical Implications
+    * EtherCAT Cycle Time[^cycle-time] < 2ms, perspektivisch < 1ms => beeinfl. Anzahl paralleler Kontroll-Kanäle
+    * künftig: Einplatinencomputer kontrollieren > 12 Achsen
+* Originality/Value
+    * Bwertung mit _Technology Readiness Level_[^TRL] 6
+
+[^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.' @Schnell1999.
+[^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
+
+## Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
 
 __Purpose.__ In der Arbeit von Ayatollahi et al. wird der Prototyp eines OPC UA Servers, mit der Fähigkeit Maschinen innerhalb einer FMC zu steuern, vorgestellt.
 Die Case Study wurde mit einer CNC-Drehmaschine und einem Industrieroboter durchgeführt.
@@ -209,9 +249,7 @@ __Practical Implications.__
 
 __Originality/Value.__
 
-## Konfiguration
-
-Information Architecture for Reconfigurable production systems @Pauker2013
+## Information Architecture for Reconfigurable production systems @Pauker2013
 
 __Purpose.__ 
 
@@ -225,7 +263,7 @@ __Practical Implications.__
 
 __Originality/Value.__
 
-A systematic approach to OPC UA information model design @Pauker2016
+## A systematic approach to OPC UA information model design @Pauker2016
 
 __Purpose.__ 
 
@@ -239,11 +277,7 @@ __Practical Implications.__
 
 __Originality/Value.__
 
-## Architektur
-
-### Multiagentensysteme
-
-Multi Agent based Control Architectures @Fallah2016
+## Multi Agent based Control Architectures @Fallah2016
 
 __Purpose.__ 
 
@@ -257,10 +291,7 @@ __Practical Implications.__
 
 __Originality/Value.__
 
-
-### Service-orientierte Architekturen
-
-Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
+## Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
 
 __Purpose.__ 
 
@@ -296,15 +327,19 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
-* Entwicklung von Konnektoren Standardlösung
+* Entwicklung von Konnektoren meist Standardlösung
 * 
 
 # Konzeption
 
 * Konzept eines _Cell Controller_ als Basis (vgl. [@Ayatollahi2013;@Fallah2016a])
-* Blackboard @Pauker2013
+    * kein Feldbus => keine Koppler (vgl. @Grigoriev2016)
+    * kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
+    * Motortreiber als Teil des Surrogate
+    * Echtzeit: SPS und Motortreiber auf einer Platine
 * Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <->  Maschine => Server <-> Adapter <-> Maschine
+    * Server <->  Maschine => Server <-> Adapter <-> Maschine ?
+* Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
 OPC4Factory:
