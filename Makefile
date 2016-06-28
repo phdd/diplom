@@ -21,7 +21,6 @@ NON_LATEX_ARGS = \
 	appendix.md \
 	style/literatur.md \
 	--number-sections \
-	--default-image-extension=png \
 	--csl style/ieee.csl \
 
 FIGURES = $(wildcard figures/*.svg)
@@ -55,6 +54,7 @@ html: figures-png
 		--self-contained \
 		--output=document.html \
 		--css=style/html.css \
+		--default-image-extension=svg \
 
 epub: figures-png
 	pandoc \
@@ -64,6 +64,7 @@ epub: figures-png
 		--write=epub3 \
 		--output=document.epub \
 		--epub-stylesheet=style/epub.css \
+		--default-image-extension=png \
 
 presentation: figures-png
 	pandoc \

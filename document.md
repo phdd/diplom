@@ -35,7 +35,13 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 
 * Ebenen der Automatisierungspyramide
     * MES
-    * ...
+    * ... 
+
+![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
+
+[^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB)
+
+![Grundstruktur flexibler Automation @Linke2015](figures/grundstruktur-der-flexiblen-automation "Grundstruktur flexibler Automation")
 
 Value-Stream Mapping (VSM) ist eine Methode der _Lean Production_, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. 
 Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts @Meyer2009.
@@ -59,6 +65,8 @@ In einer _Flexible Manufacturing Cell_ (FMC) befinden sich zwei oder mehr CNC-Ma
 
 Aazam 2016 @Aazam2016
 
+Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
+
 ## Informationsmodelle in der Fertigungsindustrie
 
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
@@ -76,7 +84,9 @@ Die _OPC Unified Architecture_ (OPC UA) ist ein semantischer Kommunikations- und
 > * Scalable
 > * But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
 
-![OPC UA Übersicht](figures/opc-ua-architecture "OPC UA Übersicht")
+![OPC UA Übersicht[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht")
+
+[^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
 
 Die definierte Semantik des Address Space erlaubt nicht nur anspruchsvolle M2M-Kommunikation.
 Sie ermöglicht dem Operator einer FMC Strukturinformationen einzusehen und die Automatisierungskomponenten zu kontrollieren @Ayatollahi2013.
@@ -184,16 +194,6 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 ### Kontrollstrukturen mit OPC UA
 
-OPC4Factory
-
-Im Projekt _OPC4Factory_ der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
-Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
-Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden[^OPC4Factory].
-
-[^OPC4Factory]: <https://www.ift.at/forschung/foschungsprojekte/opc4factory>
-
-see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
-
 Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
 
 __Purpose.__ In der Arbeit von Ayatollahi et al. wird der Prototyp eines OPC UA Servers, mit der Fähigkeit Maschinen innerhalb einer FMC zu steuern, vorgestellt.
@@ -274,15 +274,30 @@ __Practical Implications.__
 
 __Originality/Value.__
 
-## Zusammenfassung 
 
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des _RetroNet_-Projekts.
 Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Konnektoren für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform.
 Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert.
-Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen @FraunhoferIPK2016.
+Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen @FraunhoferIPK2016. <!-- Keine Publikationen ... -->
 
-* piCASSO <http://www.produktionsforschung.de/verbundprojekte/vp/index.htm?TF_ID=121&VP_ID=3554>
-* BaZMod <http://www.produktionsforschung.de/verbundprojekte/vp/index.htm?TF_ID=121&VP_ID=3562>
+Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben.
+Im Projekt _pICASSO_ werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht @FraunhoferIPK2016a.
+
+Im Projekt _OPC4Factory_ der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
+Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
+Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden[^OPC4Factory].
+
+[^OPC4Factory]: [www.ift.at/forschung/foschungsprojekte/opc4factory](https://www.ift.at/forschung/foschungsprojekte/opc4factory)
+see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
+
+[@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
+
+## Zusammenfassung 
+
+* TODO Projekte zusammenfassen & gegeneinander abgrenzen
+* Schnittstellenproblematik immer Teil des Problems
+* Entwicklung von Konnektoren Standardlösung
+* 
 
 # Konzeption
 
