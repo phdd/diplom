@@ -28,7 +28,7 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
     * Fertigungsindustrie
     * CNC-Maschinen
 * unbetrachtet
-    * Konnektoren zu proprietären CNC-Protokollen
+    * Adapter für proprietären CNC-Protokollen
 
 ## Methode und Aufbau
 
@@ -42,7 +42,14 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
     * MES
     * ... 
    
-Feldbusse (EtherCAT, etc.)
+### Kommunikation
+
+Zusammenfassung von @Pauker2013
+
+* SPS mit digital inputs/outputs (DI/DO)
+* Feldbusse (EtherCAT, ProfiBUS, CAN, etc.) => Adapter
+    * trotz ICE 61158 untersch. Standards
+* Ethernet Varianten (TCP, RPC, OPC)
 
 ![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
 
@@ -55,7 +62,7 @@ Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzei
 
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
 
-In einer flexiblen Fertiungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein flexibles Fertigungssystem (FFS) bilden @Groover2008.
+In einer flexiblen Fertigungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein flexibles Fertigungssystem (FFS) bilden @Groover2008.
 
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
@@ -69,6 +76,7 @@ Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformat
 * MAS, Holonic [@Leitao2009;@Fallah2016]
 * SOA [@Meyer2010;@Fallah2016a]
 * Blackboard [@Monostori2006;@Pauker2013]
+* RAMI4.0 @Adolphs2015
 
 ### Fog-Computing im Kontext von CPPS
 
@@ -268,63 +276,43 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 ## Information Architecture for Reconfigurable production systems @Pauker2013
 
-__Purpose.__ 
+![Vergleich von FFZ-Architekturen aus @Pauker2013](figures/vgl-arch-ffz "Vergleich von FFZ-Architekturen aus @Pauker2013")
 
-__Design/Methodology/Approach.__
-
-__Findings.__
-
-__Research Limitations/Implications.__
-
-__Practical Implications.__
-
-__Originality/Value.__
+* Purpose
+    * Rekonfiguration einer FFZ zur Laufzeit (Losgrößenproblematik)
+    * Design einer Ḱommunikationsarchitektur für die Komponenten einer FFZ
+    * wissensch. Experimente mit rekonfigurierbaren Fertigungssystemen
+* Design/Methodology/Approach
+    * VDMA 34180 als Arch.-Ref. für FFZ betrachtet
+    * Blackboard-Architektur für Kommunikation
+        * zentrale Datenbasis
+        * keine Kontrolleinheit (vgl. Blackboard in intelligenten Systemen)
+        * Konsistenz durch R/W-Locks
+    * Master/Slave-Prinzip für Workflow und Job-Delegation (Master-Worker-Pattern)
+    * Case-Study durch FFZ mit zwei Maschinen und einem Roboter
+* Findings
+    * Reduktion v. Komplexität der Topologie => geringerer Konfigurationsaufwand
+* Research Limitations/Implications
+    * 
+* Practical Implications
+    * Hinzufügen/löschen von HW-/SW-Komponenten ohne Überarbeiten der Informationsarch./-modelle
+* Originality/Value
+    * 
 
 ## A systematic approach to OPC UA information model design @Pauker2016
 
-__Purpose.__ 
-
-__Design/Methodology/Approach.__
-
-__Findings.__
-
-__Research Limitations/Implications.__
-
-__Practical Implications.__
-
-__Originality/Value.__
+MDD (UML to OPC UA, MTConnect, etc.)
 
 ## Multi Agent based Control Architectures @Fallah2016
 
-__Purpose.__ 
-
-__Design/Methodology/Approach.__
-
-__Findings.__
-
-__Research Limitations/Implications.__
-
-__Practical Implications.__
-
-__Originality/Value.__
+nicht in's Konzept => notwendig?
 
 ## Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
 
-__Purpose.__ 
-
-__Design/Methodology/Approach.__
-
-__Findings.__
-
-__Research Limitations/Implications.__
-
-__Practical Implications.__
-
-__Originality/Value.__
-
+<!-- Projekte -->
 
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des _RetroNet_-Projekts.
-Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Konnektoren für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform.
+Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform.
 Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert.
 Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen @FraunhoferIPK2016. <!-- Keine Publikationen ... -->
 
@@ -344,7 +332,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
-* Entwicklung von Konnektoren meist Standardlösung
+* Entwicklung von Adaptern meist Standardlösung
 * 
 
 # Konzeption
@@ -354,9 +342,10 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
     * Motortreiber als Teil des Surrogate
     * Echtzeit: SPS und Motortreiber auf einer Platine => Echtzeit (OPC UA kann's nicht) kein Problem 
+    * Rekonfigurierbare FFZ @Pauker2013
 * Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
     * Server <->  Maschine => Server <-> Adapter <-> Maschine ?
-    * Smoothieboard/Embedded (soft-)SPS als "Konnektor"/Adapter zu Maschine
+    * Smoothieboard/Embedded (soft-)SPS als Adapter zu Maschine
 * Wiederverwendung @Ayatollahi2013
     * des Informationsmodells
     * des Flow-Charts für die Server-Logik
@@ -372,7 +361,7 @@ OPC4Factory:
 
 # Implementation
 
-* Smoothieboard als Maschinen-Adapter/-Konnektor
+* Smoothieboard als Maschinen-Adapter
 * open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
 
 ## Zusammenfassung
