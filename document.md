@@ -28,7 +28,7 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
     * Fertigungsindustrie
     * CNC-Maschinen
 * unbetrachtet
-    * TODO
+    * Konnektoren zu proprietären CNC-Protokollen
 
 ## Methode und Aufbau
 
@@ -55,7 +55,10 @@ Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzei
 
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
 
-In einer _Flexible Manufacturing Cell_ (FMC) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein _Flexible Manufacturing System_ (FMS) bilden @Groover2008.
+In einer flexiblen Fertiungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein flexibles Fertigungssystem (FFS) bilden @Groover2008.
+
+Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
+Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
 ## Cyber-physische Produktionssysteme
 
@@ -75,8 +78,7 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 ## Informationsmodelle in der Fertigungsindustrie
 
-Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
-Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
+Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 
 ### OPC Unified Architecture
 
@@ -95,7 +97,7 @@ Die _OPC Unified Architecture_ (OPC UA) ist ein semantischer Kommunikations- und
 [^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
 
 Die definierte Semantik des Address Space erlaubt nicht nur anspruchsvolle M2M-Kommunikation.
-Sie ermöglicht dem Operator einer FMC Strukturinformationen einzusehen und die Automatisierungskomponenten zu kontrollieren @Ayatollahi2013.
+Sie ermöglicht dem Operator einer FFZ Strukturinformationen einzusehen und die Automatisierungskomponenten zu kontrollieren @Ayatollahi2013.
 
 Hoppe 2014 @Hoppe2014
 
@@ -115,13 +117,20 @@ Hoppe 2014 @Hoppe2014
 > neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber
 > eine gute Grundlage zum Informationsaustausch. 
 
-* MTConnect (RO Standard for Process Information in CNC) @Vijayaraghavan2008
-* STEP-NC [@Hardwick2007;@Xu2006]
+### MTConnect 
 
+* RO Standard for Process Information in CNC @Vijayaraghavan2008
+
+Wikipedia:
+
+> Data from shop floor devices is presented in XML format, and is retrieved from information providers, called Agents, using Hypertext Transfer Protocol (HTTP) as the underlying transport protocol. MTConnect provides a RESTful interface, which means the interface is stateless. No session must be established to retrieve data from an MTConnect Agent, and no logon or logoff sequence is required (unless overlying security protocols are added which do). Lightweight Directory Access Protocol (LDAP) is recommended for discovery services.
+
+=> MTConnect-OPC UA Companion Specification 
+ 
 ## Kontrolle & Überwachung von Produktionsmaschinen
 
 * CNC
-* STEP-NC
+* STEP-NC [@Hardwick2007;@Xu2006]
 * IEC 61499 Function Blocks
 
 ## Zusammenfassung
@@ -240,18 +249,22 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
     * OPC UA Server für CNC innerhalb einer flexiblen Fertigungszelle
     * semantische Kommunikationsschnittstelle
 * Design/Methodology/Approach
-    * OPC UA Methoden für Maschinenbefehle
+    * Implementierung eines OPC UA Informationsmodells für CNC-Maschinen
+    * Methoden des Informationsmodells für Instruktionen verwendet
     * Kommunikation zw. Server und Maschine via propriät. Direct Numerical Control (DNC)
     * Case-Study an CNC-Drehmaschine & Industrieroboter
     * C++ UA Server SDK, .NET UA Client SDK (Unified Automation)
+    * OPC UA Client mit Kontrollfunktionalität
 * Findings
-    * 
+    * OPC UA ist eine geeignete Technologie für erweiterte Maschinenanbindung
+    * Problem der Granularität des Modells (Ockhams Rasiermesser, KISS), 1-zu-1 Mapping ungeeignet
 * Research Limitations/Implications
-    * 
+    * Definition eines Standard-Informationsmodells benötigt (vgl. MTConnect-OPC UA Comp.)
+    * Anforderungen (horiz./vert. Integr.) für bestehende Standards (MES)
 * Practical Implications
-    * 
 * Originality/Value
     * OPC UA Methoden als Steuerungsschnittstelle
+    * dynamische (Runtime) Werkzeugrepräsentation im OPC UA Adressraum
 
 ## Information Architecture for Reconfigurable production systems @Pauker2013
 
@@ -340,9 +353,14 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * kein Feldbus => keine Koppler (vgl. @Grigoriev2016)
     * kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
     * Motortreiber als Teil des Surrogate
-    * Echtzeit: SPS und Motortreiber auf einer Platine
+    * Echtzeit: SPS und Motortreiber auf einer Platine => Echtzeit (OPC UA kann's nicht) kein Problem 
 * Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
     * Server <->  Maschine => Server <-> Adapter <-> Maschine ?
+    * Smoothieboard/Embedded (soft-)SPS als "Konnektor"/Adapter zu Maschine
+* Wiederverwendung @Ayatollahi2013
+    * des Informationsmodells
+    * des Flow-Charts für die Server-Logik
+* evtl. MTComponentType aus 5.5 der MTConnect-OPC UA Companion Specification
 * Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
@@ -353,6 +371,9 @@ OPC4Factory:
 ## Zusammenfassung
 
 # Implementation
+
+* Smoothieboard als Maschinen-Adapter/-Konnektor
+* open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
 
 ## Zusammenfassung
 
