@@ -67,23 +67,6 @@ In einer flexiblen Fertigungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschi
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
-## Cyber-physische Produktionssysteme
-
-* Überblick: Wang 2015 @Wang2015
-
-### Architekturstile und -muster
-
-* MAS, Holonic [@Leitao2009;@Fallah2016]
-* SOA [@Meyer2010;@Fallah2016a]
-* Blackboard [@Monostori2006;@Pauker2013]
-* RAMI4.0 @Adolphs2015
-
-### Fog-Computing im Kontext von CPPS
-
-Aazam 2016 @Aazam2016
-
-Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
-
 ## Informationsmodelle in der Fertigungsindustrie
 
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
@@ -134,12 +117,29 @@ Wikipedia:
 > Data from shop floor devices is presented in XML format, and is retrieved from information providers, called Agents, using Hypertext Transfer Protocol (HTTP) as the underlying transport protocol. MTConnect provides a RESTful interface, which means the interface is stateless. No session must be established to retrieve data from an MTConnect Agent, and no logon or logoff sequence is required (unless overlying security protocols are added which do). Lightweight Directory Access Protocol (LDAP) is recommended for discovery services.
 
 => MTConnect-OPC UA Companion Specification 
- 
+
 ## Kontrolle & Überwachung von Produktionsmaschinen
 
 * CNC
 * STEP-NC [@Hardwick2007;@Xu2006]
 * IEC 61499 Function Blocks
+
+## Cyber-physische Produktionssysteme
+
+* Überblick: Wang 2015 @Wang2015
+
+### Architekturstile und -muster
+
+* MAS, Holonic [@Leitao2009;@Fallah2016]
+* SOA [@Meyer2010;@Fallah2016a]
+* Blackboard [@Monostori2006;@Pauker2013]
+* RAMI4.0 @Adolphs2015
+
+### Fog-Computing im Kontext von CPPS
+
+Aazam 2016 @Aazam2016
+
+Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 ## Zusammenfassung
 
@@ -276,28 +276,55 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 ## Information Architecture for Reconfigurable production systems @Pauker2013
 
-![Vergleich von FFZ-Architekturen aus @Pauker2013](figures/vgl-arch-ffz "Vergleich von FFZ-Architekturen aus @Pauker2013")
+![Vergleich der Architekturen von Fertigungszellen aus @Pauker2013](figures/vgl-arch-ffz)
 
 * Purpose
+    * Montage und Konfiguration von FFZ bzgl. Informationsebene vereinfachen
+    * Design von Informationsmodell und zentralem Daten-Cache
+    * Design einer Kommunikationsarchitektur für die Komponenten einer FFZ
     * Rekonfiguration einer FFZ zur Laufzeit (Losgrößenproblematik)
-    * Design einer Ḱommunikationsarchitektur für die Komponenten einer FFZ
     * wissensch. Experimente mit rekonfigurierbaren Fertigungssystemen
 * Design/Methodology/Approach
     * VDMA 34180 als Arch.-Ref. für FFZ betrachtet
+        * beschreibt Kommunikationsarchitekturen für _Robotized Manufacturing Cells_ (RMC)
+        * Schwerpunkt auf Werkstücklogistik mit Robotern
     * Blackboard-Architektur für Kommunikation
         * zentrale Datenbasis
         * keine Kontrolleinheit (vgl. Blackboard in intelligenten Systemen)
+        * XML als Datenformat
+            * Parameter für Kommunikation (IP, Port)
+            * Maschinenstatus 
+            * Programm (Ident., Status)
+            * Informationen zu angeschlossenen Geräten
         * Konsistenz durch R/W-Locks
+        * Sequenzkontrollkomponente legt Handlungsweisungen auf Blackboard ab
+        * _Microsoft Visual Programming Language_ (VPL) als Sequenzdefinitionsformat (Datenflussdiagramm)
+        * Maschinen und Sequenzkontrolle als aktive _Knowledge Sources_ holen sich diese Instruktionen
     * Master/Slave-Prinzip für Workflow und Job-Delegation (Master-Worker-Pattern)
-    * Case-Study durch FFZ mit zwei Maschinen und einem Roboter
+    * Ethernet-basierte Kommunikationsschnittstellen
+    * Adapter zu den Maschinen-Controllern (via Socket an Cell-Controller)
+    * Fallstudie durch FFZ mit zwei Fräsen und einem Roboter
 * Findings
-    * Reduktion v. Komplexität der Topologie => geringerer Konfigurationsaufwand
+    * Reduktion von Komplexität der Topologie => geringerer Konfigurationsaufwand
+    * VDMA 34180 nutzt DI/DO für Kommunikation => Konfiguration auf HW-Ebene => zu inflexibel für rekonfigurierbare RMCs
+    * Fallstudie zeigt die Eignung der Architektur für FFZ
+    * Blackboard geeignet bei notwendiger Austauschbarkeit der Komponenten
 * Research Limitations/Implications
-    * 
+    * Schwerpunkt auf Blackboard-Informationscache 
+    * Eignung von VPL für Datenflussdefinition zu untersuchen
+    * Performanz-Probleme mit XML als Blackboard-Backend (SQLite wird diskutiert)
+        * R/W-Locks
+        * Parsen der Datei 
+    * Socket-basierte Kommunikation Problematisch
+        * proprietäre Kommunikationsprotolle => Adapter immer notwendig 
+        * OPC UA Server für beteiligte Komponenten
 * Practical Implications
     * Hinzufügen/löschen von HW-/SW-Komponenten ohne Überarbeiten der Informationsarch./-modelle
+    * _Plug & Produce_ für FFZ wird möglich
+    * Einbinden einer Komponente erfordert Adapter
 * Originality/Value
-    * 
+    * Blackboard den intelligenten Systemen entlehnt
+    * Definition der Sequenz für den Cell-Controller
 
 ## A systematic approach to OPC UA information model design @Pauker2016
 
