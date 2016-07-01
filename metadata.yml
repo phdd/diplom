@@ -18,4 +18,11 @@ presentation: Verteidigung - Diplomarbeit
 theme:        sky
 transition:   convex
 revealjs-url: http://lab.hakim.se/reveal-js
+
+# Crossref Filter
+secPrefix: Abschnitt
+chapPrefix: Kapitel
+tblPrefix: Tabelle
+figPrefix: Abbildung
+lstPrefix: Listing
 ...

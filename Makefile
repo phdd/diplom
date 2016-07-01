@@ -5,6 +5,7 @@ ARGS = \
 	--from=markdown \
 	--standalone \
 	--bibliography=bibliography.bib \
+	--filter pandoc-crossref \
 	--smart \
 
 LATEX_ARGS = \

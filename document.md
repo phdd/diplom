@@ -106,7 +106,7 @@ Wikipedia:
 
 => MTConnect-OPC UA Companion Specification 
 
-Weitere Standards...
+sonstige Standards...
 
 ## Kontrolle & Überwachung von Produktionsmaschinen
 
@@ -337,28 +337,64 @@ __Lösung:__ OPC UA Server für Komponenten einer FFZ
 ## A systematic approach to OPC UA information model design @Pauker2016
 
 __Problem:__ OPC UA ist nicht alleiniger Standard für Informationsmodelle  
-__Lösung:__ Informationsmodell abstrahieren
+__Lösung:__ Informationsmodelle modellgetrieben entwickeln
+
+![Transformationsprozess PIM zu PSM aus @Pauker2016](figures/transformation-process-pim-to-psm){#fig:transformation-process-pim-to-psm}
+
+* MOF?
+* M0 == FFS
+* FFS repräs. durch PIM, definiert in UML auf M2  
+  => plattformunabh. Modellierung auf M1
+* PIM => PSM: ein PIM-Elem. entspricht einem PSM-Elem. pro PSM (OPC UA, MTConnect, etc.)
+* ein PSM kann dann in untersch. Sprachen (C#, C++, ...) übersetzt werden
+* M3 Meta-Metamodell beschr. Sprache für spez. Metamodelle auf M2 => Interoperabilität zw. M2-Modellen
+
+---
 
 * Purpose
-    * 
+    * UML als einheitliche Modellierungssprache in der Softwareentwicklung, untersch. Modellierungssprachen in der Fertigungsindustrie
+    * Model und Code müssen für jede Sprache separat entwickelt und gewartet werden => hoher manueller Aufwand
+    * Konzept modellgetriebenen Designs (MDA) auf Fertigungsindustrie übertragen
+        * automatisiertes Ableiten plattformspezifischer Modelle von plattformunabhängigen
+    * Spezifikation eines Prozesses mit dem virtuelle Repräsentationen von I4.0-Komponenten generiert werden können
+        * Diagramme und Tools für Modellierung und Code-Generierung
+        * OPC UA Informationsmodelle von Systemanforderungen zu Codegenerierung und Deployment
+    * RAMI4.0 Konformität
 * Design/Methodology/Approach
-    * dem RAMI4.0-Referenzmodell entnommen
-        * Anforderungen für Komponenten
-        * virtuelle Repräsentation der Komponente
-        * SOA-Kommunikation
     * erfassen statischer und dynamischer (Verhalten) Aspekte von Produktionssystemen
-    * systematischer Ansatz für OPC UA Informationsmodelle (hier: Zieltechnologie)
+    * systematischer Ansatz für Modelltransformation zu OPC UA Informationsmodelle (hier: Zieltechnologie)
+    * wichtigste plattformspez. Technologien untersucht => MDA Workflow definiert
+        => Restriktionen für PIM definiert  
+        => Restricted Platform Independent Model (R-PIM)
+        * z.B.: Mehrfachvererbung in UML + nicht mgl. mit C#
+        * z.B.: notwendige Attribute der OPC UA Knoten (NodeId, NodeClass, BrowseName, DisplayName)
+        * untersch. zu MDA liegt in diesen Restriktionen
     * generisch bzgl. Zielmodell (OPC UA, MTConnect, etc.) <= Systemanalyse und -design mit der UML
-    * Transformation klassischer Produktionssysteme für CPPS
-    * 
+        1. Komponenten- und Anwendungsfalldiagramme zur Beschreibung der Domäne
+            * manuell, da Wissen von Domänenexperten/Systemnutzern benötigt
+            * Komponentendiagramm: Systemgrenzen und Subsysteme identifizieren
+            * Anwendungsfalldiagramme: abstrakte Systemfunktionalität
+        2. Domänenwissen => R-PIM
+            * Klassendiagramme
+            * Zustandsdiagramme
+        3. R-PIM => Zieltechnologie
+            * Adressraummodell
+        4. Zieltechnologie => Code-Gerüst
+        5. Implementierung der Logik in Komponenten (API)
+        6. Deployment eines ausführbaren Artefakts
 * Findings
-    * 
+    * fehlende APIs/Tools => noch viel manueller Aufwand
 * Research Limitations/Implications
-    * 
+    * Definition eines Meta-Metamodells für Restriktionen steht noch aus
+    * manuelle R-PIM => PSM Transformation (exist. Konzept erlaubt nur statischer Aspekte des Address Space)
+    * TU Wien arbeitet an Transf. dynamischer Aspekte => Guarded State Machines aus OPC UA Spec
+    * vorerst nur OPC UA
+    * Verbesserung der CIM-Definition
+    * Ontologien als Wissensbasen statt Experten
 * Practical Implications
-    * 
+    * Adressraummodellierung, Logikimplementierung zum Großteil noch händisch (fehlende Tools und APIs)
 * Originality/Value
-    * 
+    * MDA-Prozess für generische Informationsmodelle durch UML
 
 ## Multi Agent based Control Architectures @Fallah2016
 
