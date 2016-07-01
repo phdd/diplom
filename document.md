@@ -21,7 +21,7 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 ## Zielsetzung
 
 ## Methode und Aufbau
-    
+
 # Grundlagen
 
 ## Produktion und deren Automatisierung
@@ -127,6 +127,8 @@ Was ist ein CPS? Übertragung auf Fertigungsind. => CPPS?
 * MAS, Holonic [@Leitao2009;@Fallah2016]
 * Blackboard [@Monostori2006;@Pauker2013]
 * RAMI4.0 @Adolphs2015
+
+### Cloud Manufacturing
 
 ### Fog-Computing im Kontext von CPPS?
 
@@ -462,7 +464,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * Fertigungsindustrie
     * CNC-Maschinen
 * unbetrachtet
-    * Adapter für proprietären CNC-Protokollen
+    * Adapter für proprietäre CNC-Protokolle (DNC)
 
 <!-- END Rahmen dieser Arbeit -->
 
@@ -490,6 +492,15 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 OPC4Factory:
 
 > OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden.
+
+* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015
+* Kruchten 4+1
+
+## Virtuelle Maschinenrepräsentation
+
+## Kommunikations- & Informationsmodell
+
+## Systemintegration
 
 ## Zusammenfassung
 
