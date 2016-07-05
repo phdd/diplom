@@ -6,15 +6,12 @@ services:
 
 before_install:
   - docker pull ivotron/pandoc
-  - apt-get update && apt-get install inkscape texlive-xetex texlive-lang-german biber
 
 script:
   - docker run -it -v `pwd`:/root/ --entrypoint /bin/bash ivotron/pandoc
+  - apt-get update && apt-get install inkscape texlive-xetex texlive-lang-german biber
   - cd /root/
-  - make html
-  - make epub
-  - make pdf
-  - make presentation
+  - make all
 
 after_script:
   - exit
