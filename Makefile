@@ -43,6 +43,7 @@ latex: compile-appendix-tex
 		--listings \
 		--table-of-contents \
 		--output=document.tex \
+		--default-image-extension=pdf \
 
 html: figures-png
 	pandoc \
@@ -98,6 +99,7 @@ compile-appendix-tex:
 		appendix.md \
 		--listings \
 		--variable=documentclass:report \
+		--default-image-extension=pdf \
 		--output=appendix.tex \
 
 figures-pdf: $(FIGURES:%.svg=%.pdf)

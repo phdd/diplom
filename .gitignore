@@ -110,3 +110,4 @@ sympy-plots-for-*.tex/
 .idea
 *.iml
 *.sublime-workspace
+.bash_history
