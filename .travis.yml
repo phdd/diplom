@@ -4,17 +4,13 @@ language: generic
 services:
   - docker
 
-before_install:
-  - docker pull ivotron/pandoc
+before_script:
+  - docker build -t document-build-container .
 
 script:
-  - docker run -it -v `pwd`:/root/ --entrypoint /bin/bash ivotron/pandoc
-  - apt-get update && apt-get install inkscape texlive-xetex texlive-lang-german biber
-  - cd /root/
-  - make all
+  - docker run -v `pwd`:/source document-build-container
 
-after_script:
-  - exit
+after_success:
   - bash deploy.sh
 
 env:

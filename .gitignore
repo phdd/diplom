@@ -111,3 +111,5 @@ sympy-plots-for-*.tex/
 *.iml
 *.sublime-workspace
 .bash_history
+.config
+.gnome2
