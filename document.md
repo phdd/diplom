@@ -174,6 +174,8 @@ Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere
 __Originality/Value.__ 
 Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
+<!-- TODO Weitere Datenquellen moderner Maschinen ansehen -->
+
 ## An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
 
 __Problem:__ Kontrolle der Maschine durch SPS mit CNC auf Terminal-PC inflexibel und teuer  
@@ -454,7 +456,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
 * Entwicklung von Adaptern meist Standardlösung
-* 
+* Kosten => Remote Maintenance?
 
 # Konzeption
 
@@ -489,16 +491,21 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
+* Einsatz von Rollen (Ausblick?)
+
 OPC4Factory:
 
 > OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden.
 
 * Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015
-* Kruchten 4+1
+* Kruchten 4+1?
+* arc42?
 
 ## Virtuelle Maschinenrepräsentation
 
 ## Kommunikations- & Informationsmodell
+
+@Pauker2013 Komponentengranularität bis zur Achse (intelligente Maschinenteile)
 
 ## Systemintegration
 
