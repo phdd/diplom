@@ -20,6 +20,12 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 
 ## Zielsetzung
 
+Aufteilung nach Introduction von @Lee2006
+
+* Zweck
+* Voraussetzungen
+* Wirkung
+
 ## Methode und Aufbau
 
 # Grundlagen
@@ -145,7 +151,9 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Forschungsstand
 
-## Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
+## Maschinen- & Betriebsdatenerfassung
+
+### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 __Problem:__ Datenerfassung (=> Prozessüberwachung) bei Altmaschinen nicht vorhanden  
 __Lösung:__ unabhängige minimalinvasive Sensorik
@@ -174,9 +182,42 @@ Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere
 __Originality/Value.__ 
 Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
-<!-- TODO Weitere Datenquellen moderner Maschinen ansehen -->
+### Diss: In-process tool condition monitoring systems in CNC turning operations @Lee2006
 
-## An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
+* Purpose
+    * Online Tool Condition Monitoring (TCM) bei CNC-Drehmaschinen mittels
+        * Signal-Dekomposition
+        * statischer Datenanalysen
+        * neuronaler Netze
+            * Untersuchung vieler versch. Netzwerkstrukturen => Optimierung für TCM
+    * Schwerpunkt auf Analyse indirekter Messungen von Maschinensignalen
+* Design/Methodology/Approach
+    * Sensordaten durch Wavelet-Transformation in versch. Komponenten aufgeteilt, Quellen:
+        * dreidimensionales Accelerometer
+        * Schallemissionssensor
+    * statistische Elimination maschinenspezifischer Effekte auf Sensordaten => Filter
+    * statistische Signifikanzprüfung der Komponenten
+    * Entwurf zweier Systeme basierend auf signifikanten Komponenten
+        1. multipler linearer Regression
+        2. künstlichen neuronalen Netzen
+    * Fallstudie
+* Findings
+    * 12,6%ige Verbesserung der KNN-Vorhersagen durch Filter
+    * 90% Genauigkeit bei multipler Regression
+    * 97% Genauigkeit bei KNN
+* Research Limitations/Implications
+* Practical Implications
+    * Reduktion von Maschinenstillstand durch verbesserte Vorhersage des Werkzeugausfalls
+      * Minimierung von Ausschuss
+      * Kostenreduktion
+* Originality/Value
+    * Umfassende Untersuchung der Forschung zu MDE (Tabelle 2.1) und Entscheidungssystemen
+
+<!-- Werkstückerkennung -->
+
+## Rechnergestützte numerische Steuerung
+
+### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
 
 __Problem:__ Kontrolle der Maschine durch SPS mit CNC auf Terminal-PC inflexibel und teuer  
 __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
@@ -214,7 +255,7 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 [^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.' @Schnell1999.
 [^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
 
-## Remote real-time CNC machining for web-based manufacturing @Wang2004 
+### Remote real-time CNC machining for web-based manufacturing @Wang2004 
 
 __Problem:__ Maschine ist nur am Terminal kontrollierbar; Datenerfassung und Auswertung nur vor Ort
 __Lösung:__ Entfernter Zugriff
@@ -257,7 +298,9 @@ Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung a
 Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
-## Information Architecture for Reconfigurable production systems @Pauker2013
+## Methoden und Architekturen für CPPS
+
+### Information Architecture for Reconfigurable production systems @Pauker2013
 
 __Problem:__ Betrachtungen des Retrofitting bzgl. Kontrolle und Überwachung einzelner Maschine, Integration?  
 __Lösung:__ flexibel konfigurierbarer Verbund miteinander kommunizierender Maschinen => FFZ
@@ -312,7 +355,7 @@ __Lösung:__ flexibel konfigurierbarer Verbund miteinander kommunizierender Masc
     * Blackboard den intelligenten Systemen entlehnt
     * Definition der Sequenz für den Cell-Controller
     
-## Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
+### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
 
 __Problem:__ Socket-basierte, proprietäre Maschinenkommunikation (Adapter)
 __Lösung:__ OPC UA Server für Komponenten einer FFZ
@@ -338,7 +381,7 @@ __Lösung:__ OPC UA Server für Komponenten einer FFZ
     * OPC UA Methoden als Steuerungsschnittstelle
     * dynamische (Runtime) Werkzeugrepräsentation im OPC UA Adressraum 
 
-## A systematic approach to OPC UA information model design @Pauker2016
+### A systematic approach to OPC UA information model design @Pauker2016
 
 __Problem:__ OPC UA ist nicht alleiniger Standard für Informationsmodelle  
 __Lösung:__ Informationsmodelle modellgetrieben entwickeln
@@ -400,7 +443,9 @@ __Lösung:__ Informationsmodelle modellgetrieben entwickeln
 * Originality/Value
     * MDA-Prozess für generische Informationsmodelle durch UML
 
-## Multi Agent based Control Architectures @Fallah2016
+## Stuff we may know
+
+### Multi Agent based Control Architectures @Fallah2016
 
 nicht in's Konzept => notwendig?
 
@@ -417,7 +462,7 @@ nicht in's Konzept => notwendig?
 * Originality/Value
     * 
 
-## Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
+### Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
 
 * Purpose
     * 
@@ -431,6 +476,8 @@ nicht in's Konzept => notwendig?
     * 
 * Originality/Value
     * 
+
+## Zusammenfassung 
 
 <!-- Projekte -->
 
@@ -450,8 +497,6 @@ Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Kompon
 see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 [@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
-
-## Zusammenfassung 
 
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
