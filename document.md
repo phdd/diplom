@@ -102,6 +102,8 @@ Hoppe 2014 @Hoppe2014
 > neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber
 > eine gute Grundlage zum Informationsaustausch. 
 
+Alternative: Woopsa (http://www.woopsa.org/)
+
 ### MTConnect 
 
 * RO Standard for Process Information in CNC @Vijayaraghavan2008
@@ -151,7 +153,7 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Forschungsstand
 
-## Maschinen- & Betriebsdatenerfassung
+## Maschinendatenerfassung & -analyse
 
 ### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
@@ -182,6 +184,9 @@ Außerdem werden Prinzipien wie VSM echtzeitfähig und ermöglichen eine höhere
 __Originality/Value.__ 
 Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die autonome Aggregation von Informationen unzugänglicher Altmaschinen.
 
+__Problem:__ ein Sensor => zu wenig Infos  
+__Lösung:__ verschiedene Sensoren (auch für Fusion) einsetzen
+
 ### Diss: In-process tool condition monitoring systems in CNC turning operations @Lee2006
 
 * Purpose
@@ -206,16 +211,51 @@ Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die 
     * 90% Genauigkeit bei multipler Regression
     * 97% Genauigkeit bei KNN
 * Research Limitations/Implications
+    * ausschließliche Betrachtung von TCM 
 * Practical Implications
     * Reduktion von Maschinenstillstand durch verbesserte Vorhersage des Werkzeugausfalls
       * Minimierung von Ausschuss
       * Kostenreduktion
 * Originality/Value
-    * Umfassende Untersuchung der Forschung zu MDE (Tabelle 2.1) und Entscheidungssystemen
+    * Umfassende Untersuchung aktueller Forschung zu MDE (Tabelle 2.1) und Entscheidungssystemen
+    
+### Machine-readable data carriers – a brief introduction to automatic identification and data capture @Furness2000
 
-<!-- Werkstückerkennung -->
+__Problem__: ausschließliche Betrachtung von TCM (Wartung) => Aber was wird wie bearbeitet?  
+__Lösung__: Werkstückidentifikation/-erkennung für Verknüpfung operativer Schritte
+
+* Purpose
+    * 
+* Design/Methodology/Approach
+    * 
+* Findings
+    * 
+* Research Limitations/Implications
+    * 
+* Practical Implications
+    * 
+* Originality/Value
+    * 
+
+### Zusammenfassung
+
+Ohne Carrier?
+
+Data-Collection/Reasoning Stuff @Downey2016
+
+Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
+
+* Umfangreiche Recherchen zu bestehender Forschung durch @Teti2010
+    * Werkzeugzustand
+    * Spaneigenschaften
+    * Prozesszustand
+    * Werkstückbeschaffenheit
+
 
 ## Rechnergestützte numerische Steuerung
+
+__Problem__: Wissen über operative Schritte und Werkstück verfügbar - Umsetzung der Schritte?  
+__Lösung__: Kontrolle der Maschine
 
 ### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
 
@@ -298,7 +338,7 @@ Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung a
 Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
-## Methoden und Architekturen für CPPS
+## Architekturen & Methoden für CPPS
 
 ### Information Architecture for Reconfigurable production systems @Pauker2013
 

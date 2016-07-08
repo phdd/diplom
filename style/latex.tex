@@ -18,6 +18,13 @@
 
 \usepackage{xspace}
 
+% Booktabs styling
+\usepackage{rotating,multirow,longtable,booktabs}
+\setlength\heavyrulewidth{.5pt}% Thick top and bottom lines
+\setlength\lightrulewidth{.3pt}% Thick top and bottom lines
+\let\originaltoprule\toprule
+\renewcommand{\toprule}{\originaltoprule[0pt]}% No top rule
+
 \makenomenclature
 
 %Schriften
