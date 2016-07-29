@@ -588,6 +588,10 @@ OPC4Factory:
 
 ## Virtuelle Maschinenrepräsentation
 
+* Service-/Protokolllayer (OPC UA)
+* CPS-Layer, Hardwareanbindung
+* 
+
 ## Kommunikations- & Informationsmodell
 
 @Pauker2013 Komponentengranularität bis zur Achse (intelligente Maschinenteile)
