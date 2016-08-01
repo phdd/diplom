@@ -124,21 +124,27 @@ sonstige Standards...
 
 ## Cyber-physische Produktionssysteme
 
-Was ist ein CPS? Übertragung auf Fertigungsind. => CPPS?
+Die Verbindung von Überwachung und Kontrolle technischer Systeme mündet in Paradigmen, die Realität und virtuelle Umgebungen miteinander verschmelzen lassen.
+So wurde das Konzept cyber-physischer Systeme (CPS) 2006 durch Edward A. Lee erstmalig erläutert.
+Er versteht diese als Integration von Informationsverarbeitung und physischen Prozessen.
+Virtuelle und physische Abläufe werden durch Sensoren und Aktuatoren überwacht, beziehungsweise beeinflusst, stehen in unmittelbarer Wechselwirkung und sind durch Kontrollschleifen rückgekoppelt @Lee2006.
+Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
+Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
+Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008.
+
+Im Kontext industrieller Produktion sind CPS nicht zuletzt aufgrund der Initiative _Industrie 4.0_ relevant @Monostori2014.
 
 
-* Überblick: Wang 2015 @Wang2015
+Im Kontext industrieller Produktionskontrolle ergeben neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
+Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette unterstützt.
+Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
+Kommunikation geschieht auf der Basis bestehender Infrastrukturen mit kabelgebundenen und kabellosen Übertragungstechnologien.
+Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit CPS überdacht werden.
+Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen.
+Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
+So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
 
-### Architekturstile und -muster
-
-* SOA [@Meyer2010;@Fallah2016a]
-* MAS, Holonic [@Leitao2009;@Fallah2016]
-* Blackboard [@Monostori2006;@Pauker2013]
-* RAMI4.0 @Adolphs2015
-
-### Cloud Manufacturing
-
-### Fog-Computing im Kontext von CPPS?
+## Cloud Manufacturing Fog-Computing im Kontext von CPPS
 
 Aazam 2016 @Aazam2016
 
@@ -148,8 +154,17 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Anforderungen
 
-* Echtzeit der Steuerung
-* Kontrollschleife?
+## Wang 2008 @Wang2008 
+
+Cyber-physische Systemarchitektur
+
+: Für eine adäquate Architektur muss die Heterogenität von Kommunikation, Verarbeitungseinheiten und Speichertechnologien in das Design eines CPPS einbezogen werden.
+  Dadurch werden Anforderungen wie Zuverlässigkeit und Echtzeitkommunikation gesichert.
+
+operative Echtzeit
+
+: Im operativen Einsatz von CPS muss die Kombination verschiedener Operationen in Echtzeit gewährleistet werden können.
+  Die Aggregation von Daten durch Sensoren, deren Verarbeitung und Übermittlung, sowie der Eingriff in einen Prozess durch Aktuatoren benötigt ein einheitliches Konzept für Anforderungen bezüglich zeitlicher Aspekte.
 
 # Forschungsstand
 
@@ -339,6 +354,17 @@ Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation un
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 ## Architekturen & Methoden für CPPS
+
+Grundsätzlich werden hoch skalierende gesamtheitlichen Systeme in Teilsysteme gegliedert, wodurch ein _System of Systems_ (SoS) entsteht.
+
+@fig:wang-cps-architecture verbildlicht das Konzept der Kapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
+
+![Komponentenbasierte CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
+
+* SOA [@Meyer2010;@Fallah2016a]
+* MAS, Holonic [@Leitao2009;@Fallah2016]
+* Blackboard [@Monostori2006;@Pauker2013]
+* RAMI4.0 @Adolphs2015
 
 ### Information Architecture for Reconfigurable production systems @Pauker2013
 
