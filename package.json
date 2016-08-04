@@ -7,7 +7,7 @@
     "lodash": "^4.14.0",
     "minimist": "^1.2.0",
     "node-grovepi": "^2.0.9",
-    "node-opcua": "0.0.56",
+    "node-opcua": "file:lib/node-opcua",
     "preconditions": "^2.2.0",
     "q": "^1.4.1",
     "serialport": "^4.0.1"

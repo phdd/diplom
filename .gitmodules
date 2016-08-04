@@ -1,0 +1,3 @@
+[submodule "lib/node-opcua"]
+	path = lib/node-opcua
+	url = git@github.com:phdd/node-opcua.git
