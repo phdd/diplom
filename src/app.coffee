@@ -1,8 +1,15 @@
+Q = require 'q'
 _ = require 'lodash'
 path = require 'path'
+async = require 'async'
+browser = require './browser'
 opcua = require 'node-opcua'
 GrovePi = require('node-grovepi').GrovePi
 debug = require('debug')('cps:surrogate')
+argv = require('minimist')(process.argv.slice 2)
+
+if not _(argv).has 'objectModel'
+  throw Error '--objectModel=<path> missing'
 
 #noinspection JSUnresolvedVariable
 distDir = __dirname
@@ -10,16 +17,18 @@ distDir = __dirname
 global.log = console.log
 console.log = require('debug')('console:log')
 
-addressSpaceDefinition = require './addressSpace'
 addressSpace = null
 
 serverOptions =
   certificateFile: path.join distDir, 'res/cert.pem'
   privateKeyFile:  path.join distDir, 'res/key.pem'
+  port:            argv.port ? 26543
 
   nodeset_filename: [
     opcua.standard_nodeset_file
-    path.join distDir, 'res/nodeset.xml' ]
+    path.join distDir, 'res/nodesets/opc4factory.xml'
+    path.join distDir, 'res/nodesets/cpps.xml'
+    argv.objectModel ]
 
 server = new opcua.OPCUAServer serverOptions
 endpoint = server.endpoints[0].endpointDescriptions()[0].endpointUrl
@@ -59,45 +68,18 @@ addMethodsFor = (instance, node) ->
 
 server.on 'post_initialize', ->
   addressSpace = server.engine.addressSpace
-  namespace = addressSpace.getNamespaceIndex 'http://tu-dresden.de/CPPS'
 
-  for machineName, machine of addressSpaceDefinition
-    machineNode = addressSpace.addObject
-      organizedBy: addressSpace.rootFolder.objects
-      browseName: machine.displayName ? machineName
-      typeDefinition: addressSpace.findObjectType 'MachineType', namespace
+  nsOpc4 = addressSpace.getNamespaceIndex 'urn:opc4factory'
+  nsCpps = addressSpace.getNamespaceIndex 'urn:cpps'
 
-    for componentName, component of machine.components
-      instance = component.instance
-
-      do (instance, machineNode) ->
-        typeDefinition = addressSpace.findObjectType instance.constructor.name, namespace
-
-        componentNode = addressSpace.addObject
-          organizedBy: machineNode
-          browseName: component.displayName ? componentName
-          typeDefinition: typeDefinition
-
-        if (instance.methods?)
-          addMethodsFor instance, componentNode, componentName
-
-        if (instance.variables?)
-          addVariablesFor instance, componentNode, componentName
+  browser.findObjectsTyped 'PhysicalConnectionType', server.engine, nsCpps
+    .then (objects) -> _(objects).each (object) ->
+        log object.connectionIdentifier.readValue().toString()
 
   log "Available at #{endpoint}".green
 
 grovePi = new GrovePi.board
   onError: (error) -> log error.toString()
-  onInit: ->
-    for machineName, machine of addressSpaceDefinition
-      for componentName, component of machine.components
-        component.instance = component.create()
-
-        if _(component).has 'properties'
-          _.merge component.instance, component.properties
-
-        if _(component).has 'init'
-          component.init.apply component.instance
 
 process.title = 'OPC UA Server'
 process.on 'SIGINT', ->
@@ -106,5 +88,6 @@ process.on 'SIGINT', ->
   process.exit -1
 
 log 'Starting OPC UA Server'.yellow
+
 grovePi.init()
 server.start()

@@ -32,3 +32,9 @@ module.exports = (grunt) ->
         cwd: 'res/'
         src: '**'
         dest: 'dist/res/'
+
+      model:
+        expand: true
+        cwd: 'model/'
+        src: '*.xml'
+        dest: 'dist/res/nodesets'

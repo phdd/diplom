@@ -2,11 +2,14 @@
   "name": "node-test",
   "version": "1.0.0",
   "dependencies": {
+    "async": "^2.0.1",
     "debug": "^2.2.0",
     "lodash": "^4.14.0",
+    "minimist": "^1.2.0",
     "node-grovepi": "^2.0.9",
     "node-opcua": "0.0.56",
     "preconditions": "^2.2.0",
+    "q": "^1.4.1",
     "serialport": "^4.0.1"
   },
   "devDependencies": {
