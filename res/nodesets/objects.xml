@@ -54,7 +54,7 @@
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>666</uax:String>
+            <uax:String>4</uax:String>
         </Value>
     </UAVariable>
     <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6009" BrowseName="2:Kill_Switch_Pressed" UserAccessLevel="3" AccessLevel="3">
@@ -101,9 +101,6 @@
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
-        <Value>
-            <uax:String>667</uax:String>
-        </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5006" BrowseName="3:DoorLock">
         <DisplayName>DoorLock</DisplayName>
@@ -193,9 +190,6 @@
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
-        <Value>
-            <uax:String>669</uax:String>
-        </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5007" BrowseName="3:NCInterpreter">
         <DisplayName>NCInterpreter</DisplayName>
@@ -212,7 +206,7 @@
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>670</uax:String>
+            <uax:String>/dev/ttyACM0</uax:String>
         </Value>
     </UAVariable>
     <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7003" BrowseName="2:Receive_NC_Program" MethodDeclarationId="ns=2;i=7005">
