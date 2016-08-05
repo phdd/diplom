@@ -1,16 +1,8 @@
 RelayActuator = require '../cps/RelayActuator'
 
-class LoadingDoorType
+class PhysicalLoadingDoorType
 
-  variables:
-    Door_Status: {}
-
-  methods:
-    Close_Door: {}
-    Open_Door: {}
-
-  DoorLock: null
-  OpeningGear: null
+  $Door_Status: null
 
   constructor: (options) ->
     if options.DoorLock?
@@ -21,15 +13,15 @@ class LoadingDoorType
     if options.OpeningGear?
       throw new Error 'OpeningGear actuator has not been implemented'
 
-    @Open_Door()
+    @$Open_Door()
 
-  Close_Door: =>
+  $Close_Door: =>
     @DoorLock.on() if @DoorLock?
-    @variables.Door_Status.value = @onState
+    @$Door_Status = @onState
 
-  Open_Door: =>
+  $Open_Door: =>
     @DoorLock.off() if @DoorLock?
-    @variables.Door_Status.value = @offState
+    @$Door_Status = @offState
 
 #noinspection JSUnresolvedVariable
-module.exports = LoadingDoorType
+module.exports = PhysicalLoadingDoorType

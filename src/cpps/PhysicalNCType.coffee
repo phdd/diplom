@@ -2,20 +2,10 @@ _ = require 'lodash'
 opcua = require 'node-opcua'
 SmoothieboardActuator = require '../cps/SmoothieboardActuator'
 
-class NCType
+class PhysicalNCType
 
-  methods:
-    Start_NC: {}
-    Stop_NC:  {}
-    Reset_NC: {}
-
-    Transmit_NC_Program: {}
-    Assign_NC_Program: {}
-    Receive_NC_Program: {}
-
-  variables:
-    NC_Program: {}
-    NC_Program_Status: {}
+  $NC_Program: null
+  $NC_Program_Status: null
 
   constructor: (options) ->
     @NCInterpreter = new SmoothieboardActuator options.NCInterpreter.device
@@ -26,50 +16,50 @@ class NCType
 
     @_resetVariables()
 
-  Transmit_NC_Program: (name, code) =>
+  $Transmit_NC_Program: (name, code) =>
     if _(name).isEmpty() or _(code).isEmpty()
       return statusCode: opcua.StatusCodes.BadArgumentsMissing
 
     @NCInterpreter.upload name, code
 
-  Assign_NC_Program: (name) =>
+  $Assign_NC_Program: (name) =>
     if _(name).isEmpty()
       return statusCode: opcua.StatusCodes.BadArgumentsMissing
 
-    @variables.NC_Program.value = name
-    @variables.NC_Program_Status.value = 'Stop'
+    @$NC_Program = name
+    @$NC_Program_Status = 'Stop'
 
-  Receive_NC_Program: (name) =>
+  $Receive_NC_Program: (name) =>
     return statusCode: opcua.StatusCodes.BadNotImplemented
 
-  Start_NC: =>
-    if _(@variables.NC_Program.value).isEmpty() or 'Active' is @variables.NC_Program_Status.value
+  $Start_NC: =>
+    if _(@$NC_Program).isEmpty() or 'Active' is @$NC_Program_Status
       return statusCode: opcua.StatusCodes.BadInvalidState
 
-    @NCInterpreter.start @variables.NC_Program.value
+    @NCInterpreter.start @$NC_Program
 
-  Stop_NC: =>
-    if 'Active' != @variables.NC_Program_Status.value
+  $Stop_NC: =>
+    if 'Active' != @$NC_Program_Status
       return statusCode: opcua.StatusCodes.BadInvalidState
 
     @NCInterpreter.stop()
 
-  Reset_NC: =>
-    @NCInterpreter.stop() if 'Active' is @variables.NC_Program_Status.value
+  $Reset_NC: =>
+    @NCInterpreter.stop() if 'Active' is @$NC_Program_Status
     @_resetVariables()
 
   _onStart: =>
-    @variables.NC_Program_Status.value = 'Active'
+    @$NC_Program_Status = 'Active'
 
   _onStop: =>
-    @variables.NC_Program_Status.value = 'Stop'
+    @$NC_Program_Status = 'Stop'
 
   _onConnect: =>
     @_resetVariables()
 
   _resetVariables: =>
-    @variables.NC_Program.value = null
-    @variables.NC_Program_Status.value = 'Reset'
+    @$NC_Program = null
+    @$NC_Program_Status = 'Reset'
 
 #noinspection JSUnresolvedVariable
-module.exports = NCType
+module.exports = PhysicalNCType

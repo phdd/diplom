@@ -14,6 +14,22 @@ if not _(argv).has 'objectModel'
 global.log = console.log
 console.log = require('debug')('console:log')
 
+Array::filter = (callback) -> element for element in @ when callback(element)
+Array::isEmpty = -> @.length is 0
+
+String::withLoweredFirstLetter = -> @[0].toLowerCase() + @[1..-1]
+
+variablesOf = (o) ->
+  Object.keys(o).filter (k) ->
+    typeof o[k] isnt 'function' and k[0] is '$'
+
+methodsOf = (o) ->
+  Object.keys(o).filter (k) ->
+    typeof o[k] is 'function' and k[0] is '$'
+
+addressSpaceNameOf = (o) ->
+  o[1..-1].withLoweredFirstLetter()
+
 #noinspection JSUnresolvedVariable,SpellCheckingInspection
 server = new opcua.OPCUAServer
   certificateFile: path.join __dirname, 'res/cert.pem'
@@ -31,27 +47,25 @@ physicalConnections = []
 endpoint = server.endpoints[0].endpointDescriptions()[0].endpointUrl
 grovePi = new GrovePi.board onError: (error) -> log error.toString()
 
-lowerFirstLetterOf = (s) -> s[0].toLowerCase() + s[1..-1]
-
 bindVariablesTo = (object) ->
-  for variableName, variable of object.instance.variables
-    do (variable, variableName) ->
-      addressSpaceVariable = object[lowerFirstLetterOf variableName]
+  for variable in variablesOf object.instance
+    do (variable, object) ->
+      addressSpaceVariable = object[addressSpaceNameOf variable]
       bindDescription = get: ->
         new opcua.Variant
-          value: variable.value
+          value: object.instance[variable]
           dataType: addressSpaceVariable.dataType.value
 
       addressSpaceVariable.bindVariable bindDescription, true
 
 bindMethodsTo = (object) ->
-  for methodName, method of object.instance.methods
-    do (methodName) ->
-      addressSpaceMethod = object[lowerFirstLetterOf methodName]
+  for method in methodsOf object.instance
+    do (method, object) ->
+      addressSpaceMethod = object[addressSpaceNameOf method]
       addressSpaceMethod.bindMethod (args, context, callback) ->
 
         try
-          result = object.instance[methodName].apply(this, args.map (a) -> a.value) ? {}
+          result = object.instance[method].apply(this, args.map (a) -> a.value) ? {}
         catch error
           result = statusCode: opcua.StatusCodes.BadUnexpectedError
           console.warn error
@@ -84,8 +98,8 @@ bindTo = (object) ->
   try
     object.instance = new cpps[typeName](connections)
 
-    if object.instance.variables? then bindVariablesTo object
-    if object.instance.methods?   then   bindMethodsTo object
+    if not variablesOf(object.instance).isEmpty() then bindVariablesTo object
+    if not methodsOf(object.instance).isEmpty()   then   bindMethodsTo object
 
     debug "Bound #{object.browseName.name} with #{JSON.stringify(connections)}".yellow
 
