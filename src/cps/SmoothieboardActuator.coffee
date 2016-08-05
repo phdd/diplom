@@ -30,9 +30,13 @@ class SmoothieboardActuator extends SerialActuator
       return itMatches
 
     switch
-      when its /smoothie/       then @_onConnected()
-      when its /playing \/sd\// then @_onStart()
-      when its /not.*playing/   then @_onStop() && @_stopUpdates()
+      when its /smoothie/       then @onConnect()
+      when its /playing \/sd\// then @onStart()
+      when its /not.*playing/   then @onStop() && @_stopUpdates()
+
+  onConnect: -> throw new Error 'Not implemented'
+  onStart:   -> throw new Error 'Not implemented'
+  onStop:    -> throw new Error 'Not implemented'
 
   _update:       => @_execute 'progress'
   _startUpdates: => @updateTimer = setInterval @_update, 1000

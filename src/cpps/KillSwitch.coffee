@@ -1,19 +1,18 @@
-opcua = require 'node-opcua'
 ButtonSensor = require '../cps/ButtonSensor'
 
-class KillSwitchType extends ButtonSensor
+class PhysicalKillSwitchType
 
   variables:
-
-    Kill_Switch_Triggered: dataType: opcua.DataType.Boolean
-    Kill_Switch_Pressed: dataType: opcua.DataType.Boolean
+    Kill_Switch_Triggered: {}
+    Kill_Switch_Pressed: {}
 
   methods:
-
     Reset: {}
 
-  constructor: (@pin) ->
-    super
+  constructor: (options) ->
+    @Button = new ButtonSensor options.Button.pin
+    @Button.onRelease = @_onRelease
+    @Button.onPress = @_onPress
 
     @Reset()
 
@@ -29,4 +28,4 @@ class KillSwitchType extends ButtonSensor
     @variables.Kill_Switch_Pressed.value = false
 
 #noinspection JSUnresolvedVariable
-module.exports = KillSwitchType
+module.exports = PhysicalKillSwitchType

@@ -2,29 +2,27 @@ _ = require 'lodash'
 opcua = require 'node-opcua'
 SmoothieboardActuator = require '../cps/SmoothieboardActuator'
 
-class NCType extends SmoothieboardActuator
+class NCType
 
   methods:
     Start_NC: {}
     Stop_NC:  {}
     Reset_NC: {}
 
-    Transmit_NC_Program: inputArguments: [
-      { name: 'name', dataType: opcua.DataType.String }
-      { name: 'code', dataType: opcua.DataType.String }]
-
-    Assign_NC_Program: inputArguments: [
-      { name: 'name', dataType: opcua.DataType.String }]
-
-    Receive_NC_Program: inputArguments: [
-      { name: 'name', dataType: opcua.DataType.String }]
+    Transmit_NC_Program: {}
+    Assign_NC_Program: {}
+    Receive_NC_Program: {}
 
   variables:
-    NC_Program: dataType: opcua.DataType.String
-    NC_Program_Status: dataType: opcua.DataType.String
+    NC_Program: {}
+    NC_Program_Status: {}
 
-  constructor: ->
-    super
+  constructor: (options) ->
+    @NCInterpreter = new SmoothieboardActuator options.NCInterpreter.device
+
+    @NCInterpreter.onConnect = @_onConnect
+    @NCInterpreter.onStart   = @_onStart
+    @NCInterpreter.onStop    = @_onStop
 
     @_resetVariables()
 
@@ -32,7 +30,7 @@ class NCType extends SmoothieboardActuator
     if _(name).isEmpty() or _(code).isEmpty()
       return statusCode: opcua.StatusCodes.BadArgumentsMissing
 
-    @upload name, code
+    @NCInterpreter.upload name, code
 
   Assign_NC_Program: (name) =>
     if _(name).isEmpty()
@@ -48,16 +46,16 @@ class NCType extends SmoothieboardActuator
     if _(@variables.NC_Program.value).isEmpty() or 'Active' is @variables.NC_Program_Status.value
       return statusCode: opcua.StatusCodes.BadInvalidState
 
-    @start @variables.NC_Program.value
+    @NCInterpreter.start @variables.NC_Program.value
 
   Stop_NC: =>
     if 'Active' != @variables.NC_Program_Status.value
       return statusCode: opcua.StatusCodes.BadInvalidState
 
-    @stop()
+    @NCInterpreter.stop()
 
   Reset_NC: =>
-    @stop() if 'Active' is @variables.NC_Program_Status.value
+    @NCInterpreter.stop() if 'Active' is @variables.NC_Program_Status.value
     @_resetVariables()
 
   _onStart: =>
@@ -66,7 +64,7 @@ class NCType extends SmoothieboardActuator
   _onStop: =>
     @variables.NC_Program_Status.value = 'Stop'
 
-  _onConnected: =>
+  _onConnect: =>
     @_resetVariables()
 
   _resetVariables: =>

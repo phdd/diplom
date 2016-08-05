@@ -28,3 +28,4 @@ module.exports =
       else deferred.reject new Error error
 
     deferred.promise
+

@@ -1,7 +1,7 @@
-Q = require 'q'
 _ = require 'lodash'
 path = require 'path'
 async = require 'async'
+cpps = require './cpps'
 browser = require './browser'
 opcua = require 'node-opcua'
 GrovePi = require('node-grovepi').GrovePi
@@ -11,75 +11,103 @@ argv = require('minimist')(process.argv.slice 2)
 if not _(argv).has 'objectModel'
   throw Error '--objectModel=<path> missing'
 
-#noinspection JSUnresolvedVariable
-distDir = __dirname
-
 global.log = console.log
 console.log = require('debug')('console:log')
 
-addressSpace = null
-
-serverOptions =
-  certificateFile: path.join distDir, 'res/cert.pem'
-  privateKeyFile:  path.join distDir, 'res/key.pem'
+#noinspection JSUnresolvedVariable,SpellCheckingInspection
+server = new opcua.OPCUAServer
+  certificateFile: path.join __dirname, 'res/cert.pem'
+  privateKeyFile:  path.join __dirname, 'res/key.pem'
   port:            argv.port ? 26543
 
   nodeset_filename: [
     opcua.standard_nodeset_file
-    path.join distDir, 'res/nodesets/opc4factory.xml'
-    path.join distDir, 'res/nodesets/cpps.xml'
+    path.join __dirname, 'res/nodesets/opc4factory.xml'
+    path.join __dirname, 'res/nodesets/cpps.xml'
     argv.objectModel ]
 
-server = new opcua.OPCUAServer serverOptions
+addressSpace = null
+physicalConnections = []
 endpoint = server.endpoints[0].endpointDescriptions()[0].endpointUrl
+grovePi = new GrovePi.board onError: (error) -> log error.toString()
 
-addVariablesFor = (instance, node) ->
-  for variableName, variable of instance.variables
-    do (variable, instance, node, variableName) ->
-      addressSpace.addVariable
-        componentOf: node,
-        browseName: variable.displayName ? variableName
-        dataType: variable.dataType.key
-        value: get: -> new opcua.Variant
-          dataType: variable.dataType
-          value: if _(variable).has('value') then variable.value else instance["get#{variableName}"]()
+lowerFirstLetterOf = (s) -> s[0].toLowerCase() + s[1..-1]
 
-addMethodsFor = (instance, node) ->
-  for methodName, method of instance.methods
-    do (methodName, method, node) ->
-      methodNode = addressSpace.addMethod node, 
-        browseName: method.displayName ? methodName
-        inputArguments: method.inputArguments ? []
-        outputArguments: method.outputArguments ? []
+bindVariablesTo = (object) ->
+  for variableName, variable of object.instance.variables
+    do (variable, variableName) ->
+      addressSpaceVariable = object[lowerFirstLetterOf variableName]
+      bindDescription = get: ->
+        new opcua.Variant
+          value: variable.value
+          dataType: addressSpaceVariable.dataType.value
 
-      methodNode.bindMethod (args, context, callback) ->
+      addressSpaceVariable.bindVariable bindDescription, true
+
+bindMethodsTo = (object) ->
+  for methodName, method of object.instance.methods
+    do (methodName) ->
+      addressSpaceMethod = object[lowerFirstLetterOf methodName]
+      addressSpaceMethod.bindMethod (args, context, callback) ->
+
         try
-          result = instance[methodName].apply(this, args.map (a) -> a.value) ? {}
+          result = object.instance[methodName].apply(this, args.map (a) -> a.value) ? {}
         catch error
           result = statusCode: opcua.StatusCodes.BadUnexpectedError
           console.warn error
 
-        result = {} if not _(result).isObjectLike()
-        result.inputArguments = [] if not result.inputArguments?
-        result.outputArguments = [] if not result.outputArguments?
-        result.statusCode = opcua.StatusCodes.Good if not result.statusCode?
+        result = if typeof result is 'object' then result else {}
+
+        result.inputArguments  = result.inputArguments or []
+        result.outputArguments = result.outputArguments or []
+        result.statusCode      = result.statusCode or opcua.StatusCodes.Good
 
         callback null, result
 
+bindTo = (object) ->
+  connections = {}
+
+  for connection in physicalConnections
+    do (connections) -> if object.nodeId == connection.parent.nodeId
+      connectionName = connection.browseName.name
+      connectionIdentifier = connection.connectionIdentifier.readValue().value.value
+
+      connections[connectionName] = JSON.parse connectionIdentifier
+
+  typeNode = addressSpace.findNode object.typeDefinition.toString()
+  typeName = typeNode.browseName.name
+
+  if Object.keys(connections).length is 0
+    debug "Skipping #{object.browseName.name} due to missing connections".gray
+    return
+
+  try
+    object.instance = new cpps[typeName](connections)
+
+    if object.instance.variables? then bindVariablesTo object
+    if object.instance.methods?   then   bindMethodsTo object
+
+    debug "Bound #{object.browseName.name} with #{JSON.stringify(connections)}".yellow
+
+  catch error
+    console.warn "Binding #{object.browseName.name} with #{JSON.stringify(connections)}
+      failed due to #{error.toString()}".red
+
 server.on 'post_initialize', ->
   addressSpace = server.engine.addressSpace
-
-  nsOpc4 = addressSpace.getNamespaceIndex 'urn:opc4factory'
   nsCpps = addressSpace.getNamespaceIndex 'urn:cpps'
+  nsObjects = addressSpace.getNamespaceIndex 'urn:objects'
+  byObjectNamespace = (object) -> object.nodeId.namespace == nsObjects
 
   browser.findObjectsTyped 'PhysicalConnectionType', server.engine, nsCpps
-    .then (objects) -> _(objects).each (object) ->
-        log object.connectionIdentifier.readValue().toString()
+    .then (objects) -> do (objects) ->
+      _(objects).filter(byObjectNamespace).each (object) -> physicalConnections.push(object)
+      for objectType, implementation of cpps
+        browser.findObjectsTyped objectType, server.engine, nsCpps
+          .then (objects) ->
+            _(objects).filter(byObjectNamespace).each (object) -> bindTo object
 
   log "Available at #{endpoint}".green
-
-grovePi = new GrovePi.board
-  onError: (error) -> log error.toString()
 
 process.title = 'OPC UA Server'
 process.on 'SIGINT', ->

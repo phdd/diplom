@@ -9,16 +9,17 @@ class ButtonSensor extends DigitalSensor
 
     setInterval @_readState, 10
 
+  onPress: ->
+    debug "pressed @#{@pin}"
+
+  onRelease: ->
+    debug "released @#{@pin}"
+
   _readState: =>
     pressed = @read() is 1
 
-    if pressed and not @wasPressed
-      @_onPress()
-      debug "pressed @#{@pin}"
-
-    if not pressed and @wasPressed
-      @_onRelease()
-      debug "released @#{@pin}"
+    if pressed and not @wasPressed then @onPress()
+    if not pressed and @wasPressed then @onRelease()
 
     @wasPressed = pressed
 
