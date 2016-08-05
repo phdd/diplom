@@ -1,23 +1,17 @@
-_ = require 'lodash'
 path = require 'path'
-async = require 'async'
 cpps = require './cpps'
-browser = require './browser'
 opcua = require 'node-opcua'
 GrovePi = require('node-grovepi').GrovePi
 debug = require('debug')('cps:surrogate')
 argv = require('minimist')(process.argv.slice 2)
 
-if not _(argv).has 'objectModel'
-  throw Error '--objectModel=<path> missing'
+if not argv.objectModel? then throw Error '--objectModel=<path> missing'
 
 global.log = console.log
 console.log = require('debug')('console:log')
 
 Array::filter = (callback) -> element for element in @ when callback(element)
 Array::isEmpty = -> @.length is 0
-
-String::withLoweredFirstLetter = -> @[0].toLowerCase() + @[1..-1]
 
 variablesOf = (o) ->
   Object.keys(o).filter (k) ->
@@ -28,7 +22,8 @@ methodsOf = (o) ->
     typeof o[k] is 'function' and k[0] is '$'
 
 addressSpaceNameOf = (o) ->
-  o[1..-1].withLoweredFirstLetter()
+  name = o[1..-1]
+  name[0].toLowerCase() + name[1..-1]
 
 #noinspection JSUnresolvedVariable,SpellCheckingInspection
 server = new opcua.OPCUAServer
@@ -46,6 +41,26 @@ addressSpace = null
 physicalConnections = []
 endpoint = server.endpoints[0].endpointDescriptions()[0].endpointUrl
 grovePi = new GrovePi.board onError: (error) -> log error.toString()
+
+findObjectsTyped = (objectType, namespace) ->
+  type = addressSpace.findObjectType objectType, namespace
+
+  browseDescription = server.engine.browse [
+    nodeId: type.nodeId
+    referenceTypeId: opcua.resolveNodeId 'HasTypeDefinition'
+    browseDirection: opcua.browse_service.BrowseDirection.Inverse
+    includeSubtypes: true
+    nodeClassMask: 0x1
+    resultMask: 63 ]
+
+  references = browseDescription[0].references or []
+  objects = []
+
+  for reference in references
+    do (reference) ->
+      objects.push addressSpace.findNode(reference.nodeId)
+
+  objects
 
 bindVariablesTo = (object) ->
   for variable in variablesOf object.instance
@@ -111,15 +126,20 @@ server.on 'post_initialize', ->
   addressSpace = server.engine.addressSpace
   nsCpps = addressSpace.getNamespaceIndex 'urn:cpps'
   nsObjects = addressSpace.getNamespaceIndex 'urn:objects'
-  byObjectNamespace = (object) -> object.nodeId.namespace == nsObjects
 
-  browser.findObjectsTyped 'PhysicalConnectionType', server.engine, nsCpps
-    .then (objects) -> do (objects) ->
-      _(objects).filter(byObjectNamespace).each (object) -> physicalConnections.push(object)
-      for objectType, implementation of cpps
-        browser.findObjectsTyped objectType, server.engine, nsCpps
-          .then (objects) ->
-            _(objects).filter(byObjectNamespace).each (object) -> bindTo object
+  connections = findObjectsTyped 'PhysicalConnectionType', nsCpps
+
+  for connection in connections
+    do (connection) ->
+      if connection.nodeId.namespace is nsObjects then physicalConnections.push connection
+
+  for objectType of cpps
+    do (objectType) ->
+      objects = findObjectsTyped objectType, nsCpps
+
+      for object in objects
+        do (object) ->
+          if object.nodeId.namespace is nsObjects then bindTo object
 
   log "Available at #{endpoint}".green
 
