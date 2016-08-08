@@ -89,7 +89,7 @@ Hoppe 2014 @Hoppe2014
 > Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for
 > Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und
 > PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:
-> 
+  >	  
 > * Wie geben sich z. B. ein „Temperatursensor“ oder eine „Ventilsteuerung“ zu erkennen?
 > * Welche Objekte, Methoden, Variablen und Ereignisse definieren die
 > 
@@ -168,12 +168,13 @@ operative Echtzeit
 
 # Forschungsstand
 
+
 ## Maschinendatenerfassung & -analyse
 
 ### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 __Problem:__ Datenerfassung (=> Prozessüberwachung) bei Altmaschinen nicht vorhanden  
-__Lösung:__ unabhängige minimalinvasive Sensorik
+__Lösung:__ una  b	  ängige minimalinvasive Sensorik
 
 __Purpose.__ 
 Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.
