@@ -144,7 +144,7 @@ Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur i
 Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
 
-## Cloud Manufacturing Fog-Computing im Kontext von CPPS
+## Cloud Manufacturing & Fog-Computing
 
 Aazam 2016 @Aazam2016
 
@@ -580,6 +580,15 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * Adapter für proprietäre CNC-Protokolle (DNC)
 
 <!-- END Rahmen dieser Arbeit -->
+
+* Laufzeitkonfiguration des Surrogate?
+* Surrogate in bestehende Netzwerkinfrastruktur einbinden?
+    1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
+      1. Auswahl des Access-Points
+      2. Festlegen der OPC UA Discovery-Service Adresse
+    2. SG mit Infrastr. verbunden + Registrierung bei Discovery-Service
+    3. OPC UA Systemevent => neues Surrogate registriert
+    3. Konfiguration des Adressraums via HTTP/WebApp
 
 * Controlling nicht aus der Cloud @... sondern an der Maschine  
     * SPS (und Motortreiber) als Teil des Surrogate  
