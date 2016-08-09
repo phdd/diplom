@@ -33,7 +33,7 @@
 </ul></li>
 <li><a href="#kontrolle-überwachung-von-produktionsmaschinen"><span class="toc-section-number">2.3</span> Kontrolle &amp; Überwachung von Produktionsmaschinen</a></li>
 <li><a href="#cyber-physische-produktionssysteme"><span class="toc-section-number">2.4</span> Cyber-physische Produktionssysteme</a></li>
-<li><a href="#cloud-manufacturing-fog-computing-im-kontext-von-cpps"><span class="toc-section-number">2.5</span> Cloud Manufacturing Fog-Computing im Kontext von CPPS</a></li>
+<li><a href="#cloud-manufacturing-fog-computing"><span class="toc-section-number">2.5</span> Cloud Manufacturing &amp; Fog-Computing</a></li>
 <li><a href="#zusammenfassung"><span class="toc-section-number">2.6</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#anforderungen"><span class="toc-section-number">3</span> Anforderungen</a><ul>
@@ -180,7 +180,7 @@
 <p>Die Verbindung von Überwachung und Kontrolle technischer Systeme mündet in Paradigmen, die Realität und virtuelle Umgebungen miteinander verschmelzen lassen. So wurde das Konzept cyber-physischer Systeme (CPS) 2006 durch Edward A. Lee erstmalig erläutert. Er versteht diese als Integration von Informationsverarbeitung und physischen Prozessen. Virtuelle und physische Abläufe werden durch Sensoren und Aktuatoren überwacht, beziehungsweise beeinflusst, stehen in unmittelbarer Wechselwirkung und sind durch Kontrollschleifen rückgekoppelt <span class="citation">[4]</span>. Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen <span class="citation">[17]</span>. Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke <span class="citation">[4]</span>. Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen <span class="citation">[17]</span>.</p>
 <p>Im Kontext industrieller Produktion sind CPS nicht zuletzt aufgrund der Initiative <em>Industrie 4.0</em> relevant <span class="citation">[18]</span>.</p>
 <p>Im Kontext industrieller Produktionskontrolle ergeben neben den Herausforderungen für CPS (vgl. <span class="citation">[19]</span>) weitere Anforderungen. Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette unterstützt. Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden. Kommunikation geschieht auf der Basis bestehender Infrastrukturen mit kabelgebundenen und kabellosen Übertragungstechnologien. Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit CPS überdacht werden. Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen. Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht. So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen <span class="citation">[17]</span>.</p>
-<h2 id="cloud-manufacturing-fog-computing-im-kontext-von-cpps"><span class="header-section-number">2.5</span> Cloud Manufacturing Fog-Computing im Kontext von CPPS</h2>
+<h2 id="cloud-manufacturing-fog-computing"><span class="header-section-number">2.5</span> Cloud Manufacturing &amp; Fog-Computing</h2>
 <p>Aazam 2016 <span class="citation">[20]</span></p>
 <p>Im WAN problematisch <span class="citation">[21]</span> =&gt; OPC4Factory</p>
 <h2 id="zusammenfassung"><span class="header-section-number">2.6</span> Zusammenfassung</h2>
@@ -198,7 +198,7 @@
 <h2 id="maschinendatenerfassung--analyse"><span class="header-section-number">4.1</span> Maschinendatenerfassung &amp; -analyse</h2>
 <h3 id="legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="header-section-number">4.1.1</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></h3>
 <p><strong>Problem:</strong> Datenerfassung (=&gt; Prozessüberwachung) bei Altmaschinen nicht vorhanden<br />
-<strong>Lösung:</strong> unabhängige minimalinvasive Sensorik</p>
+<strong>Lösung:</strong> una b ängige minimalinvasive Sensorik</p>
 <p><strong>Purpose.</strong> Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.</p>
 <p><strong>Design/Methodology/Approach.</strong> Durch das Abgreifen des Stromverbrauchs über eine <em>Universal Power Cell</em> (UPC), dem Sensor an der Maschine, können Informationen via TCP und UDP an eine externe Komponente übergeben und ausgewertet werden. Die in Kilowatt eingehenden Verbrauchsdaten wurden durch an Bedingungen gekoppelte Schwellwerte in Status (an, aus, Leerlauf), Energieverbrauch, Werkzeugwechsel und Werkstückdurchsatz unterschieden. Für die Case Study und einen anschließenden Vergleich hatten Deshpande et al. auch moderne Maschinen mit der UPC ausgestattet. Verglichen wurde die zeitabhängige Auslastung von drei unterschiedlichen Modellen.</p>
 <p><strong>Findings.</strong> Mit einer Genauigkeit von 95% für den Status und 99% für Werkzeugwechsel und Durchsatz wurde das Konzept erfolgreich getestet.</p>
@@ -661,6 +661,16 @@ Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit S
 </ul>
 <!-- END Rahmen dieser Arbeit -->
 <ul>
+<li>Laufzeitkonfiguration des Surrogate?</li>
+<li>Surrogate in bestehende Netzwerkinfrastruktur einbinden?
+<ol style="list-style-type: decimal">
+<li>direkte SG-Kommunikation (Wifi-Direct, BT, …) zur Konfiguation der Netzwerkanbindung via Mobile device</li>
+<li>Auswahl des Access-Points</li>
+<li>Festlegen der OPC UA Discovery-Service Adresse</li>
+<li>SG mit Infrastr. verbunden + Registrierung bei Discovery-Service</li>
+<li>OPC UA Systemevent =&gt; neues Surrogate registriert</li>
+<li>Konfiguration des Adressraums via HTTP/WebApp</li>
+</ol></li>
 <li>Controlling nicht aus der Cloud @… sondern an der Maschine
 <ul>
 <li>SPS (und Motortreiber) als Teil des Surrogate<br />
