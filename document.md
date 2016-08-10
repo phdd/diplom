@@ -154,17 +154,19 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Anforderungen
 
-## Wang 2008 @Wang2008 
+Stakeholder?
 
-Cyber-physische Systemarchitektur
+R1
 
-: Für eine adäquate Architektur muss die Heterogenität von Kommunikation, Verarbeitungseinheiten und Speichertechnologien in das Design eines CPPS einbezogen werden.
-  Dadurch werden Anforderungen wie Zuverlässigkeit und Echtzeitkommunikation gesichert.
+: Entfernte Kontrolle von Produktionsmachinen
 
-operative Echtzeit
+R2
 
-: Im operativen Einsatz von CPS muss die Kombination verschiedener Operationen in Echtzeit gewährleistet werden können.
-  Die Aggregation von Daten durch Sensoren, deren Verarbeitung und Übermittlung, sowie der Eingriff in einen Prozess durch Aktuatoren benötigt ein einheitliches Konzept für Anforderungen bezüglich zeitlicher Aspekte.
+: Überwachung von Zustand und Leistungsparametern
+
+R3
+
+: automatische Reaktion auf veränderte Bedingungen => Feedback => höherer Automatisierungsgrad
 
 # Forschungsstand
 
@@ -259,6 +261,13 @@ Ohne Carrier?
 
 Data-Collection/Reasoning Stuff @Downey2016
 
+Anfallende Daten zu
+* Prozess
+* Technologie (CAD/CAM)
+* Werkzeug
+* Werkstück
+* Peripherie (_loading door_)
+
 Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
 
 * Umfangreiche Recherchen zu bestehender Forschung durch @Teti2010
@@ -266,7 +275,6 @@ Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
     * Spaneigenschaften
     * Prozesszustand
     * Werkstückbeschaffenheit
-
 
 ## Rechnergestützte numerische Steuerung
 
@@ -510,40 +518,6 @@ __Lösung:__ Informationsmodelle modellgetrieben entwickeln
 * Originality/Value
     * MDA-Prozess für generische Informationsmodelle durch UML
 
-## Stuff we may know
-
-### Multi Agent based Control Architectures @Fallah2016
-
-nicht in's Konzept => notwendig?
-
-* Purpose
-    * 
-* Design/Methodology/Approach
-    * 
-* Findings
-    * 
-* Research Limitations/Implications
-    * 
-* Practical Implications
-    * 
-* Originality/Value
-    * 
-
-### Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
-
-* Purpose
-    * 
-* Design/Methodology/Approach
-    * 
-* Findings
-    * 
-* Research Limitations/Implications
-    * 
-* Practical Implications
-    * 
-* Originality/Value
-    * 
-
 ## Zusammenfassung 
 
 <!-- Projekte -->
@@ -608,11 +582,18 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * Smoothieboard/Embedded (soft-)SPS als Adapter zu Maschine
 * Wiederverwendung @Ayatollahi2013
     * des Informationsmodells
-    * des Flow-Charts für die Server-Logik
+    * des Flow-Charts für die Server-Logik (teilweise)
 * Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
-* Einsatz von Rollen (Ausblick?)
+Nach Rücksprache
+
+* OPC UA zur Metamodellierung bzgl. der Machine
+* OPC UA Modell synchron mit Realität => Laufzeitmodell
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K) kontrollierbar => Modellierung/Sprache der _Regeln?_
+* Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
+* Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
+* FB-Loop intern oder extern?
 
 OPC4Factory:
 
@@ -639,11 +620,26 @@ OPC4Factory:
 # Implementation
 
 * Smoothieboard als Maschinen-Adapter
+    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
 * open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
 
 ## Zusammenfassung
 
 # Evaluation
+
+These/Behauptung?
+* Steigerung des Automatisierungsgrads durch Feedbackloop
+* physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
+* Laufzeitmodell für _online_-Monitoring
+
+Umsetzung?
+* Proof of concept
+* Case-Study mgl.?
+* HIL-Simulation?
+
+Blocking Factors/mögliche Kritik?
+* Leistung von embedded computing devices => siehe @Grigoriev2016
+* Energieverbrauch
 
 ## Zusammenfassung
 
@@ -652,3 +648,10 @@ OPC4Factory:
 ## Schlussfolgerung
 
 ## Ausblick
+
+* Prozessmodell für Abstrakte Leitebene
+* Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
+* Surrogate als reaktiver Agent => Einbindung in MAS denkbar
+* Möglichkeiten des Nutzens der Daten
+    * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?
+    * Automatische Erkennung von Gut-/Schlechtteilen
