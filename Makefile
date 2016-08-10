@@ -36,7 +36,7 @@ all: pdf html epub presentation
 
 pdf: latex build-latex
 
-latex: compile-appendix-tex
+latex: compile-appendix-tex fix-mendeley-bug
 	pandoc \
 		metadata.yml \
 		$(LATEX_ARGS) \
@@ -45,7 +45,7 @@ latex: compile-appendix-tex
 		--output=document.tex \
 		--default-image-extension=pdf \
 
-html: figures-png
+html: figures-png fix-mendeley-bug
 	pandoc \
 		metadata.yml \
 		$(ARGS) \
@@ -58,7 +58,7 @@ html: figures-png
 		--css=style/html.css \
 		--default-image-extension=svg \
 
-epub: figures-png
+epub: figures-png fix-mendeley-bug
 	pandoc \
 		metadata.yml \
 		$(ARGS) \
@@ -68,7 +68,7 @@ epub: figures-png
 		--epub-stylesheet=style/epub.css \
 		--default-image-extension=png \
 
-presentation: figures-png
+presentation: figures-png fix-mendeley-bug
 	pandoc \
 		$(HTML_ARGS) \
 		metadata.yml \
@@ -101,6 +101,10 @@ compile-appendix-tex:
 		--variable=documentclass:report \
 		--default-image-extension=pdf \
 		--output=appendix.tex \
+
+fix-mendeley-bug:
+	sed -i -e "s/{\\\_}/_/g" "bibliography.bib"
+	sed -i -e "s/{\\\~}/~/g" "bibliography.bib"
 
 figures-pdf: $(FIGURES:%.svg=%.pdf)
 figures-png: $(FIGURES:%.svg=%.png)
