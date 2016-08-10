@@ -36,9 +36,7 @@
 <li><a href="#cloud-manufacturing-fog-computing"><span class="toc-section-number">2.5</span> Cloud Manufacturing &amp; Fog-Computing</a></li>
 <li><a href="#zusammenfassung"><span class="toc-section-number">2.6</span> Zusammenfassung</a></li>
 </ul></li>
-<li><a href="#anforderungen"><span class="toc-section-number">3</span> Anforderungen</a><ul>
-<li><a href="#wang-2008-wang2008"><span class="toc-section-number">3.1</span> Wang 2008 <span class="citation">[17]</span></a></li>
-</ul></li>
+<li><a href="#anforderungen"><span class="toc-section-number">3</span> Anforderungen</a></li>
 <li><a href="#forschungsstand"><span class="toc-section-number">4</span> Forschungsstand</a><ul>
 <li><a href="#maschinendatenerfassung--analyse"><span class="toc-section-number">4.1</span> Maschinendatenerfassung &amp; -analyse</a><ul>
 <li><a href="#legacy-machine-monitoring-using-power-signal-analysis-deshpande2011"><span class="toc-section-number">4.1.1</span> Legacy Machine Monitoring Using Power Signal Analysis <span class="citation">[2]</span></a></li>
@@ -55,11 +53,7 @@
 <li><a href="#prototype-opc-ua-server-for-remote-control-of-machine-tools-ayatollahi2013"><span class="toc-section-number">4.3.2</span> Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation">[10]</span></a></li>
 <li><a href="#a-systematic-approach-to-opc-ua-information-model-design-pauker2016"><span class="toc-section-number">4.3.3</span> A systematic approach to OPC UA information model design <span class="citation">[33]</span></a></li>
 </ul></li>
-<li><a href="#stuff-we-may-know"><span class="toc-section-number">4.4</span> Stuff we may know</a><ul>
-<li><a href="#multi-agent-based-control-architectures-fallah2016"><span class="toc-section-number">4.4.1</span> Multi Agent based Control Architectures <span class="citation">[30]</span></a></li>
-<li><a href="#towards-model-integrated-service-oriented-manufacturing-execution-system-fallah2016a"><span class="toc-section-number">4.4.2</span> Towards model-integrated service-oriented manufacturing execution system <span class="citation">[28]</span></a></li>
-</ul></li>
-<li><a href="#zusammenfassung-2"><span class="toc-section-number">4.5</span> Zusammenfassung</a></li>
+<li><a href="#zusammenfassung-2"><span class="toc-section-number">4.4</span> Zusammenfassung</a></li>
 </ul></li>
 <li><a href="#konzeption"><span class="toc-section-number">5</span> Konzeption</a><ul>
 <li><a href="#virtuelle-maschinenrepräsentation"><span class="toc-section-number">5.1</span> Virtuelle Maschinenrepräsentation</a></li>
@@ -185,13 +179,16 @@
 <p>Im WAN problematisch <span class="citation">[21]</span> =&gt; OPC4Factory</p>
 <h2 id="zusammenfassung"><span class="header-section-number">2.6</span> Zusammenfassung</h2>
 <h1 id="anforderungen"><span class="header-section-number">3</span> Anforderungen</h1>
-<h2 id="wang-2008-wang2008"><span class="header-section-number">3.1</span> Wang 2008 <span class="citation">[17]</span></h2>
+<p>Stakeholder?</p>
 <dl>
-<dt>Cyber-physische Systemarchitektur</dt>
-<dd><p>Für eine adäquate Architektur muss die Heterogenität von Kommunikation, Verarbeitungseinheiten und Speichertechnologien in das Design eines CPPS einbezogen werden. Dadurch werden Anforderungen wie Zuverlässigkeit und Echtzeitkommunikation gesichert.</p>
+<dt>R1</dt>
+<dd><p>Entfernte Kontrolle von Produktionsmachinen</p>
 </dd>
-<dt>operative Echtzeit</dt>
-<dd><p>Im operativen Einsatz von CPS muss die Kombination verschiedener Operationen in Echtzeit gewährleistet werden können. Die Aggregation von Daten durch Sensoren, deren Verarbeitung und Übermittlung, sowie der Eingriff in einen Prozess durch Aktuatoren benötigt ein einheitliches Konzept für Anforderungen bezüglich zeitlicher Aspekte.</p>
+<dt>R2</dt>
+<dd><p>Überwachung von Zustand und Leistungsparametern</p>
+</dd>
+<dt>R3</dt>
+<dd><p>automatische Reaktion auf veränderte Bedingungen =&gt; Feedback =&gt; höherer Automatisierungsgrad</p>
 </dd>
 </dl>
 <h1 id="forschungsstand"><span class="header-section-number">4</span> Forschungsstand</h1>
@@ -292,6 +289,7 @@ Für den Einsatz in einer realen Produktionsumgebung fehlen UI und API. Anforder
 <h3 id="zusammenfassung-1"><span class="header-section-number">4.1.4</span> Zusammenfassung</h3>
 <p>Ohne Carrier?</p>
 <p>Data-Collection/Reasoning Stuff <span class="citation">[23]</span></p>
+<p>Anfallende Daten zu * Prozess * Technologie (CAD/CAM) * Werkzeug * Werkstück * Peripherie (<em>loading door</em>)</p>
 <p>Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen</p>
 <ul>
 <li>Umfangreiche Recherchen zu bestehender Forschung durch <span class="citation">[24]</span>
@@ -578,63 +576,7 @@ Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit S
 <li>MDA-Prozess für generische Informationsmodelle durch UML</li>
 </ul></li>
 </ul>
-<h2 id="stuff-we-may-know"><span class="header-section-number">4.4</span> Stuff we may know</h2>
-<h3 id="multi-agent-based-control-architectures-fallah2016"><span class="header-section-number">4.4.1</span> Multi Agent based Control Architectures <span class="citation">[30]</span></h3>
-<p>nicht in’s Konzept =&gt; notwendig?</p>
-<ul>
-<li>Purpose
-<ul>
-<li></li>
-</ul></li>
-<li>Design/Methodology/Approach
-<ul>
-<li></li>
-</ul></li>
-<li>Findings
-<ul>
-<li></li>
-</ul></li>
-<li>Research Limitations/Implications
-<ul>
-<li></li>
-</ul></li>
-<li>Practical Implications
-<ul>
-<li></li>
-</ul></li>
-<li>Originality/Value
-<ul>
-<li></li>
-</ul></li>
-</ul>
-<h3 id="towards-model-integrated-service-oriented-manufacturing-execution-system-fallah2016a"><span class="header-section-number">4.4.2</span> Towards model-integrated service-oriented manufacturing execution system <span class="citation">[28]</span></h3>
-<ul>
-<li>Purpose
-<ul>
-<li></li>
-</ul></li>
-<li>Design/Methodology/Approach
-<ul>
-<li></li>
-</ul></li>
-<li>Findings
-<ul>
-<li></li>
-</ul></li>
-<li>Research Limitations/Implications
-<ul>
-<li></li>
-</ul></li>
-<li>Practical Implications
-<ul>
-<li></li>
-</ul></li>
-<li>Originality/Value
-<ul>
-<li></li>
-</ul></li>
-</ul>
-<h2 id="zusammenfassung-2"><span class="header-section-number">4.5</span> Zusammenfassung</h2>
+<h2 id="zusammenfassung-2"><span class="header-section-number">4.4</span> Zusammenfassung</h2>
 <!-- Projekte -->
 <p>Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des <em>RetroNet</em>-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen <span class="citation">[34]</span>. <!-- Keine Publikationen ... --></p>
 <p>Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt <em>pICASSO</em> werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht <span class="citation">[35]</span>.</p>
@@ -698,11 +640,19 @@ Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit S
 <li>Wiederverwendung <span class="citation">[10]</span>
 <ul>
 <li>des Informationsmodells</li>
-<li>des Flow-Charts für die Server-Logik</li>
+<li>des Flow-Charts für die Server-Logik (teilweise)</li>
 </ul></li>
 <li>Persistenzkonzept: Blackboard? <span class="citation">[5]</span></li>
-<li><p>Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)</p></li>
-<li><p>Einsatz von Rollen (Ausblick?)</p></li>
+<li>Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)</li>
+</ul>
+<p>Nach Rücksprache</p>
+<ul>
+<li>OPC UA zur Metamodellierung bzgl. der Machine</li>
+<li>OPC UA Modell synchron mit Realität =&gt; Laufzeitmodell</li>
+<li>Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K) kontrollierbar =&gt; Modellierung/Sprache der <em>Regeln?</em></li>
+<li>Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil</li>
+<li>Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)</li>
+<li>FB-Loop intern oder extern?</li>
 </ul>
 <p>OPC4Factory:</p>
 <blockquote>
@@ -725,15 +675,31 @@ Das Internet ist ein zentraler Aspekt verteilter Produktion. Jedoch sind damit S
 <h2 id="zusammenfassung-3"><span class="header-section-number">5.4</span> Zusammenfassung</h2>
 <h1 id="implementation"><span class="header-section-number">6</span> Implementation</h1>
 <ul>
-<li>Smoothieboard als Maschinen-Adapter</li>
+<li>Smoothieboard als Maschinen-Adapter
+<ul>
+<li>Nachteil: Beobachten des Prozessfortschritts langsam (<em>progress</em>) =&gt; kann nicht in online-FB einbezogen werden</li>
+</ul></li>
 <li>open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi</li>
 </ul>
 <h2 id="zusammenfassung-4"><span class="header-section-number">6.1</span> Zusammenfassung</h2>
 <h1 id="evaluation"><span class="header-section-number">7</span> Evaluation</h1>
+<p>These/Behauptung? * Steigerung des Automatisierungsgrads durch Feedbackloop * physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming) * Laufzeitmodell für <em>online</em>-Monitoring</p>
+<p>Umsetzung? * Proof of concept * Case-Study mgl.? * HIL-Simulation?</p>
+<p>Blocking Factors/mögliche Kritik? * Leistung von embedded computing devices =&gt; siehe <span class="citation">[3]</span> * Energieverbrauch</p>
 <h2 id="zusammenfassung-5"><span class="header-section-number">7.1</span> Zusammenfassung</h2>
 <h1 id="zusammenfassung-6"><span class="header-section-number">8</span> Zusammenfassung</h1>
 <h2 id="schlussfolgerung"><span class="header-section-number">8.1</span> Schlussfolgerung</h2>
 <h2 id="ausblick"><span class="header-section-number">8.2</span> Ausblick</h2>
+<ul>
+<li>Prozessmodell für Abstrakte Leitebene</li>
+<li>Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)</li>
+<li>Surrogate als reaktiver Agent =&gt; Einbindung in MAS denkbar</li>
+<li>Möglichkeiten des Nutzens der Daten
+<ul>
+<li>Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?</li>
+<li>Automatische Erkennung von Gut-/Schlechtteilen</li>
+</ul></li>
+</ul>
 <h1 id="anhang"><span class="header-section-number">9</span> Anhang</h1>
 <h1 id="literatur" class="unnumbered hidden" footer="false" header="false" count="false">Literatur</h1>
 <div id="refs" class="references">
