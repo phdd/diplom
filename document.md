@@ -20,6 +20,8 @@ Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zug
 
 ## Zielsetzung
 
+Nach der Identifikation des Kernproblems und der damit einhergehenden Motivation, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
+
 ### Aufgaben
 
 Folgenden Aufgaben wird in dieser Arbeit entsprochen:
@@ -42,7 +44,7 @@ Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 * Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden des virtuellen Abbilds in die Fertigungsstrecke.
 * Zugang zur Altmaschine, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gewährleistet.
 
-### Konsequenzen
+### Erwartungen
 
 Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
 
@@ -62,6 +64,13 @@ Folgende praktisch relevante Ergebnisse werden erwartet:
 * Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
 
 ## Methode und Aufbau
+
+Angelehnt an die _Design Science Research Methodology_ (DSRM) wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
+Im folgenden Grundlagenkapitel werden essentielle Technologien und Konzepte beschrieben.
+Die sich anschließenden Anforderungen spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
+Durch die prototypische Implementation des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
+Die Evaluation hat eine qualitative und quantitative Bewertung von Konzept und Implementation des Prototyps zum Ziel.
+Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick auf weitere Forschung gegeben.
 
 # Grundlagen
 
@@ -188,6 +197,8 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Anforderungen
 
+Identifikation des Problems.
+
 Stakeholder?
 
 R1
@@ -201,6 +212,8 @@ R2
 R3
 
 : automatische Reaktion auf veränderte Bedingungen => Feedback => höherer Automatisierungsgrad
+
+Forschungsfragen?
 
 # Forschungsstand
 
