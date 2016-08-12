@@ -44,7 +44,7 @@ Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 
 ### Konsequenzen
 
-Folgende wissenschaftlich relevante Ergebnisse werden von dieser Arbeit erwartet:
+Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
 
 * Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen zusätzlich.
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
@@ -52,14 +52,14 @@ Folgende wissenschaftlich relevante Ergebnisse werden von dieser Arbeit erwartet
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
 * Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zur Maschinenoperation und -auslastung ausgeschöpft werden.
 
-Folgende praktische relevante Konsequenzen werden von den Ergebnissen erwartet:
+Folgende praktisch relevante Ergebnisse werden erwartet:
 
 * Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
 * Die zentrale Auswertung von Prozessdaten ermöglicht den direkten Eingriff in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
 * Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
+* Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
 * Wartungszyklen können besser überprüft und eingehalten werden.
 * Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
-* Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
 
 ## Methode und Aufbau
 
