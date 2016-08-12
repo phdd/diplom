@@ -86,13 +86,13 @@ Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit ext
 <p>Doch technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung. Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können <span class="citation">[2]</span>. Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme <span class="citation">[2]</span>. Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen. Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie <span class="citation">[1]</span>.</p>
 <h2 id="zielsetzung"><span class="header-section-number">1.2</span> Zielsetzung</h2>
 <h3 id="aufgaben"><span class="header-section-number">1.2.1</span> Aufgaben</h3>
-<p>Folgende Aufgaben werden mit dieser Arbeit erfüllt:</p>
+<p>Folgenden Aufgaben wird in dieser Arbeit entsprochen:</p>
 <ul>
 <li>Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen – im Folgenden als Retrofitting bezeichnet.</li>
 <li>Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.</li>
 <li>Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.</li>
 <li>Verwendung leistungsfähiger Einplatinencomputer in der Implementierung.</li>
-<li>Ermöglichen von Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme.
+<li>Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme.
 <ul>
 <li>Transfer und Ausführung von Maschinenprogrammen.</li>
 <li>Erfassen von Produktionsdaten durch angeschlossene Sensoren.</li>
@@ -102,7 +102,29 @@ Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit ext
 <li>Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.</li>
 </ul>
 <h3 id="annahmen"><span class="header-section-number">1.2.2</span> Annahmen</h3>
+<p>Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:</p>
+<ul>
+<li>Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden des virtuellen Abbilds in die Fertigungsstrecke.</li>
+<li>Zugang zur Altmaschine, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gewährleistet.</li>
+</ul>
 <h3 id="konsequenzen"><span class="header-section-number">1.2.3</span> Konsequenzen</h3>
+<p>Folgende wissenschaftlich relevante Ergebnisse werden von dieser Arbeit erwartet:</p>
+<ul>
+<li>Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen zusätzlich.</li>
+<li>Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen.</li>
+<li>Durch damit einheitlich mögliche <em>Machine-To-Machine</em> (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert.</li>
+<li>Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.</li>
+<li>Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zur Maschinenoperation und -auslastung ausgeschöpft werden.</li>
+</ul>
+<p>Folgende praktische relevante Konsequenzen werden von den Ergebnissen erwartet:</p>
+<ul>
+<li>Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.</li>
+<li>Die zentrale Auswertung von Prozessdaten ermöglicht den direkten Eingriff in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden.</li>
+<li>Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.</li>
+<li>Wartungszyklen können besser überprüft und eingehalten werden.</li>
+<li>Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.</li>
+<li>Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.</li>
+</ul>
 <h2 id="methode-und-aufbau"><span class="header-section-number">1.3</span> Methode und Aufbau</h2>
 <h1 id="grundlagen"><span class="header-section-number">2</span> Grundlagen</h1>
 <h2 id="produktion-und-deren-automatisierung"><span class="header-section-number">2.1</span> Produktion und deren Automatisierung</h2>
