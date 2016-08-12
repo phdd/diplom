@@ -265,7 +265,7 @@ table td {
   }
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1400px) {
   #TOC {
     position: fixed;
     top: 0;

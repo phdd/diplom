@@ -12,23 +12,32 @@ Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stell
 So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung @Deshpande2011.
 Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen @Wang2004.
 
-Doch technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktion.
+Doch technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
 Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können @Wang2004.
 Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme @Wang2004.
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
-Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit bereits Teil der Fertigungsindustrie @Deshpande2011.
-
-Das händische Programmieren und die Überwachung von Fertigungsparametern geschieht meist an einem Terminal und erfordert die physische Anwesenheit einer Fachkraft.
+Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie @Deshpande2011.
 
 ## Zielsetzung
 
-Aufteilung nach Introduction von @Lee2006
+### Aufgaben
 
-* Zweck
-* Voraussetzungen
-* Wirkung
+Folgende Aufgaben werden mit dieser Arbeit erfüllt:
 
-Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
+* Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
+* Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
+* Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
+* Verwendung leistungsfähiger Einplatinencomputer in der Implementierung.
+* Ermöglichen von Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
+    - Transfer und Ausführung von Maschinenprogrammen.
+    - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
+* Vorstellung eines skalierenden, erweiterbaren Frameworks.
+* Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
+* Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
+
+### Annahmen 
+
+### Konsequenzen
 
 ## Methode und Aufbau
 
@@ -144,6 +153,8 @@ Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer 
 Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen.
 Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
+
+_Dual Reality_-Konzept ...
 
 ## Cloud Manufacturing & Fog-Computing
 
@@ -556,6 +567,8 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * Adapter für proprietäre CNC-Protokolle (DNC)
 
 <!-- END Rahmen dieser Arbeit -->
+
+Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
 
 * Laufzeitkonfiguration des Surrogate?
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
