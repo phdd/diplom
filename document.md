@@ -22,13 +22,13 @@ Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zug
 
 ### Aufgaben
 
-Folgende Aufgaben werden mit dieser Arbeit erfüllt:
+Folgenden Aufgaben wird in dieser Arbeit entsprochen:
 
 * Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 * Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 * Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
 * Verwendung leistungsfähiger Einplatinencomputer in der Implementierung.
-* Ermöglichen von Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
+* Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
 * Vorstellung eines skalierenden, erweiterbaren Frameworks.
@@ -37,7 +37,29 @@ Folgende Aufgaben werden mit dieser Arbeit erfüllt:
 
 ### Annahmen 
 
+Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
+
+* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden des virtuellen Abbilds in die Fertigungsstrecke.
+* Zugang zur Altmaschine, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gewährleistet.
+
 ### Konsequenzen
+
+Folgende wissenschaftlich relevante Ergebnisse werden von dieser Arbeit erwartet:
+
+* Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen zusätzlich.
+* Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
+* Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
+* Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
+* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zur Maschinenoperation und -auslastung ausgeschöpft werden.
+
+Folgende praktische relevante Konsequenzen werden von den Ergebnissen erwartet:
+
+* Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
+* Die zentrale Auswertung von Prozessdaten ermöglicht den direkten Eingriff in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
+* Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
+* Wartungszyklen können besser überprüft und eingehalten werden.
+* Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
+* Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
 
 ## Methode und Aufbau
 
