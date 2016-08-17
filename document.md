@@ -20,22 +20,22 @@ Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zug
 
 ## Zielsetzung
 
-Nach der Identifikation des Kernproblems und der damit einhergehenden Motivation, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
+Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
 
 ### Aufgaben
 
 Folgenden Aufgaben wird in dieser Arbeit entsprochen:
 
-* Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
-* Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
-* Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
-* Verwendung leistungsfähiger Einplatinencomputer in der Implementierung.
-* Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
+1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
+2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
+3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
+4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
-* Vorstellung eines skalierenden, erweiterbaren Frameworks.
-* Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
-* Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
+    - Verwendung von Einplatinencomputern in der Implementierung.
+5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
+6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
+7. Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
 
 ### Annahmen 
 
@@ -48,7 +48,7 @@ Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 
 Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
 
-* Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen zusätzlich.
+* Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen.
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
 * Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
@@ -57,7 +57,7 @@ Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
 Folgende praktisch relevante Ergebnisse werden erwartet:
 
 * Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
-* Die zentrale Auswertung von Prozessdaten ermöglicht den direkten Eingriff in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
+* Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
 * Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
 * Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
 * Wartungszyklen können besser überprüft und eingehalten werden.
@@ -66,11 +66,11 @@ Folgende praktisch relevante Ergebnisse werden erwartet:
 ## Methode und Aufbau
 
 Angelehnt an die _Design Science Research Methodology_ (DSRM) wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
-Im folgenden Grundlagenkapitel werden essentielle Technologien und Konzepte beschrieben.
-Die sich anschließenden Anforderungen spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
-Durch die prototypische Implementation des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
-Die Evaluation hat eine qualitative und quantitative Bewertung von Konzept und Implementation des Prototyps zum Ziel.
-Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick auf weitere Forschung gegeben.
+Durch die folgenden Grundlagen (Kapitel 2) werden essentielle Technologien und Konzepte beschrieben.
+Die sich anschließenden Anforderungen (Kapitel 3) spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte (Kapitel 4) für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
+Durch die prototypische Implementation (Kapitel 5) des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
+Die Evaluation (Kapitel 6) hat eine qualitative und quantitative Bewertung von Konzept und Implementation des Prototyps zum Ziel.
+Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) auf weitere Forschung gegeben.
 
 # Grundlagen
 
@@ -197,26 +197,50 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Anforderungen
 
-Identifikation des Problems.
-
 Stakeholder?
 
-R1
+
+R1 -- entfernte Kontrolle
 
 : Entfernte Kontrolle von Produktionsmachinen
 
-R2
+R2 -- entfernte Überwachung
 
 : Überwachung von Zustand und Leistungsparametern
 
-R3
+R3 -- cyber-physikalische Rückkopplung
 
-: automatische Reaktion auf veränderte Bedingungen => Feedback => höherer Automatisierungsgrad
+: automatische Reaktion auf veränderte Bedingungen  
+  => Feedback => höherer Automatisierungsgrad
 
-Forschungsfragen?
+Auch bei bestehender Ethernet-Netzwerkanbindung wirft die Software zur Kontrolle von CNC-Maschinen folgende Probleme auf @Ferrolho2007.
+
+1. CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
+2. Die Kontrolleinheit der Anlage lässt die Steuerung von einem entfernten PC nicht zu.
+3. Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
+4. Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
+
+Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein Merkmal cyber-physikalischer Systeme. 
+<!--
+* Anbindung von Soft- und Hardwarekomponenten durch Drittanbieter ermöglichen
+    - statistische Auswertung
+    - ERP, MES
+-->
+
+R4 -- Standardisierung
+
+: Die Verwendung standardisierter Informationsprotokolle und -modelle ist essentiell für die Integration heterogener Produktionsanlagen.
+
+## Zusammenfassung
+
+Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
+
+* 
 
 # Forschungsstand
 
+* Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
+    - kein Standard bei Kommunikation
 
 ## Maschinendatenerfassung & -analyse
 
