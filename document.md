@@ -105,6 +105,7 @@ In einer flexiblen Fertigungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschi
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
+
 ## Informationsmodelle in der Fertigungsindustrie
 
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
@@ -187,31 +188,51 @@ So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Ver
 
 _Dual Reality_-Konzept ...
 
+
+<!--
 ## Cloud Manufacturing & Fog-Computing
 
 Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
+-->
 
 ## Zusammenfassung
 
 # Anforderungen
 
-Stakeholder?
+Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die Bedingungen zu deren Erfüllung erläutert.
+Informationsysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
+Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
+Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
+## Steuerung
 
-R1 -- entfernte Kontrolle
+Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
+Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
+Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Wertschöpfungskette.
+Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
+Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
+Auch die Steuerung dieser muss ortunabhängig sein.
 
-: Entfernte Kontrolle von Produktionsmachinen
+R1
 
-R2 -- entfernte Überwachung
+: Die Kontrolle der Altmaschine ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen nicht ausschließlich an deren Terminal möglich ist.
+  Eingeschlossen hierbei sind automatisierte Maschinen- und Werkzeugkomponenten.
 
-: Überwachung von Zustand und Leistungsparametern
+## Überwachung
 
-R3 -- cyber-physikalische Rückkopplung
+R2
 
-: automatische Reaktion auf veränderte Bedingungen  
-  => Feedback => höherer Automatisierungsgrad
+: Entfernte/dezentrale Überwachung von Zustand und Leistungsparametern
+
+## Rückkopplung
+
+R3
+
+: automatische Reaktion auf veränderte Bedingungen => cyber-physikalisches Feedback => höherer Automatisierungsgrad
+
+## Standardisierung
 
 Auch bei bestehender Ethernet-Netzwerkanbindung wirft die Software zur Kontrolle von CNC-Maschinen folgende Probleme auf @Ferrolho2007.
 
@@ -227,9 +248,11 @@ Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist
     - ERP, MES
 -->
 
-R4 -- Standardisierung
+R4
 
 : Die Verwendung standardisierter Informationsprotokolle und -modelle ist essentiell für die Integration heterogener Produktionsanlagen.
+
+Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen.
 
 ## Zusammenfassung
 
