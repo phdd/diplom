@@ -220,7 +220,7 @@ Informationsysteme in der Produktion dienen der Verbesserung der Wettbewerbsfäh
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
 Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
-## Steuerung
+## Steuerung {#sec:REQ1}
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
 Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
@@ -229,58 +229,56 @@ Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermögl
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
 Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS in den Produktionsprozess eingreifen kann.
 
-R1
-
+REQ4
 : Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen durch Subsysteme des CPPS erfolgen kann.
 
-## Überwachung
+## Überwachung {#sec:REQ2}
 
 Im Wartungs- oder Störfall muss der Zustand der Anlage bekannt sein.
 Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
 Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
 
-R2
-
-: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustand und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
+REQ2
+: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
 
 Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
 Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
 Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
 
-## Standardisierung
+## Offene Standards {#sec:REQ3}
 
-Auch bei bestehender Ethernet-Netzwerkanbindung wirft die Software zur Kontrolle von CNC-Maschinen folgende Probleme auf @Ferrolho2007.
+Nach Ferrolho et al. entstehen auch mit Netzwerkanbindung und Programmierschnittstellen noch zu überwindende Probleme @Ferrolho2007.
+CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
+Die Kontrolleinheit der Anlage lässt die Steuerung von einem entfernten PC nicht zu.
+Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
+Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
+Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein bereits betrachtetes Problem cyber-physikalischer Systeme (vgl. @Siepmann2016).
+Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen @Ayatollahi2013.
 
-1. CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
-2. Die Kontrolleinheit der Anlage lässt die Steuerung von einem entfernten PC nicht zu.
-3. Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
-4. Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
+REQ3
+: Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
 
-Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein Merkmal cyber-physikalischer Systeme (vgl. @Siepmann2016). 
-<!--
-* Anbindung von Soft- und Hardwarekomponenten durch Drittanbieter ermöglichen
-    - statistische Auswertung
-    - ERP, MES
--->
+## Datenlokalität und -sicherheit {#sec:REQ4}
 
-R4
+CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
+Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
+Damit verlangsamt sich die Verarbeitung der Daten mit der Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
+Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
+Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an weiter entfernte Systeme übergeben werden.
+Durch den verminderten Austausch zwischen den Systemen wird die Datensicherheit verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
-: Die Verwendung standardisierter Informationsprotokolle und -modelle ist essentiell für die Integration heterogener Produktionsanlagen.
-
-Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen.
-
-## Verteilte Datensicherheit
-
-R5
-
-: Fog
+REQ4
+: TODO
 
 ## Zusammenfassung
 
+<!-- Nicht in der Einleitung? -->
+<!--
 Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
 
 * 
+-->
 
 # Forschungsstand
 
