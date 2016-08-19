@@ -35,7 +35,7 @@ year = {2015}
 abstract = {A robotized manufacturing cell is a distributed system composed of elements such as robots, machine tools and peripheral devices whose actions must be coordinated by a cell controller. Robotized manufacturing cells usually are preconfigured, often available commercially off-the-shelf for a specific type of processing, and may not be reconfigured outside of the pre-defined level of automation due to poor communication capabilities. This lack of reconfigurability often implies low usage of equipment. This fully applies to Small and Medium-Sized Enterprises (SMEs) due to rather small and often varying lot sizes. This fact presents a technological and economical barrier to the automation of many manufacturing processes in SMEs. OPC Unified Architecture (OPC UA) is a promising standard specification for interconnectivity in state-of-the-art industrial automation technology, enabling rich information modelling capabilities. In this paper we present the design of a prototype OPC UA server for numerically controlled machine tools (such as milling and turning machines) providing a semantic communication interface for the cell controller and neighbouring automation components. The OPC UA server exposes all relevant objects of the machine tool such as automation equipment, tools and NC-programs with the respective variables, methods, and properties. Methods represent functions of the machine tool that can be called by an OPC UA client (e.g. open work area door, close fixture), allowing easy orchestration of all operations necessary for automated job execution. The OPC UA Server has been implemented and tested in an existing manufacturing cell composed of an EMCO Concept Turn 55 machine tool, an ABB IRB 120 industrial robot and a cell controller. Communication between OPC UA server and numerical control of the machine tool is based on a proprietary DNC protocol. Introduction In a robotized manufacturing cell material flow and NC program selection and start may be managed by the numerical control or the robot control. Delegating these tasks to a dedicated cell controller that orchestrates activities of the cell devices allows more flexibility and operating comfort. But the implementation of a cell controller is a complex task due to different communication protocols and machines supplied from different vendors. During the 1970ies the first flexible manufacturing systems came into existence and vendor specific communication protocols for file related operations, data collection and remote control of NC machine tools evolved. In the beginning these protocols were based on the LSV2-or DK3964R procedures for serial point-to-point communication [1, 2]. Later on communication based on Ethernet and TCP/IP came into use, such as MCIS RPC Sinumerik Computer Link developed by Siemens [3]. In the 1990ies an attempt was made to standardize the communication in flexible manufacturing cells and systems by introducing the Manufacturing Message Specification (MMS). Leit{\~{a}}o et al. [4] presented an integration solution for two CNC machines and an anthropomorphic robot, where all system components were equipped with MAP (Manufacturing Automation Protocol) / MMS interface boards. But only a small subset of the MMS services defined in ISO 9506 was implemented by the MMS communication modules due to the limitations on the objects and services implemented by server applications. The high expectations concerning MMS could not be fulfilled. For simple cell configurations the use of digital inputs and outputs for signal exchange is still widely accepted. In 2011 the German Engineering Foundation (VDMA) released a specification of signals for the organization of the machine tending process (VDMA 34180). This specification is aimed at reducing the expense for integrating robots and machine tools [5]. The German initiative known as " Industry 4.0. " is about connecting machines with goods via the internet, for example in a production facility. This means that products and machines will be able to communicate with each other in a common language. Reality looks somewhat different. The suppliers of SCADA (Supervisory Control and Data Acquisition) software provide a huge number of communication drivers for different automation and information systems, and system integrators struggle with a whole lot of different communication protocols and message frames. OPC Unified Architecture (OPC UA), a communications and data modelling standard for the exchange of information over TCP/IP networks, could solve this problem as it provides data and semantics of data at the same time. At the Institute for Production Engineering and Laser Technology (IFT), Vienna University of Technology, the use of OPC UA is being evaluated for remote control of machine tools in robotized manufacturing cells. Although Classic OPC DA is already an established standard for machine data and process data collection, the recent OPC UA is still not common in this field. Especially with the introduction of methods, OPC UA seems to be very promising for use in the field of production automation. The clear semantics of the address space not only allows sophisticated M2M communication, it can also empower manufacturing cell operators to comprehensively browse and easily control the automation components with any OPC UA client available. This article presents a prototype OPC UA server for a machine tool control enabling communication in a robotized manufacturing cell. The cell controller may collect data from the machine tool and is able to remotely control the machine tool. The prototype has been tested in a robotized manufacturing cell composed of an EMCO Concept Turn 55 (a turning lathe designed for educational purposes) and an ABB IRB 120 industrial robot (see Fig. 1). Development of the prototype application is based on the " C++ UA Server SDK " and " .NET UA Client SDK " provided by Unified Automation.},
 author = {Ayatollahi, I and Kittl, B and Pauker, Florian and Hackhofer, M},
 booktitle = {International Conference on Innovative Technologies},
-file = {::},
+file = {:home/peter/Documents/Mendeley Desktop/Ayatollahi et al. - 2013 - Prototype OPC UA Server for Remote Control of Machine Tools.pdf:pdf},
 keywords = {OPC4Factory},
 mendeley-tags = {OPC4Factory},
 number = {12},
@@ -138,7 +138,7 @@ year = {2005}
 @article{Ferrolho2007,
 author = {Ferrolho, Antnio and Crisostomo, Manuel},
 doi = {10.1109/TII.2006.890529},
-file = {::},
+file = {:home/peter/Documents/Mendeley Desktop/Ferrolho, Crisostomo - 2007 - Intelligent Control and Integration Software for Flexible Manufacturing Cells(2).pdf:pdf},
 journal = {IEEE Transactions on Industrial Informatics},
 month = {feb},
 number = {1},
@@ -158,20 +158,20 @@ title = {{Dealing with Roles}},
 url = {http://martinfowler.com/apsupp/roles.pdf},
 year = {1997}
 }
-@article{FraunhoferIPK2016,
-author = {{Fraunhofer IPK}},
-file = {::},
-journal = {FUTUR},
-pages = {8},
-title = {{RetroNet - Praxisnahe Br{\"{u}}cke in die Industrie 4.0}},
-url = {https://issuu.com/claudiaengel/docs/futur_1_2016},
-year = {2016}
-}
 @misc{FraunhoferIPK2016a,
 author = {{Fraunhofer IPK}},
 file = {::},
 title = {{Industrie 4.0 - Cloudbasierte Steuerungen}},
-url = {https://www.ipk.fraunhofer.de/fileadmin/user_upload/IPK/publikationen/themenblaetter/aut_pICASSO_web.pdf},
+url = {https://www.ipk.fraunhofer.de/fileadmin/user{\_}upload/IPK/publikationen/themenblaetter/aut{\_}pICASSO{\_}web.pdf},
+year = {2016}
+}
+@article{FraunhoferIPK2016,
+author = {{Fraunhofer IPK}},
+file = {:home/peter/Documents/Mendeley Desktop/Fraunhofer IPK - 2016 - RetroNet - Praxisnahe Br{\"{u}}cke in die Industrie 4.0.pdf:pdf},
+journal = {FUTUR},
+pages = {8},
+title = {{RetroNet - Praxisnahe Br{\"{u}}cke in die Industrie 4.0}},
+url = {https://issuu.com/claudiaengel/docs/futur{\_}1{\_}2016},
 year = {2016}
 }
 @article{Furness2000,
@@ -196,7 +196,7 @@ author = {Gausemeier, J{\"{u}}rgen and Dumitrescu, Roman and Jasperneite, J{\"{u
 file = {:home/peter/Documents/Mendeley Desktop/Gausemeier et al. - 2014 - Auf dem Weg zu Industrie 4.0 L{\"{o}}sungen aus dem Spitzencluster it's OWL.pdf:pdf},
 institution = {it‘s OWL Clustermanagement GmbH},
 title = {{Auf dem Weg zu Industrie 4.0: L{\"{o}}sungen aus dem Spitzencluster it's OWL}},
-url = {http://www.its-owl.de/fileadmin/PDF/Industrie_4.0/Auf_dem_Weg_zu_Industrie_4.0_-_Loesungen_aus_dem_Spitzencluster_its_OWL_RGB.pdf},
+url = {http://www.its-owl.de/fileadmin/PDF/Industrie{\_}4.0/Auf{\_}dem{\_}Weg{\_}zu{\_}Industrie{\_}4.0{\_}-{\_}Loesungen{\_}aus{\_}dem{\_}Spitzencluster{\_}its{\_}OWL{\_}RGB.pdf},
 year = {2014}
 }
 @article{Geerts2011,
@@ -274,7 +274,7 @@ file = {::},
 keywords = {OPC UA},
 mendeley-tags = {OPC UA},
 title = {{Internet of Things {\&} Industrie 4.0: Their differences and why OPC UA is the solution for both}},
-url = {https://opcfoundation.org/wp-content/uploads/2014/08/2_Industrial-Revolution-2014-StefanHoppe.pdf}
+url = {https://opcfoundation.org/wp-content/uploads/2014/08/2{\_}Industrial-Revolution-2014-StefanHoppe.pdf}
 }
 @incollection{Hoppe2014,
 address = {Wiesbaden},
@@ -322,6 +322,15 @@ title = {{Sackgasse Hochautomatisierung? Praxis des Abbaus von Overengineering i
 url = {http://hdl.handle.net/10419/29534},
 year = {2001}
 }
+@article{Lee2008,
+author = {Lee, Edward A.},
+doi = {10.1109/ISORC.2008.25},
+file = {:home/peter/Documents/Mendeley Desktop/Lee - 2008 - Cyber Physical Systems Design Challenges.pdf:pdf},
+journal = {2008 11th IEEE International Symposium on Object and Component-Oriented Real-Time Distributed Computing (ISORC)},
+pages = {363--369},
+title = {{Cyber Physical Systems: Design Challenges}},
+year = {2008}
+}
 @article{Lee2006a,
 abstract = {Cyber-Physical Systems (CPS) are integrations of computation with physical processes. Embedded computers and networks monitor and control the physical processes, usually with feedback loops where physical processes affect computations and vice versa. In the physical world, the passage of time is inexorable and concurrency is intrinsic. Neither of these properties is present in todays computing and networking abstractions. I argue that the mismatch between these abstractions and properties of physical processes impede technical progress, and I identify promising technologies for research and investment. There are technical approaches that partially bridge the abstraction gap today (such as real-time operating systems, middleware technologies, specialized embedded processor architectures, and specialized networks), and there is certainly considerable room for improvement of these technologies. However, it may be that we need a less incremental approach, where new abstractions are built from the ground up. The foundations of computing are built on the premise that the principal task of computers is transformation of data. Yet we know that the technology is capable of far richer interactions the physical world. I critically examine the foundations that have been built over the last several decades, and determine where the technology and theory bottlenecks and opportunities lie. I argue for a new systems science that is jointly physical and computational.},
 author = {Lee, Edward A.},
@@ -332,15 +341,6 @@ pages = {1--9},
 title = {{Cyber-Physical Systems - Are Computing Foundations Adequate?}},
 volume = {1},
 year = {2006}
-}
-@article{Lee2008,
-author = {Lee, Edward A.},
-doi = {10.1109/ISORC.2008.25},
-file = {:home/peter/Documents/Mendeley Desktop/Lee - 2008 - Cyber Physical Systems Design Challenges.pdf:pdf},
-journal = {2008 11th IEEE International Symposium on Object and Component-Oriented Real-Time Distributed Computing (ISORC)},
-pages = {363--369},
-title = {{Cyber Physical Systems: Design Challenges}},
-year = {2008}
 }
 @phdthesis{Lee2006,
 author = {Lee, Soo-Yen},
@@ -426,6 +426,14 @@ title = {{The use of BPMN for modelling the mes level in information and control
 volume = {17},
 year = {2013}
 }
+@techreport{Milberg2014,
+author = {Milberg, Joachim},
+file = {:home/peter/Documents/Mendeley Desktop/Milberg - 2014 - Trends in der fabrik.pdf:pdf},
+institution = {Institut f{\"{u}}r Produktion und Logistik},
+title = {{Trends in der fabrik}},
+url = {http://www.ifpconsulting.de/media/pdf/ifp{\_}ku{\_}trends{\_}2014sm{\_}abstract.pdf},
+year = {2014}
+}
 @article{Monostori2006,
 abstract = {The emerging paradigm of agent-based computation has revolutionized the building of intelligent and decentralized systems. The new technologies met well the requirements in all domains of manufacturing where problems of uncertainty and temporal dynamics, information sharing and distributed operation, or coordination and cooperation of autonomous entities had to be tackled. In the paper software agents and multi-agent systems are introduced and through a comprehensive survey, their potential manufacturing applications are outlined. Special emphasis is laid on methodological issues and deployed industrial systems. After discussing open issues and strategic research directions, we conclude that the evolution of agent technologies and manufacturing will probably proceed hand in hand. The former can receive real challenges from the latter, which, in turn, will have more and more benefits in applying agent technologies, presumably together with well-established or emerging approaches of other disciplines.},
 author = {Monostori, L. and V{\'{a}}ncza, J. and Kumara, S.R.T.},
@@ -458,7 +466,7 @@ file = {::},
 keywords = {OPC UA},
 mendeley-tags = {OPC UA},
 title = {{OPC Unified Architecture - Wegbereiter der 4. industriellen (R)Evolution}},
-url = {https://opcfoundation.org/wp-content/uploads/2014/03/OPC_UA_I_4.0_Wegbereiter_DE_v2.pdf},
+url = {https://opcfoundation.org/wp-content/uploads/2014/03/OPC{\_}UA{\_}I{\_}4.0{\_}Wegbereiter{\_}DE{\_}v2.pdf},
 year = {2014}
 }
 @article{Palm2014,
@@ -466,7 +474,7 @@ author = {Palm, Florian and Gr{\"{u}}ner, Sten and Pfrommer, Julius and Graube, 
 file = {::},
 journal = {5. Jahreskolloquium "Kommunikation in der Automation" (KommA 2014)},
 title = {{open62541 – der offene OPC UA Stack}},
-url = {http://ies.anthropomatik.kit.edu/english/publ.php?lang=en{\&}key=ies_2014_pfrommer_open62541},
+url = {http://ies.anthropomatik.kit.edu/english/publ.php?lang=en{\&}key=ies{\_}2014{\_}pfrommer{\_}open62541},
 year = {2014}
 }
 @article{Pauker2014,
@@ -707,7 +715,7 @@ abstract = {Das Hauptanliegen des Papiers ist, ein Paradigma f{\"{u}}r Probleme 
 author = {Wedde, Rorst F. and Lehnhoff, Sebastian and Rehtanz, Christian and Krause, Olav},
 booktitle = {Aktuelle Anwendungen in Technik und Wirtschaft},
 doi = {10.1007/978-3-540-85324-4_3},
-file = {::},
+file = {:home/peter/Documents/Mendeley Desktop/Wedde et al. - 2009 - Von eingebetteten Systemen zu Cyber-Physical Systems.pdf:pdf},
 pages = {21--30},
 publisher = {Springer Berlin Heidelberg},
 title = {{Von eingebetteten Systemen zu Cyber-Physical Systems}},
@@ -717,7 +725,7 @@ year = {2009}
 abstract = {A STEP-compliant CNC machine tool that demonstrated a G-code free machining scenario is presented. The aim of this research is to showcase the advantages of, and evaluate, STEP-NC—a new NC data model—by implementing it in a legacy CNC system. The work consists of two parts: retrofitting an existing CNC machine and the development of a STEP-compliant NC Converter called STEPcNC. The CompuCam's motion control system is used for retrofitting the machine, which is programmable using its own motion control language—6K Motion Control language and capable of interfacing with other CAPP/CAM programs through languages such as Visual Basic, Visual C++ and Delphi. STEPcNC can understand and process STEP-NC codes, and interface with the CNC controller through a Human Machine Interface. It makes use of STEP-NC information such as “Workplan”, “Workingstep”, machining strategy, machining features and cutting tools that is present in a STEP-NC file. Hence, the system is truly feature-based. The Application Interpreted Model of STEP-NC has been used.},
 author = {Xu, X.W.},
 doi = {10.1016/j.rcim.2005.02.009},
-file = {::},
+file = {:home/peter/Documents/Mendeley Desktop/Xu - 2006 - Realization of STEP-NC enabled machining.pdf:pdf},
 journal = {Robotics and Computer-Integrated Manufacturing},
 number = {2},
 pages = {144--153},
@@ -799,17 +807,17 @@ publisher = {Springer Berlin Heidelberg},
 title = {{Designing Application Domain Models with Roles}},
 year = {2005}
 }
-@article{Ferrolho2007a,
-abstract = {Flexible manufacturing cells (FMC) are capable of producing a broad variety of products and changing their characteristics quickly and frequently. This flexibility provides for more efficient use of resources but makes the control of these systems more difficult. This paper presents several software applications developed for industrial robots and computer numerical control (CNC) machines. The objective of this software is to allow these equipments to be integrated, in an easy and efficient way, in modern FMC. For the industrial robots, we developed the "winRS232ROBOTcontrol" and "winEthernetROBOTcontrol" software. For the CNC machines, the software that was developed was "winMILLcontrol" for the mill and "winTURNcontrol" for the lathe. With this software, industrial robots and CNC machines can be integrated in modern FMC, in an easy and efficient way. An FMC was developed, with industrial characteristics, with the objective of showing the potentialities of the developed software. Thus, the proposed software in this paper was tested and validated in the developed FMC, and the experimental results show the viability and success of this software in the coordination of the different sectors in the FMC and in the improvement of their performance},
-author = {Ferrolho, Ant{\'{o}}nio and Cris{\'{o}}stomo, Manuel},
-doi = {10.1109/TII.2006.890529},
-file = {:home/peter/Documents/Mendeley Desktop/Cris - 2007 - Intelligent Control and Integration Software for Flexible Manufacturing Cells.pdf:pdf},
-issn = {15513203},
-journal = {IEEE Transactions on Industrial Informatics},
-keywords = {Computer integrated manufacturing (CIM) and robots,Flexible manufacturing cell (FMC),Flexible manufacturing systems,winEthernetROBOTcontrol,winMILLcontrol,winRS232ROBOTcontrol,winTURNcontrol},
-number = {1},
-pages = {3--11},
-title = {{Intelligent control and integration software for flexible manufacturing cells}},
-volume = {3},
-year = {2007}
+@inproceedings{Bonomi2012,
+abstract = {Fog Computing extends the Cloud Computing paradigm to the edge of the network, thus enabling a new breed of applications and services. Defining characteristics of the Fog are: a) Low latency and location awareness; b) Wide-spread geographical distribution},
+author = {Bonomi, Flavio and Milito, Rodolfo and Zhu, Jiang and Addepalli, Sateesh},
+booktitle = {Proceedings of the first edition of the MCC workshop on Mobile cloud computing},
+doi = {10.1145/2342509.2342513},
+file = {:home/peter/Documents/Mendeley Desktop/Bonomi et al. - 2012 - Fog Computing and Its Role in the Internet of Things.pdf:pdf},
+isbn = {9781450315197},
+issn = {978-1-4503-1519-7},
+keywords = {analytics,cloud computing,defined networks,fog computing,iot,real time systems,software,wsan},
+pages = {13--16},
+title = {{Fog Computing and Its Role in the Internet of Things}},
+url = {http://doi.acm.org/10.1145/2342509.2342513$\backslash$npapers2://publication/doi/10.1145/2342509.2342513},
+year = {2012}
 }

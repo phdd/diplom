@@ -1,24 +1,34 @@
 
 # Einleitung
 
+Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
+Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde die erste industrielle Revolution eingeleitet.
+Zum Ende des 19. Jahrhunderts ermöglichten die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
+Knapp einhundert Jahre nach dieser zweiten Revolution, wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
+Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
+Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt.
+Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
+
 ## Motivation
 
-Heutige Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
-Gerade ältere Modelle besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer modernen Fertigungsstrecke.
-Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung. 
-Jedoch behindern diese vorangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
+Vor der vierten Revolution war klassische Produktionssteuerung zentralisiert und Steuerungstechnik monolithisch strukturiert.
+Zukünftig wird die Fertigung in cyber-physische Systeme von Systemen zerlegt und mit offenen Standards dezentral betrieben @Milberg2014.
+Moderne Produktionseinrichtungen beherbergen jedoch Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
+Gerade ältere Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke.
+Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.
+Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
 Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
 So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung @Deshpande2011.
 Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen @Wang2004.
 
-Doch technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
+Technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
 Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können @Wang2004.
 Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme @Wang2004.
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
 Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie @Deshpande2011.
 
-## Zielsetzung
+## Zielsetzung {#sec:zielsetzung}
 
 Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
 
@@ -52,7 +62,7 @@ Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
 * Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
-* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zur Maschinenoperation und -auslastung ausgeschöpft werden.
+* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
 
 Folgende praktisch relevante Ergebnisse werden erwartet:
 
@@ -62,6 +72,10 @@ Folgende praktisch relevante Ergebnisse werden erwartet:
 * Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
 * Wartungszyklen können besser überprüft und eingehalten werden.
 * Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
+
+### Fragestellungen
+
+
 
 ## Methode und Aufbau
 
@@ -79,7 +93,7 @@ Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) 
 * Ebenen der Automatisierungspyramide
     * MES
     * ... 
-   
+    
 ### Kommunikation
 
 Zusammenfassung von @Pauker2013
@@ -177,6 +191,8 @@ Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastru
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008.
 
+... @Siepmann2016
+
 Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
 Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
 Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
@@ -188,14 +204,12 @@ So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Ver
 
 _Dual Reality_-Konzept ...
 
-
-<!--
 ## Cloud Manufacturing & Fog-Computing
 
+Bonomi 2012 @Bonomi2012  
 Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
--->
 
 ## Zusammenfassung
 
@@ -210,27 +224,29 @@ Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
 Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
-Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Wertschöpfungskette.
+Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
-Auch die Steuerung dieser muss ortunabhängig sein.
+Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS in den Produktionsprozess eingreifen kann.
 
 R1
 
-: Die Kontrolle der Altmaschine ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen nicht ausschließlich an deren Terminal möglich ist.
-  Eingeschlossen hierbei sind automatisierte Maschinen- und Werkzeugkomponenten.
+: Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen durch Subsysteme des CPPS erfolgen kann.
 
 ## Überwachung
 
+Im Wartungs- oder Störfall muss der Zustand der Anlage bekannt sein.
+Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
+Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
+Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
+
 R2
 
-: Entfernte/dezentrale Überwachung von Zustand und Leistungsparametern
+: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustand und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
 
-## Rückkopplung
-
-R3
-
-: automatische Reaktion auf veränderte Bedingungen => cyber-physikalisches Feedback => höherer Automatisierungsgrad
+Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
+Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
+Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
 
 ## Standardisierung
 
@@ -241,7 +257,7 @@ Auch bei bestehender Ethernet-Netzwerkanbindung wirft die Software zur Kontrolle
 3. Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
 4. Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
 
-Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein Merkmal cyber-physikalischer Systeme. 
+Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein Merkmal cyber-physikalischer Systeme (vgl. @Siepmann2016). 
 <!--
 * Anbindung von Soft- und Hardwarekomponenten durch Drittanbieter ermöglichen
     - statistische Auswertung
@@ -254,6 +270,12 @@ R4
 
 Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen.
 
+## Verteilte Datensicherheit
+
+R5
+
+: Fog
+
 ## Zusammenfassung
 
 Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
@@ -264,13 +286,15 @@ Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen
 
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
     - kein Standard bei Kommunikation
+* Unterschied RetroNet @FraunhoferIPK2016
+    - keine zentrale Datenhaltung
 
 ## Maschinendatenerfassung & -analyse
 
 ### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 __Problem:__ Datenerfassung (=> Prozessüberwachung) bei Altmaschinen nicht vorhanden  
-__Lösung:__ una  b	  ängige minimalinvasive Sensorik
+__Lösung:__ unabhängige minimalinvasive Sensorik
 
 __Purpose.__ 
 Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.
@@ -745,6 +769,7 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
+* CNC ersetzen durch STEP-NC?
 * Prozessmodell für Abstrakte Leitebene
 * Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
 * Surrogate als reaktiver Agent => Einbindung in MAS denkbar
