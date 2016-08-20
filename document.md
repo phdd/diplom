@@ -14,17 +14,17 @@ Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyb
 Vor der vierten Revolution war klassische Produktionssteuerung zentralisiert und Steuerungstechnik monolithisch strukturiert.
 Zukünftig wird die Fertigung in cyber-physische Systeme von Systemen zerlegt und mit offenen Standards dezentral betrieben @Milberg2014.
 Moderne Produktionseinrichtungen beherbergen jedoch Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
-Gerade ältere Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke.
+Gerade ältere Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
 Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.
 Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
 Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
-So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung @Deshpande2011.
+So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung [@Deshpande2011;@Ferrolho2007].
 Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen @Wang2004.
 
 Technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
-Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können @Wang2004.
-Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme @Wang2004.
+Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können.
+Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme @Wang2004.  
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
 Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie @Deshpande2011.
 
@@ -51,8 +51,11 @@ Folgenden Aufgaben wird in dieser Arbeit entsprochen:
 
 Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 
-* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden des virtuellen Abbilds in die Fertigungsstrecke.
-* Zugang zur Altmaschine, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gewährleistet.
+* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
+* Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
+* Die zu modernisierende Werkzeugmaschine wird bereits durch rechnergestützte numerische Steuerung kontrolliert (CNC).
+
+Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 
 ### Erwartungen
 
@@ -263,22 +266,19 @@ REQ3
 
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
-Damit verlangsamt sich die Verarbeitung der Daten mit der Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
+Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
 Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
-Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an weiter entfernte Systeme übergeben werden.
+Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden @Bonomi2012.
 Durch den verminderten Austausch zwischen den Systemen wird die Datensicherheit verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
 REQ4
-: TODO
+: Die Analyse der anfallenden Betriebs- und Prozessdaten, sowie die autonome Reaktion geschieht nahe der Anlage, wodurch minimale zeitliche Latenz und Kontextsensitivität möglich wird.
 
 ## Zusammenfassung
 
-<!-- Nicht in der Einleitung? -->
-<!--
 Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
 
 * 
--->
 
 # Forschungsstand
 
