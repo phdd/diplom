@@ -53,7 +53,7 @@ Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 
 * Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 * Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
-* Die zu modernisierende Werkzeugmaschine wird bereits durch rechnergestützte numerische Steuerung kontrolliert (CNC).
+* Die zu modernisierende Werkzeugmaschine wird bereits durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
 
 Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 
@@ -262,7 +262,7 @@ Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein A
 REQ3
 : Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
 
-## Datenlokalität und -sicherheit {#sec:REQ4}
+## Lokalität {#sec:REQ4}
 
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
@@ -272,13 +272,17 @@ Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ei
 Durch den verminderten Austausch zwischen den Systemen wird die Datensicherheit verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
 REQ4
-: Die Analyse der anfallenden Betriebs- und Prozessdaten, sowie die autonome Reaktion geschieht nahe der Anlage, wodurch minimale zeitliche Latenz und Kontextsensitivität möglich wird.
+: Die Erfassung und Persistierung der anfallenden Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
 
 ## Zusammenfassung
 
 Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
 
-* 
+> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+> 
+> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+> 2. Wie und wo werden Informationen zu Maschinenzustand und -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+> 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
 
 # Forschungsstand
 
