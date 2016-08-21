@@ -6,7 +6,7 @@ Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde d
 Zum Ende des 19. Jahrhunderts ermöglichten die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
 Knapp einhundert Jahre nach dieser zweiten Revolution, wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
 Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
-Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt.
+Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt [@Gausemeier2014].
 Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
 
 ## Motivation
@@ -14,17 +14,18 @@ Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyb
 Vor der vierten Revolution war klassische Produktionssteuerung zentralisiert und Steuerungstechnik monolithisch strukturiert.
 Zukünftig wird die Fertigung in cyber-physische Systeme von Systemen zerlegt und mit offenen Standards dezentral betrieben @Milberg2014.
 Moderne Produktionseinrichtungen beherbergen jedoch Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
-Gerade ältere Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
+Die Technologie zur numerische Kontrolle von Werkzeugmaschinen existiert bereits seit den frühen 1950er Jahren.
+Gerade diese älteren Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
 Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.
 Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
 Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
 So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung [@Deshpande2011;@Ferrolho2007].
-Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen @Wang2004.
+Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen [@Wang2004;@Hoppe2014].
 
 Technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
 Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können.
-Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme @Wang2004.  
+Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme [@Wang2004;@Lay2001].  
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
 Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie @Deshpande2011.
 
@@ -53,7 +54,8 @@ Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
 
 * Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 * Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
-* Die zu modernisierende Werkzeugmaschine wird bereits durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
+* Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
+* Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen (vgl. @Grigoriev2016).
 
 Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 
@@ -76,9 +78,16 @@ Folgende praktisch relevante Ergebnisse werden erwartet:
 * Wartungszyklen können besser überprüft und eingehalten werden.
 * Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
 
-### Fragestellungen
+## Fragestellung
 
+Nach Klärung der Ziele, werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
+> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+> 
+> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+> 2. Wie und wo werden Informationen zu Maschinenzustand und  
+> -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+> 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
 
 ## Methode und Aufbau
 
@@ -112,12 +121,7 @@ Zusammenfassung von @Pauker2013
 
 ![Grundstruktur flexibler Automation @Linke2015](figures/grundstruktur-der-flexiblen-automation "Grundstruktur flexibler Automation")
 
-Value-Stream Mapping (VSM) ist eine Methode der _Lean Production_, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. 
-Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts @Meyer2009.
-
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
-
-In einer flexiblen Fertigungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein flexibles Fertigungssystem (FFS) bilden @Groover2008.
 
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
@@ -194,7 +198,8 @@ Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastru
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008.
 
-... @Siepmann2016
+* Abbildung zu Autom.-Pyr. => CPS @VereinDeutscherIngenieuree.V.2013
+* CPPS: @Siepmann2016
 
 Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
 Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
@@ -207,7 +212,7 @@ So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Ver
 
 _Dual Reality_-Konzept ...
 
-## Cloud Manufacturing & Fog-Computing
+## Cloud Manufacturing und Fog-Computing
 
 Bonomi 2012 @Bonomi2012  
 Aazam 2016 @Aazam2016
@@ -249,7 +254,7 @@ Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in ei
 Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
 Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
 
-## Offene Standards {#sec:REQ3}
+## Standards {#sec:REQ3}
 
 Nach Ferrolho et al. entstehen auch mit Netzwerkanbindung und Programmierschnittstellen noch zu überwindende Probleme @Ferrolho2007.
 CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
@@ -276,19 +281,16 @@ REQ4
 
 ## Zusammenfassung
 
-Nach Klärung der Anforderungen, werden in den weiteren Kapiteln folgende Fragen zu beantworten sein.
 
-> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
-> 
-> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
-> 2. Wie und wo werden Informationen zu Maschinenzustand und -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
-> 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
 
 # Forschungsstand
 
+* Generelle CPPS-Arch. @Wang2008
+* _Wise-ShopFloor_ @Wang2004
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
     - kein Standard bei Kommunikation
-* Unterschied RetroNet @FraunhoferIPK2016
+* Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
+* Unterschied RetroNet @FraunhoferIPK2016 (TODO)
     - keine zentrale Datenhaltung
 
 ## Maschinendatenerfassung & -analyse
@@ -375,7 +377,7 @@ __Lösung__: Werkstückidentifikation/-erkennung für Verknüpfung operativer Sc
 * Originality/Value
     * 
 
-### Zusammenfassung
+### Zusammenfassung 
 
 Ohne Carrier?
 
@@ -436,7 +438,7 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 * Originality/Value
     * Bwertung mit _Technology Readiness Level_[^TRL] 6
 
-[^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.' @Schnell1999.
+[^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.'
 [^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
 
 ### Remote real-time CNC machining for web-based manufacturing @Wang2004 
@@ -657,6 +659,8 @@ Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Kompon
 [^OPC4Factory]: [www.ift.at/forschung/foschungsprojekte/opc4factory](https://www.ift.at/forschung/foschungsprojekte/opc4factory)
 see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
+
+
 [@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
 
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
@@ -664,7 +668,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Entwicklung von Adaptern meist Standardlösung
 * Kosten => Remote Maintenance?
 
-# Konzeption
+# Konzeption    
 
 <!-- BEGIN Rahmen dieser Arbeit -->
 
@@ -771,7 +775,8 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
-* CNC ersetzen durch STEP-NC?
+* MDSD mit @Pauker2016
+* CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
 * Prozessmodell für Abstrakte Leitebene
 * Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
 * Surrogate als reaktiver Agent => Einbindung in MAS denkbar
