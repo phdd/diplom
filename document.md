@@ -223,8 +223,9 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 # Anforderungen
 
-Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die Bedingungen zu deren Erfüllung erläutert.
-Informationsysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
+Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
+
+Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
 Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
@@ -235,14 +236,14 @@ Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopie
 Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
-Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS in den Produktionsprozess eingreifen kann.
+Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
 REQ4
-: Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen durch Subsysteme des CPPS erfolgen kann.
+: Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 ## Überwachung {#sec:REQ2}
 
-Im Wartungs- oder Störfall muss der Zustand der Anlage bekannt sein.
+Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
 Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
 Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
@@ -274,18 +275,29 @@ Die Synchronisation des virtuellen Modells der Realität wird jedoch durch steti
 Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
 Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
 Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden @Bonomi2012.
-Durch den verminderten Austausch zwischen den Systemen wird die Datensicherheit verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
+Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
 REQ4
-: Die Erfassung und Persistierung der anfallenden Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
+: Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
 
-## Zusammenfassung
-
-
+Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten durch die Nähe zur Maschine minimiert wird, ist Echtzeit kein Kriterium.
+Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle, sowie die Aggregation der Daten, direkt an der Maschine geschieht.
+Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem Lokalitätskriterium @Bonomi2012.
 
 # Forschungsstand
 
-* Generelle CPPS-Arch. @Wang2008
+Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
+
+## Grundlegende Architekturen
+
+Monolithische Architekturen sind für cyber-physische Systeme ungeeignet.
+Durch die Aufteilung eines skalierenden gesamtheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
+@fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS @Wang2008.
+
+![Komponentenbasierte CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
+
+----
+
 * _Wise-ShopFloor_ @Wang2004
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
     - kein Standard bei Kommunikation
@@ -486,11 +498,7 @@ Die Indirektion des Kontrollflusses über den Server der Architektur zu den Masc
 
 ## Architekturen & Methoden für CPPS
 
-Grundsätzlich werden hoch skalierende gesamtheitlichen Systeme in Teilsysteme gegliedert, wodurch ein _System of Systems_ (SoS) entsteht.
 
-@fig:wang-cps-architecture verbildlicht das Konzept der Kapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
-
-![Komponentenbasierte CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
 
 * SOA [@Meyer2010;@Fallah2016a]
 * MAS, Holonic [@Leitao2009;@Fallah2016]
@@ -668,17 +676,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Entwicklung von Adaptern meist Standardlösung
 * Kosten => Remote Maintenance?
 
-# Konzeption    
-
-<!-- BEGIN Rahmen dieser Arbeit -->
-
-* betrachtet
-    * Fertigungsindustrie
-    * CNC-Maschinen
-* unbetrachtet
-    * Adapter für proprietäre CNC-Protokolle (DNC)
-
-<!-- END Rahmen dieser Arbeit -->
+# Konzeption
 
 Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
 
@@ -725,7 +723,7 @@ OPC4Factory:
 
 > OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden.
 
-* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015
+* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) => **Abb. 9 I4.0-Komponente** @Adolphs2015 
 * Kruchten 4+1?
 * arc42?
 
