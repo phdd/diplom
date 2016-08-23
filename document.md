@@ -288,13 +288,22 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
 
-## Grundlegende Architekturen
+## Architekturen für CPPS
 
-Monolithische Architekturen sind für cyber-physische Systeme ungeeignet.
+Monolithische Architekturen sind für cyber-physische Systeme (CPS) ungeeignet.
 Durch die Aufteilung eines skalierenden gesamtheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
-@fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS @Wang2008.
+@fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
 
-![Komponentenbasierte CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
+![CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
+
+Diese von Wang et al. vorgestellte heterogene Struktur für Steuerungsnetzwerke besteht aus verschiedenen, miteinander verbundenen CPS-Einheiten welche sich wiederum aus Kontrolleinheiten für Subsysteme, Sensoren, Kameras und Aktuatoren zusammensetzen.
+Einige der Komponenten kommunizieren nicht direkt mit Sensoren oder Aktuatoren, sondern stellen die Rechenleistung für die Ausführung der Anfragen anderer Systeme.
+Dem gegenüber stehen unmittelbar mit dem Netzwerk verbundene Sensoren und Aktuatoren.  
+Der zentrale Aspekt dieser Architektur ist die _heterogene Netzwerkeinheit_ (HE).
+Durch sie werden zeitliche und den Ausfall betreffende Probleme der Komponenten abstrahiert.
+Damit reduziert sich das Problem der Komplexität des Designs von CPS auf den Entwurf der HE, deren Verhalten und Latenz bezüglich notwendiger Kommunikationskriterien garantiert werden müssen.  
+Im Falle der Störung oder des Ausfalls einer HE und des damit verbundenen Bearbeitungsschritts der Fertigungsstrecke, kommt die Produktion nicht vollständig zum Stillstand.
+Werkstücke oder Produkte können über alternative autark agierenden Strecken umgeleitet werden @Wang2008.
 
 ----
 
