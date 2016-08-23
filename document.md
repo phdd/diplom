@@ -290,20 +290,28 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 
 ## Architekturen für CPPS
 
-Monolithische Architekturen sind für cyber-physische Systeme (CPS) ungeeignet.
+<!-- Purpose -->
+Monolithische Architekturen sind ungeeignet für cyber-physische Systeme (CPS).
 Durch die Aufteilung eines skalierenden gesamtheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
 @fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
 
 ![CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
 
+<!-- Design/Methodology/Approach -->
 Diese von Wang et al. vorgestellte heterogene Struktur für Steuerungsnetzwerke besteht aus verschiedenen, miteinander verbundenen CPS-Einheiten welche sich wiederum aus Kontrolleinheiten für Subsysteme, Sensoren, Kameras und Aktuatoren zusammensetzen.
 Einige der Komponenten kommunizieren nicht direkt mit Sensoren oder Aktuatoren, sondern stellen die Rechenleistung für die Ausführung der Anfragen anderer Systeme.
-Dem gegenüber stehen unmittelbar mit dem Netzwerk verbundene Sensoren und Aktuatoren.  
+Dem gegenüber stehen unmittelbar mit dem Netzwerk verbundene Sensoren und Aktuatoren.
 Der zentrale Aspekt dieser Architektur ist die _heterogene Netzwerkeinheit_ (HE).
-Durch sie werden zeitliche und den Ausfall betreffende Probleme der Komponenten abstrahiert.
+Durch sie werden zeitliche und den Ausfall betreffende Probleme der Komponenten abstrahiert.  
+<!-- Findings -->
 Damit reduziert sich das Problem der Komplexität des Designs von CPS auf den Entwurf der HE, deren Verhalten und Latenz bezüglich notwendiger Kommunikationskriterien garantiert werden müssen.  
 Im Falle der Störung oder des Ausfalls einer HE und des damit verbundenen Bearbeitungsschritts der Fertigungsstrecke, kommt die Produktion nicht vollständig zum Stillstand.
-Werkstücke oder Produkte können über alternative autark agierenden Strecken umgeleitet werden @Wang2008.
+Werkstücke oder Produkte können über alternative autark agierenden Strecken umgeleitet werden @Wang2008.  
+<!-- Research Implications/Limitations -->
+Mit Fokus auf Garantien zu zeitlichem Verhalten und Zuverlässigkeit der Komponenten eines CPS, beschreiben Wang et al. eine generische Netzwerkarchitektur für moderne Produktionssysteme.
+Jede zu steuernde Phase (_Stage_ in @fig:wang-cps-architecture) des Fertigungsprozesses ist mit einem einbetteten Kontrollsystem versehen und kann damit autonom agieren.
+Sensoren als Teil einer möglichen Rückkopplungsschleife sind vorgesehen, nicht aber Schwerpunkt des vorgestellten Konzepts.
+Für Anwendungen der Industrie 4.0 muss das HE-Konzept zur virtuellen Repräsentation abstrahiert werden.
 
 ----
 
