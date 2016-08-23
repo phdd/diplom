@@ -238,7 +238,7 @@ Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermögl
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
 Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
-REQ4
+REQ1
 : Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 ## Überwachung {#sec:REQ2}
@@ -292,7 +292,7 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 
 <!-- Purpose -->
 Monolithische Architekturen sind ungeeignet für cyber-physische Systeme (CPS).
-Durch die Aufteilung eines skalierenden gesamtheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
+Durch die Aufteilung eines skalierenden ganzheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
 @fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
 
 ![CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
@@ -304,14 +304,36 @@ Dem gegenüber stehen unmittelbar mit dem Netzwerk verbundene Sensoren und Aktua
 Der zentrale Aspekt dieser Architektur ist die _heterogene Netzwerkeinheit_ (HE).
 Durch sie werden zeitliche und den Ausfall betreffende Probleme der Komponenten abstrahiert.  
 <!-- Findings -->
-Damit reduziert sich das Problem der Komplexität des Designs von CPS auf den Entwurf der HE, deren Verhalten und Latenz bezüglich notwendiger Kommunikationskriterien garantiert werden müssen.  
+Damit reduziert sich das Problem der Komplexität des Designs von CPS auf den Entwurf der HE, deren Verhalten und Latenz bezüglich notwendiger Kommunikationskriterien garantiert werden muss.  
 Im Falle der Störung oder des Ausfalls einer HE und des damit verbundenen Bearbeitungsschritts der Fertigungsstrecke, kommt die Produktion nicht vollständig zum Stillstand.
-Werkstücke oder Produkte können über alternative autark agierenden Strecken umgeleitet werden @Wang2008.  
+Werkstücke oder Produkte können über alternative, autark agierenden Strecken umgeleitet werden @Wang2008.  
 <!-- Research Implications/Limitations -->
 Mit Fokus auf Garantien zu zeitlichem Verhalten und Zuverlässigkeit der Komponenten eines CPS, beschreiben Wang et al. eine generische Netzwerkarchitektur für moderne Produktionssysteme.
-Jede zu steuernde Phase (_Stage_ in @fig:wang-cps-architecture) des Fertigungsprozesses ist mit einem einbetteten Kontrollsystem versehen und kann damit autonom agieren.
+Jede zu steuernde Phase (_Stage_ in @fig:wang-cps-architecture) des Fertigungsprozesses ist mit einem eingebetteten Kontrollsystem versehen und kann damit autonom agieren.
 Sensoren als Teil einer möglichen Rückkopplungsschleife sind vorgesehen, nicht aber Schwerpunkt des vorgestellten Konzepts.
-Für Anwendungen der Industrie 4.0 muss das HE-Konzept zur virtuellen Repräsentation abstrahiert werden.
+Für Anwendungen der Industrie 4.0 muss die HE zur virtuellen Repräsentation abstrahiert werden.
+
+<!-- Requirements -->
+Die Anforderung zur ortsunabhängigen Steuerung (REQ1) kann durch diese Netzwerkarchitektur erfüllt werden.
+Arbeitsteilig können die _Computing Units_ und _Stages_ (vgl. @fig:wang-cps-architecture) die Interpretation und Ausführung von NC-Programmen und automatisierten Komponenten übernehmen.
+Die ortsunabhängige Überwachung der Maschine (REQ2), deren virtuelle Repräsentation als _Stage_ fungiert, wird durch Sensoren ermöglicht.
+Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb REQ3 zwar aufsetzend möglich, nicht aber vollends erfüllt ist.
+Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
+Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
+
+## Zusammenfassung
+
+Die Anforderungen werden in @tbl:sota-req zusammengefasst gegenübergestellt, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
+
++-----------+-----------+-------------+-----------+-----------+
+|           | Steuerung | Überwachung | Standards | Lokalität |
++===========+===========+=============+===========+===========+
+| @Wang2008 | ●         | ●           | ◐         | ◐         |
++-----------+-----------+-------------+-----------+-----------+
+| @Wang2004 | ○         | ○           | ○         | ○         |
++-----------+-----------+-------------+-----------+-----------+
+
+: Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
 ----
 
