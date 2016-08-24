@@ -221,7 +221,7 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 ## Zusammenfassung
 
-# Anforderungen
+# Anforderungen {#sec:anforderungen}
 
 Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
 
@@ -255,7 +255,7 @@ Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in ei
 Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
 Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
 
-## Standards {#sec:REQ3}
+## Standardisierung {#sec:REQ3}
 
 Nach Ferrolho et al. entstehen auch mit Netzwerkanbindung und Programmierschnittstellen noch zu überwindende Probleme @Ferrolho2007.
 CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
@@ -288,7 +288,7 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
 
-## Architekturen für CPPS
+## Netzwerkarchitektur für CPPS {#sec:sota-wang2008}
 
 <!-- Purpose -->
 Monolithische Architekturen sind ungeeignet für cyber-physische Systeme (CPS).
@@ -314,30 +314,77 @@ Sensoren als Teil einer möglichen Rückkopplungsschleife sind vorgesehen, nicht
 Für Anwendungen der Industrie 4.0 muss die HE zur virtuellen Repräsentation abstrahiert werden.
 
 <!-- Requirements -->
-Die Anforderung zur ortsunabhängigen Steuerung (REQ1) kann durch diese Netzwerkarchitektur erfüllt werden.
+Die Anforderung zur ortsunabhängigen Steuerung (REQ1) kann mit diese Netzwerkarchitektur durch eine Erweiterung erfüllt werden.
 Arbeitsteilig können die _Computing Units_ und _Stages_ (vgl. @fig:wang-cps-architecture) die Interpretation und Ausführung von NC-Programmen und automatisierten Komponenten übernehmen.
-Die ortsunabhängige Überwachung der Maschine (REQ2), deren virtuelle Repräsentation als _Stage_ fungiert, wird durch Sensoren ermöglicht.
-Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb REQ3 zwar aufsetzend möglich, nicht aber vollends erfüllt ist.
+Die ortsunabhängige Überwachung der Maschine (REQ2), deren virtuelle Repräsentation als _Stage_ fungiert, ist durch die Einbindung Sensoren vorbereitet, nicht aber erfüllt.
+Um diesen Anforderungen vollends zu entsprechen muss ein lösungsorientiertes Konzept noch entwickelt werden.
+Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb REQ3 nicht erfüllt wird.
 Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
 Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
 
+## Fernzugriff zu Steuerung und Überwachung {#sec:sota-wang2004}
+
+Auf einer Netzwerkarchitektur wie in @sec:sota-wang2008, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
+Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
+<!-- Purpose -->
+Wang et al. entwickelte 2008 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
+<!-- Design/Methodology/Approach -->
+Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
+Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
+Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
+Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
+Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
+In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
+Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt.
+Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.  
+<!-- Findings -->
+Das Internet ist ein zentraler Aspekt verteilter Produktion.
+Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation.
+Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden.
+Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar.
+Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.  
+<!-- Research Limitations/Implications -->
+Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen.
+So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden.
+Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.
+Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.  
+<!-- Practical Implications -->
+Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich.
+Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar.
+Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.  
+<!-- Originality/Value -->
+Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform.
+Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
+Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
+
+<!-- Requirements -->
+Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) vollständig erfüllt.
+Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
+Damit ist REQ3 nur ansatzweise erfüllt.
+Auch mit der Konzeption einer Netzwerkarchitektur für CPS (vlg. @sec:sota-wang2008) wurde die Notwendigkeit des Einbettens der Steuerung erkannt.
+Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (REQ4) nur teilweise erfüllt.
+Grundsätzlich wurden Sicherheitsaspekte im Konzept beachtet und in den vertikalen Prototypen integriert.
+Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglicht skalierenden, hierarchischen Zugriff.
+
+[^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
+
 ## Zusammenfassung
 
-Die Anforderungen werden in @tbl:sota-req zusammengefasst gegenübergestellt, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
+Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst.
+Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
 +-----------+-----------+-------------+-----------+-----------+
 |           | Steuerung | Überwachung | Standards | Lokalität |
 +===========+===========+=============+===========+===========+
-| @Wang2008 | ●         | ●           | ◐         | ◐         |
+| @Wang2008 | ◐         | ◐           | ○         | ◐         |
 +-----------+-----------+-------------+-----------+-----------+
-| @Wang2004 | ○         | ○           | ○         | ○         |
+| @Wang2004 | ●         | ●           | ◐         | ◐         |
 +-----------+-----------+-------------+-----------+-----------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
 ----
 
-* _Wise-ShopFloor_ @Wang2004
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
     - kein Standard bei Kommunikation
 * Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
@@ -492,48 +539,6 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 [^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.'
 [^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
 
-### Remote real-time CNC machining for web-based manufacturing @Wang2004 
-
-__Problem:__ Maschine ist nur am Terminal kontrollierbar; Datenerfassung und Auswertung nur vor Ort
-__Lösung:__ Entfernter Zugriff
-
-__Purpose.__ 
-Das Ziel von Wang et al. war die Entwicklung einer offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen.
-
-__Design/Methodology/Approach.__ 
-Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
-Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
-Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
-Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
-Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
-In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
-Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt.
-Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.
-
-[^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
-
-__Findings.__  
-Das Internet ist ein zentraler Aspekt verteilter Produktion.
-Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation.
-Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden.
-Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar.
-Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.
-
-__Research Limitations/Implications.__ 
-Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen.
-So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden.
-Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.
-Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.
-
-__Practical Implications.__ 
-Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich.
-Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar.
-Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.
-
-__Originality/Value.__ 
-Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform.
-Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
-Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 ## Architekturen & Methoden für CPPS
 
@@ -770,7 +775,8 @@ OPC4Factory:
 
 * Service-/Protokolllayer (OPC UA)
 * CPS-Layer, Hardwareanbindung
-* 
+* Einbetten eines dedizierten Web-Services  @Wang2004 
+* Stage braucht eingebettetes Kontrollsystem @Wang2008
 
 ## Kommunikations- & Informationsmodell
 
