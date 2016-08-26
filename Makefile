@@ -29,7 +29,8 @@ FIGURES = $(wildcard figures/*.svg)
 WATCH_SCRIPT = \
 	from livereload import Server, shell; \
 	server = Server(); \
-	server.watch('*.md', shell('make html', cwd = '.')); \
+	server.watch('document.md', shell('make html', cwd = '.')); \
+	server.watch('presentation.md', shell('make presentation', cwd = '.')); \
 	server.serve(root = '.'); \
 
 all: pdf html epub presentation

@@ -1,20 +1,20 @@
 ---
 # General
 
-title:     Abstraktion verteilter Produktionsmaschinen in cyber-physischen Produktionssystemen
+title:     Abstraktion verteilter Produktionsmaschinen in CPPS
 type:      Diplomarbeit
 author:    Peter Heisig
 matrikel:  3521226
 advisor:   Dipl.-Medieninf. Gordon Lemme, Dr.-Ing. Sebastian Götz
 teacher:   Prof. Dr. Uwe Aßmann
 institute: Institut für Software- und Multimediatechnik
-date:      10\. September 2016
+date:      30\. August 2016
 
 language:  &lang de-DE
 lang:      *lang
 
 # Presentation
-presentation: Verteidigung - Diplomarbeit
+presentation: Diplomarbeit - aktueller Stand
 theme:        sky
 transition:   convex
 revealjs-url: http://lab.hakim.se/reveal-js
