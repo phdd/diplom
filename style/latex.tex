@@ -18,6 +18,16 @@
 
 \usepackage{xspace}
 
+\usepackage{stix}
+\usepackage{wasysym}
+
+\catcode`\○\active
+\def○{$$\Circle$$}
+\catcode`\◐\active
+\def◐{$$\LEFTcircle$$}
+\catcode`\●\active
+\def●{$$\CIRCLE$$}
+
 % Booktabs styling
 \usepackage{rotating,multirow,longtable,booktabs}
 \setlength\heavyrulewidth{.5pt}% Thick top and bottom lines
@@ -177,7 +187,7 @@
 \newcommand{\citep}{\cite}
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{5pt}\setlength{\parskip}{0pt}}
 
 % \usepackage[inline]{showlabels}
 \printoutput

@@ -20,9 +20,21 @@ transition:   convex
 revealjs-url: http://lab.hakim.se/reveal-js
 
 # Crossref Filter
-secPrefix: Abschnitt
 chapPrefix: Kapitel
-tblPrefix: Tabelle
-figPrefix: Abbildung
-lstPrefix: Listing
+
+secPrefix: 
+  - Abschnitt
+  - Abschnitte
+
+tblPrefix: 
+  - Tabelle
+  - Tabellen
+
+figPrefix: 
+  - Abbildung
+  - Abbildungen
+
+lstPrefix: 
+  - Listing
+  - Listings
 ...

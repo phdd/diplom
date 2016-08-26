@@ -1,32 +1,102 @@
 
 # Einleitung
 
+Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
+Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde die erste industrielle Revolution eingeleitet.
+Zum Ende des 19. Jahrhunderts ermöglichten die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
+Knapp einhundert Jahre nach dieser zweiten Revolution, wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
+Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
+Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt [@Gausemeier2014].
+Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
+
 ## Motivation
 
-Durch sinkende Losgrößen und steigende Produktvariabilität sind Echtzeitüberwachung und -kontrolle in verteilten, rekonfigurierbaren Fertigungssystemen notwendig @Wang2004.
-
-Die Infrastruktur für eine Verbindung zwischen automatisiertem Equipment und E-Manufacturing fehlt @Wang2004.
-
-Heutige Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
-Gerade ältere Modelle (Altmaschinen) besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer modernen Fertigungsstrecke.
-So sind geschlossene Architekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automation @Deshpande2011.
-
+Vor der vierten Revolution war klassische Produktionssteuerung zentralisiert und Steuerungstechnik monolithisch strukturiert.
+Zukünftig wird die Fertigung in cyber-physische Systeme von Systemen zerlegt und mit offenen Standards dezentral betrieben @Milberg2014.
+Moderne Produktionseinrichtungen beherbergen jedoch Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
+Die Technologie zur numerische Kontrolle von Werkzeugmaschinen existiert bereits seit den frühen 1950er Jahren.
+Gerade diese älteren Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
+Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.
+Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
 Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
+Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
+So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung [@Deshpande2011;@Ferrolho2007].
+Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen [@Wang2004;@Hoppe2014].
 
-Bisher basierten Produktionseinrichtungen auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
-Doch gegenüber den hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Maschine und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig und damit Teil der Fertigungsindustrie @Deshpande2011.
+Technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
+Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können.
+Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme [@Wang2004;@Lay2001].  
+Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
+Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie @Deshpande2011.
 
-Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
+## Zielsetzung {#sec:zielsetzung}
 
-## Zielsetzung
+Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
 
-Aufteilung nach Introduction von @Lee2006
+### Aufgaben
 
-* Zweck
-* Voraussetzungen
-* Wirkung
+Folgenden Aufgaben wird in dieser Arbeit entsprochen:
+
+1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
+2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
+3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
+4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
+    - Transfer und Ausführung von Maschinenprogrammen.
+    - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
+    - Verwendung von Einplatinencomputern in der Implementierung.
+5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
+6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
+7. Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
+
+### Annahmen 
+
+Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
+
+* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
+* Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
+* Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
+* Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen (vgl. @Grigoriev2016).
+
+Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
+
+### Erwartungen
+
+Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
+
+* Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen.
+* Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
+* Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
+* Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
+* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
+
+Folgende praktisch relevante Ergebnisse werden erwartet:
+
+* Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
+* Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
+* Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
+* Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
+* Wartungszyklen können besser überprüft und eingehalten werden.
+* Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
+
+## Fragestellung
+
+Nach Klärung der Ziele, werden in dieser Arbeit folgende Fragen zu beantworten sein.
+
+> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+> 
+> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+> 2. Wie und wo werden Informationen zu Maschinenzustand und  
+> -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+> 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
 
 ## Methode und Aufbau
+
+Angelehnt an die _Design Science Research Methodology_ (DSRM) wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
+Durch die folgenden Grundlagen (Kapitel 2) werden essentielle Technologien und Konzepte beschrieben.
+Die sich anschließenden Anforderungen (Kapitel 3) spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte (Kapitel 4) für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
+Durch die prototypische Implementation (Kapitel 5) des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
+Die Evaluation (Kapitel 6) hat eine qualitative und quantitative Bewertung von Konzept und Implementation des Prototyps zum Ziel.
+Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) auf weitere Forschung gegeben.
 
 # Grundlagen
 
@@ -35,7 +105,7 @@ Aufteilung nach Introduction von @Lee2006
 * Ebenen der Automatisierungspyramide
     * MES
     * ... 
-   
+    
 ### Kommunikation
 
 Zusammenfassung von @Pauker2013
@@ -51,15 +121,11 @@ Zusammenfassung von @Pauker2013
 
 ![Grundstruktur flexibler Automation @Linke2015](figures/grundstruktur-der-flexiblen-automation "Grundstruktur flexibler Automation")
 
-Value-Stream Mapping (VSM) ist eine Methode der _Lean Production_, mit der ein vollständiger Material- und Informationsfluss vom Zulieferer zum Endkunden abgebildet werden kann. 
-Damit bietet VSM ein Maß tatsächlich benötigter Produktions- und Durchlaufzeit eines Produkts @Meyer2009.
-
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
-
-In einer flexiblen Fertigungszelle (FFZ) befinden sich zwei oder mehr CNC-Maschinen, die im Verbund ein flexibles Fertigungssystem (FFS) bilden @Groover2008.
 
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
+
 
 ## Informationsmodelle in der Fertigungsindustrie
 
@@ -132,49 +198,205 @@ Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastru
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008.
 
-Im Kontext industrieller Produktion sind CPS nicht zuletzt aufgrund der Initiative _Industrie 4.0_ relevant @Monostori2014.
+* Abbildung zu Autom.-Pyr. => CPS @VereinDeutscherIngenieuree.V.2013
+* CPPS: @Siepmann2016
 
-
-Im Kontext industrieller Produktionskontrolle ergeben neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
-Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette unterstützt.
+Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
+Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
 Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
 Kommunikation geschieht auf der Basis bestehender Infrastrukturen mit kabelgebundenen und kabellosen Übertragungstechnologien.
-Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit CPS überdacht werden.
+Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit cyber-physischen Produktionssystemen (CPPS) überdacht werden.
 Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen.
 Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
 
-## Cloud Manufacturing & Fog-Computing
+_Dual Reality_-Konzept ...
 
+## Cloud Manufacturing und Fog-Computing
+
+Bonomi 2012 @Bonomi2012  
 Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 
 ## Zusammenfassung
 
-# Anforderungen
+# Anforderungen {#sec:anforderungen}
 
-## Wang 2008 @Wang2008 
+Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
 
-Cyber-physische Systemarchitektur
+Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
+Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
+Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
-: Für eine adäquate Architektur muss die Heterogenität von Kommunikation, Verarbeitungseinheiten und Speichertechnologien in das Design eines CPPS einbezogen werden.
-  Dadurch werden Anforderungen wie Zuverlässigkeit und Echtzeitkommunikation gesichert.
+## Steuerung {#sec:REQ1}
 
-operative Echtzeit
+Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
+Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
+Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke.
+Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
+Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
+Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
-: Im operativen Einsatz von CPS muss die Kombination verschiedener Operationen in Echtzeit gewährleistet werden können.
-  Die Aggregation von Daten durch Sensoren, deren Verarbeitung und Übermittlung, sowie der Eingriff in einen Prozess durch Aktuatoren benötigt ein einheitliches Konzept für Anforderungen bezüglich zeitlicher Aspekte.
+REQ1
+: Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
+
+## Überwachung {#sec:REQ2}
+
+Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
+Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
+Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
+Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
+
+REQ2
+: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
+
+Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
+Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
+Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
+
+## Standardisierung {#sec:REQ3}
+
+Nach Ferrolho et al. entstehen auch mit Netzwerkanbindung und Programmierschnittstellen noch zu überwindende Probleme @Ferrolho2007.
+CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
+Die Kontrolleinheit der Anlage lässt die Steuerung von einem entfernten PC nicht zu.
+Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
+Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
+Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein bereits betrachtetes Problem cyber-physikalischer Systeme (vgl. @Siepmann2016).
+Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen @Ayatollahi2013.
+
+REQ3
+: Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
+
+## Lokalität {#sec:REQ4}
+
+CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
+Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
+Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
+Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
+Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden @Bonomi2012.
+Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
+
+REQ4
+: Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
+
+Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten durch die Nähe zur Maschine minimiert wird, ist Echtzeit kein Kriterium.
+Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle, sowie die Aggregation der Daten, direkt an der Maschine geschieht.
+Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem Lokalitätskriterium @Bonomi2012.
 
 # Forschungsstand
 
+Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
+
+## Netzwerkarchitektur für CPPS {#sec:sota-wang2008}
+
+<!-- Purpose -->
+Monolithische Architekturen sind ungeeignet für cyber-physische Systeme (CPS).
+Durch die Aufteilung eines skalierenden ganzheitlichen Systems in Subsysteme entsteht ein _System of Systems_ (SoS).
+@fig:wang-cps-architecture verbildlicht das Konzept der Systemkapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
+
+![CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
+
+<!-- Design/Methodology/Approach -->
+Diese von Wang et al. vorgestellte heterogene Struktur für Steuerungsnetzwerke besteht aus verschiedenen, miteinander verbundenen CPS-Einheiten welche sich wiederum aus Kontrolleinheiten für Subsysteme, Sensoren, Kameras und Aktuatoren zusammensetzen.
+Einige der Komponenten kommunizieren nicht direkt mit Sensoren oder Aktuatoren, sondern stellen die Rechenleistung für die Ausführung der Anfragen anderer Systeme.
+Dem gegenüber stehen unmittelbar mit dem Netzwerk verbundene Sensoren und Aktuatoren.
+Der zentrale Aspekt dieser Architektur ist die _heterogene Netzwerkeinheit_ (HE).
+Durch sie werden zeitliche und den Ausfall betreffende Probleme der Komponenten abstrahiert.  
+<!-- Findings -->
+Damit reduziert sich das Problem der Komplexität des Designs von CPS auf den Entwurf der HE, deren Verhalten und Latenz bezüglich notwendiger Kommunikationskriterien garantiert werden muss.  
+Im Falle der Störung oder des Ausfalls einer HE und des damit verbundenen Bearbeitungsschritts der Fertigungsstrecke, kommt die Produktion nicht vollständig zum Stillstand.
+Werkstücke oder Produkte können über alternative, autark agierenden Strecken umgeleitet werden @Wang2008.  
+<!-- Research Implications/Limitations -->
+Mit Fokus auf Garantien zu zeitlichem Verhalten und Zuverlässigkeit der Komponenten eines CPS, beschreiben Wang et al. eine generische Netzwerkarchitektur für moderne Produktionssysteme.
+Jede zu steuernde Phase (_Stage_ in @fig:wang-cps-architecture) des Fertigungsprozesses ist mit einem eingebetteten Kontrollsystem versehen und kann damit autonom agieren.
+Sensoren als Teil einer möglichen Rückkopplungsschleife sind vorgesehen, nicht aber Schwerpunkt des vorgestellten Konzepts.
+Für Anwendungen der Industrie 4.0 muss die HE zur virtuellen Repräsentation abstrahiert werden.
+
+<!-- Requirements -->
+Die Anforderung zur ortsunabhängigen Steuerung (REQ1) kann mit diese Netzwerkarchitektur durch eine Erweiterung erfüllt werden.
+Arbeitsteilig können die _Computing Units_ und _Stages_ (vgl. @fig:wang-cps-architecture) die Interpretation und Ausführung von NC-Programmen und automatisierten Komponenten übernehmen.
+Die ortsunabhängige Überwachung der Maschine (REQ2), deren virtuelle Repräsentation als _Stage_ fungiert, ist durch die Einbindung Sensoren vorbereitet, nicht aber erfüllt.
+Um diesen Anforderungen vollends zu entsprechen muss ein lösungsorientiertes Konzept noch entwickelt werden.
+Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb REQ3 nicht erfüllt wird.
+Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
+Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
+
+## Fernzugriff zu Steuerung und Überwachung {#sec:sota-wang2004}
+
+Auf einer Netzwerkarchitektur wie in @sec:sota-wang2008, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
+Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
+<!-- Purpose -->
+Wang et al. entwickelte 2008 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
+<!-- Design/Methodology/Approach -->
+Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
+Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
+Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
+Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
+Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
+In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
+Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt.
+Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.  
+<!-- Findings -->
+Das Internet ist ein zentraler Aspekt verteilter Produktion.
+Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation.
+Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden.
+Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar.
+Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.  
+<!-- Research Limitations/Implications -->
+Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen.
+So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden.
+Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.
+Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.  
+<!-- Practical Implications -->
+Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich.
+Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar.
+Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.  
+<!-- Originality/Value -->
+Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform.
+Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
+Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
+
+<!-- Requirements -->
+Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) vollständig erfüllt.
+Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
+Damit ist REQ3 nur ansatzweise erfüllt.
+Auch mit der Konzeption einer Netzwerkarchitektur für CPS (vlg. @sec:sota-wang2008) wurde die Notwendigkeit des Einbettens der Steuerung erkannt.
+Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (REQ4) nur teilweise erfüllt.
+Grundsätzlich wurden Sicherheitsaspekte im Konzept beachtet und in den vertikalen Prototypen integriert.
+Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglicht skalierenden, hierarchischen Zugriff.
+
+[^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
+
+## Zusammenfassung
+
+Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst.
+Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
+
++-----------+-----------+-------------+-----------+-----------+
+|           | Steuerung | Überwachung | Standards | Lokalität |
++===========+===========+=============+===========+===========+
+| @Wang2008 | ◐         | ◐           | ○         | ◐         |
++-----------+-----------+-------------+-----------+-----------+
+| @Wang2004 | ●         | ●           | ◐         | ◐         |
++-----------+-----------+-------------+-----------+-----------+
+
+: Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
+
+----
+
+* Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
+    - kein Standard bei Kommunikation
+* Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
+* Unterschied RetroNet @FraunhoferIPK2016 (TODO)
+    - keine zentrale Datenhaltung
 
 ## Maschinendatenerfassung & -analyse
 
 ### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
 
 __Problem:__ Datenerfassung (=> Prozessüberwachung) bei Altmaschinen nicht vorhanden  
-__Lösung:__ una  b	  ängige minimalinvasive Sensorik
+__Lösung:__ unabhängige minimalinvasive Sensorik
 
 __Purpose.__ 
 Ziel von Deshpande et al. war eine nicht-invasive Methode der Echtzeitüberwachung von Energieverbrauch und weiteren Parametern bei Legacy-Maschinen.
@@ -253,11 +475,18 @@ __Lösung__: Werkstückidentifikation/-erkennung für Verknüpfung operativer Sc
 * Originality/Value
     * 
 
-### Zusammenfassung
+### Zusammenfassung 
 
 Ohne Carrier?
 
 Data-Collection/Reasoning Stuff @Downey2016
+
+Anfallende Daten zu
+* Prozess
+* Technologie (CAD/CAM)
+* Werkzeug
+* Werkstück
+* Peripherie (_loading door_)
 
 Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
 
@@ -266,7 +495,6 @@ Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
     * Spaneigenschaften
     * Prozesszustand
     * Werkstückbeschaffenheit
-
 
 ## Rechnergestützte numerische Steuerung
 
@@ -308,59 +536,13 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 * Originality/Value
     * Bwertung mit _Technology Readiness Level_[^TRL] 6
 
-[^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.' @Schnell1999.
+[^cycle-time]: '[...] die Zeit, die ein Teilnehmer (slave) warten muß, bis er wieder "dran" ist.'
 [^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
 
-### Remote real-time CNC machining for web-based manufacturing @Wang2004 
-
-__Problem:__ Maschine ist nur am Terminal kontrollierbar; Datenerfassung und Auswertung nur vor Ort
-__Lösung:__ Entfernter Zugriff
-
-__Purpose.__ 
-Das Ziel von Wang et al. war die Entwicklung einer offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen.
-
-__Design/Methodology/Approach.__ 
-Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
-Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
-Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
-Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
-Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
-In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
-Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt.
-Für die Kontrolle der Fräse kann zwischen einem manuellen und einem automatischen Modus gewählt werden, wobei letzterer die direkte Übertragung von G-Code ermöglicht.
-
-[^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
-
-__Findings.__  
-Das Internet ist ein zentraler Aspekt verteilter Produktion.
-Jedoch sind damit Sicherheitslücken fatal für interne Daten und vertrauliche Informationen der Organisation.
-Die gezielte Verbreitung dieser stellt ein erhöhtes wirtschaftliches Risiko dar und muss in besonderem Maße geschützt werden.
-Weiterhin sind Systemfehler auf Maschinenebene im Bezug auf Personen- und Materialschäden untragbar.
-Daher muss die reibungslose Kommunikation von Steuerungsbefehlen zu jeder Zeit gewährleistet sein.
-
-__Research Limitations/Implications.__ 
-Standards für die Kommunikation von Sensor- und Steuerungsinformationen sind notwendig um Effizienz und Integration der Systeme zu vereinfachen.
-So müssen globale Schnittstellen definiert und durch die Komponenten des Systems implementiert werden.
-Durch die Verwendung eines zuverlässigen NC-Befehlsinterpreters ist die verteilte Echtzeitsteuerung von CNC-Maschinen nach Wang et al. praktisch möglich.
-Jedoch setzt dieses System eine bestehende Anbindung an die Steuerungsebene voraus.
-
-__Practical Implications.__ 
-Die direkte Verbindung des Clients zu einer Maschine ist mit der verwendeten Technologie nicht möglich.
-Sowohl die Java Sicherheitsinfrastuktur, als auch die Überwindung von Firewalls stellen zukünftig zu lösende Probleme dar.
-Für künftige Maschinen ist daher das Einbetten eines dedizierten Web-Services in die Kontrolleinheit notwendig.
-
-__Originality/Value.__ 
-Ein wichtiger Aspekt des Konzepts von Wang et al. ist die technische Umsetzung auf der Java-Plattform.
-Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation und Rechtemanagement direkt unterstützt.
-Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 ## Architekturen & Methoden für CPPS
 
-Grundsätzlich werden hoch skalierende gesamtheitlichen Systeme in Teilsysteme gegliedert, wodurch ein _System of Systems_ (SoS) entsteht.
 
-@fig:wang-cps-architecture verbildlicht das Konzept der Kapselung und Verbindung einzelner Produktionskomponenten in einer Architektur für CPPS.
-
-![Komponentenbasierte CPS-Architektur nach Wang et al. @Wang2008](figures/wang-cps-architecture){#fig:wang-cps-architecture}
 
 * SOA [@Meyer2010;@Fallah2016a]
 * MAS, Holonic [@Leitao2009;@Fallah2016]
@@ -510,40 +692,6 @@ __Lösung:__ Informationsmodelle modellgetrieben entwickeln
 * Originality/Value
     * MDA-Prozess für generische Informationsmodelle durch UML
 
-## Stuff we may know
-
-### Multi Agent based Control Architectures @Fallah2016
-
-nicht in's Konzept => notwendig?
-
-* Purpose
-    * 
-* Design/Methodology/Approach
-    * 
-* Findings
-    * 
-* Research Limitations/Implications
-    * 
-* Practical Implications
-    * 
-* Originality/Value
-    * 
-
-### Towards model-integrated service-oriented manufacturing execution system @Fallah2016a
-
-* Purpose
-    * 
-* Design/Methodology/Approach
-    * 
-* Findings
-    * 
-* Research Limitations/Implications
-    * 
-* Practical Implications
-    * 
-* Originality/Value
-    * 
-
 ## Zusammenfassung 
 
 <!-- Projekte -->
@@ -563,6 +711,8 @@ Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Kompon
 [^OPC4Factory]: [www.ift.at/forschung/foschungsprojekte/opc4factory](https://www.ift.at/forschung/foschungsprojekte/opc4factory)
 see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
+
+
 [@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
 
 * TODO Projekte zusammenfassen & gegeneinander abgrenzen
@@ -572,15 +722,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 # Konzeption
 
-<!-- BEGIN Rahmen dieser Arbeit -->
-
-* betrachtet
-    * Fertigungsindustrie
-    * CNC-Maschinen
-* unbetrachtet
-    * Adapter für proprietäre CNC-Protokolle (DNC)
-
-<!-- END Rahmen dieser Arbeit -->
+Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
 
 * Laufzeitkonfiguration des Surrogate?
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
@@ -608,17 +750,24 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     * Smoothieboard/Embedded (soft-)SPS als Adapter zu Maschine
 * Wiederverwendung @Ayatollahi2013
     * des Informationsmodells
-    * des Flow-Charts für die Server-Logik
+    * des Flow-Charts für die Server-Logik (teilweise)
 * Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
-* Einsatz von Rollen (Ausblick?)
+Nach Rücksprache
+
+* OPC UA zur Metamodellierung bzgl. der Machine
+* OPC UA Modell synchron mit Realität => Laufzeitmodell
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K) kontrollierbar => Modellierung/Sprache der _Regeln?_
+* Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
+* Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
+* FB-Loop intern oder extern?
 
 OPC4Factory:
 
 > OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden.
 
-* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015
+* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) => **Abb. 9 I4.0-Komponente** @Adolphs2015 
 * Kruchten 4+1?
 * arc42?
 
@@ -626,7 +775,8 @@ OPC4Factory:
 
 * Service-/Protokolllayer (OPC UA)
 * CPS-Layer, Hardwareanbindung
-* 
+* Einbetten eines dedizierten Web-Services  @Wang2004 
+* Stage braucht eingebettetes Kontrollsystem @Wang2008
 
 ## Kommunikations- & Informationsmodell
 
@@ -639,11 +789,26 @@ OPC4Factory:
 # Implementation
 
 * Smoothieboard als Maschinen-Adapter
+    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
 * open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
 
 ## Zusammenfassung
 
 # Evaluation
+
+These/Behauptung?
+* Steigerung des Automatisierungsgrads durch Feedbackloop
+* physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
+* Laufzeitmodell für _online_-Monitoring
+
+Umsetzung?
+* Proof of concept
+* Case-Study mgl.?
+* HIL-Simulation?
+
+Blocking Factors/mögliche Kritik?
+* Leistung von embedded computing devices => siehe @Grigoriev2016
+* Energieverbrauch
 
 ## Zusammenfassung
 
@@ -652,3 +817,12 @@ OPC4Factory:
 ## Schlussfolgerung
 
 ## Ausblick
+
+* MDSD mit @Pauker2016
+* CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
+* Prozessmodell für Abstrakte Leitebene
+* Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
+* Surrogate als reaktiver Agent => Einbindung in MAS denkbar
+* Möglichkeiten des Nutzens der Daten
+    * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?
+    * Automatische Erkennung von Gut-/Schlechtteilen
