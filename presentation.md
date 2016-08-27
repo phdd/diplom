@@ -11,7 +11,7 @@
 
 # Motivation
 
-* _Industrie 4.0_ drängt CPS in die Produktion (CPPS)
+* _Industrie 4.0_ drängt CPS in die Produktion ⇒ CPPS
 * Maschinen ohne Infrastrukturanbindung vorhanden
     - fehlende Netzwerk- und Programmierschnittstellen
     - geschlossene Architekturen
@@ -19,7 +19,7 @@
 </br>
 </br>
 </br>
-⇒ Anlagenmodernisierung - _Retrofitting_
+⇒ _Retrofitting_
 
 # Aufgaben 
 
@@ -31,7 +31,7 @@
 
 # Aufgaben (Forts.)
 
-* ermöglichen von Kontrolle/Überwachung in CPPS
+* ermöglichen von Steuerung/Überwachung in CPPS
     - Transfer und Ausführung von Maschinencode
     - Erfassen von Produktionsdaten durch Sensoren
     - Verwendung von Einplatinencomputern für die Implementierung  
@@ -43,11 +43,10 @@
 ## Forschungskontext
 
 * unterbrechungsfreie M2M-Kommunikation und Produktionskette
-* Hierarchisierung von Kontrolle/Überwachung
+* Hierarchisierung von Steuerung/Überwachung
 * modellgetriebene Komponenten- und Funktionsstrukturabbildung
 * dezentrale Informationsarchitektur verbessert
     - Produktionsstabilität
-    - Just-in-Time-Fähigkeit
     - Automatisierungsgrad
 
 # Erwartungen
@@ -59,18 +58,17 @@
   <small>z.B. zentrale Auswertung der Betriebsdaten</small>
 * Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad
 * Vereinfachung von Prozessplanung und Durchführung
-* Kontrolle von Wartungszyklen und Störfällen
-* Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert
+* bessere Kontrolle von Wartungszyklen und Störfällen
 
 # Anforderungen {footer=false header=false count=false .center}
 
-# Forschungsfrage 
+# Fragestellung 
 <br><br>
-Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
 
 # Teilfragen
 
-1. Welche System- und **Softwarearchitektur** ist für die Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
 
 2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 
@@ -78,7 +76,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # REQ1 - Steuerung
 <br><br>
-Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
+Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 # REQ2 - Überwachung
 <br><br>
@@ -94,7 +92,27 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 # Forschungsstand {footer=false header=false count=false .center}
 
+# &nbsp;&nbsp;Retrofit Legacy Toaster <small>@Ramakers2016</small> {footer=false header=false count=false}
 
+![](figures/retrofit-toaster)
+
+# bestehende Arbeiten
+
+* Steuerung & Überwachung  
+  <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
+* Standards für Protokolle & Modelle  
+  <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
+* flexible Architekturkonzepte  
+  <small>Information Architecture for Reconfigurable production systems @Pauker2013</small>
+
+# Forschungsprojekte
+
+* OPC4Factory<small>@OPC4Factory</small>  
+  <small>generische OPC UA Informationsmodelle</small>
+* piCASSO<small>@piCASSO</small>  
+  <small>Cloud-basierte Industriesteuerung mit CPS</small>
+* RetroNet<small>@FraunhoferIPK2016</small>  
+  <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small>
 
 # Konzeption {footer=false header=false count=false .center}
 

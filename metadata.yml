@@ -16,7 +16,8 @@ lang:      *lang
 # Presentation
 presentation: Diplomarbeit - aktueller Stand
 theme:        sky
-transition:   convex
+smart:        true
+transition:   slide
 revealjs-url: http://lab.hakim.se/reveal-js
 
 # Crossref Filter

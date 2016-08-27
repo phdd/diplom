@@ -84,7 +84,7 @@ Nach Klärung der Ziele, werden in dieser Arbeit folgende Fragen zu beantworten 
 
 > Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
 > 
-> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
 > 2. Wie und wo werden Informationen zu Maschinenzustand und  
 > -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 > 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
@@ -239,7 +239,7 @@ Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponente
 Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
 REQ1
-: Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
+: Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 ## Überwachung {#sec:REQ2}
 
