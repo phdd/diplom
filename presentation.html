@@ -53,12 +53,12 @@
 <section id="motivation" class="slide level1">
 <h1>Motivation</h1>
 <ul>
-<li><em>Industrie 4.0</em> drängt CPS in die Produktion (CPPS)</li>
+<li><em>Industrie 4.0</em> drängt CPS in die Produktion ⇒ CPPS</li>
 <li>Maschinen ohne Infrastrukturanbindung vorhanden
 <ul>
 <li>fehlende Netzwerk- und Programmierschnittstellen</li>
 <li>geschlossene Architekturen</li>
-<li>ungenügende Sicherheitskonzepte </br> </br> </br> ⇒ Anlagenmodernisierung - <em>Retrofitting</em></li>
+<li>ungenügende Sicherheitskonzepte </br> </br> </br> ⇒ <em>Retrofitting</em></li>
 </ul></li>
 </ul>
 </section>
@@ -77,7 +77,7 @@
 <section id="aufgaben-forts." class="slide level1">
 <h1>Aufgaben (Forts.)</h1>
 <ul>
-<li>ermöglichen von Kontrolle/Überwachung in CPPS
+<li>ermöglichen von Steuerung/Überwachung in CPPS
 <ul>
 <li>Transfer und Ausführung von Maschinencode</li>
 <li>Erfassen von Produktionsdaten durch Sensoren</li>
@@ -93,12 +93,11 @@
 <h2 id="forschungskontext">Forschungskontext</h2>
 <ul>
 <li>unterbrechungsfreie M2M-Kommunikation und Produktionskette</li>
-<li>Hierarchisierung von Kontrolle/Überwachung</li>
+<li>Hierarchisierung von Steuerung/Überwachung</li>
 <li>modellgetriebene Komponenten- und Funktionsstrukturabbildung</li>
 <li>dezentrale Informationsarchitektur verbessert
 <ul>
 <li>Produktionsstabilität</li>
-<li>Just-in-Time-Fähigkeit</li>
 <li>Automatisierungsgrad</li>
 </ul></li>
 </ul>
@@ -113,28 +112,27 @@
 <small>z.B. zentrale Auswertung der Betriebsdaten</small></li>
 <li>Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad</li>
 <li>Vereinfachung von Prozessplanung und Durchführung</li>
-<li>Kontrolle von Wartungszyklen und Störfällen</li>
-<li>Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert</li>
+<li>bessere Kontrolle von Wartungszyklen und Störfällen</li>
 </ul>
 </section>
 <section id="anforderungen" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Anforderungen</h1>
 </section>
-<section id="forschungsfrage" class="slide level1">
-<h1>Forschungsfrage</h1>
-<p><br><br> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?</p>
+<section id="fragestellung" class="slide level1">
+<h1>Fragestellung</h1>
+<p><br><br> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?</p>
 </section>
 <section id="teilfragen" class="slide level1">
 <h1>Teilfragen</h1>
 <ol type="1">
-<li><p>Welche System- und <strong>Softwarearchitektur</strong> ist für die Kontrolle und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?</p></li>
+<li><p>Welche System- und <strong>Softwarearchitektur</strong> ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?</p></li>
 <li><p>Wie und wo werden <strong>Informationen zur Maschine</strong> erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?</p></li>
 <li><p>Welche <strong>standardisierten Protokolle</strong> und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?</p></li>
 </ol>
 </section>
 <section id="req1---steuerung" class="slide level1">
 <h1>REQ1 - Steuerung</h1>
-<p><br><br> Die Kontrolle der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.</p>
+<p><br><br> Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.</p>
 </section>
 <section id="req2---überwachung" class="slide level1">
 <h1>REQ2 - Überwachung</h1>
@@ -150,6 +148,34 @@
 </section>
 <section id="forschungsstand" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Forschungsstand</h1>
+</section>
+<section id="retrofit-legacy-toaster-ramakers2016" class="slide level1" footer="false" header="false" count="false">
+<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[1]</span></small></h1>
+<figure>
+<img src="figures/retrofit-toaster.png" />
+</figure>
+</section>
+<section id="bestehende-arbeiten" class="slide level1">
+<h1>bestehende Arbeiten</h1>
+<ul>
+<li>Steuerung &amp; Überwachung<br />
+<small>Remote real-time CNC machining for web-based manufacturing <span class="citation" data-cites="Wang2004">[2]</span></small></li>
+<li>Standards für Protokolle &amp; Modelle<br />
+<small>Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation" data-cites="Ayatollahi2013">[3]</span></small></li>
+<li>flexible Architekturkonzepte<br />
+<small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[4]</span></small></li>
+</ul>
+</section>
+<section id="forschungsprojekte" class="slide level1">
+<h1>Forschungsprojekte</h1>
+<ul>
+<li>OPC4Factory<small><span class="citation" data-cites="OPC4Factory">[5]</span></small><br />
+<small>generische OPC UA Informationsmodelle</small></li>
+<li>piCASSO<small><span class="citation" data-cites="piCASSO">[6]</span></small><br />
+<small>Cloud-basierte Industriesteuerung mit CPS</small></li>
+<li>RetroNet<small><span class="citation" data-cites="FraunhoferIPK2016">[7]</span></small><br />
+<small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small></li>
+</ul>
 </section>
 <section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Konzeption</h1>
@@ -167,7 +193,27 @@
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
 <div id="refs" class="references">
-
+<div id="ref-Ramakers2016">
+<p>[1] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
+</div>
+<div id="ref-Wang2004">
+<p>[2] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
+</div>
+<div id="ref-Ayatollahi2013">
+<p>[3] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International Conference on Innovative Technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
+</div>
+<div id="ref-Pauker2013">
+<p>[4] F. Pauker, T. Weiler, I. Ayatollahi, und B. Kittl, „Information Architecture for Reconfigurable production systems“, <em>DAAAM International Scientific Book 2013</em>, Nr. January, S. 873–886, 2013. </p>
+</div>
+<div id="ref-OPC4Factory">
+<p>[5] IFT TU Wien, „OPC4Factory“. [Online]. Verfügbar unter: <a href="https://www.ift.at/forschung/foschungsprojekte/opc4factory/" class="uri">https://www.ift.at/forschung/foschungsprojekte/opc4factory/</a>. [Zugegriffen: 28-Aug-2016]</p>
+</div>
+<div id="ref-piCASSO">
+<p>[6] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
+</div>
+<div id="ref-FraunhoferIPK2016">
+<p>[7] Fraunhofer IPK, „RetroNet - Praxisnahe Brücke in die Industrie 4.0“, <em>FUTUR</em>, S. 8, 2016 [Online]. Verfügbar unter: <a href="https://issuu.com/claudiaengel/docs/futur_1_2016" class="uri">https://issuu.com/claudiaengel/docs/futur_1_2016</a></p>
+</div>
 </div>
 </section>
 
@@ -183,7 +229,7 @@
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         // Transition style
-        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
         history: true,
         center: false,
@@ -201,8 +247,8 @@
         master: {
             header: {
                 size:  '40%',
-                left:  '<img src="figures/tud.png" height="70px" />',
-                right: '<img src="figures/logo.png" height="70px" />',
+                left:  '<img src="figures/tud.png" height="50px" />',
+                right: '<img src="figures/logo.png" height="50px" />',
             },
 
             footer: {
