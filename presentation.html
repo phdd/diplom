@@ -73,9 +73,7 @@
 <li>erweiterbarem Framework</li>
 </ul></li>
 </ul>
-</section>
-<section id="aufgaben-forts." class="slide level1">
-<h1>Aufgaben (Forts.)</h1>
+<div class="fragment" style="position:absolute;top:134.5pt;background-color:white;width:100%;height:100%">
 <ul>
 <li>ermöglichen von Steuerung/Überwachung in CPPS
 <ul>
@@ -87,6 +85,7 @@
 <li>prototypische Implementierung belegt Machbarkeit</li>
 <li>Aufbau einer adäquaten Test-Infrastruktur</li>
 </ul>
+</div>
 </section>
 <section id="erwartungen" class="slide level1">
 <h1>Erwartungen</h1>
@@ -130,13 +129,13 @@
 <li><p>Welche <strong>standardisierten Protokolle</strong> und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?</p></li>
 </ol>
 </section>
-<section id="req1---steuerung" class="slide level1">
-<h1>REQ1 - Steuerung</h1>
-<p><br><br> Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.</p>
-</section>
-<section id="req2---überwachung" class="slide level1">
-<h1>REQ2 - Überwachung</h1>
+<section id="req1---überwachung" class="slide level1">
+<h1>REQ1 - Überwachung</h1>
 <p><br><br> Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.</p>
+</section>
+<section id="req2---steuerung" class="slide level1">
+<h1>REQ2 - Steuerung</h1>
+<p><br><br> Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.</p>
 </section>
 <section id="req3---standardisierung" class="slide level1">
 <h1>REQ3 - Standardisierung</h1>
@@ -159,36 +158,162 @@
 <h1>bestehende Arbeiten</h1>
 <ul>
 <li>Steuerung &amp; Überwachung<br />
-<small>Remote real-time CNC machining for web-based manufacturing <span class="citation" data-cites="Wang2004">[2]</span></small></li>
+<small>Control software for industrial CNC machines <span class="citation" data-cites="Ferrolho2005 Ferrolho2007">[2, 3]</span></small> <small>Remote real-time CNC machining for web-based manufacturing <span class="citation" data-cites="Wang2004">[4]</span></small></li>
 <li>Standards für Protokolle &amp; Modelle<br />
-<small>Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation" data-cites="Ayatollahi2013">[3]</span></small></li>
+<small>Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation" data-cites="Ayatollahi2013">[5]</span></small> <small>A systematic approach to OPC UA information model design <span class="citation" data-cites="Pauker2016">[6]</span></small></li>
 <li>flexible Architekturkonzepte<br />
-<small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[4]</span></small></li>
+<small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[7]</span></small> <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) <span class="citation" data-cites="Adolphs2015">[8]</span></small></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>[3,4] TCP-Protokoll für Direct Numerical Control + automatisierte Maschinenkomponenten</li>
+<li>[2] Wise-ShopFloor
+<ul>
+<li>offenen Architektur für die Echtzeitüberwachung und -kontrolle</li>
+<li>grafische Schnittstelle mit 3D Repräsentation</li>
+</ul></li>
+</ul>
+</aside>
 </section>
 <section id="forschungsprojekte" class="slide level1">
 <h1>Forschungsprojekte</h1>
 <ul>
-<li>OPC4Factory<small><span class="citation" data-cites="OPC4Factory">[5]</span></small><br />
+<li>OPC4Factory<small><span class="citation" data-cites="OPC4Factory">[9]</span></small><br />
 <small>generische OPC UA Informationsmodelle</small></li>
-<li>piCASSO<small><span class="citation" data-cites="piCASSO">[6]</span></small><br />
+<li>piCASSO<small><span class="citation" data-cites="piCASSO">[10]</span></small><br />
 <small>Cloud-basierte Industriesteuerung mit CPS</small></li>
-<li>RetroNet<small><span class="citation" data-cites="FraunhoferIPK2016">[7]</span></small><br />
+<li>RetroNet<small><span class="citation" data-cites="FraunhoferIPK2016">[11]</span></small><br />
 <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small></li>
 </ul>
 </section>
 <section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Konzeption</h1>
 </section>
-<section id="implementierung" class="slide level1 center" footer="false" header="false" count="false">
-<h1>Implementierung</h1>
+<section id="architektur" class="slide level1">
+<h1>Architektur</h1>
+<ul>
+<li>OPC UA als Informations- und Kommunikationsmodell</li>
+<li>Metamodell zu Altmaschine mit Komponenten für
+<ul>
+<li>Numerische Kontrolle</li>
+<li>Türen und Einspannvorrichtungen</li>
+</ul></li>
+<li>Modell synchron mit Realität ⇒ Laufzeitmodell</li>
+<li>Framework mit Schichtenarch. im Client/Server-Stil</li>
+<li>Microkernel: OPC UA Typen, Sensoren und Aktuatoren</li>
+<li>Verhalten der Physik via MAPE-K verifizieren</li>
+</ul>
+<div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%">
+<div style="width:95%;height:95%;margin:auto">
+<figure>
+<img src="figures/opcua-model-layers.png" />
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Communication Technology that merges:
+<ul>
+<li>Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)</li>
+<li>Information modelling (using an extensible meta model)</li>
+</ul></li>
+<li>Extensible meta model</li>
+<li>Platform independent (cross-platform)</li>
+<li>Scalable</li>
+<li>But not hard real-time (not yet)</li>
+</ul>
+</aside>
 </section>
-<section id="status-vorgehen" class="slide level1 center" footer="false" header="false" count="false">
+<section id="surrogate" class="slide level1">
+<h1>Repräsentation der Maschine</h1>
+<ul>
+<li>Einplatinencomputer ⇒ CPS-Komponente</li>
+<li>Hardware CNC-Interpreter <em>festverdrahtet</em></li>
+<li>direkte Anbindung von Sensoren und Aktuatoren</li>
+<li>Datenerfassung und Verarbeitung an der Maschine</li>
+<li>Schritte zur Altmaschinenintegration
+<ol type="1">
+<li>Modellierung mit OPC UA Informationsmodell</li>
+<li>Deployment des Modells auf CPS-Komponente</li>
+<li>Initialisieren des Laufzeitmodells</li>
+<li>autonomes Registrieren im CPPS</li>
+</ol></li>
+</ul>
+</section>
+<section id="implementation" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Implementation</h1>
+</section>
+<section id="bausteine" class="slide level1">
+<h1>Bausteine</h1>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Konzept</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CPS-Komponente</td>
+<td>Raspberry Pi 3</td>
+</tr>
+<tr class="even">
+<td>CNC-Interpreter</td>
+<td>Smoothieboard 4XC</td>
+</tr>
+<tr class="odd">
+<td>Peripherie</td>
+<td>GrovePi</td>
+</tr>
+<tr class="even">
+<td>OPC UA Stack</td>
+<td>node-opcua</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment" style="position:absolute;top:30pt;background-color:white;width:100%;height:100%">
+<div style="width:60%;height:60%;margin:auto">
+<figure>
+<img src="figures/cnc-surrogate.png" />
+</figure>
+</div>
+</div>
+</section>
+<section id="status-vorgehen" class="slide level1">
 <h1>Status &amp; Vorgehen</h1>
-<!-- DSRM + erfüllte Ziele in % -->
+<center>
+<iframe width="1000pt" height="400pt" src="https://live.amcharts.com/mNkMz/embed/" frameborder="0">
+</iframe>
+<small>DSRM nach <span class="citation" data-cites="Geerts2011">[12]</span></small>
+</center>
+<aside class="notes">
+<ul>
+<li>DSRM-Schritte nach Geerts 2011 <span class="citation" data-cites="Geerts2011">[12]</span></li>
+<li>schriftlicher Teil inklusive</li>
+<li>Bearbeitung: 1. Juni bis 30. November</li>
+<li>geplante Abgabe: Anfang November</li>
+</ul>
+</aside>
 </section>
 <section id="danke-für-die-aufmerksamkeit" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Danke für die Aufmerksamkeit</h1>
+</section>
+<section id="opc-unified-architecture" class="slide level1" footer="false" header="false" count="false">
+<h1>OPC Unified Architecture</h1>
+<figure>
+<img src="figures/opc-ua-architecture.png" />
+</figure>
+</section>
+<section id="laufzeitmodell" class="slide level1" footer="false" header="false" count="false">
+<h1>Laufzeitmodell</h1>
+<div style="position:absolute;top:40pt;width:100%;height:100%;">
+<div style="width:30%;height:30%;margin:auto">
+<figure>
+<img src="figures/milling-machine-model.png" />
+</figure>
+</div>
+</div>
 </section>
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
@@ -196,23 +321,38 @@
 <div id="ref-Ramakers2016">
 <p>[1] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
 </div>
+<div id="ref-Ferrolho2005">
+<p>[2] A. Ferrolho, M. Crisostomo, und M. Lima, „Intelligent control software for industrial CNC machines“, in <em>2005 IEEE International Conference on Intelligent Engineering Systems, 2005. INES ’05.</em>, 2005, S. 267–272. </p>
+</div>
+<div id="ref-Ferrolho2007">
+<p>[3] A. Ferrolho und M. Crisostomo, „Intelligent Control and Integration Software for Flexible Manufacturing Cells“, <em>IEEE Transactions on Industrial Informatics</em>, Bd. 3, Nr. 1, S. 3–11, Feb. 2007. </p>
+</div>
 <div id="ref-Wang2004">
-<p>[2] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
+<p>[4] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
 </div>
 <div id="ref-Ayatollahi2013">
-<p>[3] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International Conference on Innovative Technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
+<p>[5] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International Conference on Innovative Technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
+</div>
+<div id="ref-Pauker2016">
+<p>[6] F. Pauker, T. Frühwirth, und B. Kittl, „A systematic approach to OPC UA information model design“, in <em>49th CIRP Conference on Manufacturing Systems</em>, 2016. </p>
 </div>
 <div id="ref-Pauker2013">
-<p>[4] F. Pauker, T. Weiler, I. Ayatollahi, und B. Kittl, „Information Architecture for Reconfigurable production systems“, <em>DAAAM International Scientific Book 2013</em>, Nr. January, S. 873–886, 2013. </p>
+<p>[7] F. Pauker, T. Weiler, I. Ayatollahi, und B. Kittl, „Information Architecture for Reconfigurable production systems“, <em>DAAAM International Scientific Book 2013</em>, Nr. January, S. 873–886, 2013. </p>
+</div>
+<div id="ref-Adolphs2015">
+<p>[8] P. Adolphs und U. Epple, „Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0)“, April, 2015. </p>
 </div>
 <div id="ref-OPC4Factory">
-<p>[5] IFT TU Wien, „OPC4Factory“. [Online]. Verfügbar unter: <a href="https://www.ift.at/forschung/foschungsprojekte/opc4factory/" class="uri">https://www.ift.at/forschung/foschungsprojekte/opc4factory/</a>. [Zugegriffen: 28-Aug-2016]</p>
+<p>[9] IFT TU Wien, „OPC4Factory“. [Online]. Verfügbar unter: <a href="https://www.ift.at/forschung/foschungsprojekte/opc4factory/" class="uri">https://www.ift.at/forschung/foschungsprojekte/opc4factory/</a>. [Zugegriffen: 28-Aug-2016]</p>
 </div>
 <div id="ref-piCASSO">
-<p>[6] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
+<p>[10] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
 </div>
 <div id="ref-FraunhoferIPK2016">
-<p>[7] Fraunhofer IPK, „RetroNet - Praxisnahe Brücke in die Industrie 4.0“, <em>FUTUR</em>, S. 8, 2016 [Online]. Verfügbar unter: <a href="https://issuu.com/claudiaengel/docs/futur_1_2016" class="uri">https://issuu.com/claudiaengel/docs/futur_1_2016</a></p>
+<p>[11] Fraunhofer IPK, „RetroNet - Praxisnahe Brücke in die Industrie 4.0“, <em>FUTUR</em>, S. 8, 2016 [Online]. Verfügbar unter: <a href="https://issuu.com/claudiaengel/docs/futur_1_2016" class="uri">https://issuu.com/claudiaengel/docs/futur_1_2016</a></p>
+</div>
+<div id="ref-Geerts2011">
+<p>[12] G. L. Geerts, „A design science research methodology and its application to accounting information systems research“, <em>International Journal of Accounting Information Systems</em>, Bd. 12, Nr. 2, S. 142–151, Juni 2011. </p>
 </div>
 </div>
 </section>
@@ -264,7 +404,7 @@
           { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
           { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true },
-          { src: 'http://cdn.rawgit.com/phdd/revealjs-master-plugin/master/master.js', async: true }
+          { src: 'style/master.js', async: true }
         ]
       });
     </script>
