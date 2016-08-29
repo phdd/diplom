@@ -76,10 +76,26 @@ body {
 
 .reveal .references {
 	font-size: 70% !important;
+	height: 300pt!important;
+	overflow-y: scroll;
+	padding-right: 20pt!important;
+}
+
+::-webkit-scrollbar {
+    width: 8px!important;
+}
+::-webkit-scrollbar-track {
+    background-color: #eee!important;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ddd!important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc!important;
 }
 
 .reveal .references div p {
 	font-size: 70%;
 	text-indent: -1.3em;	
-    padding-left: 1.3em;
+  padding-left: 1.3em;
 }
