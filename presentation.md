@@ -29,8 +29,7 @@
     - virtueller Maschinenrepräsentation
     - erweiterbarem Framework
 
-# Aufgaben (Forts.)
-
+<div class="fragment" style="position:absolute;top:134.5pt;background-color:white;width:100%;height:100%">
 * ermöglichen von Steuerung/Überwachung in CPPS
     - Transfer und Ausführung von Maschinencode
     - Erfassen von Produktionsdaten durch Sensoren
@@ -38,6 +37,7 @@
 &nbsp;
 * prototypische Implementierung belegt Machbarkeit
 * Aufbau einer adäquaten Test-Infrastruktur
+</div>
 
 # Erwartungen
 ## Forschungskontext
@@ -99,16 +99,20 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 # bestehende Arbeiten
 
 * Steuerung & Überwachung  
-  <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
   <small>Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]</small>
+  <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
 * Standards für Protokolle & Modelle  
   <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
+  <small>A systematic approach to OPC UA information model design @Pauker2016</small>
 * flexible Architekturkonzepte  
   <small>Information Architecture for Reconfigurable production systems @Pauker2013</small>
+  <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015</small>
 
 <div class="notes">
-  * [2] Wise-ShopFloor
   * [3,4] TCP-Protokoll für Direct Numerical Control + automatisierte Maschinenkomponenten
+  * [2] Wise-ShopFloor 
+    - offenen Architektur für die Echtzeitüberwachung und -kontrolle
+    - grafische Schnittstelle mit 3D Repräsentation 
 </div>
 
 # Forschungsprojekte
@@ -122,10 +126,87 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 # Konzeption {footer=false header=false count=false .center}
 
-# Implementierung {footer=false header=false count=false .center}
+# Architektur
 
-# Status & Vorgehen {footer=false header=false count=false .center}
+* OPC UA als Informations- und Kommunikationsmodell
+* Metamodell zu Altmaschine mit Komponenten für
+    - Numerische Kontrolle
+    - Türen und Einspannvorrichtungen
+* Modell synchron mit Realität ⇒ Laufzeitmodell
+* Framework mit Schichtenarch. im Client/Server-Stil
+* Microkernel: OPC UA Typen, Sensoren und Aktuatoren
+* Verhalten der Physik via MAPE-K verifizieren
 
-<!-- DSRM + erfüllte Ziele in % -->
+<div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%"> 
+<div style="width:95%;height:95%;margin:auto">
+![](figures/opcua-model-layers) 
+</div>
+</div>
+
+<div class="notes">
+* Communication Technology that merges:
+    - Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)
+    - Information modelling (using an extensible meta model)
+* Extensible meta model
+* Platform independent (cross-platform)
+* Scalable
+* But not hard real-time (not yet)
+</div>
+
+# Repräsentation der Maschine {#surrogate}
+
+* Einplatinencomputer ⇒ CPS-Komponente
+* Hardware CNC-Interpreter _festverdrahtet_
+* direkte Anbindung von Sensoren und Aktuatoren
+* Datenerfassung und Verarbeitung an der Maschine
+* Schritte zur Altmaschinenintegration
+    1. Modellierung mit OPC UA Informationsmodell 
+    2. Deployment des Modells auf CPS-Komponente
+    4. Initialisieren des Laufzeitmodells
+    3. autonomes Registrieren im CPPS
+
+# Implementation {footer=false header=false count=false .center}
+
+# Bausteine
+<br>
+
+|     Konzept     |   Implementation  |
+|-----------------|-------------------|
+| CPS-Komponente  | Raspberry Pi 3    |
+| CNC-Interpreter | Smoothieboard 4XC |
+| Peripherie      | GrovePi           |
+| OPC UA Stack    | node-opcua        |
+
+<div class="fragment" style="position:absolute;top:30pt;background-color:white;width:100%;height:100%"> 
+<div style="width:60%;height:60%;margin:auto">
+![](figures/cnc-surrogate) 
+</div>
+</div>
+
+# Status & Vorgehen
+
+<center>
+<iframe width="1000pt" height="400pt" src="https://live.amcharts.com/mNkMz/embed/" frameborder="0"></iframe>
+<small>DSRM nach @Geerts2011</small>
+</center>
+
+<div class="notes">
+* DSRM-Schritte nach Geerts 2011 @Geerts2011
+* schriftlicher Teil inklusive
+* Bearbeitung: 1. Juni bis 30. November
+* geplante Abgabe: Anfang November
+</div>
 
 # Danke für die Aufmerksamkeit {footer=false header=false count=false .center}
+
+# OPC Unified Architecture {footer=false header=false count=false}
+
+![](figures/opc-ua-architecture)
+
+# Laufzeitmodell {footer=false header=false count=false}
+
+<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
+<div style="width:30%;height:30%;margin:auto">
+![](figures/milling-machine-model)
+</div>
+</div>
