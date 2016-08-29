@@ -99,3 +99,8 @@ body {
 	text-indent: -1.3em;	
   padding-left: 1.3em;
 }
+
+.reveal small {
+	line-height: 0.8em!important;
+  vertical-align: middle!important;
+}

@@ -18,6 +18,7 @@ cp ../document.epub thesis.epub
 
 cp ../presentation.html presentation.html
 cp ../style/presentation.css style/presentation.css
+cp ../style/master.js style/master.js
 cp ../figures/*.png figures/
 
 git add .

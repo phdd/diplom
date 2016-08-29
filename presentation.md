@@ -100,10 +100,16 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 * Steuerung & Überwachung  
   <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
+  <small>Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]</small>
 * Standards für Protokolle & Modelle  
   <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
 * flexible Architekturkonzepte  
   <small>Information Architecture for Reconfigurable production systems @Pauker2013</small>
+
+<div class="notes">
+  * [2] Wise-ShopFloor
+  * [3,4] TCP-Protokoll für Direct Numerical Control + automatisierte Maschinenkomponenten
+</div>
 
 # Forschungsprojekte
 
