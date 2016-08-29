@@ -74,6 +74,10 @@ body {
 	padding: 1em!important;
 }
 
+.reveal .references {
+	font-size: 70% !important;
+}
+
 .reveal .references div p {
 	font-size: 70%;
 	text-indent: -1.3em;	
