@@ -2,10 +2,7 @@
 
 [![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom) [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-* [PDF](https://phdd.github.io/diplom/thesis.pdf)
-* [EPUB](https://phdd.github.io/diplom/thesis.epub)
-* [HTML](https://phdd.github.io/diplom),
-* [Presentation](http://phdd.github.io/diplom/presentation.html)
+[PDF](https://phdd.github.io/diplom/thesis.pdf), [EPUB](https://phdd.github.io/diplom/thesis.epub), [HTML](https://phdd.github.io/diplom), [Presentation](http://phdd.github.io/diplom/presentation.html)
 
 ## Final Documents
 
