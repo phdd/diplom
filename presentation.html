@@ -54,7 +54,7 @@
 <h1>Motivation</h1>
 <ul>
 <li><em>Industrie 4.0</em> drängt CPS in die Produktion ⇒ CPPS</li>
-<li>Maschinen ohne Infrastrukturanbindung vorhanden
+<li>viele Maschinen ohne Infrastrukturanbindung
 <ul>
 <li>fehlende Netzwerk- und Programmierschnittstellen</li>
 <li>geschlossene Architekturen</li>
@@ -94,7 +94,7 @@
 <li>unterbrechungsfreie M2M-Kommunikation und Produktionskette</li>
 <li>Hierarchisierung von Steuerung/Überwachung</li>
 <li>modellgetriebene Komponenten- und Funktionsstrukturabbildung</li>
-<li>dezentrale Informationsarchitektur verbessert
+<li>dezentrale Informationsarchitektur erhöht
 <ul>
 <li>Produktionsstabilität</li>
 <li>Automatisierungsgrad</li>
@@ -153,6 +153,13 @@
 <figure>
 <img src="figures/retrofit-toaster.png" />
 </figure>
+<aside class="notes">
+<ul>
+<li>RetroFab Design Tool</li>
+<li>Retrofitting physischer Schnittstellen</li>
+<li>Aktuatoren, Sensoren, 3D-Druck</li>
+</ul>
+</aside>
 </section>
 <section id="bestehende-arbeiten" class="slide level1">
 <h1>bestehende Arbeiten</h1>
@@ -165,14 +172,19 @@
 <small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[7]</span></small> <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) <span class="citation" data-cites="Adolphs2015">[8]</span></small></li>
 </ul>
 <aside class="notes">
-<ul>
-<li>[3,4] TCP-Protokoll für Direct Numerical Control + automatisierte Maschinenkomponenten</li>
-<li>[2] Wise-ShopFloor
+<ol type="1">
+<li>TCP-Protokoll für direkte numerische Kontrolle (DNC) + automatisierte Maschinenkomponenten</li>
+<li>Wise-ShopFloor
 <ul>
 <li>offenen Architektur für die Echtzeitüberwachung und -kontrolle</li>
 <li>grafische Schnittstelle mit 3D Repräsentation</li>
 </ul></li>
-</ul>
+<li>OPC UA Server als virt. Repräs.
+<ul>
+<li>Roboter</li>
+<li>CNC-Fräse</li>
+</ul></li>
+</ol>
 </aside>
 </section>
 <section id="forschungsprojekte" class="slide level1">
@@ -196,12 +208,12 @@
 <li>Metamodell zu Altmaschine mit Komponenten für
 <ul>
 <li>Numerische Kontrolle</li>
-<li>Türen und Einspannvorrichtungen</li>
+<li>Türen, Einspannvorrichtungen, etc.</li>
 </ul></li>
 <li>Modell synchron mit Realität ⇒ Laufzeitmodell</li>
 <li>Framework mit Schichtenarch. im Client/Server-Stil</li>
 <li>Microkernel: OPC UA Typen, Sensoren und Aktuatoren</li>
-<li>Verhalten der Physik via MAPE-K verifizieren</li>
+<li>Verhalten der Physik via MAPE-K verifizierbar</li>
 </ul>
 <div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%">
 <div style="width:95%;height:95%;margin:auto">
@@ -296,8 +308,8 @@
 </ul>
 </aside>
 </section>
-<section id="danke-für-die-aufmerksamkeit" class="slide level1 center" footer="false" header="false" count="false">
-<h1>Danke für die Aufmerksamkeit</h1>
+<section id="section" class="slide level1 center" footer="false" header="false" count="false" data-background-image="figures/end-cartoon.png" data-background-size="contain">
+<h1></h1>
 </section>
 <section id="opc-unified-architecture" class="slide level1" footer="false" header="false" count="false">
 <h1>OPC Unified Architecture</h1>
@@ -307,13 +319,15 @@
 </section>
 <section id="laufzeitmodell" class="slide level1" footer="false" header="false" count="false">
 <h1>Laufzeitmodell</h1>
-<div style="position:absolute;top:40pt;width:100%;height:100%;">
-<div style="width:30%;height:30%;margin:auto">
 <figure>
-<img src="figures/milling-machine-model.png" />
+<img src="figures/opc4factory-model.png" alt="OPC4Factory Modell [5]" /><figcaption>OPC4Factory Modell <span class="citation" data-cites="Ayatollahi2013">[5]</span></figcaption>
 </figure>
+<!--<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
+<div style="width:30%;height:30%;margin:auto">
+![](figures/milling-machine-model)
 </div>
 </div>
+-->
 </section>
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
