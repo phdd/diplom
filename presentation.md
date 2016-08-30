@@ -12,7 +12,7 @@
 # Motivation
 
 * _Industrie 4.0_ drängt CPS in die Produktion ⇒ CPPS
-* Maschinen ohne Infrastrukturanbindung vorhanden
+* viele Maschinen ohne Infrastrukturanbindung
     - fehlende Netzwerk- und Programmierschnittstellen
     - geschlossene Architekturen
     - ungenügende Sicherheitskonzepte
@@ -45,7 +45,7 @@
 * unterbrechungsfreie M2M-Kommunikation und Produktionskette
 * Hierarchisierung von Steuerung/Überwachung
 * modellgetriebene Komponenten- und Funktionsstrukturabbildung
-* dezentrale Informationsarchitektur verbessert
+* dezentrale Informationsarchitektur erhöht
     - Produktionsstabilität
     - Automatisierungsgrad
 
@@ -96,6 +96,12 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 ![](figures/retrofit-toaster)
 
+<div class="notes">
+* RetroFab Design Tool 
+* Retrofitting physischer Schnittstellen
+* Aktuatoren, Sensoren, 3D-Druck
+</div>
+
 # bestehende Arbeiten
 
 * Steuerung & Überwachung  
@@ -109,10 +115,13 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
   <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015</small>
 
 <div class="notes">
-  * [3,4] TCP-Protokoll für Direct Numerical Control + automatisierte Maschinenkomponenten
-  * [2] Wise-ShopFloor 
+  1. TCP-Protokoll für direkte numerische Kontrolle (DNC) + automatisierte Maschinenkomponenten
+  2. Wise-ShopFloor 
     - offenen Architektur für die Echtzeitüberwachung und -kontrolle
     - grafische Schnittstelle mit 3D Repräsentation 
+  3. OPC UA Server als virt. Repräs. 
+    - Roboter
+    - CNC-Fräse
 </div>
 
 # Forschungsprojekte
@@ -131,11 +140,11 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 * OPC UA als Informations- und Kommunikationsmodell
 * Metamodell zu Altmaschine mit Komponenten für
     - Numerische Kontrolle
-    - Türen und Einspannvorrichtungen
+    - Türen, Einspannvorrichtungen, etc.
 * Modell synchron mit Realität ⇒ Laufzeitmodell
 * Framework mit Schichtenarch. im Client/Server-Stil
 * Microkernel: OPC UA Typen, Sensoren und Aktuatoren
-* Verhalten der Physik via MAPE-K verifizieren
+* Verhalten der Physik via MAPE-K verifizierbar
 
 <div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%"> 
 <div style="width:95%;height:95%;margin:auto">
@@ -197,7 +206,8 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 * geplante Abgabe: Anfang November
 </div>
 
-# Danke für die Aufmerksamkeit {footer=false header=false count=false .center}
+# {footer=false header=false count=false .center data-background-image=figures/end-cartoon.png data-background-size=contain}
+
 
 # OPC Unified Architecture {footer=false header=false count=false}
 
@@ -205,8 +215,11 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 # Laufzeitmodell {footer=false header=false count=false}
 
-<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
+![OPC4Factory Modell @Ayatollahi2013](figures/opc4factory-model)
+
+<!--<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
 <div style="width:30%;height:30%;margin:auto">
 ![](figures/milling-machine-model)
 </div>
 </div>
+-->
