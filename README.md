@@ -2,7 +2,14 @@
 
 [![Build status](https://travis-ci.org/phdd/diplom.svg?branch=master)](https://travis-ci.org/phdd/diplom) [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-[PDF](https://phdd.github.io/diplom/thesis.pdf), [EPUB](https://phdd.github.io/diplom/thesis.epub), [HTML](https://phdd.github.io/diplom), [Presentation](http://phdd.github.io/diplom/presentation.html)
+* [PDF](https://phdd.github.io/diplom/thesis.pdf)
+* [EPUB](https://phdd.github.io/diplom/thesis.epub)
+* [HTML](https://phdd.github.io/diplom),
+* [Presentation](http://phdd.github.io/diplom/presentation.html)
+
+## Final Documents
+
+* [30.08.2016 - Presentation: interim findings](https://github.com/phdd/diplom/raw/master/Peter%20Heisig%20-%20Abstraktion%20verteilter%20Produktionssysteme%20in%20CPPS%20-%20Zwischenpr%C3%A4sentation%20Diplomarbeit.pdf)
 
 ## Requirements
 
