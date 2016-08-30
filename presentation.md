@@ -105,7 +105,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 # bestehende Arbeiten
 
 * Steuerung & Überwachung  
-  <small>Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]</small>
+  <small>Intelligent control software for industrial CNC machines @Ferrolho2005</small>
   <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
 * Standards für Protokolle & Modelle  
   <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
@@ -115,13 +115,15 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
   <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015</small>
 
 <div class="notes">
-  1. TCP-Protokoll für direkte numerische Kontrolle (DNC) + automatisierte Maschinenkomponenten
+  1. TCP-Protokoll für DNC + automatisierte Maschinenkomponenten
   2. Wise-ShopFloor 
     - offenen Architektur für die Echtzeitüberwachung und -kontrolle
     - grafische Schnittstelle mit 3D Repräsentation 
+    - zentrale Datenbank
   3. OPC UA Server als virt. Repräs. 
     - Roboter
     - CNC-Fräse
+  4. MDD für generische Informationsmodelle
 </div>
 
 # Forschungsprojekte
@@ -208,18 +210,32 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 
 # {footer=false header=false count=false .center data-background-image=figures/end-cartoon.png data-background-size=contain}
 
-
 # OPC Unified Architecture {footer=false header=false count=false}
 
 ![](figures/opc-ua-architecture)
 
-# Laufzeitmodell {footer=false header=false count=false}
+# Wise-Shopfloor @Wang2004 {footer=false header=false count=false}
 
-![OPC4Factory Modell @Ayatollahi2013](figures/opc4factory-model)
+<div style="width:75%;height:75%;margin:auto">
+![](figures/wise-shopfloor)
+</div>
 
-<!--<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
-<div style="width:30%;height:30%;margin:auto">
-![](figures/milling-machine-model)
+# FFZ am IFT @Ayatollahi2013 {footer=false header=false count=false}
+
+![](figures/ift-manufacturing-cell)
+
+# Laufzeitmodell @Ayatollahi2013 {footer=false header=false count=false}
+
+![](figures/opc4factory-model)
+
+# PIM 2 PSM @Pauker2016 {footer=false header=false count=false}
+
+<div style="width:75%;height:75%;margin:auto">
+![](figures/transformation-process-pim-to-psm)
 </div>
+
+# Rekonfigurierbare Produktion @Pauker2013 {footer=false header=false count=false}
+
+<div style="width:90%;height:90%;margin:auto">
+![](figures/vgl-arch-ffz)
 </div>
--->
