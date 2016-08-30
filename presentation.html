@@ -165,36 +165,38 @@
 <h1>bestehende Arbeiten</h1>
 <ul>
 <li>Steuerung &amp; Überwachung<br />
-<small>Control software for industrial CNC machines <span class="citation" data-cites="Ferrolho2005 Ferrolho2007">[2, 3]</span></small> <small>Remote real-time CNC machining for web-based manufacturing <span class="citation" data-cites="Wang2004">[4]</span></small></li>
+<small>Intelligent control software for industrial CNC machines <span class="citation" data-cites="Ferrolho2005">[2]</span></small> <small>Remote real-time CNC machining for web-based manufacturing <span class="citation" data-cites="Wang2004">[3]</span></small></li>
 <li>Standards für Protokolle &amp; Modelle<br />
-<small>Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation" data-cites="Ayatollahi2013">[5]</span></small> <small>A systematic approach to OPC UA information model design <span class="citation" data-cites="Pauker2016">[6]</span></small></li>
+<small>Prototype OPC UA Server for Remote Control of Machine Tools <span class="citation" data-cites="Ayatollahi2013">[4]</span></small> <small>A systematic approach to OPC UA information model design <span class="citation" data-cites="Pauker2016">[5]</span></small></li>
 <li>flexible Architekturkonzepte<br />
-<small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[7]</span></small> <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) <span class="citation" data-cites="Adolphs2015">[8]</span></small></li>
+<small>Information Architecture for Reconfigurable production systems <span class="citation" data-cites="Pauker2013">[6]</span></small> <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) <span class="citation" data-cites="Adolphs2015">[7]</span></small></li>
 </ul>
 <aside class="notes">
 <ol type="1">
-<li>TCP-Protokoll für direkte numerische Kontrolle (DNC) + automatisierte Maschinenkomponenten</li>
+<li>TCP-Protokoll für DNC + automatisierte Maschinenkomponenten</li>
 <li>Wise-ShopFloor
 <ul>
 <li>offenen Architektur für die Echtzeitüberwachung und -kontrolle</li>
 <li>grafische Schnittstelle mit 3D Repräsentation</li>
+<li>zentrale Datenbank</li>
 </ul></li>
 <li>OPC UA Server als virt. Repräs.
 <ul>
 <li>Roboter</li>
 <li>CNC-Fräse</li>
 </ul></li>
+<li>MDD für generische Informationsmodelle</li>
 </ol>
 </aside>
 </section>
 <section id="forschungsprojekte" class="slide level1">
 <h1>Forschungsprojekte</h1>
 <ul>
-<li>OPC4Factory<small><span class="citation" data-cites="OPC4Factory">[9]</span></small><br />
+<li>OPC4Factory<small><span class="citation" data-cites="OPC4Factory">[8]</span></small><br />
 <small>generische OPC UA Informationsmodelle</small></li>
-<li>piCASSO<small><span class="citation" data-cites="piCASSO">[10]</span></small><br />
+<li>piCASSO<small><span class="citation" data-cites="piCASSO">[9]</span></small><br />
 <small>Cloud-basierte Industriesteuerung mit CPS</small></li>
-<li>RetroNet<small><span class="citation" data-cites="FraunhoferIPK2016">[11]</span></small><br />
+<li>RetroNet<small><span class="citation" data-cites="FraunhoferIPK2016">[10]</span></small><br />
 <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small></li>
 </ul>
 </section>
@@ -297,11 +299,11 @@
 <center>
 <iframe width="1000pt" height="400pt" src="https://live.amcharts.com/mNkMz/embed/" frameborder="0">
 </iframe>
-<small>DSRM nach <span class="citation" data-cites="Geerts2011">[12]</span></small>
+<small>DSRM nach <span class="citation" data-cites="Geerts2011">[11]</span></small>
 </center>
 <aside class="notes">
 <ul>
-<li>DSRM-Schritte nach Geerts 2011 <span class="citation" data-cites="Geerts2011">[12]</span></li>
+<li>DSRM-Schritte nach Geerts 2011 <span class="citation" data-cites="Geerts2011">[11]</span></li>
 <li>schriftlicher Teil inklusive</li>
 <li>Bearbeitung: 1. Juni bis 30. November</li>
 <li>geplante Abgabe: Anfang November</li>
@@ -317,17 +319,41 @@
 <img src="figures/opc-ua-architecture.png" />
 </figure>
 </section>
-<section id="laufzeitmodell" class="slide level1" footer="false" header="false" count="false">
-<h1>Laufzeitmodell</h1>
+<section id="wise-shopfloor-wang2004" class="slide level1" footer="false" header="false" count="false">
+<h1>Wise-Shopfloor <span class="citation" data-cites="Wang2004">[3]</span></h1>
+<div style="width:75%;height:75%;margin:auto">
 <figure>
-<img src="figures/opc4factory-model.png" alt="OPC4Factory Modell [5]" /><figcaption>OPC4Factory Modell <span class="citation" data-cites="Ayatollahi2013">[5]</span></figcaption>
+<img src="figures/wise-shopfloor.png" />
 </figure>
-<!--<div style="position:absolute;top:40pt;width:100%;height:100%;"> 
-<div style="width:30%;height:30%;margin:auto">
-![](figures/milling-machine-model)
 </div>
+</section>
+<section id="ffz-am-ift-ayatollahi2013" class="slide level1" footer="false" header="false" count="false">
+<h1>FFZ am IFT <span class="citation" data-cites="Ayatollahi2013">[4]</span></h1>
+<figure>
+<img src="figures/ift-manufacturing-cell.png" />
+</figure>
+</section>
+<section id="laufzeitmodell-ayatollahi2013" class="slide level1" footer="false" header="false" count="false">
+<h1>Laufzeitmodell <span class="citation" data-cites="Ayatollahi2013">[4]</span></h1>
+<figure>
+<img src="figures/opc4factory-model.png" />
+</figure>
+</section>
+<section id="pim-2-psm-pauker2016" class="slide level1" footer="false" header="false" count="false">
+<h1>PIM 2 PSM <span class="citation" data-cites="Pauker2016">[5]</span></h1>
+<div style="width:75%;height:75%;margin:auto">
+<figure>
+<img src="figures/transformation-process-pim-to-psm.png" />
+</figure>
 </div>
--->
+</section>
+<section id="rekonfigurierbare-produktion-pauker2013" class="slide level1" footer="false" header="false" count="false">
+<h1>Rekonfigurierbare Produktion <span class="citation" data-cites="Pauker2013">[6]</span></h1>
+<div style="width:90%;height:90%;margin:auto">
+<figure>
+<img src="figures/vgl-arch-ffz.png" />
+</figure>
+</div>
 </section>
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
@@ -338,35 +364,32 @@
 <div id="ref-Ferrolho2005">
 <p>[2] A. Ferrolho, M. Crisostomo, und M. Lima, „Intelligent control software for industrial CNC machines“, in <em>2005 IEEE International Conference on Intelligent Engineering Systems, 2005. INES ’05.</em>, 2005, S. 267–272. </p>
 </div>
-<div id="ref-Ferrolho2007">
-<p>[3] A. Ferrolho und M. Crisostomo, „Intelligent Control and Integration Software for Flexible Manufacturing Cells“, <em>IEEE Transactions on Industrial Informatics</em>, Bd. 3, Nr. 1, S. 3–11, Feb. 2007. </p>
-</div>
 <div id="ref-Wang2004">
-<p>[4] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
+<p>[3] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
 </div>
 <div id="ref-Ayatollahi2013">
-<p>[5] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International Conference on Innovative Technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
+<p>[4] I. Ayatollahi, B. Kittl, F. Pauker, und M. Hackhofer, „Prototype OPC UA Server for Remote Control of Machine Tools“, in <em>International Conference on Innovative Technologies</em>, 2013, Bd. 1009, S. 73–76. </p>
 </div>
 <div id="ref-Pauker2016">
-<p>[6] F. Pauker, T. Frühwirth, und B. Kittl, „A systematic approach to OPC UA information model design“, in <em>49th CIRP Conference on Manufacturing Systems</em>, 2016. </p>
+<p>[5] F. Pauker, T. Frühwirth, und B. Kittl, „A systematic approach to OPC UA information model design“, in <em>49th CIRP Conference on Manufacturing Systems</em>, 2016. </p>
 </div>
 <div id="ref-Pauker2013">
-<p>[7] F. Pauker, T. Weiler, I. Ayatollahi, und B. Kittl, „Information Architecture for Reconfigurable production systems“, <em>DAAAM International Scientific Book 2013</em>, Nr. January, S. 873–886, 2013. </p>
+<p>[6] F. Pauker, T. Weiler, I. Ayatollahi, und B. Kittl, „Information Architecture for Reconfigurable production systems“, <em>DAAAM International Scientific Book 2013</em>, Nr. January, S. 873–886, 2013. </p>
 </div>
 <div id="ref-Adolphs2015">
-<p>[8] P. Adolphs und U. Epple, „Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0)“, April, 2015. </p>
+<p>[7] P. Adolphs und U. Epple, „Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0)“, April, 2015. </p>
 </div>
 <div id="ref-OPC4Factory">
-<p>[9] IFT TU Wien, „OPC4Factory“. [Online]. Verfügbar unter: <a href="https://www.ift.at/forschung/foschungsprojekte/opc4factory/" class="uri">https://www.ift.at/forschung/foschungsprojekte/opc4factory/</a>. [Zugegriffen: 28-Aug-2016]</p>
+<p>[8] IFT TU Wien, „OPC4Factory“. [Online]. Verfügbar unter: <a href="https://www.ift.at/forschung/foschungsprojekte/opc4factory/" class="uri">https://www.ift.at/forschung/foschungsprojekte/opc4factory/</a>. [Zugegriffen: 28-Aug-2016]</p>
 </div>
 <div id="ref-piCASSO">
-<p>[10] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
+<p>[9] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
 </div>
 <div id="ref-FraunhoferIPK2016">
-<p>[11] Fraunhofer IPK, „RetroNet - Praxisnahe Brücke in die Industrie 4.0“, <em>FUTUR</em>, S. 8, 2016 [Online]. Verfügbar unter: <a href="https://issuu.com/claudiaengel/docs/futur_1_2016" class="uri">https://issuu.com/claudiaengel/docs/futur_1_2016</a></p>
+<p>[10] Fraunhofer IPK, „RetroNet - Praxisnahe Brücke in die Industrie 4.0“, <em>FUTUR</em>, S. 8, 2016 [Online]. Verfügbar unter: <a href="https://issuu.com/claudiaengel/docs/futur_1_2016" class="uri">https://issuu.com/claudiaengel/docs/futur_1_2016</a></p>
 </div>
 <div id="ref-Geerts2011">
-<p>[12] G. L. Geerts, „A design science research methodology and its application to accounting information systems research“, <em>International Journal of Accounting Information Systems</em>, Bd. 12, Nr. 2, S. 142–151, Juni 2011. </p>
+<p>[11] G. L. Geerts, „A design science research methodology and its application to accounting information systems research“, <em>International Journal of Accounting Information Systems</em>, Bd. 12, Nr. 2, S. 142–151, Juni 2011. </p>
 </div>
 </div>
 </section>
