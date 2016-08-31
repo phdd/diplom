@@ -4,6 +4,10 @@
 
 [PDF](https://phdd.github.io/diplom/thesis.pdf), [EPUB](https://phdd.github.io/diplom/thesis.epub), [HTML](https://phdd.github.io/diplom), [Presentation](http://phdd.github.io/diplom/presentation.html)
 
+## Final Documents
+
+* [30.08.2016 - Presentation: interim findings](https://github.com/phdd/diplom/raw/master/Peter%20Heisig%20-%20Abstraktion%20verteilter%20Produktionssysteme%20in%20CPPS%20-%20Zwischenpr%C3%A4sentation%20Diplomarbeit.pdf)
+
 ## Requirements
 
 * Pandoc 1.12.4.2 with pandoc-citeproc (see http://johnmacfarlane.net/pandoc/installing.html#all-platforms). Ubuntu 14.04 only provides version 1.12.2.1 which does not produce proper cross references in the HTML output.
