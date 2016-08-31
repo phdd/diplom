@@ -1,4 +1,19 @@
 
+<!--
+
+Feedback Zwischenverteidigung:
+
+* Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
+* Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
+* Surrogate ist standardisierendes Element => CPS-Adapter
+* Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
+
+* Human in the Loop?
+* Kann ich die Sensordaten einfach übernehmen? 
+* Orchestrierung? Überall Siemens Systeme => Was nun?
+
+-->
+
 # Einleitung
 
 Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
