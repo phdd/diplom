@@ -769,6 +769,9 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 * Persistenzkonzept: Blackboard? @Pauker2013
 * Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
 
+* Framework
+    - Definition der Bindings von Extension Points in OPC UA Modell
+
 Nach Rücksprache
 
 * OPC UA zur Metamodellierung bzgl. der Machine
