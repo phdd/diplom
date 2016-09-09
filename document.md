@@ -4,6 +4,7 @@
 Feedback Zwischenverteidigung:
 
 * Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
+    - SPS abstrahiert Aktuator + Intelligenz
 * Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
 * Surrogate ist standardisierendes Element => CPS-Adapter
 * Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
@@ -33,7 +34,8 @@ Die Technologie zur numerische Kontrolle von Werkzeugmaschinen existiert bereits
 Gerade diese älteren Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
 Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.
 Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
-Als Teil des Fertigungsprozesses besitzt eine Altmaschine keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
+Vor einigen Jahren wurden bis zu 60% der Arbeitszeit eines Werkers auf die Übertragung des Entwurfs eines Fertigungsschrittes in die Umsetzung an der Maschine verwendet @Gunasekaran2000.
+So besitzt eine Altmaschine als Teil des Fertigungsprozesses keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
 So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung [@Deshpande2011;@Ferrolho2007].
 Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen [@Wang2004;@Hoppe2014].
@@ -46,11 +48,36 @@ Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zug
 
 ## Zielsetzung {#sec:zielsetzung}
 
-Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele und Vorgaben dieser Arbeit beschrieben. 
+Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele dieser Arbeit beschrieben.
+Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
 
-### Aufgaben
+* Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
+  Der operative Einsatz einer vormals nicht integrierten Anlage kann damit stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
+* Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion, wobei jene Daten nicht notwendigerweise zentral zu persistieren sind.
+  Diagnosen geschehen damit nicht mehr vor Ort, wodurch Wartungszyklen besser überprüft und eingehalten werden können.
+  In der Konsequent wird außerdem die Planung der Fertigung vereinfacht und die Zeit bis zur Produktion gesenkt.
+  Weiterhin sollen Störfälle wie Werkzeugbruch und -wechsel ad hoc an Verantwortliche kommuniziert werden.
 
-Folgenden Aufgaben wird in dieser Arbeit entsprochen:
+Im Kontext dieser Arbeit gilt eine Anlage als _integriert_, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. Kapitel 3) genügt.
+Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernisierung für die  Industrie 4.0 durch weitere Ziele unterstützt:
+
+* Eine dezentrale Informations- und Kommunikationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen.
+* Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig offener Schnittstellen nicht mehr unterbrochen. 
+  Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
+* Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
+* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
+ 
+Die Hierarchisierung von Kontrolle und Überwachung bezieht sich auf das Beispiel der flexiblen Fertigungszelle in denen ein Verbund von Maschinen eine gemeinsame Aufgabe bearbeitet (vgl. @Groover2008).
+Um diese Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
+
+<!-- TODO evtl. Szenario aus Borangiu 2014 oder so... -->
+* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
+* Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
+* Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
+* Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen (vgl. @Grigoriev2016).
+
+Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
+Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
 
 1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
@@ -58,44 +85,12 @@ Folgenden Aufgaben wird in dieser Arbeit entsprochen:
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
-    - Verwendung von Einplatinencomputern in der Implementierung.
+    - Verifikation automatischer Aktionen durch Rückkopplung.
 5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
-7. Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
+    - Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
 
-### Annahmen 
-
-Für Konzept und Implementierung müssen einige Voraussetzungen erfüllt sein:
-
-* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
-* Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
-* Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
-* Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen (vgl. @Grigoriev2016).
-
-Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
-
-### Erwartungen
-
-Folgende Forschungsergebnisse werden von dieser Arbeit erwartet:
-
-* Eine dezentrale Informationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen und flexibilisiert Fertigungszellen.
-* Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig verfügbarer Schnittstellen nicht mehr unterbrochen. 
-* Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
-* Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
-* Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
-
-Folgende praktisch relevante Ergebnisse werden erwartet:
-
-* Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
-* Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion. Diagnosen müssen nicht mehr vor Ort gestellt werden. 
-* Der operative Einsatz einer formals nicht integrierten Anlage kann stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
-* Die Planung der Fertigung wird vereinfacht und deren Durchführung beschleunigt.
-* Wartungszyklen können besser überprüft und eingehalten werden.
-* Werkzeugbruch und -wechsel werden ad hoc an Verantwortliche kommuniziert.
-
-## Fragestellung
-
-Nach Klärung der Ziele, werden in dieser Arbeit folgende Fragen zu beantworten sein.
+Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
 > Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
 > 
@@ -141,6 +136,7 @@ G-code is considered a “dumb” language as it only documents instructional an
 Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
+Industrie 4.0 @Durisin2009
 
 ## Informationsmodelle in der Fertigungsindustrie
 
@@ -244,7 +240,21 @@ Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfä
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
 Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
-## Steuerung {#sec:REQ1}
+## Überwachung {#sec:REQ1}
+
+Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
+Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
+Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
+Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
+
+REQ1
+: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
+
+Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
+Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
+Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
+
+## Steuerung {#sec:REQ2}
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
 Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
@@ -253,22 +263,8 @@ Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermögl
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
 Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
-REQ1
-: Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
-
-## Überwachung {#sec:REQ2}
-
-Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
-Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
-Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
-Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
-
 REQ2
-: Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
-
-Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
-Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
-Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
+: Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 ## Standardisierung {#sec:REQ3}
 
@@ -388,13 +384,13 @@ Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglich
 Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst.
 Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
-+-----------+-----------+-------------+-----------+-----------+
-|           | Steuerung | Überwachung | Standards | Lokalität |
-+===========+===========+=============+===========+===========+
-| @Wang2008 | ◐         | ◐           | ○         | ◐         |
-+-----------+-----------+-------------+-----------+-----------+
-| @Wang2004 | ●         | ●           | ◐         | ◐         |
-+-----------+-----------+-------------+-----------+-----------+
++-----------+-------------+-----------+-----------+-----------+
+|           | Überwachung | Steuerung | Standards | Lokalität |
++===========+=============+===========+===========+===========+
+| @Wang2008 | ◐           | ◐         | ○         | ◐         |
++-----------+-------------+-----------+-----------+-----------+
+| @Wang2004 | ●           | ●         | ◐         | ◐         |
++-----------+-------------+-----------+-----------+-----------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
