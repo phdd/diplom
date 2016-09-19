@@ -1,11 +1,11 @@
 # Roadmap {footer=false count=false .toc}
 
 - [Einleitung](#einleitung)
-- [Anforderungen](#anforderungen)
-- [Forschungsstand](#forschungsstand)
+<!-- - [Anforderungen](#anforderungen) -->
+<!-- - [Forschungsstand](#forschungsstand) -->
 - [Konzeption](#konzeption)
 - [Implementation](#implementation)
-- [Status & Vorgehen](#status-vorgehen)
+<!-- - [Status & Vorgehen](#status-vorgehen) -->
 
 # Einleitung {footer=false header=false count=false .center}
 
@@ -39,6 +39,7 @@
 * Aufbau einer adäquaten Test-Infrastruktur
 </div>
 
+<!--
 # Erwartungen
 ## Forschungskontext
 
@@ -48,7 +49,7 @@
 * dezentrale Informationsarchitektur erhöht
     - Produktionsstabilität
     - Automatisierungsgrad
-
+-->
 # Erwartungen
 ## Praxis
 
@@ -60,6 +61,7 @@
 * Vereinfachung von Prozessplanung und Durchführung
 * bessere Kontrolle von Wartungszyklen und Störfällen
 
+<!--
 # Anforderungen {footer=false header=false count=false .center}
 
 # Fragestellung 
@@ -89,9 +91,11 @@ Standardisierte Informationsprotokolle und -modelle werden für die Integration 
 # REQ4 - Lokalität
 <br><br>
 Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
+-->
 
+<!--
 # Forschungsstand {footer=false header=false count=false .center}
-
+-->
 # &nbsp;&nbsp;Retrofit Legacy Toaster <small>@Ramakers2016</small> {footer=false header=false count=false}
 
 ![](figures/retrofit-toaster)
@@ -101,7 +105,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 * Retrofitting physischer Schnittstellen
 * Aktuatoren, Sensoren, 3D-Druck
 </div>
-
+<!--
 # bestehende Arbeiten
 
 * Steuerung & Überwachung  
@@ -134,7 +138,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
   <small>Cloud-basierte Industriesteuerung mit CPS</small>
 * RetroNet<small>@FraunhoferIPK2016</small>  
   <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small>
-
+-->
 # Konzeption {footer=false header=false count=false .center}
 
 # Architektur
@@ -193,7 +197,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 ![](figures/cnc-surrogate) 
 </div>
 </div>
-
+<!--
 # Status & Vorgehen
 
 <center>
@@ -239,3 +243,4 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 <div style="width:90%;height:90%;margin:auto">
 ![](figures/vgl-arch-ffz)
 </div>
+-->
