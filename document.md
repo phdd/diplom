@@ -3,8 +3,8 @@
 
 Feedback Zwischenverteidigung:
 
-* Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
-    - SPS abstrahiert Aktuator + Intelligenz
+* CHECK Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
+    - SPS abstrahiert Aktuator + Intelligenz 
 * Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
 * Surrogate ist standardisierendes Element => CPS-Adapter
 * Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
@@ -52,7 +52,7 @@ Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems
 Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
 
 * Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
-  Der operative Einsatz einer vormals nicht integrierten Anlage kann damit stärker automatisiert werden und beschleunigt den gesamtheitlichen Produktionsablauf.
+  Der operative Einsatz einer vormals nicht integrierten Anlage kann damit stärker automatisiert werden und beschleunigt den übergeordneten Produktionsablauf.
 * Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion, wobei jene Daten nicht notwendigerweise zentral zu persistieren sind.
   Diagnosen geschehen damit nicht mehr vor Ort, wodurch Wartungszyklen besser überprüft und eingehalten werden können.
   In der Konsequent wird außerdem die Planung der Fertigung vereinfacht und die Zeit bis zur Produktion gesenkt.
@@ -68,12 +68,21 @@ Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernis
 * Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
  
 Die Hierarchisierung von Kontrolle und Überwachung bezieht sich auf das Beispiel der flexiblen Fertigungszelle in denen ein Verbund von Maschinen eine gemeinsame Aufgabe bearbeitet (vgl. @Groover2008).
-Um diese Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
+Innerhalb eines solchen Verbunds wird zunehmend über Ethernet Kommuniziert, wodurch eine Basis für die TCP/IP Protokollfamilie zur Verfügung steht.
+
+> "Aktuell sind nach einer Studie der Fachhochschule Südwestfalen 86% der 
+> SPS-Systeme über Ethernet angebunden, wobei von den verbleibenden 
+> 14% der Befragten 6% angaben, Ethernet wahrscheinlich in Zukunft einzusetzen." @Windmann2015[^QuelleWindmann2015]
+
+[^QuelleWindmann2015]: Die ursprüngliche Quelle _M. Rothhöft, "Marktstudie: Industrielle Kommunikation," VDMA, 2013_ konnte nicht eingesehen werden.
+
+Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
 
 <!-- TODO evtl. Szenario aus Borangiu 2014 oder so... -->
-* Eine bestehende Netzwerkinfrastruktur auf Basis von TCP/IP erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
+* Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 * Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 * Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
+* Automatisierte Maschinenkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
 * Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen (vgl. @Grigoriev2016).
 
 Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
@@ -88,7 +97,6 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
     - Verifikation automatischer Aktionen durch Rückkopplung.
 5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
-    - Testgetriebene Entwicklung ergänzt die Lösung um eine adäquate Test-Infrastruktur.
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
@@ -110,13 +118,32 @@ Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) 
 
 # Grundlagen
 
-## Produktion und deren Automatisierung
+## Produktion und Automatisierung
+
+![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
+
+[^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB)
 
 * Ebenen der Automatisierungspyramide
     * MES
     * ... 
-    
-### Kommunikation
+
+> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
+> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
+> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
+
+Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
+
+### Numerische Kontrolle
+
+Alternativen
+
+* STEP-NC [@Hardwick2007;@Xu2006]
+* IEC 61499 Function Blocks
+
+### Speicherprogrammierbare Steuerungen
+
+### Kommunikationssysteme
 
 Zusammenfassung von @Pauker2013
 
@@ -124,10 +151,11 @@ Zusammenfassung von @Pauker2013
 * Feldbusse (EtherCAT, ProfiBUS, CAN, etc.) => Adapter
     * trotz ICE 61158 untersch. Standards
 * Ethernet Varianten (TCP, RPC, OPC)
+    * Profi-Net 
 
-![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
-
-[^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB)
+> Die Bussysteme werden in modernen Anlagen von Netzwerken (Profi-Net) abgelöst oder
+> durch diese ergänzt. Gegenüber Bussystemen sind Netzwerke (Ethernet) flexibler 
+> und schneller. (Wikipedia SPS)
 
 ![Grundstruktur flexibler Automation @Linke2015](figures/grundstruktur-der-flexiblen-automation "Grundstruktur flexibler Automation")
 
@@ -141,8 +169,6 @@ Industrie 4.0 @Durisin2009
 ## Informationsmodelle in der Fertigungsindustrie
 
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
-
-### OPC Unified Architecture
 
 Die _OPC Unified Architecture_ (OPC UA) ist ein semantischer Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP @Ayatollahi2013.
 
@@ -166,7 +192,7 @@ Hoppe 2014 @Hoppe2014
 > Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for
 > Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und
 > PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:
-  >	  
+>	  
 > * Wie geben sich z. B. ein „Temperatursensor“ oder eine „Ventilsteuerung“ zu erkennen?
 > * Welche Objekte, Methoden, Variablen und Ereignisse definieren die
 > 
@@ -179,9 +205,7 @@ Hoppe 2014 @Hoppe2014
 > neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber
 > eine gute Grundlage zum Informationsaustausch. 
 
-Alternative: Woopsa (http://www.woopsa.org/)
-
-### MTConnect 
+Alternative: MTConnect 
 
 * RO Standard for Process Information in CNC @Vijayaraghavan2008
 
@@ -193,37 +217,44 @@ Wikipedia:
 
 sonstige Standards...
 
-## Kontrolle & Überwachung von Produktionsmaschinen
-
-* CNC
-* STEP-NC [@Hardwick2007;@Xu2006]
-* IEC 61499 Function Blocks
-
 ## Cyber-physische Produktionssysteme
 
 Die Verbindung von Überwachung und Kontrolle technischer Systeme mündet in Paradigmen, die Realität und virtuelle Umgebungen miteinander verschmelzen lassen.
 So wurde das Konzept cyber-physischer Systeme (CPS) 2006 durch Edward A. Lee erstmalig erläutert.
 Er versteht diese als Integration von Informationsverarbeitung und physischen Prozessen.
 Virtuelle und physische Abläufe werden durch Sensoren und Aktuatoren überwacht, beziehungsweise beeinflusst, stehen in unmittelbarer Wechselwirkung und sind durch Kontrollschleifen rückgekoppelt @Lee2006.
-Zeit und Nebenläufigkeit der realen Welt sind Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
-Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
-Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008.
+Der historische Weg, hin zu darauf aufsetzenden Systemen, ist in @fig:cps dargestellt[^abb-cps].
 
-* Abbildung zu Autom.-Pyr. => CPS @VereinDeutscherIngenieuree.V.2013
-* CPPS: @Siepmann2016
+![Der historische Weg zu CPSoS](figures/cps){#fig:cps}
+
+[^abb-cps]: @fig:cps und folgender Absatz sind der Vorlesung _Life with Cyber-Physical Systems_ von Uwe Aßmann entnommen, 29. Juni 2016, TU Dresden 
+
+Im konventionellen Computing (a) sind Systeme der physischen Welt durch abstrakte Modelle repräsentiert. 
+Berechnungen bezüglich der Realität werden in Simulationen auf diesen Modellen angestrebt.
+Durch eingebettete Systeme (ES, b) wird der Computer in das Realweltobjekt integriert, wodurch Berechnungen in die physikalischen Systeme getragen werden.
+Mit CPS (c) existiert nicht nur ein passives Modell des Realweltsystems.
+Das Wissen um den Zustand des Realitätsausschnitts verhilft zur Steuerung der ES, wodurch neben dem realen Objekt ein synchrones, virtuelles Modellobjekt entsteht.
+Diese Konzept der _duale Realität_ von Objekten steht für die Kontrolle von Dingen der physischen Welt.
+Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
+Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren können und korrigierende Maßnahmen einleiten.
+In Systemen von CPS (CPSoS, d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle kooperieren können.
+CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage für cyber-physische Produktionssysteme (CPPS).
+<!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
+Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
+Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008. -->
+
+![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps)
 
 Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
 Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
 Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
 Kommunikation geschieht auf der Basis bestehender Infrastrukturen mit kabelgebundenen und kabellosen Übertragungstechnologien.
-Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit cyber-physischen Produktionssystemen (CPPS) überdacht werden.
+Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer entwickelt und müssen im Zusammenhang mit CPPS überdacht werden.
 Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen.
 Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
 
-_Dual Reality_-Konzept ...
-
-## Cloud Manufacturing und Fog-Computing
+## Cloud Manufacturing und Fog-Computing?
 
 Bonomi 2012 @Bonomi2012  
 Aazam 2016 @Aazam2016
@@ -238,26 +269,23 @@ Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die s
 
 Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
-Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
+Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung und geschlossener Architekturen (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
 ## Überwachung {#sec:REQ1}
 
 Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
 Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
-Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten nicht im virtuellen Weltmodell vorliegen.
+Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten in keinem virtuellen Weltmodell zur Verfügung stehen.
 
 REQ1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
 
-Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
-Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
-Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht.
-
 ## Steuerung {#sec:REQ2}
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
-Dafür wird dieses entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
+Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein oft händisch übermitteltes Anwenderprogramm.
+Diese Befehlsketten werden entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
 Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
@@ -265,6 +293,10 @@ Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich
 
 REQ2
 : Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
+
+Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
+Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
+<!-- Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht. -->
 
 ## Standardisierung {#sec:REQ3}
 
@@ -275,6 +307,7 @@ Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgabe
 Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
 Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein bereits betrachtetes Problem cyber-physikalischer Systeme (vgl. @Siepmann2016).
 Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen @Ayatollahi2013.
+Für SPS gelten in diesem Zusammenhang die gleichen Anforderungen.
 
 REQ3
 : Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
@@ -333,7 +366,7 @@ Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder 
 Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
 Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
 
-## Fernzugriff zu Steuerung und Überwachung {#sec:sota-wang2004}
+## Steuerung und Überwachung aus der Ferne {#sec:sota-wang2004}
 
 Auf einer Netzwerkarchitektur wie in @sec:sota-wang2008, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
 Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
@@ -402,9 +435,9 @@ Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und 
 * Unterschied RetroNet @FraunhoferIPK2016 (TODO)
     - keine zentrale Datenhaltung
 
-## Maschinendatenerfassung & -analyse
+<!-- ## Maschinendatenerfassung & -analyse -->
 
-### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011
+<!-- ### Legacy Machine Monitoring Using Power Signal Analysis @Deshpande2011 -->
 
 __Problem:__ Datenerfassung (=> Prozessüberwachung) bei Altmaschinen nicht vorhanden  
 __Lösung:__ unabhängige minimalinvasive Sensorik
@@ -436,7 +469,7 @@ Die minimal-invasive Methode ist unabhängig von Hard- Software und erlaubt die 
 __Problem:__ ein Sensor => zu wenig Infos  
 __Lösung:__ verschiedene Sensoren (auch für Fusion) einsetzen
 
-### Diss: In-process tool condition monitoring systems in CNC turning operations @Lee2006
+<!-- ### Diss: In-process tool condition monitoring systems in CNC turning operations @Lee2006 -->
 
 * Purpose
     * Online Tool Condition Monitoring (TCM) bei CNC-Drehmaschinen mittels
@@ -468,7 +501,7 @@ __Lösung:__ verschiedene Sensoren (auch für Fusion) einsetzen
 * Originality/Value
     * Umfassende Untersuchung aktueller Forschung zu MDE (Tabelle 2.1) und Entscheidungssystemen
     
-### Machine-readable data carriers – a brief introduction to automatic identification and data capture @Furness2000
+<!-- ### Machine-readable data carriers – a brief introduction to automatic identification and data capture @Furness2000 -->
 
 __Problem__: ausschließliche Betrachtung von TCM (Wartung) => Aber was wird wie bearbeitet?  
 __Lösung__: Werkstückidentifikation/-erkennung für Verknüpfung operativer Schritte
@@ -486,7 +519,7 @@ __Lösung__: Werkstückidentifikation/-erkennung für Verknüpfung operativer Sc
 * Originality/Value
     * 
 
-### Zusammenfassung 
+<!-- ### Zusammenfassung -->
 
 Ohne Carrier?
 
@@ -507,12 +540,12 @@ Kommunikation der Informationen via OPC UA, MTConnect, MQTT ansprechen
     * Prozesszustand
     * Werkstückbeschaffenheit
 
-## Rechnergestützte numerische Steuerung
+<!-- ## Rechnergestützte numerische Steuerung -->
 
 __Problem__: Wissen über operative Schritte und Werkstück verfügbar - Umsetzung der Schritte?  
 __Lösung__: Kontrolle der Maschine
 
-### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016
+<!-- ### An ARM-based Multi-channel CNC Solution for Multi-tasking Turning and Milling Machines @Grigoriev2016 -->
 
 __Problem:__ Kontrolle der Maschine durch SPS mit CNC auf Terminal-PC inflexibel und teuer  
 __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
@@ -551,7 +584,7 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 [^TRL]: [www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html](http://www.nasa.gov/directorates/heo/scan/engineering/technology/txt_accordion1.html)
 
 
-## Architekturen & Methoden für CPPS
+<!-- ## Architekturen & Methoden für CPPS -->
 
 
 
@@ -560,7 +593,7 @@ __Lösung:__ Portierbarkeit des CNC-Kernels auf andere Systeme
 * Blackboard [@Monostori2006;@Pauker2013]
 * RAMI4.0 @Adolphs2015
 
-### Information Architecture for Reconfigurable production systems @Pauker2013
+<!-- ### Information Architecture for Reconfigurable production systems @Pauker2013 -->
 
 __Problem:__ Betrachtungen des Retrofitting bzgl. Kontrolle und Überwachung einzelner Maschine, Integration?  
 __Lösung:__ flexibel konfigurierbarer Verbund miteinander kommunizierender Maschinen => FFZ
@@ -615,7 +648,7 @@ __Lösung:__ flexibel konfigurierbarer Verbund miteinander kommunizierender Masc
     * Blackboard den intelligenten Systemen entlehnt
     * Definition der Sequenz für den Cell-Controller
     
-### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013
+<!-- ### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013 -->
 
 __Problem:__ Socket-basierte, proprietäre Maschinenkommunikation (Adapter)
 __Lösung:__ OPC UA Server für Komponenten einer FFZ
@@ -641,7 +674,7 @@ __Lösung:__ OPC UA Server für Komponenten einer FFZ
     * OPC UA Methoden als Steuerungsschnittstelle
     * dynamische (Runtime) Werkzeugrepräsentation im OPC UA Adressraum 
 
-### A systematic approach to OPC UA information model design @Pauker2016
+<!-- ### A systematic approach to OPC UA information model design @Pauker2016 -->
 
 __Problem:__ OPC UA ist nicht alleiniger Standard für Informationsmodelle  
 __Lösung:__ Informationsmodelle modellgetrieben entwickeln
@@ -703,7 +736,7 @@ __Lösung:__ Informationsmodelle modellgetrieben entwickeln
 * Originality/Value
     * MDA-Prozess für generische Informationsmodelle durch UML
 
-## Zusammenfassung 
+<!-- ## Zusammenfassung -->
 
 <!-- Projekte -->
 
@@ -776,6 +809,8 @@ Nach Rücksprache
 * Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
 * Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
 * FB-Loop intern oder extern?
+* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
+* "zentral" auswerten mit Cloud-Analytics (Big Data)
 
 OPC4Factory:
 
@@ -785,18 +820,18 @@ OPC4Factory:
 * Kruchten 4+1?
 * arc42?
 
-## Virtuelle Maschinenrepräsentation
+<!-- ## Virtuelle Maschinenrepräsentation -->
 
 * Service-/Protokolllayer (OPC UA)
 * CPS-Layer, Hardwareanbindung
 * Einbetten eines dedizierten Web-Services  @Wang2004 
 * Stage braucht eingebettetes Kontrollsystem @Wang2008
 
-## Kommunikations- & Informationsmodell
+<!-- ## Kommunikations- & Informationsmodell -->
 
 @Pauker2013 Komponentengranularität bis zur Achse (intelligente Maschinenteile)
 
-## Systemintegration
+<!-- ## Systemintegration -->
 
 ## Zusammenfassung
 
@@ -811,8 +846,9 @@ OPC4Factory:
 # Evaluation
 
 These/Behauptung?
-* Steigerung des Automatisierungsgrads durch Feedbackloop
+* Steigerung des Automatisierungsgrads durch Feedback Loop
 * physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
+    - "Echtzeitanalyse" durch Werker auch entfernt mgl.
 * Laufzeitmodell für _online_-Monitoring
 
 Umsetzung?
@@ -837,6 +873,7 @@ Blocking Factors/mögliche Kritik?
 * Prozessmodell für Abstrakte Leitebene
 * Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
 * Surrogate als reaktiver Agent => Einbindung in MAS denkbar
+* Echtzeitfähigkeit des Konzepts überprüfen
 * Möglichkeiten des Nutzens der Daten
     * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?
     * Automatische Erkennung von Gut-/Schlechtteilen
