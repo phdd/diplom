@@ -3,8 +3,9 @@
 
 Feedback Zwischenverteidigung:
 
-* CHECK Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
-    - SPS abstrahiert Aktuator + Intelligenz 
+* Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
+    - SPS abstrahiert Aktuator + Intelligenz => IBH Link UA
+    - Im SPS-Programm kann man direkt SPS-Client-Funktionen aufrufen. Dies ermöglicht der S7-SPS mit Steuerungen anderer Hersteller über OPC UA zu kommunizieren. (http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951)
 * Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
 * Surrogate ist standardisierendes Element => CPS-Adapter
 * Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
