@@ -9,7 +9,7 @@ Feedback Zwischenverteidigung:
 * Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
 * Surrogate ist standardisierendes Element => CPS-Adapter
 * Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
-
+    - Plug & produce is a major use case for cyber-physical production systems (CPPS) @Otto2014
 * Human in the Loop?
 * Kann ich die Sensordaten einfach übernehmen? 
 * Orchestrierung? Überall Siemens Systeme => Was nun?
@@ -228,24 +228,43 @@ Der historische Weg, hin zu darauf aufsetzenden Systemen, ist in @fig:cps darges
 
 ![Der historische Weg zu CPSoS](figures/cps){#fig:cps}
 
-[^abb-cps]: @fig:cps und folgender Absatz sind der Vorlesung _Life with Cyber-Physical Systems_ von Uwe Aßmann entnommen, 29. Juni 2016, TU Dresden 
+[^abb-cps]: @fig:cps und folgender Absatz entstammen sinngemäß dem Vortrag _Life with Cyber-Physical Systems_ von Uwe Aßmann, 29. Juni 2016, Technische Universität Dresden
 
-Im konventionellen Computing (a) sind Systeme der physischen Welt durch abstrakte Modelle repräsentiert. 
-Berechnungen bezüglich der Realität werden in Simulationen auf diesen Modellen angestrebt.
-Durch eingebettete Systeme (ES, b) wird der Computer in das Realweltobjekt integriert, wodurch Berechnungen in die physikalischen Systeme getragen werden.
-Mit CPS (c) existiert nicht nur ein passives Modell des Realweltsystems.
+Im konventionellen Computing ([@fig:cps]a) sind Systeme der physischen Welt durch abstrakte Modelle repräsentiert. 
+Berechnungen bezüglich der Realität werden in Simulationen auf diesen Modellen durchgeführt.
+Durch eingebettete Systeme (ES, [@fig:cps]b) wird der Computer in das Realweltobjekt integriert, wodurch Berechnungen in die physikalischen Systeme getragen werden.
+Mit CPS ([@fig:cps]c) existiert nicht nur ein passives Modell des Realweltsystems.
 Das Wissen um den Zustand des Realitätsausschnitts verhilft zur Steuerung der ES, wodurch neben dem realen Objekt ein synchrones, virtuelles Modellobjekt entsteht.
-Diese Konzept der _duale Realität_ von Objekten steht für die Kontrolle von Dingen der physischen Welt.
+Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Dingen der physischen Welt.
 Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
-Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren können und korrigierende Maßnahmen einleiten.
-In Systemen von CPS (CPSoS, d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle kooperieren können.
+Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten. 
+In Systemen von CPS (CPSoS, [@fig:cps]d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle interagieren.
 CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage für cyber-physische Produktionssysteme (CPPS).
+
+Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, die Informationen und Dienste über das Fertigungsnetzwerk teilen.
+
+-- Durch die dezentrale Produktionslogik und 
+-- Im Gegensatz zu traditionellen Produktionssystemen 
+
+> Overall, a CPPS, which is based on decentralized production
+> logic and networked principles, offers advantages in terms 
+> of transparency, adaptivity, resource efficiency and versatility 
+> over traditional production systems. 
+> In the context of CPPS, CPS are fundamental units that have almost instant access to 
+> relevant information and parametrization of machines, production 
+> processes and the product itself. On the automation level of a CPPS 
+> all these information out of the CPS-network is needed to run the 
+> manufacturing process successfully and to make strategic decisions. 
+> For decision making and control of the manufacturing processes, 
+> consistent and coherent information of the “real” world is needed @Bergweiler2015
+
 <!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008. -->
 
 ![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps)
 
+<!--
 Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
 Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
 Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
@@ -254,6 +273,7 @@ Die bisher eingesetzten Standards wurden auf der Prämisse homogener Teilnehmer 
 Ein drahtloses Sensornetzwerk ist eine Ausprägung einer solchen Infrastruktur innerhalb derer die Kommunikationspartner mit unterschiedlicher Bandbreite und Zuverlässigkeit arbeiten müssen.
 Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrollschleifen unerlässlich, wodurch das Design bestehender Netzwerkprotokolle oft in Frage steht.
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
+-->
 
 ## Cloud Manufacturing und Fog-Computing?
 
