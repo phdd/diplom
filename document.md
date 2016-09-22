@@ -239,33 +239,26 @@ Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Dinge
 Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
 Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten. 
 In Systemen von CPS (CPSoS, [@fig:cps]d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle interagieren.
-CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage für cyber-physische Produktionssysteme (CPPS).
+CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage cyber-physischer Produktionssysteme (CPPS).  
+Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, welche Informationen und Dienste über das Netzwerk der gesamten Produktionsstrecke teilen.
+CPS sind fundamentale Elemente eines CPPS, die unmittelbaren Zugriff auf relevante Informationen, Maschinenparameter, Produktionsprozesse und deren Produkte besitzen.
+Durch die Dezentralisierung der Produktionslogik haben CPPS, im Gegensatz zu traditionellen Produktionssystemen, wesentliche Vorteile bezüglich Transparenz, Adaptivität, Ressourceneffizienz und Flexibilität.
+Auf Ebene der Automation werden Informationen eines CPS-Netzwerk benötigt, um den Fertigungsprozess auf Basis von strategischen Entscheidungen erfolgreich durchzuführen.
+Für Entscheidungsfindung und Kontrolle der Fertigung werden konsistente, kohärente Informationen über die reale Welt benötigt @Bergweiler2015.
 
-Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, die Informationen und Dienste über das Fertigungsnetzwerk teilen.
+![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps){#fig:pyramide-cps}
 
--- Durch die dezentrale Produktionslogik und 
--- Im Gegensatz zu traditionellen Produktionssystemen 
-
-> Overall, a CPPS, which is based on decentralized production
-> logic and networked principles, offers advantages in terms 
-> of transparency, adaptivity, resource efficiency and versatility 
-> over traditional production systems. 
-> In the context of CPPS, CPS are fundamental units that have almost instant access to 
-> relevant information and parametrization of machines, production 
-> processes and the product itself. On the automation level of a CPPS 
-> all these information out of the CPS-network is needed to run the 
-> manufacturing process successfully and to make strategic decisions. 
-> For decision making and control of the manufacturing processes, 
-> consistent and coherent information of the “real” world is needed @Bergweiler2015
+Diese Informationen, Dienste und Funktionen werden an jener Stelle lokalisiert, die im Sinne einer flexiblen Entwicklung und Produktion den größten Vorteil bringt @VereinDeutscherIngenieuree.V.2013. 
+Starre Strukturen, wie die der klassischen Automatisierungspyramide, sind ungeeignet für die dezentrale Verortung der genannten Ressourcen.
+Die demnach notwendige Auflösung dieser Architektur zu einem vernetzten System von Systemen, beziehungsweise CPSoS, wir in @fig:pyramide-cps verdeutlicht.
+Sowohl Hard- und Software als auch die Verarbeitung der anfallenden Daten wird nicht länger in Schichten organisiert werden @Schlick2013.
+Damit sollen die Produktionsressourcen auf Knoten eines Netzwerks aufgeteilt und schrittweise auf ihre funktionale Struktur abstrahiert werden @VereinDeutscherIngenieuree.V.2013.
+Bis eine geeignete Architektur für CPPS andere Möglichkeiten bietet (vgl. [@Lee2015;@Borangiu2014]), werden Echtzeit-Steuerungen in der Feldebene verbleiben @VereinDeutscherIngenieuree.V.2013.
 
 <!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008. -->
-
-![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps)
-
-<!--
-Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
+<!-- Im Kontext industrieller Produktionskontrolle ergeben sich neben den Herausforderungen für CPS (vgl. @Lee2008) weitere Anforderungen.
 Die autonome Kontrolle von Produktionsprozessen mit Hilfe von Kontrollschleifen wird durch Sensoren und Aktuatoren entlang der Produktionskette und an den individuellen Maschinen unterstützt.
 Dafür muss das Gesamtsystem in eigenständige Subsysteme mit gekapselten Rückkopplungsmechanismen gegliedert werden.
 Kommunikation geschieht auf der Basis bestehender Infrastrukturen mit kabelgebundenen und kabellosen Übertragungstechnologien.
