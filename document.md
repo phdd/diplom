@@ -167,11 +167,16 @@ Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformat
 
 Industrie 4.0 @Durisin2009
 
-## Informationsmodelle in der Fertigungsindustrie
+## OPC Unified Architecture
+
+Austausch und Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
+Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
+So sehen Mitarbeiter aus 278 Unternehmen des Maschinen- und Anlagenbaus Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.
+
 
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 
-Die _OPC Unified Architecture_ (OPC UA) ist ein semantischer Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP @Ayatollahi2013.
+Die _OPC Unified Architecture_ (OPC UA) (aka IEC 62541) ist ein semantischer Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP @Ayatollahi2013.
 
 > * Communication Technology that merges:
 >     (@) Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)
@@ -885,6 +890,7 @@ Blocking Factors/mögliche Kritik?
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
 * Prozessmodell für Abstrakte Leitebene
+* AutomationML und OPC UA @OPCFoundation2014
 * Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
 * Surrogate als reaktiver Agent => Einbindung in MAS denkbar
 * Echtzeitfähigkeit des Konzepts überprüfen
