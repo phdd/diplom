@@ -89,7 +89,7 @@ Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterlie
 Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
 
-1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
+1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.<!-- TODO Retrofitting erklären (Im Rahmen dieser Arbeit...)  -->
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
