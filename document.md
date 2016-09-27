@@ -171,20 +171,29 @@ Industrie 4.0 @Durisin2009
 
 Austausch und Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
-So sehen Mitarbeiter aus 278 Unternehmen des Maschinen- und Anlagenbaus Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.
+So sehen Mitarbeiter aus 278 Unternehmen des Maschinen- und Anlagenbaus Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
+Die OPC Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
+Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automationsraum industriell produzierender Unternehmen.
+Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen[^opc-def].
+Folgende Aspekte werden von diesem Konglomerat unter dem Namen _OPC Unified Architecture_ (OPC UA) betrachtet @OPCFoundation2014.
 
+* sicherer, zuverlässiger Informationsaustausch
+* Plattform- und Herstellerunabhängigkeit
+* standardisierte Kommunikation über Internet und Firewalls
+* serviceorientierte Architektur (SOA)
+* Schutz vor unerlaubtem Zugriff
+* Erreichbarkeit und Zuverlässigkeit
+* Vereinfachung durch Vereinheitlichung
 
+Konkret bietet die OPC UA (auch IEC 62541) einen semantischen Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP sowie HTTP/XML @Ayatollahi2013.
+Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen @OPCFoundation2014.
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
+Diese werden von Maschinen, Baugruppen und anderen Ressourcen angeboten, wodurch jede Entität innerhalb dieses Ökosystems mit der jeweilig anderen kommunizieren kann und dessen strukturelle Eigenschaften kennt.
 
-Die _OPC Unified Architecture_ (OPC UA) (aka IEC 62541) ist ein semantischer Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP @Ayatollahi2013.
 
-> * Communication Technology that merges:
->     (@) Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)
->     (@) Information modelling (using an extensible meta model)
-> * Extensible meta model
-> * Platform independent (cross-platform)
-> * Scalable
-> * But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
+[^opc-def]: [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
+
+But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
 
 ![OPC UA Übersicht[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht")
 
@@ -192,6 +201,8 @@ Die _OPC Unified Architecture_ (OPC UA) (aka IEC 62541) ist ein semantischer Kom
 
 Die definierte Semantik des Address Space erlaubt nicht nur anspruchsvolle M2M-Kommunikation.
 Sie ermöglicht dem Operator einer FFZ Strukturinformationen einzusehen und die Automatisierungskomponenten zu kontrollieren @Ayatollahi2013.
+
+Warum der Vorzug? Erweiterbarkeit ...
 
 Hoppe 2014 @Hoppe2014
 
