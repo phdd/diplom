@@ -169,13 +169,14 @@ Industrie 4.0 @Durisin2009
 
 ## OPC Unified Architecture
 
-Austausch und Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
+Der Austausch und die Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
-So sehen Mitarbeiter aus 278 Unternehmen des Maschinen- und Anlagenbaus Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
+So sehen Mitarbeiter aus 278 Unternehmen, des Maschinen- und Anlagenbaus, Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
 Die OPC Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
-Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automationsraum industriell produzierender Unternehmen.
-Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen[^opc-def].
-Folgende Aspekte werden von diesem Konglomerat unter dem Namen _OPC Unified Architecture_ (OPC UA) betrachtet @OPCFoundation2014.
+Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automationsraum industriell produzierender Unternehmen auf Basis des _Distributed Component Object Model_ (DCOM).
+Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
+Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der _OPC Unified Architecture_ (OPC UA)[^opc-def].
+Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundation2014.
 
 * sicherer, zuverlässiger Informationsaustausch
 * Plattform- und Herstellerunabhängigkeit
@@ -185,54 +186,49 @@ Folgende Aspekte werden von diesem Konglomerat unter dem Namen _OPC Unified Arch
 * Erreichbarkeit und Zuverlässigkeit
 * Vereinfachung durch Vereinheitlichung
 
-Konkret bietet die OPC UA (auch IEC 62541) einen semantischen Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch via TCP/IP sowie HTTP/XML @Ayatollahi2013.
+Konkret bietet die OPC UA (auch IEC 62541) einen semantischen Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch @Ayatollahi2013.
 Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen @OPCFoundation2014.
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
-Diese werden von Maschinen, Baugruppen und anderen Ressourcen angeboten, wodurch jede Entität innerhalb dieses Ökosystems mit der jeweilig anderen kommunizieren kann und dessen strukturelle Eigenschaften kennt.
+Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
+![OPC UA Übersicht[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
+
+In @fig:opc-ua-architecture ist die dafür notwendige Informationsstruktur dargestellt @OPCFoundation2014.
+Auf der untersten Ebene werden Transportprotokolle, das Meta-Modell und grundlegende Services beschrieben.
+Das bevorzugte Protokoll setzt auf TCP/IP auf und erlaubt einen performanten Austausch von beispielsweise Geräte-, Sensor-, Maschinen- und Prozessdaten innerhalb einer Client-/Server-Architektur.
+Eine für die Kommunikation über Firewalls taugliche Methode bietet die im Standard verankerte HTTP/XML-Schnittstelle.
+Durch einen Discovery-Mechanismus können Funktionen und Eigenschaften von OPC-UA-fähigen Teilnehmern in einem Subnetz bekannt gegeben werden.
+Doch auch Dienste für Ereignisregistrierung oder Sitzungsmanagement sind Teil der elementaren Definitionen.
+Eckpfeiler dieser Basis von OPC UA sind Fehlertoleranz und Sicherheit als zentrale Aspekte der Spezifikation.
+Auf Details zur Sicherheitsinfrastruktur wird in dieser Arbeit nicht eingegangen.
+Darauf aufbauend werden generische Informationsmodelle definiert, die unter anderem den Adressraum eines Servers repräsentieren @OPCFoundation2014:
+
+* **Data Access (DA)**  
+  Daten zur Automatisierung werden durch das Data Access Modell strukturiert.
+  Sowohl analoge und diskrete Variablen, als auch Einheiten und Qualitätsattribute werden hier beschrieben.
+  Sensoren, Steuerungen und Regler sind beispielsweise Quellen jener Variablen.
+* **Alarms and Conditions (AC)**  
+  Die Behandlung von Dialogen und Alarmen wird mit diesem Modell definiert.
+  Events, beziehungsweise Ereignisse auf die sich Clients registrieren, werden durch Veränderungen im Zustand eines Geräts ausgelöst.
+* **Historical Access (HA)**  
+  Historische Variablenwerte und Events werden mit diesem Modell dargestellt.
+  Die Persistenz dieser Daten ist konfigurierbar. 
+* **Programs**  
+  Komplexe Aufgaben werden durch Programme repräsentiert und mit Zustandsautomaten beschrieben.
+  
+Viele bereits existierende Modelle, wie MTConnect, PLCopen, FDI und ISA95, unterscheiden sich von OPC UA durch fehlende Erweiterbarkeit.
+Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen @Hoppe2014.
+
+* Wie geben sich z. B. ein "Temperatursensor" oder eine "Ventilsteuerung" zu erkennen?
+* Welche Objekte, Methoden, Variablen und Ereignisse definieren die Schnittstelle für
+  Konfiguration, Initialisierung, Diagnose und Laufzeit? 
+
+Erweiterungen des Modells von OPC UA (vgl. @fig:opc-ua-architecture) ermöglichen _Companion Specifications_, die diesen Mangel ausgleichen und außerdem domänenspezifische Definitionen erlauben.
+
+OPC UA impl.-Stacks! (API/Proxy/Stubs)
 
 [^opc-def]: [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
-
-But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
-
-![OPC UA Übersicht[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht")
-
 [^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
-
-Die definierte Semantik des Address Space erlaubt nicht nur anspruchsvolle M2M-Kommunikation.
-Sie ermöglicht dem Operator einer FFZ Strukturinformationen einzusehen und die Automatisierungskomponenten zu kontrollieren @Ayatollahi2013.
-
-Warum der Vorzug? Erweiterbarkeit ...
-
-Hoppe 2014 @Hoppe2014
-
-> Obwohl bereits verschiedene wichtige Informationsmodelle, wie OPC-UA for
-> Analyser Devices, FDI (Field Device Integration), ISA95, MTConnect, BACnet und
-> PLCopen existieren, oder in der Entstehung sind, gibt es hier noch Handlungsbedarf:
->	  
-> * Wie geben sich z. B. ein „Temperatursensor“ oder eine „Ventilsteuerung“ zu erkennen?
-> * Welche Objekte, Methoden, Variablen und Ereignisse definieren die
-> 
-> Schnittstelle für Konfiguration, Initialisierung, Diagnose und Laufzeit?
-> OPC-UA hat das Potential, sich als De-facto-Standard für den Daten- und Informationsaustausch
-> in der Automatisierungspyramide für nicht-echtzeitkritische Anwendungen
-> zu etablieren. Eine sichere, horizontale und vertikale Kommunikation
-> vom Sensor bis in die IT-Systeme ist damit bereits heute umsetzbar. Die Verbände
-> BITCOM, VDMA und ZVEI werden durch die Industrie-4.0-Arbeitskreise keinen
-> neuen Kommunikationsstandard definieren können; die Arbeitskreise bieten aber
-> eine gute Grundlage zum Informationsaustausch. 
-
-Alternative: MTConnect 
-
-* RO Standard for Process Information in CNC @Vijayaraghavan2008
-
-Wikipedia:
-
-> Data from shop floor devices is presented in XML format, and is retrieved from information providers, called Agents, using Hypertext Transfer Protocol (HTTP) as the underlying transport protocol. MTConnect provides a RESTful interface, which means the interface is stateless. No session must be established to retrieve data from an MTConnect Agent, and no logon or logoff sequence is required (unless overlying security protocols are added which do). Lightweight Directory Access Protocol (LDAP) is recommended for discovery services.
-
-=> MTConnect-OPC UA Companion Specification 
-
-sonstige Standards...
 
 ## Cyber-physische Produktionssysteme
 
@@ -834,6 +830,7 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 Nach Rücksprache
 
 * OPC UA zur Metamodellierung bzgl. der Machine
+* But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
 * OPC UA Modell synchron mit Realität => Laufzeitmodell
 * Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K) kontrollierbar => Modellierung/Sprache der _Regeln?_
 * Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
@@ -898,6 +895,7 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
+* Steuerungsalternative _Programs_
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
 * Prozessmodell für Abstrakte Leitebene
