@@ -217,15 +217,15 @@ Darauf aufbauend werden generische Informationsmodelle definiert, die unter ande
   Komplexe Aufgaben werden durch Programme repräsentiert und mit Zustandsautomaten beschrieben.
   
 Viele bereits existierende Modelle, wie MTConnect, PLCopen, FDI und ISA95, unterscheiden sich von OPC UA durch fehlende Erweiterbarkeit.
-Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen @Hoppe2014.
+Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen, wie Hoppe schrieb @Hoppe2014:
 
 * Wie geben sich z. B. ein "Temperatursensor" oder eine "Ventilsteuerung" zu erkennen?
 * Welche Objekte, Methoden, Variablen und Ereignisse definieren die Schnittstelle für
   Konfiguration, Initialisierung, Diagnose und Laufzeit? 
 
-Erweiterungen des Modells von OPC UA (vgl. @fig:opc-ua-architecture) ermöglichen _Companion Specifications_, die diesen Mangel ausgleichen und außerdem domänenspezifische Definitionen erlauben.
-
-OPC UA impl.-Stacks! (API/Proxy/Stubs)
+Die Erweiterbarkeit des Informationsmodells von OPC UA (vgl. @fig:opc-ua-architecture) ermöglicht _Companion Specifications_, die diesen Mangel ausgleichen und zusätzlich domänenspezifische Definitionen erlauben.
+Plattformunabhängigkeit wird durch frei verfügbare, aber auch proprietäre Implementierungen des Softwareinfrastruktur-Stacks ermöglicht.
+Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden für die Programmiersprachen Ansi C/C++, .NET, Java und weitere bereitgestellt.
 
 [^opc-def]: [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
 [^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
