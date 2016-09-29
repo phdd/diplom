@@ -119,21 +119,40 @@ Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) 
 
 # Grundlagen
 
-## Produktion und Automatisierung
+Für diese Arbeit relevante Technologien und Konzepte werden in folgendem Kapitel erläutert.
+Grundlegende Eigenschaften von Fertigung und Automatisierung sind die Basis für das Verständnis von semantischen Informationsmodellen, respektive dem virtuellen Abbild der Realität.
+Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte zu überwachen, Differenzen zu erwartetem Verhalten festzustellen und autonom darauf zu reagieren.
 
-![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide "klassische Automatisierungspyramide")
+## Fertigung und Automatisierung
 
-[^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB)
+Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
+Automatisierung ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" (DIN 19233[^automatisierung]).
+Eine Verknüpfung dieser beiden Konzepte ist in @fig:fertigungsautomatisierung dargestellt.
+Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd in die Fertigung einzugreifen.
 
-* Ebenen der Automatisierungspyramide
-    * MES
-    * ... 
+![Automatisierte Fertigung aus @Linke2015](figures/fertigungsautomatisierung){#fig:fertigungsautomatisierung}
 
-> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
-> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
-> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
+Um die verschiedenen Bereiche der klassischen[^klassische-autom] Automatisierung darzustellen, wird eine Schichtenorganisation herangezogen.
+Die Struktur eines Unternehmens entspricht dann einer Automatisierungspyramide.
+Unterschieden werden diese Ebenen aufgrund der unterschiedlichen Anforderungen an Datendurchsatz und Übertragungsgeschwindigkeit @Linke2015.
+Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie folgt:
 
-Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
+* **Unternehmensleitebene**  
+  
+* **Betriebsleitebene**  
+  
+* **Prozessleitebene**  
+  
+* **Steuerungsebene**  
+  
+* **Feldebene**  
+  
+
+![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide)
+
+[^automatisierung]: Deutsches Institut für Normung e. V.: DIN V 19233: Leittechnik -- Prozessautomatisierung -- Automatisierung mit Prozessrechensystemen, Begriffe.
+[^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
+[^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
 ### Numerische Kontrolle
 
@@ -143,6 +162,12 @@ Alternativen
 * IEC 61499 Function Blocks
 
 ### Speicherprogrammierbare Steuerungen
+
+> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
+> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
+> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
+
+Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
 
 ### Kommunikationssysteme
 
@@ -158,11 +183,11 @@ Zusammenfassung von @Pauker2013
 > durch diese ergänzt. Gegenüber Bussystemen sind Netzwerke (Ethernet) flexibler 
 > und schneller. (Wikipedia SPS)
 
-![Grundstruktur flexibler Automation @Linke2015](figures/grundstruktur-der-flexiblen-automation "Grundstruktur flexibler Automation")
+![Grundstruktur flexibler Automatisierung @Linke2015](figures/grundstruktur-der-flexiblen-automation)
 
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
 
-Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automations- und Informationssysteme.
+Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automatisierungs- und Informationssysteme.
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
 Industrie 4.0 @Durisin2009
@@ -173,7 +198,7 @@ Der Austausch und die Modellierung von Daten kann in einem heterogenen Technolog
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
 So sehen Mitarbeiter aus 278 Unternehmen, des Maschinen- und Anlagenbaus, Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
 Die OPC Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
-Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automationsraum industriell produzierender Unternehmen auf Basis des _Distributed Component Object Model_ (DCOM).
+Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automatisierungsraum industriell produzierender Unternehmen auf Basis des _Distributed Component Object Model_ (DCOM).
 Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
 Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der _OPC Unified Architecture_ (OPC UA)[^opc-def].
 Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundation2014.
@@ -255,7 +280,7 @@ CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlag
 Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, welche Informationen und Dienste über das Netzwerk der gesamten Produktionsstrecke teilen.
 CPS sind fundamentale Elemente eines CPPS, die unmittelbaren Zugriff auf relevante Informationen, Maschinenparameter, Produktionsprozesse und deren Produkte besitzen.
 Durch die Dezentralisierung der Produktionslogik haben CPPS, im Gegensatz zu traditionellen Produktionssystemen, wesentliche Vorteile bezüglich Transparenz, Adaptivität, Ressourceneffizienz und Flexibilität.
-Auf Ebene der Automation werden Informationen eines CPS-Netzwerk benötigt, um den Fertigungsprozess auf Basis von strategischen Entscheidungen erfolgreich durchzuführen.
+Auf Ebene der Automatisierung werden Informationen eines CPS-Netzwerk benötigt, um den Fertigungsprozess auf Basis von strategischen Entscheidungen erfolgreich durchzuführen.
 Für Entscheidungsfindung und Kontrolle der Fertigung werden konsistente, kohärente Informationen über die reale Welt benötigt @Bergweiler2015.
 
 ![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps){#fig:pyramide-cps}
@@ -280,12 +305,14 @@ Weiterhin sind auf diesen Komponenten verteilte Echtzeitoperationen für Kontrol
 So kann die Verarbeitung von Netzwerkpaketen, beziehungsweise deren Routing, Verifikation und Redundanz unvorhersehbar Zeit beanspruchen @Wang2008.
 -->
 
+<!--
 ## Cloud Manufacturing und Fog-Computing?
 
 Bonomi 2012 @Bonomi2012  
 Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
+-->
 
 ## Zusammenfassung
 
