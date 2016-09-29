@@ -157,7 +157,7 @@ Auf der Prozessebene (Level 0) des Beispiels geschieht die physikalische Fertigu
 Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Schicht zu abstrakteren Informationen verarbeitet werden.
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
 Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:sps) und numerische Kontrolle (NC, vgl. @sec:nc) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
-Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
+Über einen Feldbus (vgl. @sec:kommunikation) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle -- Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
@@ -165,40 +165,42 @@ Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstell
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
-### Kommunikationssysteme {#sec:kommunikationssysteme}
+### Kommunikation {#sec:kommunikation}
 
-Zusammenfassung von @Pauker2013
+In der industriellen Fertigung werden Feldbusse als Kommunikationskanal in Feld- und Steuerungsebene genutzt.
+Diese sind digitale bidirektionale, serielle Kommunikationsnetzwerke für echtzeitfähige, verteilte Kontrolle von Instrumenten, Steuerungseinheiten und Aktuatoren @Mahalik2003.
+Trotz der Standardisierungsbemühungen durch IEC 61158[^iec61158], existieren unterschiedliche Feldbusstandardisierungen wie CAN, ProfiBUS oder EtherCAT.
+Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt einen anderen Busstandard, weshalb die Kommunikation der Geräte nicht garantiert werden kann.
+Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt @Pauker2013.
 
-* SPS mit digital inputs/outputs (DI/DO)
-* Feldbusse (EtherCAT, ProfiBUS, CAN, etc.) => Adapter
-    * trotz ICE 61158 untersch. Standards
-* Ethernet Varianten (TCP, RPC, OPC)
-    * Profi-Net 
+Die zunehmende Verbreitung von Echtzeit-Ethernet (vgl. @sec:zielsetzung) erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opcua) @Pauker2013.
 
-> Die Bussysteme werden in modernen Anlagen von Netzwerken (Profi-Net) abgelöst oder
-> durch diese ergänzt. Gegenüber Bussystemen sind Netzwerke (Ethernet) flexibler 
-> und schneller. (Wikipedia SPS)
+
+[^iec61158]: Digital data communication for measurement and control -- Fieldbus for use in industrial control systems
+[^ole]: Object Linking and Embedding
 
 ### Numerische Kontrolle {#sec:nc}
 
+<!-- 
 Alternativen
 
 * STEP-NC [@Hardwick2007;@Xu2006]
 * IEC 61499 Function Blocks
+-->
 
 ### Speicherprogrammierbare Steuerungen {#sec:sps}
 
+<!--
 > Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
 > Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
 > und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
 
 Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
 
+-->
 
 
-
-
-
+<!--
 ![Grundstruktur flexibler Automatisierung @Linke2015](figures/grundstruktur-der-flexiblen-automation)
 
 G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
@@ -207,15 +209,16 @@ Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) ve
 Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
 
 Industrie 4.0 @Durisin2009
+-->
 
-## OPC Unified Architecture
+## OPC Unified Architecture {#sec:opcua}
 
 Der Austausch und die Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
 So sehen Mitarbeiter aus 278 Unternehmen, des Maschinen- und Anlagenbaus, Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
-Die OPC Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
+Die OPC[^opc] Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
 Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automatisierungsraum industriell produzierender Unternehmen auf Basis des _Distributed Component Object Model_ (DCOM).
-Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
+Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls, RPC) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
 Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der _OPC Unified Architecture_ (OPC UA)[^opc-def].
 Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundation2014.
 
@@ -268,6 +271,7 @@ Die Erweiterbarkeit des Informationsmodells von OPC UA (vgl. @fig:opc-ua-archite
 Plattformunabhängigkeit wird durch frei verfügbare, aber auch proprietäre Implementierungen des Softwareinfrastruktur-Stacks ermöglicht.
 Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden für die Programmiersprachen Ansi C/C++, .NET, Java und weitere bereitgestellt.
 
+[^opc]: Open Platform Communications
 [^opc-def]: [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
 [^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
 
