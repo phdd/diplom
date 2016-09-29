@@ -128,7 +128,8 @@ Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte
 Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
 Automatisierung ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" (DIN 19233[^automatisierung]).
 Eine Verknüpfung dieser beiden Konzepte ist in @fig:fertigungsautomatisierung dargestellt.
-Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd in die Fertigung einzugreifen.
+Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd auf die Fertigung zu wirken.
+Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert - im ökonomischen Zusammenhang rationalisiert @Linke2015.
 
 ![Automatisierte Fertigung aus @Linke2015](figures/fertigungsautomatisierung){#fig:fertigungsautomatisierung}
 
@@ -138,38 +139,33 @@ Unterschieden werden diese Ebenen aufgrund der unterschiedlichen Anforderungen a
 Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie folgt:
 
 * **Unternehmensleitebene**  
-  
+  Marktrelevante Unternehmensprozesse, wie Unternehmensführung, Personal-, Investitions- und Produktionsplanung, finden unter Zuhilfenahme eines Systems für Enterprise Resource Planning (ERP) befinden sich auf dieser Ebene.
 * **Betriebsleitebene**  
-  
+  Prozesse wie Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse sichern auf dieser Ebene den täglichen Fertigungsbetrieb eines Unternehmens.
+  Die softwareseitige Unterstützung übernimmt beispielsweise ein Manufacturing Execution System (MES).
 * **Prozessleitebene**  
-  
-* **Steuerungsebene**  
-  
-* **Feldebene**  
-  
+  Je nach Größe der Anlage wird in detaillierteren Ebenen die Steuerung und Regelung von Produktionsprozessen und deren Überwachung vollzogen.
+  Verbindungen, wie die zwischen einzelnen Fertigungszellen, werden auf dieser Ebene abgebildet.
+* **Steuerungs- & Feldebene**  
+  Aktuatoren und Sensoren und deren Schnittstelle zu Ein- und Ausgangssignalen befinden sich auf der Feldebene.
+  Die von diesen Komponenten konsumierten, beziehungsweise erfassten Daten, werden auf der Steuerungsebene mit dem Prozess verbunden.
+  Daraus entstehende Information werden in die Reaktion des Systems einbezogen, wodurch minimale Latenzen in der Übertragung notwendig sind.
 
-![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide)
+![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide){#fig:automatisierungspyramide}
 
-[^automatisierung]: Deutsches Institut für Normung e. V.: DIN V 19233: Leittechnik -- Prozessautomatisierung -- Automatisierung mit Prozessrechensystemen, Begriffe.
+Auf der Prozessebene (Level 0) des Beispiels geschieht die physikalische Fertigung des Produkts.
+Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Schicht zu abstrakteren Informationen verarbeitet werden.
+Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
+Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:sps) und numerische Kontrolle (NC, vgl. @sec:nc) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
+Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
+Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle -- Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
+Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
+
+[^automatisierung]: Deutsches Institut für Normung e. V.: DIN V 19233: Leittechnik, Prozessautomatisierung, Automatisierung mit Prozessrechensystemen, Begriffe.
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
-### Numerische Kontrolle
-
-Alternativen
-
-* STEP-NC [@Hardwick2007;@Xu2006]
-* IEC 61499 Function Blocks
-
-### Speicherprogrammierbare Steuerungen
-
-> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
-> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
-> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
-
-Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
-
-### Kommunikationssysteme
+### Kommunikationssysteme {#sec:kommunikationssysteme}
 
 Zusammenfassung von @Pauker2013
 
@@ -182,6 +178,26 @@ Zusammenfassung von @Pauker2013
 > Die Bussysteme werden in modernen Anlagen von Netzwerken (Profi-Net) abgelöst oder
 > durch diese ergänzt. Gegenüber Bussystemen sind Netzwerke (Ethernet) flexibler 
 > und schneller. (Wikipedia SPS)
+
+### Numerische Kontrolle {#sec:nc}
+
+Alternativen
+
+* STEP-NC [@Hardwick2007;@Xu2006]
+* IEC 61499 Function Blocks
+
+### Speicherprogrammierbare Steuerungen {#sec:sps}
+
+> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
+> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
+> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
+
+Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
+
+
+
+
+
 
 ![Grundstruktur flexibler Automatisierung @Linke2015](figures/grundstruktur-der-flexiblen-automation)
 
