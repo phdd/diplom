@@ -89,7 +89,7 @@ Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterlie
 Somit ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
 
-1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.<!-- TODO Retrofitting erklären (Im Rahmen dieser Arbeit...)  -->
+1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
@@ -98,6 +98,11 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
     - Verifikation automatischer Aktionen durch Rückkopplung.
 5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
+
+**Retrofitting** ist nicht nur die Integration von Altmaschinen.
+Im Rahmen dieser Arbeit gilt die Definition von Berweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
+Der funktionale Umfang einer Maschine wird durch neue Module für die Übertragung und verteilte Verarbeitung der Daten ausgebaut.
+Dadurch wird die Kommunikation zwischen individuellen Geräten und Produkten der Fertigung ermöglicht, bis die Fabrik den künftigen Standards, Direktiven und Prinzipien der Industrie 4.0 genügt @Bergweiler2015.
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
