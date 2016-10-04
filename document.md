@@ -99,7 +99,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
 
 **Retrofitting** ist nicht nur die Integration von Altmaschinen.
-Im Rahmen dieser Arbeit gilt die Definition von Berweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
+Im Rahmen dieser Arbeit gilt die Definition von Bergweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
 Der funktionale Umfang einer Maschine wird durch neue Module für die Übertragung und verteilte Verarbeitung der Daten ausgebaut.
 Dadurch wird die Kommunikation zwischen individuellen Geräten und Produkten der Fertigung ermöglicht, bis die Fabrik den künftigen Standards, Direktiven und Prinzipien der Industrie 4.0 genügt @Bergweiler2015.
 
@@ -127,19 +127,19 @@ Für diese Arbeit relevante Technologien und Konzepte werden in folgendem Kapite
 Grundlegende Eigenschaften von Fertigung und Automatisierung sind die Basis für das Verständnis von semantischen Informationsmodellen, respektive dem virtuellen Abbild der Realität.
 Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte zu überwachen, Differenzen zu erwartetem Verhalten festzustellen und autonom darauf zu reagieren.
 
-## Fertigung und Automatisierung
+## Fertigung und Automatisierung {#sec:fertigung}
 
 Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
 Automatisierung ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" (DIN 19233[^automatisierung]).
 Eine Verknüpfung dieser beiden Konzepte ist in @fig:fertigungsautomatisierung dargestellt.
 Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd auf die Fertigung zu wirken.
-Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert - im ökonomischen Zusammenhang rationalisiert @Linke2015.
+Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert - im ökonomischen Zusammenhang rationalisiert (vgl. zu diesem Absatz @Linke2015).
 
 ![Automatisierte Fertigung aus @Linke2015](figures/fertigungsautomatisierung){#fig:fertigungsautomatisierung}
 
 Um die verschiedenen Bereiche der klassischen[^klassische-autom] Automatisierung darzustellen, wird eine Schichtenorganisation herangezogen.
 Die Struktur eines Unternehmens entspricht dann einer Automatisierungspyramide.
-Unterschieden werden diese Ebenen aufgrund der unterschiedlichen Anforderungen an Datendurchsatz und Übertragungsgeschwindigkeit @Linke2015.
+Unterschieden werden diese Ebenen aufgrund der unterschiedlichen Anforderungen an Datendurchsatz und Übertragungsgeschwindigkeit (vgl. zu diesem Absatz @Linke2015).
 Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie folgt:
 
 * **Unternehmensleitebene**  
@@ -162,7 +162,7 @@ Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Sch
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
 Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:sps) und numerische Kontrolle (NC, vgl. @sec:nc) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
 Über einen Feldbus (vgl. @sec:kommunikation) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
-Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle -- Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
+Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
 [^automatisierung]: Deutsches Institut für Normung e. V.: DIN V 19233: Leittechnik, Prozessautomatisierung, Automatisierung mit Prozessrechensystemen, Begriffe.
@@ -172,16 +172,41 @@ Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstell
 ### Kommunikation {#sec:kommunikation}
 
 In der industriellen Fertigung werden Feldbusse als Kommunikationskanal in Feld- und Steuerungsebene genutzt.
-Diese sind digitale bidirektionale, serielle Kommunikationsnetzwerke für echtzeitfähige, verteilte Kontrolle von Instrumenten, Steuerungseinheiten und Aktuatoren @Mahalik2003.
-Trotz der Standardisierungsbemühungen durch IEC 61158[^iec61158], existieren unterschiedliche Feldbusstandardisierungen wie CAN, ProfiBUS oder EtherCAT.
+Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die zu der in @fig:automationsstruktur dargestellten, heterogenen Automationsstruktur führen.
+
+![Repräsentative Automationsstruktur nach @Hammerstingl2015](figures/automationsstruktur){#fig:automationsstruktur}
+
+Hammertringl und Reinhart fanden vier Klassen von Kommunikationssystemen in dieser durch eine Befragung ermittelten Struktur.
+Sensoren und Aktuatoren der ersten Klasse sind direkt verbunden und übermitteln binäre oder analoge Informationen rein physikalischer Natur, wie Strom mit 24V oder Druckluft.
+Sie stellen keine standardisierte, digitale Beschreibung ihrer Funktion bereit, wodurch dem angeschlossenen Gerät diese händisch mitgeteilt werden muss.  
+Feldgeräte mit _IO-Link_[^iolink]-Fähigkeit können durch die IO Device Description (IO-DD) beschrieben werden und sind Teil einer zweiten Klasse mit Direktverbindung.
+Innerhalb dieser können minimale Protokolle beschrieben und die Identifikation der Komponenten durchgeführt werden.
+Dadurch kann innerhalb dieser Klasse extern parametriert und eine maschinenlesbare Beschreibung übertragen werden.
+Letzteres wird in der Praxis jedoch kaum genutzt.
+Ein weiterer, stark verbreiteter Repräsentant ist die serielle Schnittstelle RS-232.  
+Die dritte Klasse von Kommunikationssystemen verbindet Bus-basierte Geräte.
+Traditionelle Bussysteme und Real-Time Ethernet (RTE) sind Stand der Technik und erlauben die Definition der Strukturen durch einen Bus-Master.
+Bildverarbeitungssysteme, ihre Protokolle (z.B. GigE Vision[^gigevision]) und Beschreibungssprachen (z.B. GenICam[^genicam]) sind hier verbreitet.
+Für Konfiguration und Überwachung der Systeme wird eine Mensch-Maschine-Schnittstelle (MMS) eingesetzt (vgl. zu diesem Absatz @Hammerstingl2015).
+
+Feldbusse sind digitale bidirektionale, serielle Kommunikationsnetzwerke für echtzeitfähige, verteilte Kontrolle von Instrumenten, Steuerungseinheiten und Aktuatoren @Mahalik2003.
+Trotz der Standardisierungsbemühungen durch IEC 61158, existieren unterschiedliche Feldbusse wie CAN, ProfiBUS oder EtherCAT.
 Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt einen anderen Busstandard, weshalb die Kommunikation der Geräte nicht garantiert werden kann.
-Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt @Pauker2013.
+Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).
 
-Die zunehmende Verbreitung von Echtzeit-Ethernet (vgl. @sec:zielsetzung) erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opcua) @Pauker2013.
+Auf den höheren Ebenen der Automatisierungspyramide (vgl. @sec:automatisierungspyramide) etablierte sich das nicht Echtzeit-fähige Ethernet.
+Dennoch verbreitet sich die Variante des RTE zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opcua) @Pauker2013.
+Die Homogenisierung der Infrastruktur, vom Ressourcenmanagement im ERP über die Speicherprogrammierbare Steuerung bis zum einzelnen Sensor auf der Feldebene, vereinfacht den Informationsaustausch und trägt zur Flexibilisierung des Gesamtsystems bei.
+Weiterhin stehen damit die Daten aller Schichten für jeden anderen Netzwerkteilnehmer zur Verfügung.
 
+Diese Form der Kommunikations- und Informationsstruktur ist nach Hammerstingl und Reinhart in einer vierten Klasse zu finden.
+@fig:automationsstruktur zeigt OPC und OPC UA (vgl. @sec:opcua) als Standard für den Datenaustauch zwischen dem Produktionsplanungssystem (PPS) und den speicherprogrammierbaren Steuerungen (SPS, vgl. @sec:sps).
+Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit, was durch die Hersteller unterstützt und vorangetrieben wird (vgl. zu diesem Absatz @Hammerstingl2015).
 
-[^iec61158]: Digital data communication for measurement and control -- Fieldbus for use in industrial control systems
 [^ole]: Object Linking and Embedding
+[^iolink]: Implementierung IEC TR 61131-9, Single-drop digital communication interface for small sensors and actuators
+[^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
+[^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
 ### Numerische Kontrolle {#sec:nc}
 
@@ -724,6 +749,8 @@ __Lösung:__ flexibel konfigurierbarer Verbund miteinander kommunizierender Masc
 * Originality/Value
     * Blackboard den intelligenten Systemen entlehnt
     * Definition der Sequenz für den Cell-Controller
+
+=> auch @Durkop2014
     
 <!-- ### Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013 -->
 
@@ -843,8 +870,6 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 # Konzeption
 
-Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in der Lage Mehrachsmaschinen zu kontrollieren @Grigoriev2016.
-
 * Laufzeitkonfiguration des Surrogate?
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
     1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
@@ -865,7 +890,7 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
     
 * Konzept eines _Cell Controller_ als Basis (vgl. [@Ayatollahi2013;@Fallah2016a])
 * kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
-* Rekonfigurierbare FFZ @Pauker2013
+* Rekonfigurierbare FFZ [@Pauker2013;@Durkop2014]
 * Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
     * Server <->  Maschine => Server <-> Adapter <-> Maschine ?
     * Smoothieboard/Embedded (soft-)SPS als Adapter zu Maschine
@@ -877,6 +902,15 @@ Durch steigende Rechenleistung sind ARM-Prozessoren auf Einplatinencomputern in 
 
 * Framework
     - Definition der Bindings von Extension Points in OPC UA Modell
+
+* SPS siehe @Windmann2015 Bild 3
+
+> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market.
+> The IEC standardization commission recommends OPC UA as a standard for the implementation 
+> of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
+> However, OPC UA does not allow real-time transmission, which is why a real-time
+> communication channel must still exist.
+> -- @Hammerstingl2015
 
 Nach Rücksprache
 
