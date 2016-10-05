@@ -1,7 +1,9 @@
 ---
 # General
 
-title:     Abstraktion verteilter Produktionsmaschinen in CPPS
+title: |
+  Abstraktion verteilter Produktionsmaschinen in cyber-physischen  
+  Produktionssystemen
 type:      Diplomarbeit
 author:    Peter Heisig
 matrikel:  3521226
@@ -14,7 +16,7 @@ language:  &lang de-DE
 lang:      *lang
 
 # Presentation
-presentation: Diplomarbeit - aktueller Stand
+presentation: Diplomarbeit - Verteidigung
 theme:        sky
 smart:        true
 transition:   slide
