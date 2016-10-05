@@ -264,7 +264,7 @@ Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ei
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
-![Spezifikationen von OPC UA[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
+![Spezifikationen von OPC UA](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
 
 In @fig:opc-ua-architecture ist die dafür notwendige Informationsstruktur dargestellt @OPCFoundation2014.
 Auf der untersten Ebene werden Transportprotokolle, das Meta-Modell und grundlegende Services beschrieben.
@@ -302,7 +302,6 @@ Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden f�
 
 [^opc]: Open Platform Communications
 [^opc-def]: nach [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
-[^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/) vom 23.09.2016
 
 ## Cyber-physische Produktionssysteme
 
