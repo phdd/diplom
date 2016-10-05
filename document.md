@@ -169,7 +169,7 @@ Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstell
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
-### Kommunikation {#sec:kommunikation}
+## Kommunikationssysteme {#sec:kommunikation}
 
 In der industriellen Fertigung werden Feldbusse als Kommunikationskanal in Feld- und Steuerungsebene genutzt.
 Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die zu der in @fig:automationsstruktur dargestellten, heterogenen Automationsstruktur führen.
@@ -191,7 +191,8 @@ Für Konfiguration und Überwachung der Systeme wird eine Mensch-Maschine-Schnit
 Feldbusse sind digitale bidirektionale, serielle Kommunikationsnetzwerke für echtzeitfähige, verteilte Kontrolle von Instrumenten, Steuerungseinheiten und Aktuatoren @Mahalik2003.
 Trotz der Standardisierungsbemühungen durch IEC 61158, existieren unterschiedliche Feldbusse wie CAN, ProfiBUS oder EtherCAT.
 Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt einen anderen Busstandard, weshalb die Kommunikation der Geräte nicht garantiert werden kann.
-Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).  
+Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).
+
 Auf den höheren Ebenen der Automatisierungspyramide (vgl. @fig:automatisierungspyramide) etablierte sich das nicht Echtzeit-fähige Ethernet.
 Dennoch verbreitet sich die Variante des RTE zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opcua) @Pauker2013.
 Die Homogenisierung der Infrastruktur, vom Ressourcenmanagement im ERP über die Speicherprogrammierbare Steuerung bis zum einzelnen Sensor auf der Feldebene, vereinfacht den Informationsaustausch und trägt zur Flexibilisierung des Gesamtsystems bei.
@@ -205,16 +206,23 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
-### Numerische Kontrolle {#sec:nc}
+## Computergestützte numerische Steuerung {#sec:nc}
 
-<!-- 
+Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
+In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
+Die resultierende Form wird durch mit Software für Computer Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung den Konstrukteur unterstützt.
+
+
+<!--
+* Keine Beschränkung auf Werkzeugmaschinen => Ausblick
+
 Alternativen
 
 * STEP-NC [@Hardwick2007;@Xu2006]
 * IEC 61499 Function Blocks
 -->
 
-### Speicherprogrammierbare Steuerungen {#sec:sps}
+## Speicherprogrammierbare Steuerung {#sec:sps}
 
 <!--
 > Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
@@ -236,6 +244,8 @@ Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformat
 
 Industrie 4.0 @Durisin2009
 -->
+
+## Betriebs- und Produktionsdatenerfassung
 
 ## OPC Unified Architecture {#sec:opcua}
 
