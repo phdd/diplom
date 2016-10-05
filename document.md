@@ -75,7 +75,7 @@ Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wod
 > SPS-Systeme über Ethernet angebunden, wobei von den verbleibenden 
 > 14% der Befragten 6% angaben, Ethernet wahrscheinlich in Zukunft einzusetzen." @Windmann2015[^QuelleWindmann2015]
 
-[^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation," VDMA, 2013_.
+[^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation,", VDMA, 2013_.
 
 Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
 <!-- TODO evtl. Szenario aus Borangiu 2014 oder so... -->
