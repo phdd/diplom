@@ -75,7 +75,7 @@ Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wod
 > SPS-Systeme über Ethernet angebunden, wobei von den verbleibenden 
 > 14% der Befragten 6% angaben, Ethernet wahrscheinlich in Zukunft einzusetzen." @Windmann2015[^QuelleWindmann2015]
 
-[^QuelleWindmann2015]: Die ursprüngliche Quelle _M. Rothhöft, "Marktstudie: Industrielle Kommunikation," VDMA, 2013_ konnte nicht eingesehen werden.
+[^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation," VDMA, 2013_.
 
 Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
 <!-- TODO evtl. Szenario aus Borangiu 2014 oder so... -->
@@ -165,7 +165,7 @@ Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:sps) und numerische Kontroll
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
-[^automatisierung]: Deutsches Institut für Normung e. V.: DIN V 19233: Leittechnik, Prozessautomatisierung, Automatisierung mit Prozessrechensystemen, Begriffe.
+[^automatisierung]: Deutsches Institut für Normung e.V.: DIN V 19233: Leittechnik, Prozessautomatisierung, Automatisierung mit Prozessrechensystemen, Begriffe.
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
@@ -264,7 +264,7 @@ Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ei
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
-![OPC UA Übersicht[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
+![Spezifikationen von OPC UA[^opc-ua-architecture]](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
 
 In @fig:opc-ua-architecture ist die dafür notwendige Informationsstruktur dargestellt @OPCFoundation2014.
 Auf der untersten Ebene werden Transportprotokolle, das Meta-Modell und grundlegende Services beschrieben.
@@ -301,8 +301,8 @@ Plattformunabhängigkeit wird durch frei verfügbare, aber auch proprietäre Imp
 Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden für die Programmiersprachen Ansi C/C++, .NET, Java und weitere durch die OPC Foundation bereitgestellt.
 
 [^opc]: Open Platform Communications
-[^opc-def]: [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
-[^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/)
+[^opc-def]: nach [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
+[^opc-ua-architecture]: nach [opcfoundation.org/about/opc-technologies/opc-ua](https://opcfoundation.org/about/opc-technologies/opc-ua/) vom 23.09.2016
 
 ## Cyber-physische Produktionssysteme
 
@@ -314,7 +314,7 @@ Der historische Weg, hin zu darauf aufsetzenden Systemen, ist in @fig:cps darges
 
 ![Der historische Weg zu CPSoS](figures/cps){#fig:cps}
 
-[^abb-cps]: @fig:cps und folgender Absatz entstammen sinngemäß dem Vortrag _Life with Cyber-Physical Systems_ von Uwe Aßmann, 29. Juni 2016, Technische Universität Dresden
+[^abb-cps]: @fig:cps und folgender Absatz nach Vortrag _Life with Cyber-Physical Systems_ von Prof. Dr. Uwe Aßmann, 29. Juni 2016, Technische Universität Dresden
 
 Im konventionellen Computing ([@fig:cps]a) sind Systeme der physischen Welt durch abstrakte Modelle repräsentiert. 
 Berechnungen bezüglich der Realität werden in Simulationen auf diesen Modellen durchgeführt.
@@ -856,7 +856,7 @@ Im Projekt _OPC4Factory_ der TU Wien, wurden generische OPC UA Informationsmodel
 Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
 Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden[^OPC4Factory].
 
-[^OPC4Factory]: [www.ift.at/forschung/foschungsprojekte/opc4factory](https://www.ift.at/forschung/foschungsprojekte/opc4factory)
+[^OPC4Factory]: [www.ift.at/forschung/foschungsprojekte/opc4factory](https://www.ift.at/forschung/foschungsprojekte/opc4factory) vom 04.10.2016
 see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 
