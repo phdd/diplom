@@ -169,7 +169,7 @@ Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstell
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
-## Kommunikationssysteme {#sec:kommunikation}
+### Kommunikationssysteme {#sec:kommunikation}
 
 In der industriellen Fertigung werden Feldbusse als Kommunikationskanal in Feld- und Steuerungsebene genutzt.
 Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die zu der in @fig:automationsstruktur dargestellten, heterogenen Automationsstruktur führen.
@@ -206,12 +206,13 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
-## Computergestützte numerische Steuerung {#sec:nc}
+### Computergestützte numerische Steuerung {#sec:nc}
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
 Die resultierende Form wird durch mit Software für Computer Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung den Konstrukteur unterstützt.
 
+![Teilprozess der Fertigung mit Werkzeugmaschinen](figures/cax){#fig:cax}
 
 <!--
 * Keine Beschränkung auf Werkzeugmaschinen => Ausblick
@@ -222,7 +223,7 @@ Alternativen
 * IEC 61499 Function Blocks
 -->
 
-## Speicherprogrammierbare Steuerung {#sec:sps}
+### Speicherprogrammierbare Steuerung {#sec:sps}
 
 <!--
 > Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
@@ -245,7 +246,7 @@ Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformat
 Industrie 4.0 @Durisin2009
 -->
 
-## Betriebs- und Produktionsdatenerfassung
+### Betriebs- und Produktionsdatenerfassung
 
 ## OPC Unified Architecture {#sec:opcua}
 
@@ -368,8 +369,6 @@ Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 -->
-
-## Zusammenfassung
 
 # Anforderungen {#sec:anforderungen}
 

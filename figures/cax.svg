@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="369.91568pt"
-   height="108.84947pt"
-   viewBox="0 0 462.39461 136.06184"
+   width="369.46606pt"
+   height="69.413002pt"
+   viewBox="0 0 461.83259 86.766251"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="229.34374"
-     inkscape:cy="99.755185"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="198.27948"
+     inkscape:cy="32.563367"
      inkscape:document-units="pt"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -57,132 +57,136 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1.5986412e-6,-738.61218)">
-    <rect
-       ry="12.919092"
-       rx="12.919092"
-       y="739.25812"
-       x="174.27855"
-       height="71.019928"
-       width="113.83749"
-       id="rect4824"
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4136"
-       width="113.83749"
-       height="71.019928"
-       x="0.645953"
-       y="739.25812"
-       rx="12.919092"
-       ry="12.919092" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:41.34109497px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="13.397549"
-       y="789.20117"
-       id="text4138"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4140"
-         x="13.397549"
-         y="789.20117"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light,  Light'">CAD</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text4826"
-       y="789.20117"
-       x="184.60782"
-       style="font-style:normal;font-weight:normal;font-size:41.34109497px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light,  Light'"
-         y="789.20117"
-         x="184.60782"
-         id="tspan4828"
-         sodipodi:role="line">CAM</tspan></text>
-    <rect
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4830"
-       width="113.83749"
-       height="71.019928"
-       x="347.91116"
-       y="739.25812"
-       rx="12.919092"
-       ry="12.919092" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:41.34109497px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="361.65189"
-       y="789.20117"
-       id="text4832"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4834"
-         x="361.65189"
-         y="789.20117"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light,  Light'">CNC</tspan></text>
-    <path
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 168.60661,774.42065 -18.55648,-17.62233 0,10.93889 -30.18684,0 0,13.36776 30.18684,0 0,10.93803 z"
-       id="rect4855"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccc" />
-    <path
-       sodipodi:nodetypes="cccccccc"
-       inkscape:connector-curvature="0"
-       id="path4872"
-       d="m 342.23921,774.42065 -18.55648,-17.62233 0,10.93889 -30.18684,0 0,13.36776 30.18684,0 0,10.93803 z"
-       style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="58.175228"
-       y="838.24542"
-       id="text4893"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="58.175228"
+     transform="translate(-0.28099976,-767.77097)">
+    <g
+       id="g4228"
+       transform="matrix(0.71410146,0,0,0.71410146,60.059347,240.3272)">
+      <rect
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4824"
+         width="113.83749"
+         height="71.019928"
+         x="174.27855"
+         y="739.25812"
+         rx="12.919092"
+         ry="12.919092" />
+      <rect
+         ry="12.919092"
+         rx="12.919092"
+         y="739.25812"
+         x="0.645953"
+         height="71.019928"
+         width="113.83749"
+         id="rect4136"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4138"
+         y="785.68848"
+         x="25.316158"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:41.34125519px;line-height:125%;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.00000191px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:start;writing-mode:lr-tb;text-anchor:start"
+           y="785.68848"
+           x="25.316158"
+           id="tspan4140"
+           sodipodi:role="line">CAD</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:41.34109497px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="198.13577"
+         y="785.68848"
+         id="text4826"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4828"
+           x="198.13577"
+           y="785.68848"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.00000191px;font-family:sans-serif;-inkscape-font-specification:sans-serif">CAM</tspan></text>
+      <rect
+         ry="12.919092"
+         rx="12.919092"
+         y="739.25812"
+         x="347.91116"
+         height="71.019928"
+         width="113.83749"
+         id="rect4830"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4832"
+         y="785.68848"
+         x="372.61798"
+         style="font-style:normal;font-weight:normal;font-size:41.34109497px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30.00000191px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+           y="785.68848"
+           x="372.61798"
+           id="tspan4834"
+           sodipodi:role="line">CNC</tspan></text>
+      <path
+         sodipodi:nodetypes="cccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4855"
+         d="m 168.60661,774.42065 -18.55648,-17.62233 0,10.93889 -30.18684,0 0,13.36776 30.18684,0 0,10.93803 z"
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="opacity:0.98999999;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.29190922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 342.23921,774.42065 -18.55648,-17.62233 0,10.93889 -30.18684,0 0,13.36776 30.18684,0 0,10.93803 z"
+         id="path4872"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4893"
          y="838.24542"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
-         id="tspan4897">Computer Aided</tspan><tspan
-         sodipodi:role="line"
-         x="58.175228"
-         y="863.24542"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
-         id="tspan4911">Design</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text4903"
-       y="838.24542"
-       x="230.17523"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
+         x="57.824707"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan4897"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle"
+           y="838.24542"
+           x="57.824711"
+           sodipodi:role="line">Computer Aided</tspan><tspan
+           id="tspan4911"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle"
+           y="856.99542"
+           x="57.824707"
+           sodipodi:role="line">Design</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="231.45731"
          y="838.24542"
-         x="230.17523"
-         sodipodi:role="line"
-         id="tspan4915">Computer Aided</tspan><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
-         y="863.24542"
-         x="230.17523"
-         sodipodi:role="line"
-         id="tspan4919">Manufacturing</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="410.17523"
-       y="838.24542"
-       id="text4921"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="410.17523"
+         id="text4903"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan4915"
+           sodipodi:role="line"
+           x="231.45731"
+           y="838.24542"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle">Computer Aided</tspan><tspan
+           id="tspan4919"
+           sodipodi:role="line"
+           x="231.45731"
+           y="856.99542"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle">Manufacturing</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4921"
          y="838.24542"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
-         id="tspan4929">Computer Numerical</tspan><tspan
-         sodipodi:role="line"
-         x="410.17523"
-         y="863.24542"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:20.00000191px;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;text-anchor:middle"
-         id="tspan4937">Control</tspan></text>
+         x="405.10822"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan4929"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle"
+           y="838.24542"
+           x="405.10822"
+           sodipodi:role="line">Computer Numerical</tspan><tspan
+           id="tspan4937"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00000095px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle"
+           y="856.99542"
+           x="405.10822"
+           sodipodi:role="line">Control</tspan></text>
+    </g>
   </g>
 </svg>
