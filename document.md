@@ -160,7 +160,7 @@ Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie
 Auf der Prozessebene (Level 0) des Beispiels geschieht die physikalische Fertigung des Produkts.
 Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Schicht zu abstrakteren Informationen verarbeitet werden.
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
-Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:computergestützte-numerische-steuerung) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
+Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:numerische-steuerung) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
 Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
@@ -206,13 +206,22 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
-### Computergestützte numerische Steuerung
+### Numerische Steuerung
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
-Die resultierende Form wird durch mit Software für Computer Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung den Konstrukteur unterstützt.
+Die gewünschte Form wird mit Software für Computer-Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung des Modells den Konstrukteur unterstützt.
+In einem zweiten Schritt werden die so entstandenen Konstruktionspläne in Bewegungsmuster umgewandelt.
+Der etablierte Kodierungsstandard für die Steuerungsinformationen zu diesen Mustern ist durch die DIN 66025, beziehungsweise ISO 6983 normiert und als G-Code bekannt.
+Eine vollständige Kompatibilität der Befehle zwischen den Anlagen wird aufgrund spezifischer Werkzeug- und Maschinenparameter, wie Drehzahlen oder Begrenzungskoordinaten der Arbeitsfläche, verhindert.
+Durch Präprozessoren und manuelle Anpassungen werden Steuerungsinformationen des zweiten Schritts auf die Maschine angepasst.  
+Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine übertragen, kann diese mit dem eigentlichen Fertigungsschritt beginnen.
+Mit der relativen Bewegung des Werkzeugs zum Werkstück wird sukzessive Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
+Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
+Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit CNC-Befehlen gesteuert werden können.
 
-![Teilprozess der Fertigung mit Werkzeugmaschinen](figures/cax){#fig:cax}
+
+
 
 <!--
 * Keine Beschränkung auf Werkzeugmaschinen => Ausblick
@@ -246,7 +255,7 @@ Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformat
 Industrie 4.0 @Durisin2009
 -->
 
-### Betriebs- und Produktionsdatenerfassung
+### Betriebsdatenerfassung
 
 ## OPC Unified Architecture
 
