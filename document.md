@@ -47,7 +47,7 @@ Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flex
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
 Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie (vgl. zu diesem Absatz @Deshpande2011).
 
-## Zielsetzung {#sec:zielsetzung}
+## Zielsetzung
 
 Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele dieser Arbeit beschrieben.
 Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
@@ -127,7 +127,7 @@ Für diese Arbeit relevante Technologien und Konzepte werden in folgendem Kapite
 Grundlegende Eigenschaften von Fertigung und Automatisierung sind die Basis für das Verständnis von semantischen Informationsmodellen, respektive dem virtuellen Abbild der Realität.
 Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte zu überwachen, Differenzen zu erwartetem Verhalten festzustellen und autonom darauf zu reagieren.
 
-## Fertigung und Automatisierung {#sec:fertigung}
+## Fertigung und Automatisierung
 
 Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
 Automatisierung ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" (DIN 19233[^automatisierung]).
@@ -160,8 +160,8 @@ Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie
 Auf der Prozessebene (Level 0) des Beispiels geschieht die physikalische Fertigung des Produkts.
 Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Schicht zu abstrakteren Informationen verarbeitet werden.
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
-Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:sps) und numerische Kontrolle (NC, vgl. @sec:nc) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
-Über einen Feldbus (vgl. @sec:kommunikation) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
+Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:computergestützte-numerische-steuerung) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
+Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
@@ -169,7 +169,7 @@ Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstell
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
-### Kommunikationssysteme {#sec:kommunikation}
+### Kommunikationssysteme
 
 In der industriellen Fertigung werden Feldbusse als Kommunikationskanal in Feld- und Steuerungsebene genutzt.
 Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die zu der in @fig:automationsstruktur dargestellten, heterogenen Automationsstruktur führen.
@@ -194,11 +194,11 @@ Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt 
 Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).
 
 Auf den höheren Ebenen der Automatisierungspyramide (vgl. @fig:automatisierungspyramide) etablierte sich das nicht Echtzeit-fähige Ethernet.
-Dennoch verbreitet sich die Variante des RTE zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opcua) @Pauker2013.
+Dennoch verbreitet sich die Variante des RTE zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opc-unified-architecture) @Pauker2013.
 Die Homogenisierung der Infrastruktur, vom Ressourcenmanagement im ERP über die Speicherprogrammierbare Steuerung bis zum einzelnen Sensor auf der Feldebene, vereinfacht den Informationsaustausch und trägt zur Flexibilisierung des Gesamtsystems bei.
 Weiterhin stehen damit die Daten aller Schichten für jeden anderen Netzwerkteilnehmer zur Verfügung.  
 Diese Form der Kommunikations- und Informationsstruktur ist nach Hammerstingl und Reinhart in einer vierten Klasse zu finden.
-@fig:automationsstruktur zeigt OPC und OPC UA (vgl. @sec:opcua) als Standard für den Datenaustauch zwischen dem Produktionsplanungssystem (PPS) und den speicherprogrammierbaren Steuerungen (SPS, vgl. @sec:sps).
+@fig:automationsstruktur zeigt OPC und OPC UA (vgl. @sec:opc-unified-architecture) als Standard für den Datenaustauch zwischen dem Produktionsplanungssystem (PPS) und den speicherprogrammierbaren Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung).
 Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit, was durch die Hersteller unterstützt und vorangetrieben wird (vgl. zu diesem Absatz @Hammerstingl2015).
 
 [^ole]: Object Linking and Embedding
@@ -206,7 +206,7 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
-### Computergestützte numerische Steuerung {#sec:nc}
+### Computergestützte numerische Steuerung
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
@@ -223,7 +223,7 @@ Alternativen
 * IEC 61499 Function Blocks
 -->
 
-### Speicherprogrammierbare Steuerung {#sec:sps}
+### Speicherprogrammierbare Steuerung
 
 <!--
 > Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
@@ -248,7 +248,7 @@ Industrie 4.0 @Durisin2009
 
 ### Betriebs- und Produktionsdatenerfassung
 
-## OPC Unified Architecture {#sec:opcua}
+## OPC Unified Architecture
 
 Der Austausch und die Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
@@ -370,7 +370,7 @@ Aazam 2016 @Aazam2016
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 -->
 
-# Anforderungen {#sec:anforderungen}
+# Anforderungen
 
 Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
 
@@ -378,7 +378,7 @@ Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfä
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
 Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung und geschlossener Architekturen (vgl. @Deshpande2011) die Vollautomatisierung dieser Arbeitsabläufe und erfordern die physische Anwesenheit einer Fachkraft @Wang2004.
 
-## Überwachung {#sec:REQ1}
+## Überwachung
 
 Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
 Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
@@ -388,7 +388,7 @@ Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf
 REQ1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
 
-## Steuerung {#sec:REQ2}
+## Steuerung
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
 Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein oft händisch übermitteltes Anwenderprogramm.
@@ -405,7 +405,7 @@ Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in ei
 Mit den Einhalten der Anforderungen zu Überwachung und Steuerung hat das System die Möglichkeit automatisch auf veränderte Bedingungen zu reagieren.
 <!-- Außerdem werden darauf aufbauende Konzepte wie Predictive Maintenance und Condition Monitoring ermöglicht. -->
 
-## Standardisierung {#sec:REQ3}
+## Standardisierung
 
 Nach Ferrolho et al. entstehen auch mit Netzwerkanbindung und Programmierschnittstellen noch zu überwindende Probleme @Ferrolho2007.
 CNC-Maschinen basieren auf einer geschlossenen Architektur numerischer Kontrolle und sind nicht für die Integration mit anderen ausgelegt.
@@ -419,7 +419,7 @@ Für SPS gelten in diesem Zusammenhang die gleichen Anforderungen.
 REQ3
 : Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
 
-## Lokalität {#sec:REQ4}
+## Lokalität
 
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
@@ -439,7 +439,7 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
 
-## Netzwerkarchitektur für CPPS {#sec:sota-wang2008}
+## Netzwerkarchitektur für CPPS
 
 <!-- Purpose -->
 Monolithische Architekturen sind ungeeignet für cyber-physische Systeme (CPS).
@@ -473,10 +473,10 @@ Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder 
 Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
 Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
 
-## Steuerung und Überwachung aus der Ferne {#sec:sota-wang2004}
+## Steuerung und Überwachung aus der Ferne
 
-Auf einer Netzwerkarchitektur wie in @sec:sota-wang2008, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
-Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
+Auf einer Netzwerkarchitektur wie in @sec:netzwerkarchitektur-für-cpps, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
+Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
 <!-- Purpose -->
 Wang et al. entwickelte 2008 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
 <!-- Design/Methodology/Approach -->
@@ -509,10 +509,10 @@ Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation un
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 <!-- Requirements -->
-Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen REQ1 und REQ2 (vgl. [@sec:REQ1;@sec:REQ2]) vollständig erfüllt.
+Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
 Damit ist REQ3 nur ansatzweise erfüllt.
-Auch mit der Konzeption einer Netzwerkarchitektur für CPS (vlg. @sec:sota-wang2008) wurde die Notwendigkeit des Einbettens der Steuerung erkannt.
+Auch mit der Konzeption einer Netzwerkarchitektur für CPS (vlg. @sec:netzwerkarchitektur-für-cpps) wurde die Notwendigkeit des Einbettens der Steuerung erkannt.
 Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (REQ4) nur teilweise erfüllt.
 Grundsätzlich wurden Sicherheitsaspekte im Konzept beachtet und in den vertikalen Prototypen integriert.
 Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglicht skalierenden, hierarchischen Zugriff.

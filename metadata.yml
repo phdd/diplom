@@ -22,8 +22,9 @@ smart:        true
 transition:   slide
 revealjs-url: http://lab.hakim.se/reveal-js
 
-# Crossref Filter
+# Filter
 chapPrefix: Kapitel
+autoSectionLabels: true
 
 secPrefix: 
   - Abschnitt

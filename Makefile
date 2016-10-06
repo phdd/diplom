@@ -12,6 +12,7 @@ LATEX_ARGS = \
 	$(ARGS) \
 	--include-after-body=appendix.tex \
 	--template=style/latex.tex \
+	--number-sections \
 	--natbib \
 
 HTML_ARGS = \
@@ -102,6 +103,7 @@ compile-appendix-tex:
 		--variable=documentclass:report \
 		--default-image-extension=pdf \
 		--output=appendix.tex \
+		--number-sections \
 
 fix-mendeley-bug:
 	sed -i -e "s/{\\\_}/_/g" "bibliography.bib"
