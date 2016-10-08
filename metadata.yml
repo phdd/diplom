@@ -25,6 +25,7 @@ revealjs-url: http://lab.hakim.se/reveal-js
 # Filter
 chapPrefix: Kapitel
 autoSectionLabels: true
+codeBlockCaptions: true
 
 secPrefix: 
   - Abschnitt

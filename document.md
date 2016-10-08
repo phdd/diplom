@@ -194,12 +194,13 @@ Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt 
 Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).
 
 Auf den höheren Ebenen der Automatisierungspyramide (vgl. @fig:automatisierungspyramide) etablierte sich das nicht Echtzeit-fähige Ethernet.
-Dennoch verbreitet sich die Variante des RTE zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opc-unified-architecture) @Pauker2013.
+Die Variante des RTE verbreitet sich jedoch zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opc-unified-architecture) @Pauker2013.
 Die Homogenisierung der Infrastruktur, vom Ressourcenmanagement im ERP über die Speicherprogrammierbare Steuerung bis zum einzelnen Sensor auf der Feldebene, vereinfacht den Informationsaustausch und trägt zur Flexibilisierung des Gesamtsystems bei.
 Weiterhin stehen damit die Daten aller Schichten für jeden anderen Netzwerkteilnehmer zur Verfügung.  
 Diese Form der Kommunikations- und Informationsstruktur ist nach Hammerstingl und Reinhart in einer vierten Klasse zu finden.
 @fig:automationsstruktur zeigt OPC und OPC UA (vgl. @sec:opc-unified-architecture) als Standard für den Datenaustauch zwischen dem Produktionsplanungssystem (PPS) und den speicherprogrammierbaren Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung).
 Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit, was durch die Hersteller unterstützt und vorangetrieben wird (vgl. zu diesem Absatz @Hammerstingl2015).
+Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-steuerung) kontrollierte Werkzeugmaschinen können so Informationen zu Zustand und Produktionsfortschritt bereitstellen.
 
 [^ole]: Object Linking and Embedding
 [^iolink]: Implementierung IEC TR 61131-9, Single-drop digital communication interface for small sensors and actuators
@@ -210,7 +211,7 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
-Die gewünschte Form wird mit Software für Computer-Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung des Modells den Konstrukteur unterstützt.
+Die vorgegebene Form wird mit Software für Computer-Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung des Modells den Konstrukteur unterstützt.
 In einem zweiten Schritt werden die so entstandenen Konstruktionspläne in Bewegungsmuster umgewandelt.
 Der etablierte Kodierungsstandard für die Steuerungsinformationen zu diesen Mustern ist durch die DIN 66025, beziehungsweise ISO 6983 normiert und als G-Code bekannt.
 Eine vollständige Kompatibilität der Befehle zwischen den Anlagen wird aufgrund spezifischer Werkzeug- und Maschinenparameter, wie Drehzahlen oder Begrenzungskoordinaten der Arbeitsfläche, verhindert.
@@ -218,21 +219,35 @@ Durch Präprozessoren und manuelle Anpassungen werden Steuerungsinformationen de
 Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine übertragen, kann diese mit dem eigentlichen Fertigungsschritt beginnen.
 Mit der relativen Bewegung des Werkzeugs zum Werkstück wird sukzessive Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
 Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
-Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit CNC-Befehlen gesteuert werden können.
+Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der Computer Numerical Control (CNC) gesteuert werden können.
 
+![Beispielkonstruktion und G-Code für eine Drehbank](figures/lathe-example){#fig:lathe-example}
 
+G-Code teilt sich in zwei Gruppen von Instruktionen, die wiederum herstellerspezifisch beziehungsweise generisch sind.
+@fig:lathe-example zeigt das Beispiel einer Konstruktion und dessen Programm mit Bewegungsinstruktionen (G-Befehle) und sonstige Anweisungen (M-Befehle) für die Herstellung auf einer Drehbank[^lathe-example].
+Das Einspannen des Rohlings durch `M12` schließt die Klammern - in der Konstruktion als schraffierte Blöcke dargestellt.
+Ein Eilgang, wie durch `G0 X100 Z50`, richtet das Werkzeug ohne das Entfernen von Material an einem bestimmten Punkt aus, wobei sich `A` im Beipiel an Position `(X = 100, Z = 50)` befindet.
+Der Befehl `G1` wird für den eigentlichen Fräsvorgang verwendet und lässt das Werkzeug mit einer Geschwindigkeit (Vorschub) von 600 mm/min durch das Material laufen.
 
+Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation.
+Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz @Smid2008).  
+Dennoch sind auch moderne CNC-Anlagen in ihrer Funktion limitiert, da der verwendete G-Code lediglich Instruktionen und prozedurale Daten abbilden kann, wodurch ein Großteil der Konstruktionsinformationen verloren geht.
+Zwei neue Standards, namentlich STEP-NC (ISO 10303-238) und Function Blocks (IEC 61499), etablieren sich aus diesem Grund.
+Durch diese sollen CNC-Maschinen mit mehr Informationen, für intelligentere Fertigung und bessere Interoperabilität, ausgestattet werden.
+Beispielsweise wird durch STEP-NC die Abhängigkeit von Parametern reduziert. 
+Neuberechnungen zur Laufzeit beziehen unter anderem Verformungen durch Erhitzen des Werkstücks in die Fahrtenplanung ein.
+Function Blocks dagegen, sind Teil eines Standards für verteilte industrielle Prozesse und Kontrollsysteme.
+Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC. (vgl. zu diesem Absatz @Xu2006a).  
+Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nicht durch CNC steuerbar sind.
+Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von zusätzlichen Systemen in die Fertigung integriert.
 
-<!--
-* Keine Beschränkung auf Werkzeugmaschinen => Ausblick
-
-Alternativen
-
-* STEP-NC [@Hardwick2007;@Xu2006]
-* IEC 61499 Function Blocks
--->
+[^lathe-example]: nach [www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners](http://www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners/) vom 07.10.2016
 
 ### Speicherprogrammierbare Steuerung
+
+<!--
+> Als Verbindung zwischen der Bewegungssteuerung (CNC) und der Maschine arbeitet eine SPS. Dort sorgt ein vom Maschinenhersteller geschriebenes Programm dafür, dass Betriebsarten, Schutztüre, Kühlmittel, Schmierung und andere Aggregate funktionieren. Dieses Verknüpfungsprogramm bestimmt in hohem Maße die Möglichkeiten und den Komfort einer Maschine und bleibt nach Auslieferung der Maschine unverändert. Für den Endanwender der Maschine ist es nicht direkt sichtbar. (Wikipedia)
+-->
 
 <!--
 > Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
