@@ -211,15 +211,17 @@ Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-steuerung) kontrollier
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
-Die vorgegebene Form wird mit Software für Computer-Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung des Modells den Konstrukteur unterstützt.
+Ein Werkstück ist dabei ein Rohling eines bestimmten Materials, welcher auf eine bestimmte Art durch Bearbeitung verändert wird.
+Die aus diesem entstehende Form wird mit Software für Computer-Aided Design (CAD) entworfen, wobei eine zwei- oder dreidimensionale Visualisierung des Modells den Konstrukteur unterstützt.
 In einem zweiten Schritt werden die so entstandenen Konstruktionspläne in Bewegungsmuster umgewandelt.
 Der etablierte Kodierungsstandard für die Steuerungsinformationen zu diesen Mustern ist durch die DIN 66025, beziehungsweise ISO 6983 normiert und als G-Code bekannt.
 Eine vollständige Kompatibilität der Befehle zwischen den Anlagen wird aufgrund spezifischer Werkzeug- und Maschinenparameter, wie Drehzahlen oder Begrenzungskoordinaten der Arbeitsfläche, verhindert.
 Durch Präprozessoren und manuelle Anpassungen werden Steuerungsinformationen des zweiten Schritts auf die Maschine angepasst.  
-Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine übertragen, kann diese mit dem eigentlichen Fertigungsschritt beginnen.
-Mit der relativen Bewegung des Werkzeugs zum Werkstück wird sukzessive Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
+Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine mit Computer Numerical Control (CNC) übertragen, kann diese mit dem eigentlichen Fertigungsschritt beginnen.
+Derlei Maschinen besitzen mehrere durch Schrittmotoren angetriebene Bearbeitungsachsen, welche die Position des Werkzeugs relativ zum Werkstück durch Translation und Rotation (Hilfsachsen) verändern.
+Mit dieser relativen Bewegung wird sukzessiv Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
 Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
-Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der Computer Numerical Control (CNC) gesteuert werden können.
+Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können.
 
 ![Beispielkonstruktion und G-Code für eine Drehbank](figures/lathe-example){#fig:lathe-example}
 
