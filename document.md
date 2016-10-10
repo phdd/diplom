@@ -94,7 +94,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
-    - Verifikation automatischer Aktionen durch Rückkopplung.
+    - Verifikation automatischer Aktionen durch Rückkopplung.<!-- AUTOMATISCHE AKTIONEN????? TODO!!!! -->
 5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
 
@@ -899,6 +899,10 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Kosten => Remote Maintenance?
 
 # Konzeption
+
+* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
+* Sensorwert-Thresholds für Anomaly Detection
+* Distributed NC!
 
 * Laufzeitkonfiguration des Surrogate?
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
