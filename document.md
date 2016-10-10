@@ -246,81 +246,42 @@ Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von zusätzlichen 
 
 ### Speicherprogrammierbare Steuerung
 
-Automatisierte Maschinen und Werkzeugkomponenten ...
+Daten und Zustände automatisierter Maschinen- Werkzeug- und Fertigungsprozesskomponenten werden durch speicherprogrammierbare Steuerungen (SPS) aufgenommen, verarbeitet und verändert.
+Durch der DINIEC 60050-351 7-2013 sind sie definiert als eine "rechnergestützte programmierte Steuerung, deren logischer Ablauf über eine Programmiereinrichtung, zum Beispiel ein Bedienfeld, einen Hilfsrechner oder ein tragbares Terminal, veränderbar ist" (Zitat aus @Heinrich2015).
+Nach Heinrich et al. sind folgende Komponenten dafür notwendig.
+Ein Hardwaresystem stellte die Verbindung zum Fertigungsprozess und weiteren automatisierten Anlagen her.
+Programm- und Datenspeicher sind für die Persistenz des Anwenderprogramms, beziehungsweise der Prozessdaten verantwortlich und werden durch die Verarbeitung verändert.
+Dafür sind ein Betriebssystem, sowie ein Anwenderprogramm zuständig.
 
-* Definition
-  - DINIEC 60050-351 7-2013: rechnergestützte programmierte Steuerung, deren logischer Ablauf über eine Programmiereinrichtung, zum Beispiel ein Bedienfeld, einen Hilfsrechner oder ein tragbares Terminal, veränderbar ist 
-  - Hardwaresystem
-    + Verbindung zum Prozess
-    + weiteren Automatisierungssystemen
-    + Programm- und Datenspeicher
-    + Datenverarbeitung
-  - Software
-    + Betriebssystem für Hardwarezugriff
-    + Anwenderprogramm
-* prinzipieller Aufbau
-  - Stromversorgungsfunktionen
-  - Signalverarbeitungsfunktionen 
-  - Schnittstellenfunktionen zum Datenaustausch mit
-    + Bediener (HMI)
-    + Programmierer (Programmier-/Testfunktionen)
-    + Vernetzung (Kommunikationsfunktionen)
-    + Prozess (Aktuatoren, Sensoren)
+Der prinzipielle Aufbau einer SPS umfasst Stromversorgungs-, Signalverarbeitungs- und vier Schnittstellenfunktionen für den Datenaustausch.
+Eine Mensch-Maschine-Schnittstelle ermöglicht dem Bediener den operativen Betrieb, z.B. durch Statusanzeigen, zu überwachen.
+Die Programmier- und Test-Schnittstelle wird durch einen Programmierer, neben der Implementierung von Instruktionen, auch zur Fehleranalyse genutzt.
+Kommunikationsfunktionen erlauben die Anbindung an externe Systeme, automatisierte Komponenten und Datenquellen.
+Aktuatoren und Sensoren werden über die Prozessschnittstelle an eine SPS gekoppelt.
+Der konzeptuelle Aufbau wird durch ein, in @fig:sps-aufbau dargestellten, Hardwaresystem implementiert.
+Die Stromversorgungseinheit liefert die für den Betrieb notwendige Energie und kann an die jeweilige Quelle angepasst werden.
+Eine Zentraleinheit mit CPU, Speicher, Verarbeitungseinheit und Anschlüssen für Programmiergeräte  und Netzwerk bildet die Steuerungslogik ab.
+Die Kopplung an digitale und analoge Datenquellen und -empfänger erfolgt über Ein-/Ausgabe-, beziehungsweise Signaleinheiten.  
 
-![GrundlegenderHardwareaufbau einer SPS nach @Heinrich2015](figures/sps-aufbau){#fig:sps-aufbau}
+![Grundlegender Hardwareaufbau einer SPS nach @Heinrich2015](figures/sps-aufbau){#fig:sps-aufbau}
 
-* Bestandteile (Hutschienen-Komponenten) @fig:sps-aufbau
-  - Stromversorgungseinheit
-  - Zentraleinheit mit
-    + CPU
-    + Speicher
-    + Verarbeitungseinheit
-    + Anschluss für Programmiergerät (PG) oder PC
-  - I/O-, bzw. Signaleinheiten (digital & analog)
-* Zyklische Abarbeitung von/bis (Signalverarbeitungsfunktionen)
-  - Eingangssignale (Sensordaten) und Speicher lesen
-  - Anwenderprogramm nach EVA-Prinzip abarbeiten
-  - Ausgangssignale erzeugen (z.B. Aktuatorbefehle)
-* Nennen von Varianten
-  - Modulare/Kompakt-SPS (LOGO!, S7)
-  - Interruptfähige (Zykluszeit teils hinderlich)
-  - Ereignisorientierte
-  - Soft-SPS
-* Programmierung durch (EN 61131-3)
-  - textuell
-    + Strukturierter Text
-    + Anweisungsliste
-  - grafisch
-    + Kontaktplan
-    + Funktionsbausteinsprache
-    + Ablaufsprache
-
-<!--
-> Als Verbindung zwischen der Bewegungssteuerung (CNC) und der Maschine arbeitet eine SPS. Dort sorgt ein vom Maschinenhersteller geschriebenes Programm dafür, dass Betriebsarten, Schutztüre, Kühlmittel, Schmierung und andere Aggregate funktionieren. Dieses Verknüpfungsprogramm bestimmt in hohem Maße die Möglichkeiten und den Komfort einer Maschine und bleibt nach Auslieferung der Maschine unverändert. Für den Endanwender der Maschine ist es nicht direkt sichtbar. (Wikipedia)
--->
-
-<!--
-> Die Anbindung der SPS an die Maschine bzw. Anlage erfolgt mit Sensoren und Aktoren.
-> Hinzu kommen Statusanzeigen. Die Sensoren sind an die Eingänge der SPS geschaltet 
-> und vermitteln der SPS das Geschehen in der Maschine oder Anlage. (Wikipedia)
-
-Im Grunde sind SPS aktiv handelnde Abstraktionen von Zusammenschlüssen zwischen Sensoren und Aktuatoren.
-
--->
-
-
-<!--
-![Grundstruktur flexibler Automatisierung @Linke2015](figures/grundstruktur-der-flexiblen-automation)
-
-G-code is considered a “dumb” language as it only documents instructional and procedural data, leaving most of the design information behind. G-code programs are also hardware dependent, denying modern CNC machine tools desired interoperability and portability @Xu2006a.
-
-Hersteller von Software für _Supervisory Control and Data Aquisiton_ (SCADA) verwalten eine große Anzahl an Kommunikationstreibern für unterschiedliche Automatisierungs- und Informationssysteme.
-Außerdem erschweren verschiedene Kommunikationsprotokolle und Nachrichtenformate die Integration zusätzlicher Systeme @Ayatollahi2013.
-
-Industrie 4.0 @Durisin2009
--->
-
-### Betriebsdatenerfassung
+Signalverarbeitungsfunktionen im Anwenderprogramm werden innerhalb der Verarbeitungseinheit zyklisch ausgeführt.
+In einem ersten Schritt werden dafür die aktuellen Zustände der Eingänge erfasst, z.B. Sensordaten, und der Datenspeicher gelesen.
+Das Anwenderprogramm wird nach dem EVA-Prinzip (Eingabe, Verarbeitung, Ausgabe) abgearbeitet, woraufhin Ausgangssignale, z.B. Befehle für Aktuatoren, erzeugt werden.
+Diese Zyklen verbrauchen Zeit die kritische Aktionen verhindern können.  
+So existieren neben den zyklusorientierten auch unterbrechungsfähige SPS.
+Das aktuell laufende Programm kann dabei durch Interrupts pausiert und später wieder aufgenommen werden.
+Programmiert werden Anwenderprogramme mit normierten Methoden der EN 61131-3.
+In textueller Form existieren Standards für Anweisungslisten und strukturierten Text.
+Grafisch wird die Logik einer SPS durch Kontaktpläne, eine Funktionsbaustein- oder Ablaufsprache implementiert.  
+Eine weitere Kategorie bilden ereignisorientierte Steuerungen bei denen das Anwenderprogramm erst bei Statusveränderungen der Eingangssignale abgearbeitet wird.
+Weiterhin unterschieden werden modulare SPS, wie die _Simatic S7_-Serie von Siemens, und kompakt-SPS, wie zum Beispiel _LOGO!_.
+Letztere zeichnen sich durch fehlende Erweiterbarkeit aus.
+Neben hardwarebasierten SPS ermöglichen Software-Steuerungen (Soft-SPS) eine weitere Stufe der Flexibilisierung.
+Steuerungen mit Echtzeit-Betriebssystemen, auch in eingebetteten Recheneinheiten, übernehmen hier die Überwachung und Kontrolle des Prozesses, sind jedoch weniger verbreitet.  
+Eine Alternative zu SPS bietet die verbindungsprogrammierte Steuerung (VPS), bei der die Komponenten der Ein- und Ausgabe festverdrahtet und die Logik vordefiniert ist.
+Die speicherprogrammierbare Variante hat nicht nur den Vorteil der Flexibilität.
+Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung.  
 
 ## OPC Unified Architecture
 
