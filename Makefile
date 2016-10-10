@@ -36,7 +36,7 @@ WATCH_SCRIPT = \
 
 all: pdf html epub presentation
 
-pdf: latex build-latex
+pdf: latex figures-pdf build-latex
 
 latex: compile-appendix-tex fix-mendeley-bug
 	pandoc \
@@ -47,7 +47,7 @@ latex: compile-appendix-tex fix-mendeley-bug
 		--output=document.tex \
 		--default-image-extension=pdf \
 
-html: figures-png fix-mendeley-bug
+html: fix-mendeley-bug
 	pandoc \
 		metadata.yml \
 		$(ARGS) \
@@ -89,7 +89,7 @@ presentation: figures-png fix-mendeley-bug
 watch: 
 	echo "$(WATCH_SCRIPT)" | python
 
-build-latex: figures-pdf
+build-latex: 
 	xelatex document
 	biber   document
 	xelatex document

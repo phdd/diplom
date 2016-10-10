@@ -246,6 +246,55 @@ Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von zusätzlichen 
 
 ### Speicherprogrammierbare Steuerung
 
+Automatisierte Maschinen und Werkzeugkomponenten ...
+
+* Definition
+  - DINIEC 60050-351 7-2013: rechnergestützte programmierte Steuerung, deren logischer Ablauf über eine Programmiereinrichtung, zum Beispiel ein Bedienfeld, einen Hilfsrechner oder ein tragbares Terminal, veränderbar ist 
+  - Hardwaresystem
+    + Verbindung zum Prozess
+    + weiteren Automatisierungssystemen
+    + Programm- und Datenspeicher
+    + Datenverarbeitung
+  - Software
+    + Betriebssystem für Hardwarezugriff
+    + Anwenderprogramm
+* prinzipieller Aufbau
+  - Stromversorgungsfunktionen
+  - Signalverarbeitungsfunktionen 
+  - Schnittstellenfunktionen zum Datenaustausch mit
+    + Bediener (HMI)
+    + Programmierer (Programmier-/Testfunktionen)
+    + Vernetzung (Kommunikationsfunktionen)
+    + Prozess (Aktuatoren, Sensoren)
+
+![GrundlegenderHardwareaufbau einer SPS nach @Heinrich2015](figures/sps-aufbau){#fig:sps-aufbau}
+
+* Bestandteile (Hutschienen-Komponenten) @fig:sps-aufbau
+  - Stromversorgungseinheit
+  - Zentraleinheit mit
+    + CPU
+    + Speicher
+    + Verarbeitungseinheit
+    + Anschluss für Programmiergerät (PG) oder PC
+  - I/O-, bzw. Signaleinheiten (digital & analog)
+* Zyklische Abarbeitung von/bis (Signalverarbeitungsfunktionen)
+  - Eingangssignale (Sensordaten) und Speicher lesen
+  - Anwenderprogramm nach EVA-Prinzip abarbeiten
+  - Ausgangssignale erzeugen (z.B. Aktuatorbefehle)
+* Nennen von Varianten
+  - Modulare/Kompakt-SPS (LOGO!, S7)
+  - Interruptfähige (Zykluszeit teils hinderlich)
+  - Ereignisorientierte
+  - Soft-SPS
+* Programmierung durch (EN 61131-3)
+  - textuell
+    + Strukturierter Text
+    + Anweisungsliste
+  - grafisch
+    + Kontaktplan
+    + Funktionsbausteinsprache
+    + Ablaufsprache
+
 <!--
 > Als Verbindung zwischen der Bewegungssteuerung (CNC) und der Maschine arbeitet eine SPS. Dort sorgt ein vom Maschinenhersteller geschriebenes Programm dafür, dass Betriebsarten, Schutztüre, Kühlmittel, Schmierung und andere Aggregate funktionieren. Dieses Verknüpfungsprogramm bestimmt in hohem Maße die Möglichkeiten und den Komfort einer Maschine und bleibt nach Auslieferung der Maschine unverändert. Für den Endanwender der Maschine ist es nicht direkt sichtbar. (Wikipedia)
 -->
@@ -394,7 +443,7 @@ Aazam 2016 @Aazam2016
 
 Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 -->
-
+    
 # Anforderungen
 
 Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
@@ -914,10 +963,8 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     3. Konfiguration des Adressraums via HTTP/WebApp
 
 * Controlling nicht aus der Cloud @... sondern an der Maschine  
-    * SPS (und Motortreiber) als Teil des Surrogate  
-      * CNC-Kernel auf dediziertem Controller  
-        * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
-        *  
+    * CNC-Kernel auf dediziertem Controller  
+      * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
     * Echtzeit kein Problem (OPC UA kann's eh nicht)  
     * kein Feldbus, keine Koppler, kein DI/DO (vgl. @Grigoriev2016)  
     * Ethernet-basierte Kommunikation  
@@ -926,8 +973,8 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
 * Rekonfigurierbare FFZ [@Pauker2013;@Durkop2014]
 * Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <->  Maschine => Server <-> Adapter <-> Maschine ?
-    * Smoothieboard/Embedded (soft-)SPS als Adapter zu Maschine
+    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
+    * Smoothieboard/Embedded kompakte(soft-)SPS als Adapter zu Maschine
 * Wiederverwendung @Ayatollahi2013
     * des Informationsmodells
     * des Flow-Charts für die Server-Logik (teilweise)
@@ -938,6 +985,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     - Definition der Bindings von Extension Points in OPC UA Modell
 
 * SPS siehe @Windmann2015 Bild 3
+  - Surrogate+OPCUA-Modell auf für SPS (Programm übertragen, starten, reset, etc.)
 
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market.
 > The IEC standardization commission recommends OPC UA as a standard for the implementation 
@@ -948,10 +996,10 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 Nach Rücksprache
 
-* OPC UA zur Metamodellierung bzgl. der Machine
+* OPC UA zur Metamodellierung bzgl. der Machine/SPS
 * But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
 * OPC UA Modell synchron mit Realität => Laufzeitmodell
-* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K) kontrollierbar => Modellierung/Sprache der _Regeln?_
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
 * Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
 * Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
 * FB-Loop intern oder extern?
