@@ -130,7 +130,7 @@ Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte
 ## Fertigung und Automatisierung
 
 Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
-Automatisierung ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" (DIN 19233[^automatisierung]).
+Automatisierung, nach der DIN 19233, ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet".
 Eine Verknüpfung dieser beiden Konzepte ist in @fig:fertigungsautomatisierung dargestellt.
 Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd auf die Fertigung zu wirken.
 Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert - im ökonomischen Zusammenhang rationalisiert (vgl. zu diesem Absatz @Linke2015).
@@ -165,7 +165,6 @@ Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steu
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
-[^automatisierung]: Deutsches Institut für Normung e.V.: DIN V 19233: Leittechnik, Prozessautomatisierung, Automatisierung mit Prozessrechensystemen, Begriffe.
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
 [^klassische-autom]: Automatisierung vor der vierten industriellen Revolution.
 
@@ -203,7 +202,7 @@ Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit,
 Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-steuerung) kontrollierte Werkzeugmaschinen können so Informationen zu Zustand und Produktionsfortschritt bereitstellen.
 
 [^ole]: Object Linking and Embedding
-[^iolink]: Implementierung IEC TR 61131-9, Single-drop digital communication interface for small sensors and actuators
+[^iolink]: Implementierung der IEC TR 61131-9
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
@@ -989,17 +988,20 @@ OPC4Factory:
 # Evaluation
 
 These/Behauptung?
+
 * Steigerung des Automatisierungsgrads durch Feedback Loop
 * physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
     - "Echtzeitanalyse" durch Werker auch entfernt mgl.
 * Laufzeitmodell für _online_-Monitoring
 
 Umsetzung?
+
 * Proof of concept
 * Case-Study mgl.?
 * HIL-Simulation?
 
 Blocking Factors/mögliche Kritik?
+
 * Leistung von embedded computing devices => siehe @Grigoriev2016
 * Energieverbrauch
 
