@@ -1,29 +1,24 @@
 {
 	"folders":
-    [
-        {
-            "follow_symlinks": true,
-            "path": ".",
-        }
-    ],
-
+	[
+		{
+			"path": ".",
+			"name": "Diplom"
+		}
+	],
     "build_systems":
     [
         {
-            "name": "HTML",
-            "shell_cmd": "make html"
+            "name": "create HTML",
+            "cmd": ["make", "html"]
         },
         {
-            "name": "PDF",
-            "shell_cmd": "make pdf"
+            "name": "create PDF",
+            "cmd": ["make", "pdf"]
         },
         {
-            "name": "EPUB",
-            "shell_cmd": "make html"
-        },
-        {
-            "name": "Presentation",
-            "shell_cmd": "make presentation"
+            "name": "show PDF",
+            "cmd": ["evince", "document.pdf", "&"]
         }
     ]
 }

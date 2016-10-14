@@ -20,8 +20,8 @@ Feedback Zwischenverteidigung:
 
 Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
 Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde die erste industrielle Revolution eingeleitet.
-Zum Ende des 19. Jahrhunderts ermöglichten die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
-Knapp einhundert Jahre nach dieser zweiten Revolution, wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
+Zum Ende des 19. Jahrhunderts ermöglichte die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
+Knapp einhundert Jahre nach dieser zweiten Revolution wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
 Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
 Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt (vgl. zu diesem Abschnitt [@Gausemeier2014]).
 Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
@@ -261,7 +261,7 @@ Aktuatoren und Sensoren werden über die Prozessschnittstelle an eine SPS gekopp
 Der konzeptuelle Aufbau wird durch ein, in @fig:sps-aufbau dargestellten, Hardwaresystem implementiert.
 Die Stromversorgungseinheit liefert die für den Betrieb notwendige Energie und kann an die jeweilige Quelle angepasst werden.
 Eine Zentraleinheit mit CPU, Speicher, Verarbeitungseinheit und Anschlüssen für Programmiergeräte  und Netzwerk bildet die Steuerungslogik ab.
-Die Kopplung an digitale und analoge Datenquellen und -empfänger erfolgt über Ein-/Ausgabe-, beziehungsweise Signaleinheiten.  
+Die Kopplung an digitale und analoge Datenquellen und -empfänger erfolgt über Ein-/Ausgabe-, beziehungsweise Signaleinheiten.
 
 ![Grundlegender Hardwareaufbau einer SPS nach @Heinrich2015](figures/sps-aufbau){#fig:sps-aufbau}
 
@@ -508,6 +508,53 @@ Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder 
 Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
 Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
 
+## Architektur von CPS für Industrie 4.0
+
+@Lee2015
+
+<!-- Purpose -->
+* CPS sind noch jung => klare Def. von Strukt. und Methode für I4.0 Anwendungen nötig
+* Vorstellung des Designs eines einheitlichen System-Frameworks
+* fünfschichtige CPS-Arch. (5C)
+* Leitfaden für Entwicklung und Auslieferung
+
+<!-- Design/Methodology/Approach -->
+* Levels (Bottom up)
+  - Smart Connection
+    + akkurate/zuverlässige Datenerfassung (Maschinen & Komponenten)
+    + Unterscheidung direkter Sensordaten und Daten anderer Systeme
+    + Management der Datenaggregation (homogen) und Transfer zu **zentralem Server**
+    + Auswahl angemessener Sensorik
+    + Kommunikation der Daten über Netzwerke (keine direkte Anbindung)
+  - Data-to-Information Conversion 
+    + Inferenz von Informationen aus Daten
+    + Intelligente Analyse der Maschinenverfassung
+    + multidimensionale Datenkorrelationen
+    + Ausfall- und Leistungsvorhersage
+  - **Hier könnte ihr digitaler Zwilling stehen (weiterer Layer im Sinne von Fog notwendig)**
+  - Cyber
+    + aktives Übertragen der Informationen (Push) durch verbundene Maschinen 
+    + digitale Zwillinge von Komponenten und Maschinen
+    + Persistenz historischer Daten
+    + Data Mining, Clustering, etc.
+    + Maschinen werden mit anderen verglichen => Vorhersage mittels hist. Daten anderer Maschinen
+  - Cognition
+    + Präsentation des akquirierten Wissens für Experten
+    + Priorisierung von Aufgaben zur Optimierung der Wartung
+  - Configuration
+    + Resonanz von virtuellem Modell zu physischem Raum
+    + übergeordnete Kontrollinstanz
+
+<!-- Findings -->
+
+<!-- Research Implications/Limitations -->
+
+<!-- Practical Implications -->
+
+<!-- Originality/Value -->
+
+<!-- Requirements -->
+
 ## Steuerung und Überwachung aus der Ferne
 
 Auf einer Netzwerkarchitektur wie in @sec:netzwerkarchitektur-für-cpps, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
@@ -559,13 +606,15 @@ Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglich
 Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst.
 Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
-+-----------+-------------+-----------+-----------+-----------+
-|           | Überwachung | Steuerung | Standards | Lokalität |
-+===========+=============+===========+===========+===========+
-| @Wang2008 | ◐           | ◐         | ○         | ◐         |
-+-----------+-------------+-----------+-----------+-----------+
-| @Wang2004 | ●           | ●         | ◐         | ◐         |
-+-----------+-------------+-----------+-----------+-----------+
++-------------+---------------+-------------+-------------+-------------+
+|             | Überwachung   | Steuerung   | Standards   | Lokalität   |
++=============+===============+=============+=============+=============+
+| @Wang2008   | ◐             | ◐           | ○           | ◐           |
++-------------+---------------+-------------+-------------+-------------+
+| @Wang2004   | ●             | ●           | ◐           | ◐           |
++-------------+---------------+-------------+-------------+-------------+
+| @Lee2015    |               |             |             |             |
++-------------+---------------+-------------+-------------+-------------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
@@ -914,7 +963,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Sensorwert-Thresholds für Anomaly Detection
 * Distributed NC!
 
-* Laufzeitkonfiguration des Surrogate?
+* Laufzeitkonfiguration des Surrogate? 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
     1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
       1. Auswahl des Access-Points
