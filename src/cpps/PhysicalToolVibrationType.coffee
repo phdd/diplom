@@ -8,6 +8,7 @@ class PhysicalToolVibrationType
     @Sensor = new AccelerationSensor @_onChange
     @threshold = options.threshold or 0
     @lastVibration = 0
+    @$Vibration = 0
 
   _onChange: (acceleration) =>
     vibration =
@@ -16,7 +17,8 @@ class PhysicalToolVibrationType
       Math.abs(acceleration[2])
 
     if vibration > @threshold
-      @$Vibration = @lastVibration = vibration
+      @lastVibration = vibration
+      @$Vibration = vibration
 
 
 #noinspection JSUnresolvedVariable
