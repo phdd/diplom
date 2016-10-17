@@ -5,6 +5,7 @@
     <Aliases>
         <Alias Alias="Boolean">i=1</Alias>
         <Alias Alias="String">i=12</Alias>
+        <Alias Alias="Integer">i=27</Alias>
         <Alias Alias="HasModellingRule">i=37</Alias>
         <Alias Alias="HasTypeDefinition">i=40</Alias>
         <Alias Alias="HasSubtype">i=45</Alias>
@@ -14,7 +15,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="AACa9A1kUbY5AqmH9Z+27A==" Version="1.4.4"/>
+            <ModelInfo Tool="UaModeler" Hash="pIyAvIoJfkhRPTlg14ZD4Q==" Version="1.4.4"/>
         </Extension>
     </Extensions>
     <UAObjectType NodeId="ns=1;i=1005" BrowseName="1:KillSwitchType">
@@ -91,6 +92,7 @@
             <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5002</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
         </References>
     </UAObjectType>
     <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5003" BrowseName="1:KillSwitch">
@@ -168,11 +170,11 @@
         <DisplayName>NC</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent">ns=1;i=7011</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6010</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6011</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
+            <Reference ReferenceType="HasModellingRule">i=80</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7012</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7013</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7014</Reference>
@@ -373,6 +375,23 @@
                 </uax:ExtensionObject>
             </uax:ListOfExtensionObject>
         </Value>
+    </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5004" BrowseName="1:ToolVibration">
+        <DisplayName>ToolVibration</DisplayName>
+        <References>
+            <Reference ReferenceType="HasModellingRule">i=80</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1006</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6019</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="Integer" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6019" BrowseName="1:Vibration" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>Vibration</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
+        </References>
     </UAVariable>
     <UAObjectType NodeId="ns=1;i=1003" BrowseName="1:NCType">
         <DisplayName>NCType</DisplayName>
@@ -581,5 +600,20 @@
                 </uax:ExtensionObject>
             </uax:ListOfExtensionObject>
         </Value>
+    </UAVariable>
+    <UAObjectType NodeId="ns=1;i=1006" BrowseName="1:ToolVibrationType">
+        <DisplayName>ToolVibrationType</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6020</Reference>
+        </References>
+    </UAObjectType>
+    <UAVariable DataType="Integer" ParentNodeId="ns=1;i=1006" NodeId="ns=1;i=6020" BrowseName="1:Vibration" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>Vibration</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1006</Reference>
+        </References>
     </UAVariable>
 </UANodeSet>
