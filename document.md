@@ -513,49 +513,66 @@ Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung
 @Lee2015
 
 <!-- Purpose -->
-* CPS sind noch jung => klare Def. von Strukt. und Methode für I4.0 Anwendungen nötig
-* Vorstellung des Designs eines einheitlichen System-Frameworks
-* fünfschichtige CPS-Arch. (5C)
+* CPS sind noch jung => klare Def. von Strukt. und Methode zur Impl. für I4.0 Anwendungen notwendig
+* Design eines einheitlichen System-Frameworks
+* 5C CPS Architektur
 * Leitfaden für Entwicklung und Auslieferung
+* Betrachtung von CPS auf Komponenten (z.B. Spindel), Maschinen- (CNC-Drehbank) und Produktionssystemebene (flexible Fertigungszelle)
 
 <!-- Design/Methodology/Approach -->
 * Levels (Bottom up)
-  - Smart Connection
+  1. Smart Connection (Condition Based Monitoring, CBM)
     + akkurate/zuverlässige Datenerfassung (Maschinen & Komponenten)
     + Unterscheidung direkter Sensordaten und Daten anderer Systeme
     + Management der Datenaggregation (homogen) und Transfer zu **zentralem Server**
-    + Auswahl angemessener Sensorik
-    + Kommunikation der Daten über Netzwerke (keine direkte Anbindung)
-  - Data-to-Information Conversion 
+    + Zustandsüberwachung
+    + Kommunikation der Daten über Netzwerke (keine direkte Verdrahtung)
+  2. Data-to-Information Conversion (Prognostics and Health-Management, PHM)
     + Inferenz von Informationen aus Daten
     + Intelligente Analyse der Maschinenverfassung
     + multidimensionale Datenkorrelationen
     + Ausfall- und Leistungsvorhersage
-  - **Hier könnte ihr digitaler Zwilling stehen (weiterer Layer im Sinne von Fog notwendig)**
-  - Cyber
+    + Self-aware
+  3. Cyber (CPS)
     + aktives Übertragen der Informationen (Push) durch verbundene Maschinen 
-    + digitale Zwillinge von Komponenten und Maschinen
-    + Persistenz historischer Daten
-    + Data Mining, Clustering, etc.
-    + Maschinen werden mit anderen verglichen => Vorhersage mittels hist. Daten anderer Maschinen
-  - Cognition
+    + digitale Zwillinge von Komponenten und Maschinen (**Agent** in CPPS-Wolke)
+    + Time Machine
+    + Self-compare (zu anderen Machinen)
+    + cyber-physische Schnittstelle (CPI) für Netzwerk zwischen Maschinen
+  4. Cognition (Decision Support System, DSS)
     + Präsentation des akquirierten Wissens für Experten
-    + Priorisierung von Aufgaben zur Optimierung der Wartung
-  - Configuration
-    + Resonanz von virtuellem Modell zu physischem Raum
+    + kollaborative Diagnose und Entscheidungsfindung 
+    + Simulation und Synthese künftiger Schritte
+  5. Configuration (Resilient Control System, RCS)
+    + Resonanz/Feedback von virtuellem Modell zu physischem Raum
     + übergeordnete Kontrollinstanz
-
-<!-- Findings -->
-
-<!-- Research Implications/Limitations -->
-
-<!-- Practical Implications -->
-
-<!-- Originality/Value -->
+* Time machine,  Analysen auf Cyber-Schicht mit ...
+  - Snapshot Collection
+    + Verwalten eingehender Daten und persistieren von Information
+    + Momentaufnahmen bei signifikanter Zustandsänderung
+    + MA akkumulieren zu Bauteil-/Maschinenhistorie = Asset
+  - Similarity Identification
+    + Rückblick auf Historie und Berechnung der Ähnlichkeit des aktuellen Verhaltens bzgl. Asset
+    + Pattern-Matching, Match Matrix, Trajectory Similarity Method, etc.
+    + bessere Vorhersagen künftigen Verhaltens überwachter Systeme
+  - Synthesis optimized future Steps
+    + Simulation künftiger Szenarien bzgl. Asset auf Basis der Historie
+    + effizientestes Verwendungsmuster verwendet
 
 <!-- Requirements -->
+* Überwachung (vgl. @sec:überwachung)
+  - Time Machine mit Snapshots und Similarity nicht lokal
+  - dennoch erfolgt Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS
+* Steuerung(vgl. @sec:steuerung)
+  - Kontrolle von Maschinen und Komponenten ist kein Teil des Konzepts 
+* Standardisierung (vgl. @sec:standardisierung)
+  - MTConnect benannt, aber nicht explizit integriert
+  - kein Konzept zu standardisierten Informationsprotokolle und -modelle
+* Lokalität (vgl. @sec:lokalität) 
+  - teilweise erfüllt durch Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage
+  - cyber-Ebene als **zentraler** Knotenpunkt für Historie aller Maschinen => CPS erst auf Ebene abseits der Maschine
 
-## Steuerung und Überwachung aus der Ferne
+## Entfernte Steuerung und Überwachung
 
 Auf einer Netzwerkarchitektur wie in @sec:netzwerkarchitektur-für-cpps, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
 Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
@@ -962,6 +979,8 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
 * Sensorwert-Thresholds für Anomaly Detection
 * Distributed NC!
+
+* Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
 
 * Laufzeitkonfiguration des Surrogate? 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
