@@ -621,10 +621,12 @@ Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und 
 ----
 
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
-    - kein Standard bei Kommunikation
+  - kein Standard bei Kommunikation
 * Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
 * Unterschied RetroNet @FraunhoferIPK2016 (TODO)
-    - keine zentrale Datenhaltung
+  - keine zentrale Datenhaltung
+* Moctezuma2012 
+* Karunakaran2009
 
 <!-- ## Maschinendatenerfassung & -analyse -->
 
@@ -962,6 +964,11 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
 * Sensorwert-Thresholds für Anomaly Detection
 * Distributed NC!
+
+* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  
+  The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
+  Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
+  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.[15]
 
 * Laufzeitkonfiguration des Surrogate? 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
