@@ -78,7 +78,7 @@ Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wod
 [^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation,", VDMA, 2013_.
 
 Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
-<!-- TODO evtl. Szenario aus Borangiu 2014 oder so... -->
+<!-- TODO Szenario aus Borangiu 2014 oder so... -->
 Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
@@ -107,7 +107,7 @@ Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines grob
 
 > Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
 > 
-> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+> 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Steuerung und Überwachung veralteter Fertigungsanlagen im Kontext von CPPS geeignet?
 > 2. Wie und wo werden Informationen zu Maschinenzustand und  
 > -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 > 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
@@ -383,6 +383,13 @@ Sowohl Hard- und Software als auch die Verarbeitung der anfallenden Daten wird n
 Damit sollen die Produktionsressourcen auf Knoten eines Netzwerks aufgeteilt und schrittweise auf ihre funktionale Struktur abstrahiert werden @VereinDeutscherIngenieuree.V.2013.
 Bis eine geeignete Architektur für CPPS andere Möglichkeiten bietet (vgl. [@Lee2015;@Borangiu2014]), werden Echtzeit-Steuerungen in der Feldebene verbleiben @VereinDeutscherIngenieuree.V.2013.
 
+<!-- TODO: Einbauen -->
+@Monostori2016
+
+* Intelligence (smartness), i.e. the elements are able to acquiring information from their surroundings and act autonomously.
+* Connectedness, i.e. the ability to set up and use connections to the other elements of the system – including human beings – for cooperation and collaboration, and to the knowledge and services available on the Internet.
+* Responsiveness towards internal and external changes.
+
 <!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008. -->
@@ -577,7 +584,7 @@ Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung
 Auf einer Netzwerkarchitektur wie in @sec:netzwerkarchitektur-für-cpps, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
 Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
 <!-- Purpose -->
-Wang et al. entwickelte 2008 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
+Wang et al. entwickelte 2004 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
 <!-- Design/Methodology/Approach -->
 Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
 Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
@@ -640,10 +647,10 @@ Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und 
 * Control software for industrial CNC machines [@Ferrolho2005;@Ferrolho2007]
   - kein Standard bei Kommunikation
 * Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
-* Unterschied RetroNet @FraunhoferIPK2016 (TODO)
+* Retrofitting a factory automation system to address market needs and societal changes Moctezuma2012 
+
+* Unterschied RetroNet @FraunhoferIPK2016 
   - keine zentrale Datenhaltung
-* Moctezuma2012 
-* Karunakaran2009
 
 <!-- ## Maschinendatenerfassung & -analyse -->
 
@@ -971,25 +978,39 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 [@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
 
-* TODO Projekte zusammenfassen & gegeneinander abgrenzen
+* Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
 * Entwicklung von Adaptern meist Standardlösung
 * Kosten => Remote Maintenance?
 
 # Konzeption
 
+* System- und Softwarearchitektur
+  - Virtuelle Maschinenrepräsentation
+  - ...
+* Informationsmodell
+  - Modellierung der Anlagenstruktur
+  - Laufzeitmodell
+* Überwachung
+  - Datenaggregation und Persistenz
+  - Bereitstellung von Informationen
+* Steuerung
+  - Numerisch kontrollierte Maschinen
+  - SPS und automatisierte Komponenten
+* Rückkopplung
+
+
+
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
 * Sensorwert-Thresholds für Anomaly Detection
 * Distributed NC!
 
-<<<<<<< HEAD
 * Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
-=======
+
 * https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  
   The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
   Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
   Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.[15]
->>>>>>> 451ccb13991e43a5aff8c2c4784526355e924686
 
 * Laufzeitkonfiguration des Surrogate? 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
@@ -1023,9 +1044,9 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
     - Definition der Bindings von Extension Points in OPC UA Modell
 
 * SPS siehe @Windmann2015 Bild 3
-  - Surrogate+OPCUA-Modell auf für SPS (Programm übertragen, starten, reset, etc.)
+  - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
 
-> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market.
+> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, SOA Gegenargument auf Feldebene)
 > The IEC standardization commission recommends OPC UA as a standard for the implementation 
 > of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
 > However, OPC UA does not allow real-time transmission, which is why a real-time
