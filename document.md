@@ -648,7 +648,6 @@ Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und 
   - kein Standard bei Kommunikation
 * Prototypischer OPC UA Server für Fernsteuerung @Ayatollahi2013
 * Retrofitting a factory automation system to address market needs and societal changes Moctezuma2012 
-
 * Unterschied RetroNet @FraunhoferIPK2016 
   - keine zentrale Datenhaltung
 
@@ -1046,7 +1045,11 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * SPS siehe @Windmann2015 Bild 3
   - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
 
+<<<<<<< HEAD
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, SOA Gegenargument auf Feldebene)
+=======
+> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
+>>>>>>> c8ce4a4abce8d3440a61dc05530ee1f680bda5ea
 > The IEC standardization commission recommends OPC UA as a standard for the implementation 
 > of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
 > However, OPC UA does not allow real-time transmission, which is why a real-time
