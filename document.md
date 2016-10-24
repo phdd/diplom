@@ -485,7 +485,7 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 
 - Überblick @Teti2010
 - Power Signal Analysis @Deshpande2011
-- TCM @Lee2006
+- TCM @Lee2006, @Ambhore2015
 - RT-Monitoring @Downey2016
 
 ## Steuerung von Fertigungssystemen 
@@ -494,6 +494,8 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 - RS-232/Ethernet Protokoll für Roboter und CNC in FFS @Ferrolho2007
 - OPC UA für CNC @Ayatollahi2013
 - OPC UA für Robotersteuerung @Pauker2014
+- OPC UA SOA (SPS) @Windmann2015
+  + @Hammerstingl2015
 
 ## System- und Softwarearchitektur flexibler Produktion
 
@@ -503,6 +505,11 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 - SOA-Retrofitting einer Fabrikautomatisierung @Moctezuma2012
 - SOA-Retrofitting + OPC UA @Durkop2014
 - CPS-Architektur für I4.0 @Lee2015
+- I4.0-Komponente (Bild 9) @Adolphs2015
+  + Virt. Maschinenabb.
+  + Surrogate
+  + Wrapper
+  + ...
 
 ---
 
@@ -1023,7 +1030,9 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
   - SPS und automatisierte Komponenten
 * Rückkopplung
 
+---
 
+**MATERIAL**
 
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
 * Sensorwert-Thresholds für Anomaly Detection
@@ -1070,10 +1079,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * SPS siehe @Windmann2015 Bild 3
   - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
 
-> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, SOA Gegenargument auf Feldebene)
-=======
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
->>>>>>> c8ce4a4abce8d3440a61dc05530ee1f680bda5ea
 > The IEC standardization commission recommends OPC UA as a standard for the implementation 
 > of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
 > However, OPC UA does not allow real-time transmission, which is why a real-time
