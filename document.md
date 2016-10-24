@@ -481,6 +481,31 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
 
+## Überwachung des Maschinenbetriebs
+
+- Überblick @Teti2010
+- Power Signal Analysis @Deshpande2011
+- TCM @Lee2006
+- RT-Monitoring @Downey2016
+
+## Steuerung von Fertigungssystemen 
+
+- RS-232 Protokoll für CNC von Dreh-/Fräsmaschine @Ferrolho2005
+- RS-232/Ethernet Protokoll für Roboter und CNC in FFS @Ferrolho2007
+- OPC UA für CNC @Ayatollahi2013
+- OPC UA für Robotersteuerung @Pauker2014
+
+## System- und Softwarearchitektur flexibler Produktion
+
+- Wise-Shopfloor @Wang2004
+- WAN-CNC mit OPC @Torrisi2008
+- Rekonfigurierbarkeit flexibler Fertigungszellen @Pauker2013
+- SOA-Retrofitting einer Fabrikautomatisierung @Moctezuma2012
+- SOA-Retrofitting + OPC UA @Durkop2014
+- CPS-Architektur für I4.0 @Lee2015
+
+---
+
 ## Netzwerkarchitektur für CPPS
 
 <!-- Purpose -->
@@ -1045,7 +1070,6 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 * SPS siehe @Windmann2015 Bild 3
   - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
 
-<<<<<<< HEAD
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, SOA Gegenargument auf Feldebene)
 =======
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
