@@ -80,7 +80,7 @@ Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wod
 [^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation,", VDMA, 2013_.
 
 Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
-<!-- TODO Szenario aus Borangiu 2014 oder so... -->
+
 Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
@@ -140,8 +140,11 @@ Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, w
 ![Automatisierte Fertigung aus @Linke2015](figures/fertigungsautomatisierung){#fig:fertigungsautomatisierung}
 
 Um die verschiedenen Bereiche der klassischen[^klassische-autom] Automatisierung darzustellen, wird eine Schichtenorganisation herangezogen.
-Die Struktur eines Unternehmens entspricht dann einer Automatisierungspyramide.
+Die Struktur eines Unternehmens entspricht damit einer Automatisierungspyramide.
 Unterschieden werden diese Ebenen aufgrund der unterschiedlichen Anforderungen an Datendurchsatz und Übertragungsgeschwindigkeit (vgl. zu diesem Absatz @Linke2015).
+Wird eine neue Komponente in diese Pyramide integriert, geschieht dies entweder horizontal oder vertikal.
+Ersteres bedeutet die Verbindung der Komponente mit Geräten gleicher Ebene.
+Ist sie vertikal integriert, verbindet sie Komponenten unterschiedlicher Ebenen.
 Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie folgt:
 
 * **Unternehmensleitebene**  
@@ -247,8 +250,8 @@ Beispielsweise wird durch STEP-NC die Abhängigkeit von Parametern reduziert.
 Neuberechnungen zur Laufzeit beziehen unter anderem Verformungen durch Erhitzen des Werkstücks in die Fahrtenplanung ein.
 Function Blocks dagegen, sind Teil eines Standards für verteilte industrielle Prozesse und Kontrollsysteme.
 Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC. (vgl. zu diesem Absatz @Xu2006a).  
-Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nicht durch CNC steuerbar sind.
-Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von zusätzlichen Systemen in die Fertigung integriert.
+Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nur indirekt durch CNC steuerbar sind.
+Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert.
 
 [^lathe-example]: nach [www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners](http://www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners/) vom 07.10.2016
 
@@ -289,10 +292,13 @@ Neben hardwarebasierten SPS ermöglichen Software-Steuerungen (Soft-SPS) eine we
 Steuerungen mit Echtzeit-Betriebssystemen, auch in eingebetteten Recheneinheiten, übernehmen hier die Überwachung und Kontrolle des Prozesses, sind jedoch weniger verbreitet.  
 Eine Alternative zu SPS bietet die verbindungsprogrammierte Steuerung (VPS), bei der die Komponenten der Ein- und Ausgabe festverdrahtet und die Logik vordefiniert ist.
 Die speicherprogrammierbare Variante hat nicht nur den Vorteil der Flexibilität.
-Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung.  
+Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung (vgl. zu diesem Absatz @Heinrich2015).  
 
-Werkzeugmaschinen mit CNC (vgl. @sec:numerische-steuerung) besitzen eine interne SPS für die Kontrolle der automatisierten Werkzeugkomponenten.
-So werden beispielsweise Werkzeugwechsel oder die Steuerung eines Kühlsystems via CNC-Befehl mit einer SPS realisiert.
+Die EN 61131-3 ist nicht die einzige Möglichkeit der Programmierung einer SPS.
+Zugunsten vertikaler und horizontaler Integration hat die PLCopen[^plcopen], eine Vereinigung von Steuerungsherstellern, und die OPC-Foundation Funktionsbausteine in einer Spezifikation für OPC UA abgebildet.
+Damit kann die SPS eine aktive Rolle innerhalb der Automatisierungspyramide einnehmen und sich beispielsweise Produktionsaufträge eigenständig abholen (vgl. zu diesem Absatz @OPCFoundation2014).
+
+[^plcopen]: [www.plcopen.org](http://www.plcopen.org/)
 
 ## OPC Unified Architecture
 
@@ -394,12 +400,14 @@ Sowohl Hard- und Software als auch die Verarbeitung der anfallenden Daten wird n
 Damit sollen die Produktionsressourcen auf Knoten eines Netzwerks aufgeteilt und schrittweise auf ihre funktionale Struktur abstrahiert werden @VereinDeutscherIngenieuree.V.2013.
 Bis eine geeignete Architektur für CPPS andere Möglichkeiten bietet (vgl. [@Lee2015;@Borangiu2014]), werden Echtzeit-Steuerungen in der Feldebene verbleiben @VereinDeutscherIngenieuree.V.2013.
 
-<!-- TODO: Einbauen -->
+<!-- TODO: Einbauen?
 @Monostori2016
 
 * Intelligence (smartness), i.e. the elements are able to acquiring information from their surroundings and act autonomously.
 * Connectedness, i.e. the ability to set up and use connections to the other elements of the system – including human beings – for cooperation and collaboration, and to the knowledge and services available on the Internet.
 * Responsiveness towards internal and external changes.
+
+-->
 
 <!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
@@ -1061,11 +1069,20 @@ Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung an externe 
 
 ### S3 - Speicherprogrammierbare Steuerung
 
-* gekoppelt an Bus
-    - kein Ethernet mit TCP/IP
-    - SPS-Netzwerkkarten nachrüstbar => Protokoll?
+Beim Retrofitting von speicherprogrammierbaren Steuerungen werden in dieser Arbeit drei Fälle unterschieden.
+Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus.
+<!-- Das Nachrüsten modularer Steuerungen mit einer Netzwerkkarte sorgt für die Integration in ein Netzwerk. -->
+Der zweite Fall von zu modernisierenden SPS setzt eine Netzwerkanbindung voraus, veräußert jedoch weder ein Informationsmodell noch standardisierte Kommunikationsprotokolle.
+<!--Existiert, im zweiten Fall, eine physische Netzwerkverbindung, müssen 
+Informationsmodelle und Protokolle definiert und über Teilsysteme Implementiert werden.
+Selbiges gilt auch für Geräte der ersten Kategorie.-->
+Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
+Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
+<!-- UML => OPC UA, etc. @Pauker2016 -->
 
 ---
+
+**MATERIAL**
 
 Warum OPC UA?
 
@@ -1092,11 +1109,16 @@ Warum OPC UA?
 * Steuerung
   - Numerisch kontrollierte Maschinen
   - SPS und automatisierte Komponenten
+    1. kein Ethernet mit TCP/IP 
+        + gekoppelt an Bus
+        + SPS-Netzwerkkarten nachrüstbar
+    2. Ethernet mit TCP/IP
+        + Ignition OPC UA Modul
+        + PLCopen Companion Specification für OPC UA
+    3. integrierter OPC UA Server 
 * Rückkopplung
 
 ---
-
-**MATERIAL**
 
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
 * Sensorwert-Thresholds für Anomaly Detection
