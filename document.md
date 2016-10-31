@@ -6,6 +6,8 @@ Feedback Zwischenverteidigung:
 * Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
     - SPS abstrahiert Aktuator + Intelligenz => IBH Link UA
     - Im SPS-Programm kann man direkt SPS-Client-Funktionen aufrufen. Dies ermöglicht der S7-SPS mit Steuerungen anderer Hersteller über OPC UA zu kommunizieren. (http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951)
+    - http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951
+    - https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html
 * Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
 * Surrogate ist standardisierendes Element => CPS-Adapter
 * Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
@@ -1025,8 +1027,6 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 # Konzeption
 
-Warum OPC UA?
-
 * Problemlösung durch konzeptuelles Softwareartefakt
 * Kombination untersuchter Forschungsarbeiten und neuer Konzepte
 * Berücksichtigung der Anforderungen @sec:anforderungen
@@ -1036,11 +1036,11 @@ Warum OPC UA?
     - CNC
     - automatisierte Werkzeugkomponenten (AWK)
     - Überwachung
+    - Ethernetanbindung mit TCP/IP
 
+## Szenarien für Retrofitting
 
-## Anwendungsfälle des Retrofitting
-
-### AF1 - Maschine ohne Schnittstellen
+### S1 - Maschine ohne Schnittstellen
 
 Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden.
 Die CNC ist fest mit dem Steuerungscomputer verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
@@ -1048,21 +1048,26 @@ Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nich
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
 Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
 
-### AF2 - Maschine mit Direct Numerical Control
+### S2 - Maschine mit Direct Numerical Control
 
 _Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-steuerung).
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
 Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
-Dem Entwickler steht für diese keine Schnittstelle zur Verfügung.
+Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden.  
 Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
 Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung an externe Systeme.
 
-### AF3 - Speicherprogrammierbare Steuerung
+### S3 - Speicherprogrammierbare Steuerung
 
+* gekoppelt an Bus
+    - kein Ethernet mit TCP/IP
+    - SPS-Netzwerkkarten nachrüstbar => Protokoll?
 
 ---
+
+Warum OPC UA?
 
 ## Surrogate
 
@@ -1099,10 +1104,12 @@ Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung an externe 
 
 * Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
 
-* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  
+* http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951 (OPC UA für S5 & S7)
+* https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html (TCP/IP & OPC UA für S7)
+* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  (SW-Wrapper für SPS)
   The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
   Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
-  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.[15]
+  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
 
 * Laufzeitkonfiguration des Surrogate? 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
