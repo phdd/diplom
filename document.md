@@ -1035,16 +1035,11 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 # Konzeption
 
-* Problemlösung durch konzeptuelles Softwareartefakt
-* Kombination untersuchter Forschungsarbeiten und neuer Konzepte
-* Berücksichtigung der Anforderungen @sec:anforderungen
-* Beschreibung der System- und Softwarearchitektur des Artefakts
-* 4+1 Software-Architekturmodell nach @Kruchten1995
-* Virtuelle Maschinenrepräsentation (VMR)
-    - CNC
-    - automatisierte Werkzeugkomponenten (AWK)
-    - Überwachung
-    - Ethernetanbindung mit TCP/IP
+Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen.
+Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
+Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
+Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage und den Schwerpunkt des Designs.
+Repräsentanten der berücksichtigten Maschinen sind in den folgenden Szenarien beschrieben und werden im Laufe dieses Kapitels referenziert.
 
 ## Szenarien für Retrofitting
 
@@ -1085,6 +1080,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 **MATERIAL**
 
 Warum OPC UA?
+Was passiert hinter, wer arbeitet mit der VMR?
 
 ## Surrogate
 
@@ -1095,6 +1091,12 @@ Warum OPC UA?
 * Peripherie
     1. maschineneigene SPS ansprechen (OPC UA Wrapper)
     2. Surrogate direkt an Sensor/Aktuator angeschlossen
+
+* CNC
+* automatisierte Werkzeugkomponenten (AWK)
+* Überwachung
+* Ethernetanbindung mit TCP/IP
+
 
 ---
 
