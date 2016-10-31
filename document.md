@@ -82,7 +82,7 @@ Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterlie
 Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
-Automatisierte Maschinenkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
+Automatisierte Werkzeugkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
 Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
 
 Auch ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
@@ -230,6 +230,12 @@ Das Einspannen des Rohlings durch `M12` schließt die Klammern - in der Konstruk
 Ein Eilgang, wie durch `G0 X100 Z50`, richtet das Werkzeug ohne das Entfernen von Material an einem bestimmten Punkt aus, wobei sich `A` im Beipiel an Position `(X = 100, Z = 50)` befindet.
 Der Befehl `G1` wird für den eigentlichen Fräsvorgang verwendet und lässt das Werkzeug mit einer Geschwindigkeit (Vorschub) von 600 mm/min durch das Material laufen.
 
+Vielen CNC-Anlagen fehlt der Speicher für Programme mit mehreren tausend Bewegungsinstruktionen.
+Derlei Befehlslisten müssen während der Bearbeitung durch ein Fremdsystem an die Maschine sukzessiv übertragen werden. 
+Das Konzept der _Direct Numerical Control_ (DNC) steht für diese Verbindung via RS-232 oder Parallel Port.
+Fremdsysteme sind PCs oder dedizierte DNC-Transfergeräte, die den Code von Speichermedien wie USB-Sticks und SD-Karten beziehen.
+DNC, verstanden als _Distributed Numerical Control_, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund.
+
 Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation.
 Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz @Smid2008).  
 Dennoch sind auch moderne CNC-Anlagen in ihrer Funktion limitiert, da der verwendete G-Code lediglich Instruktionen und prozedurale Daten abbilden kann, wodurch ein Großteil der Konstruktionsinformationen verloren geht.
@@ -282,6 +288,9 @@ Steuerungen mit Echtzeit-Betriebssystemen, auch in eingebetteten Recheneinheiten
 Eine Alternative zu SPS bietet die verbindungsprogrammierte Steuerung (VPS), bei der die Komponenten der Ein- und Ausgabe festverdrahtet und die Logik vordefiniert ist.
 Die speicherprogrammierbare Variante hat nicht nur den Vorteil der Flexibilität.
 Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung.  
+
+Werkzeugmaschinen mit CNC (vgl. @sec:numerische-steuerung) besitzen eine interne SPS für die Kontrolle der automatisierten Werkzeugkomponenten.
+So werden beispielsweise Werkzeugwechsel oder die Steuerung eines Kühlsystems via CNC-Befehl mit einer SPS realisiert.
 
 ## OPC Unified Architecture
 
@@ -1007,7 +1016,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 
 
-[@Schlechtendahl2015;@Schlechtendahl2014;@Vick2015]
+[@Schlechtendahl2015;@Schlechtendahl2014]
 
 * Projekte zusammenfassen & gegeneinander abgrenzen
 * Schnittstellenproblematik immer Teil des Problems
@@ -1016,9 +1025,59 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 
 # Konzeption
 
+Warum OPC UA?
+
+* Problemlösung durch konzeptuelles Softwareartefakt
+* Kombination untersuchter Forschungsarbeiten und neuer Konzepte
+* Berücksichtigung der Anforderungen @sec:anforderungen
+* Beschreibung der System- und Softwarearchitektur des Artefakts
+* 4+1 Software-Architekturmodell nach @Kruchten1995
+* Virtuelle Maschinenrepräsentation (VMR)
+    - CNC
+    - automatisierte Werkzeugkomponenten (AWK)
+    - Überwachung
+
+
+## Anwendungsfälle des Retrofitting
+
+### AF1 - Maschine ohne Schnittstellen
+
+Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden.
+Die CNC ist fest mit dem Steuerungscomputer verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
+Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
+Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
+Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
+
+### AF2 - Maschine mit Direct Numerical Control
+
+_Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-steuerung).
+Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
+Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
+Dem Entwickler steht für diese keine Schnittstelle zur Verfügung.
+Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden.  
+Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
+Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
+Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung an externe Systeme.
+
+### AF3 - Speicherprogrammierbare Steuerung
+
+
+---
+
+## Surrogate
+
+* CNC
+    1. DNC-Schnittstellenadapter
+    2. Motortreiber als Schnittstelle
+    3. Motoren als Schnittstelle
+* Peripherie
+    1. maschineneigene SPS ansprechen (OPC UA Wrapper)
+    2. Surrogate direkt an Sensor/Aktuator angeschlossen
+
+---
+
 * System- und Softwarearchitektur
-  - Virtuelle Maschinenrepräsentation
-  - ...
+    - 
 * Informationsmodell
   - Modellierung der Anlagenstruktur
   - Laufzeitmodell
