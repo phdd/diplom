@@ -1075,14 +1075,18 @@ Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmode
 Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
 <!-- UML => OPC UA, etc. @Pauker2016 -->
 
+## System- und Softwarearchitektur
+
+
+
 ---
 
 **MATERIAL**
 
 Warum OPC UA?
-Was passiert hinter, wer arbeitet mit der VMR?
+Was passiert hinter/wer arbeitet mit der VMR?
 
-## Surrogate
+## Virtuelle Maschinenrepräsentation
 
 * CNC
     1. DNC-Schnittstellenadapter
