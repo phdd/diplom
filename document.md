@@ -446,7 +446,7 @@ Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werde
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
 Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten in keinem virtuellen Weltmodell zur Verfügung stehen.
 
-REQ1
+R1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
 
 ## Steuerung
@@ -459,7 +459,7 @@ Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermögl
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
 Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
 
-REQ2
+R2
 : Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
 
 Die steigende Automatisierung zur Optimierung der Produktionsabläufe wird in einem CPPS durch Rückkopplung erreicht.
@@ -477,7 +477,7 @@ Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist
 Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen @Ayatollahi2013.
 Für SPS gelten in diesem Zusammenhang die gleichen Anforderungen.
 
-REQ3
+R3
 : Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
 
 ## Lokalität
@@ -489,7 +489,7 @@ Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz 
 Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden @Bonomi2012.
 Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
-REQ4
+R4
 : Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
 
 Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten durch die Nähe zur Maschine minimiert wird, ist weder harte noch weiche Echtzeit ein Kriterium.
@@ -558,12 +558,12 @@ Sensoren als Teil einer möglichen Rückkopplungsschleife sind vorgesehen, nicht
 Für Anwendungen der Industrie 4.0 muss die HE zur virtuellen Repräsentation abstrahiert werden.
 
 <!-- Requirements -->
-Die Anforderung zur ortsunabhängigen Steuerung (REQ1) kann mit diese Netzwerkarchitektur durch eine Erweiterung erfüllt werden.
+Die Anforderung zur ortsunabhängigen Steuerung (R1) kann mit diese Netzwerkarchitektur durch eine Erweiterung erfüllt werden.
 Arbeitsteilig können die _Computing Units_ und _Stages_ (vgl. @fig:wang-cps-architecture) die Interpretation und Ausführung von NC-Programmen und automatisierten Komponenten übernehmen.
-Die ortsunabhängige Überwachung der Maschine (REQ2), deren virtuelle Repräsentation als _Stage_ fungiert, ist durch die Einbindung Sensoren vorbereitet, nicht aber erfüllt.
+Die ortsunabhängige Überwachung der Maschine (R2), deren virtuelle Repräsentation als _Stage_ fungiert, ist durch die Einbindung Sensoren vorbereitet, nicht aber erfüllt.
 Um diesen Anforderungen vollends zu entsprechen muss ein lösungsorientiertes Konzept noch entwickelt werden.
-Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb REQ3 nicht erfüllt wird.
-Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (REQ4).
+Es werden keinerlei Aussagen zu standardisierten Kommunikationsprotokollen oder Informationsmodellen getroffen, weshalb R3 nicht erfüllt wird.
+Da auf die Persistenz von Betriebs- und Prozessdaten der Stages nicht eingegangen wird, ein eingebettetes Kontrollsystem aber Bestandteil der jeweiligen Phase ist, wird der Anforderung der Lokalität nicht vollständig entsprochen (R4).
 Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung des Retrofitting-Problems übernommen werden.
 
 ## Architektur von CPS für Industrie 4.0
@@ -633,7 +633,7 @@ Zusammenfassend kann das Konzept von Stages und Computing Units für die Lösung
 ## Entfernte Steuerung und Überwachung
 
 Auf einer Netzwerkarchitektur wie in @sec:netzwerkarchitektur-für-cpps, können konkrete Mechanismen für die Überwachung und Kontrolle von Anlagen aufgebaut werden.
-Nach den Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
+Nach den Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) muss die Interaktion mit CPPS-Subsystemen und Menschen fernab vom Terminal gewährleistet werden.
 <!-- Purpose -->
 Wang et al. entwickelte 2004 eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
 <!-- Design/Methodology/Approach -->
@@ -666,11 +666,11 @@ Mit dieser werden Sicherheitsinfrastrukturmerkmale wie byte-code-Verifikation un
 Die Indirektion des Kontrollflusses über den Server der Architektur zu den Maschinen verhilft zur Einhaltung.
 
 <!-- Requirements -->
-Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen REQ1 und REQ2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
+Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
-Damit ist REQ3 nur ansatzweise erfüllt.
+Damit ist R3 nur ansatzweise erfüllt.
 Auch mit der Konzeption einer Netzwerkarchitektur für CPS (vlg. @sec:netzwerkarchitektur-für-cpps) wurde die Notwendigkeit des Einbettens der Steuerung erkannt.
-Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (REQ4) nur teilweise erfüllt.
+Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.
 Grundsätzlich wurden Sicherheitsaspekte im Konzept beachtet und in den vertikalen Prototypen integriert.
 Die Verwendung von HTTP für die Kommunikation über Firewalls hinaus ermöglicht skalierenden, hierarchischen Zugriff.
 
