@@ -1039,11 +1039,12 @@ Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konz
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
 Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
 Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage und den Schwerpunkt des Designs.
-Repräsentanten der berücksichtigten Maschinen sind in den folgenden Szenarien beschrieben und werden im Laufe dieses Kapitels referenziert.
+Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
+Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.
 
-## Szenarien für Retrofitting
+## Szenarien
 
-### S1 - Maschine ohne Schnittstellen
+##### S1 -- Werkzeugmaschine ohne Schnittstellen.
 
 Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden.
 Die CNC ist fest mit dem Steuerungscomputer verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
@@ -1051,7 +1052,7 @@ Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nich
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
 Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
 
-### S2 - Maschine mit Direct Numerical Control
+##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
 _Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-steuerung).
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
@@ -1060,9 +1061,9 @@ Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden.  
 Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
 Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
-Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung an externe Systeme.
+Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme.
 
-### S3 - Speicherprogrammierbare Steuerung
+##### S3 -- Speicherprogrammierbare Steuerungen.
 
 Beim Retrofitting von speicherprogrammierbaren Steuerungen werden in dieser Arbeit drei Fälle unterschieden.
 Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus.
@@ -1073,9 +1074,38 @@ Informationsmodelle und Protokolle definiert und über Teilsysteme Implementiert
 Selbiges gilt auch für Geräte der ersten Kategorie.-->
 Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
 Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
-<!-- UML => OPC UA, etc. @Pauker2016 -->
+<!-- TODO UML => OPC UA, etc. @Pauker2016 -->
 
-## System- und Softwarearchitektur
+## Anwendungsfälle
+
+Die unterschiedlichen Anforderungen der mit dem System interagierenden Menschen werden in Anwendungsfällen deutlich, die auszugsweise aus den Personas von Denner et al. hervorgegangen sind @Denner2015.
+
+##### A1 -- Produktionsleiter.
+
+Wie in @fig:uc-produktionsleiter dargestellt, ist ein Produktionsleiter hauptsächlich für die Erstellung, Überwachung und Dokumentation von Produktionsplänen zuständig.
+Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten  um auch Wartungsaufträge delegieren zu können.
+Altmaschinen können diese Daten auch erfassen.
+Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.
+
+![Anwendungsfälle eines Produktionsleiters](figures/uc-produktionsleiter){#fig:uc-produktionsleiter}
+
+##### A2 -- Montagearbeiter.
+
+Ein Montagearbeiter ist neben dem Zusammensetzen einer Maschine verantwortlich für die Verwaltung und Reparatur der einzelnen Komponenten (vgl. @fig:uc-montagearbeiter).
+Dafür muss er wissen, welche Teile verbaut werden sollen und wie diese zusammenhängen.
+Eine einfache Stückliste leistet das nicht und muss bei der Anlagenmodernisierung durch ein digitales Modell der Zusammensetzung -- zugänglich auch für andere Teammitglieder -- abgebildet werden.
+
+![Anwendungsfälle eines Montagearbeiters](figures/uc-montagearbeiter){#fig:uc-montagearbeiter}
+
+##### A3 -- Maschinenbediener.
+
+Der Maschinenbediener richtet die Anlage ein (vgl. @fig:uc-maschinenbediener).
+Er integriert sie in den Kontext der Produktionsstrecke und bindet sie an das bestehende Automatisierungssystem.
+Kenntnis der technischen Schnittstellen für diese Integration entnimmt er dem digitalen Modell der Maschine.
+Die detaillierte Darstellung des Systemzustands hilft einem Maschinenbediener bei der Überwachung des Fertigungsschritts und der Reaktion bei Störfällen.
+Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwortet.
+
+![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
 
 
