@@ -1,23 +1,4 @@
 
-<!--
-
-Feedback Zwischenverteidigung:
-
-* Ihlenfeld: SPS Erwähnen (neben CNC), Diss: Möbius, vorbeikommen!
-    - SPS abstrahiert Aktuator + Intelligenz => IBH Link UA
-    - Im SPS-Programm kann man direkt SPS-Client-Funktionen aufrufen. Dies ermöglicht der S7-SPS mit Steuerungen anderer Hersteller über OPC UA zu kommunizieren. (http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951)
-    - http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951
-    - https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html
-* Sebastian: Regelbasierte Rückkopplung muss => Abgrenzung!! Eigensch. CPS
-* Surrogate ist standardisierendes Element => CPS-Adapter
-* Surrogate-Abb. was passiert hinter der Netzwerkschnittstelle (UCs)
-    - Plug & produce is a major use case for cyber-physical production systems (CPPS) @Otto2014
-* Human in the Loop?
-* Kann ich die Sensordaten einfach übernehmen? 
-* Orchestrierung? Überall Siemens Systeme => Was nun?
-
--->
-
 # Einleitung
 
 Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
@@ -1115,6 +1096,8 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 
 Warum OPC UA?
 Was passiert hinter/wer arbeitet mit der VMR?
+Orchestrierung? Überall Siemens Systeme => Was nun?
+Kann ich die Sensordaten einfach übernehmen? 
 
 ## Virtuelle Maschinenrepräsentation
 
@@ -1130,6 +1113,7 @@ Was passiert hinter/wer arbeitet mit der VMR?
 * automatisierte Werkzeugkomponenten (AWK)
 * Überwachung
 * Ethernetanbindung mit TCP/IP
+* Surrogate ist standardisierendes Element
 
 
 ---
