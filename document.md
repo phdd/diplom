@@ -1094,7 +1094,14 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 
 **MATERIAL**
 
-Warum OPC UA?
+Warum OPC UA? => @Izaguirre2011
+
+> Specifications like Device Profile for
+> Web Services (DPWS) and OPC Unified Architecture (OPCUA)
+> are the most suitable solutions for implementing a Service
+> Oriented Architecture (SOA) on the shop-floor level
+> which includes eventing mechanisms
+
 Was passiert hinter/wer arbeitet mit der VMR?
 Orchestrierung? Überall Siemens Systeme => Was nun?
 Kann ich die Sensordaten einfach übernehmen? 
