@@ -192,7 +192,7 @@ Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-steuerung) kontrollier
 [^gigevision]: Schnittstellenstandard industrieller Bildverarbeitung
 [^genicam]: Schnittstellenstandard für industriell eingesetzte Kameras
 
-### Numerische Steuerung
+### Numerische Kontrolle
 
 Für die Fertigung eines Produkts werden Bauteile benötigt, die durch Werkzeugmaschinen entstehen.
 In der DIN 69651 ist eine Werkzeugmaschine definiert als eine "mechanisierte und mehr oder weniger automatisierte Fertigungseinrichtung, die durch relative Bewegung zwischen Werkstück und Werkzeug eine vorgegebene Form am Werkstück oder eine Veränderung einer vorgegebenen Form an einem Werkstück erzeugt" (Zitat aus @Hirsch2000).
@@ -203,7 +203,7 @@ Der etablierte Kodierungsstandard für die Steuerungsinformationen zu diesen Mus
 Eine vollständige Kompatibilität der Befehle zwischen den Anlagen wird aufgrund spezifischer Werkzeug- und Maschinenparameter, wie Drehzahlen oder Begrenzungskoordinaten der Arbeitsfläche, verhindert.
 Durch Präprozessoren und manuelle Anpassungen werden Steuerungsinformationen des zweiten Schritts auf die Maschine angepasst.  
 Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine mit Computer Numerical Control (CNC) übertragen, kann diese mit dem eigentlichen Fertigungsschritt beginnen.
-Derlei Maschinen besitzen mehrere durch Schrittmotoren angetriebene Bearbeitungsachsen, welche die Position des Werkzeugs relativ zum Werkstück durch Translation und Rotation (Hilfsachsen) verändern.
+Derlei Maschinen besitzen mehrere durch Schrittmotoren und Servos angetriebene Bearbeitungsachsen, welche die Position des Werkzeugs relativ zum Werkstück durch Translation und Rotation (Hilfsachsen) verändern.
 Mit dieser relativen Bewegung wird sukzessiv Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
 Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
 Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können.
@@ -436,12 +436,12 @@ R1
 ## Steuerung
 
 Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
-Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein oft händisch übermitteltes Anwenderprogramm.
+Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein Anwenderprogramm (vgl. [@sec:numerische-kontrolle;@sec:speicherprogrammierbare-steuerungen]).
 Diese Befehlsketten werden entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
-Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke.
+Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke @Ayatollahi2013.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
-Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann.
+Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann @Gorecky2014.
 
 R2
 : Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
@@ -458,7 +458,7 @@ Die Kontrolleinheit der Anlage lässt die Steuerung von einem entfernten PC nich
 Programmierumgebungen sind nicht ausreichend leistungsfähig um komplexe Aufgaben, wie die kollaborative Operation innerhalb einer flexiblen Fertigungszelle, zu entwickeln.
 Unterschiedliche Hersteller verwenden eigene Programmiersprachen und Entwicklungstools, wodurch Integration und gemeinschaftliche Produktion erschwert werden.
 Die sich damit ergebende Heterogenität der Anlagen einer Produktionsstrecke ist ein bereits betrachtetes Problem cyber-physikalischer Systeme (vgl. @Siepmann2016).
-Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen @Ayatollahi2013.
+Im Falle proprietärer Schnittstellen und geschlossener Architekturen muss ein Adapter die Standardisierung von Protokollen und Informationen durchsetzen [@Ayatollahi2013;@Gorecky2014].
 Für SPS gelten in diesem Zusammenhang die gleichen Anforderungen.
 
 R3
@@ -1283,6 +1283,7 @@ Blocking Factors/mögliche Kritik?
 * Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
 * Surrogate als reaktiver Agent => Einbindung in MAS denkbar
 * Echtzeitfähigkeit des Konzepts überprüfen
+* Case-Study!!!
 * Möglichkeiten des Nutzens der Daten
     * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?
     * Automatische Erkennung von Gut-/Schlechtteilen
