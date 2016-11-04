@@ -349,7 +349,7 @@ Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden f�
 Die Verbindung von Überwachung und Kontrolle technischer Systeme mündet in Paradigmen, die Realität und virtuelle Umgebungen miteinander verschmelzen lassen.
 So wurde das Konzept cyber-physischer Systeme (CPS) 2006 durch Edward A. Lee erstmalig erläutert.
 Er versteht diese als Integration von Informationsverarbeitung und physischen Prozessen.
-Virtuelle und physische Abläufe werden durch Sensoren und Aktuatoren überwacht, beziehungsweise beeinflusst, stehen in unmittelbarer Wechselwirkung und sind durch Kontrollschleifen rückgekoppelt @Lee2006.
+Virtuelle und physische Abläufe werden durch Sensoren und Aktuatoren überwacht, beziehungsweise beeinflusst, stehen in unmittelbarer Wechselwirkung und sind durch Kontrollschleifen rückgekoppelt @Lee2008.
 Der historische Weg, hin zu darauf aufsetzenden Systemen, ist in @fig:cps dargestellt[^abb-cps].
 
 ![Der historische Weg zu CPSoS](figures/cps){#fig:cps}
@@ -423,9 +423,15 @@ Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung und ges
 ## Überwachung
 
 Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
-Dieser kann bei nicht integrierten Altmaschinen nur am Terminal eingesehen werden.
+Dieser kann bei nicht integrierten Altmaschinen nur an deren Terminal eingesehen werden.
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
-Weiterhin kann eine cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn die Daten in keinem virtuellen Weltmodell zur Verfügung stehen.
+Im Sinne der Industrie 4.0 wird diese Form ortsgebundener Arbeitsplätze an Bedeutung verlieren @Gorecky2014.
+
+Weiterhin kann eine übergeordnete cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn keine Informationen eines virtuellen Weltmodells zur Verfügung stehen.
+
+CPPS benötigen Rückkopplungsschleifen um adäquat auf einen unerwünschten Systemzustand reagieren zu können.
+Die Art der Reaktion wird dabei mittels der Differenz zwischen erwartetem und tatsächlichen Zustand einer Maschine ermittelt.
+Ein aktuelles Modell des physischen Systemkontexts kann nur durch kontinuierliche Überwachung erreicht werden.
 
 R1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
