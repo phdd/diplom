@@ -1035,6 +1035,12 @@ Die CNC ist fest mit dem Steuerungscomputer verdrahtet und die maschineneigene S
 Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
 Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
+<!-- TODO
+- AWK Abkürzung einführen (5)
+- Schnittstelle? (def) Extern? Serielle geht immer In 5.
+- Schrittmotoren und SERVOS => Antriebssteuerung
+- sehr komplex => wahrscheinlich nur einfache Tischfräse
+-->
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
@@ -1046,6 +1052,11 @@ Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die V
 Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
 Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme.
+<!-- TODO
+- CNC bleibt Maschinenspezifisch
+- DIN 66025 für M-Befehle
+- CNC Welt + SPS Welt einzeln betrachten => nummeriert 
+-->
 
 ##### S3 -- Speicherprogrammierbare Steuerungen.
 
@@ -1059,6 +1070,10 @@ Selbiges gilt auch für Geräte der ersten Kategorie.-->
 Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
 Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
 <!-- TODO UML => OPC UA, etc. @Pauker2016 -->
+<!-- TODO
+- Werkzeugmaschine ist im Kontext weiterer Automatisierungseinrichtungen
+- SPS soll genauso handhabbar sein
+-->
 
 ## Anwendungsfälle
 
@@ -1070,6 +1085,11 @@ Wie in @fig:uc-produktionsleiter dargestellt, ist ein Produktionsleiter hauptsä
 Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten  um auch Wartungsaufträge delegieren zu können.
 Altmaschinen können diese Daten auch erfassen.
 Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.
+<!-- TODO
+- Keine Maschinenmodellierung durch Monteur => Hersteller
+- Einrichten = Setup 
+- erstes Einrichten durch Hersteller 
+-->
 
 ![Anwendungsfälle eines Produktionsleiters](figures/uc-produktionsleiter){#fig:uc-produktionsleiter}
 
@@ -1078,6 +1098,9 @@ Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanb
 Ein Montagearbeiter ist neben dem Zusammensetzen einer Maschine verantwortlich für die Verwaltung und Reparatur der einzelnen Komponenten (vgl. @fig:uc-montagearbeiter).
 Dafür muss er wissen, welche Teile verbaut werden sollen und wie diese zusammenhängen.
 Eine einfache Stückliste leistet das nicht und muss bei der Anlagenmodernisierung durch ein digitales Modell der Zusammensetzung -- zugänglich auch für andere Teammitglieder -- abgebildet werden.
+<!-- TODO
+- Wartung durch Monteur
+-->
 
 ![Anwendungsfälle eines Montagearbeiters](figures/uc-montagearbeiter){#fig:uc-montagearbeiter}
 
@@ -1088,6 +1111,8 @@ Er integriert sie in den Kontext der Produktionsstrecke und bindet sie an das be
 Kenntnis der technischen Schnittstellen für diese Integration entnimmt er dem digitalen Modell der Maschine.
 Die detaillierte Darstellung des Systemzustands hilft einem Maschinenbediener bei der Überwachung des Fertigungsschritts und der Reaktion bei Störfällen.
 Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwortet.
+<!-- TODO
+-->
 
 ![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
@@ -1265,7 +1290,9 @@ Umsetzung?
 Blocking Factors/mögliche Kritik?
 
 * Leistung von embedded computing devices => siehe @Grigoriev2016
-* Energieverbrauch
+* Pi hat Grenzen bei CNC => Smoothieboard
+* Industriekomponenten nicht mit Smoothieboard vergleichbar 
+* Energieverbrauch?
 
 ## Zusammenfassung
 
