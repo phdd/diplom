@@ -425,13 +425,10 @@ Jedoch verhindern Altmaschinen aufgrund fehlender Infrastrukturanbindung und ges
 Im Wartungs- und Störfall muss der Zustand der Anlage bekannt sein.
 Dieser kann bei nicht integrierten Altmaschinen nur an deren Terminal eingesehen werden.
 Ein Techniker muss die Betriebs- und Prozessdaten vor Ort erfassen um eine Diagnose stellen zu können und unter anderem das ERP-System darüber zu informieren.
-Im Sinne der Industrie 4.0 wird diese Form ortsgebundener Arbeitsplätze an Bedeutung verlieren @Gorecky2014.
-
-Weiterhin kann eine übergeordnete cyber-physikalische Rückkopplungsschleife nicht autonom auf den Prozess wirken, wenn keine Informationen eines virtuellen Weltmodells zur Verfügung stehen.
-
-CPPS benötigen Rückkopplungsschleifen um adäquat auf einen unerwünschten Systemzustand reagieren zu können.
-Die Art der Reaktion wird dabei mittels der Differenz zwischen erwartetem und tatsächlichen Zustand einer Maschine ermittelt.
-Ein aktuelles Modell des physischen Systemkontexts kann nur durch kontinuierliche Überwachung erreicht werden.
+Im Sinne der Industrie 4.0 wird diese Form ortsgebundener Arbeitsplätze an Bedeutung verlieren und einer dezentralen Nutzungsschnittstelle weichen @Gorecky2014.
+Damit müssen die Daten über geeignete Schnittstellen zur Verfügung stehen.
+Subsysteme können dann auch automatisiert über Zustandsänderungen der Maschine in Kenntnis gesetzt werden.
+Weiterhin braucht ein CPPS diese Informationen um adäquat reagieren zu können (vgl. @sec:cyber-physische-produktionssysteme, @Lee2008).
 
 R1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
