@@ -77,7 +77,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
-    - Verifikation automatischer Aktionen durch Rückkopplung.<!-- AUTOMATISCHE AKTIONEN????? TODO!!!! -->
+    - adaptive Reaktion auf Zustandsänderung durch Rückkopplung.
 5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
 
@@ -206,7 +206,7 @@ Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine mit Computer Numerica
 Derlei Maschinen besitzen mehrere durch Schrittmotoren und Servos angetriebene Bearbeitungsachsen, welche die Position des Werkzeugs relativ zum Werkstück durch Translation und Rotation (Hilfsachsen) verändern.
 Mit dieser relativen Bewegung wird sukzessiv Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
 Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
-Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können.
+Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können (vgl. zu diesem Absatz @Hirsch2000).
 
 ![Beispielkonstruktion und G-Code für eine Drehbank](figures/lathe-example){#fig:lathe-example}
 
@@ -232,7 +232,7 @@ Neuberechnungen zur Laufzeit beziehen unter anderem Verformungen durch Erhitzen 
 Function Blocks dagegen, sind Teil eines Standards für verteilte industrielle Prozesse und Kontrollsysteme.
 Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC. (vgl. zu diesem Absatz @Xu2006a).  
 Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nur indirekt durch CNC steuerbar sind.
-Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert.
+Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert @Hirsch2000.
 
 [^lathe-example]: nach [www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners](http://www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners/) vom 07.10.2016
 
@@ -381,15 +381,6 @@ Sowohl Hard- und Software als auch die Verarbeitung der anfallenden Daten wird n
 Damit sollen die Produktionsressourcen auf Knoten eines Netzwerks aufgeteilt und schrittweise auf ihre funktionale Struktur abstrahiert werden @VereinDeutscherIngenieuree.V.2013.
 Bis eine geeignete Architektur für CPPS andere Möglichkeiten bietet (vgl. [@Lee2015;@Borangiu2014]), werden Echtzeit-Steuerungen in der Feldebene verbleiben @VereinDeutscherIngenieuree.V.2013.
 
-<!-- TODO: Einbauen?
-@Monostori2016
-
-* Intelligence (smartness), i.e. the elements are able to acquiring information from their surroundings and act autonomously.
-* Connectedness, i.e. the ability to set up and use connections to the other elements of the system – including human beings – for cooperation and collaboration, and to the knowledge and services available on the Internet.
-* Responsiveness towards internal and external changes.
-
--->
-
 <!-- Zeit und Nebenläufigkeit physikalischer Systeme sind außerdem Eigenschaften die durch Infrastruktur- und Informationsabstraktionen abgedeckt werden müssen @Wang2008.
 Technologien wie Echtzeitbetriebssysteme, Middlewares und spezialisierte eingebettete Prozessorarchitekturen bilden den ersten Schritt zum Schließen dieser Lücke @Lee2006.
 Dennoch ist vor allem die inhärente Heterogenität der Komponenten eine Herausforderung für bestehende Kontrollmechanismen, Kommunikationsmuster und Softwareparadigmen @Wang2008. -->
@@ -435,8 +426,8 @@ R1
 
 ## Steuerung
 
-Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm übertragen werden.
-Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein Anwenderprogramm (vgl. [@sec:numerische-kontrolle;@sec:speicherprogrammierbare-steuerungen]).
+Um einen bestimmten Fertigungsschritt an einer numerisch kontrollierten (NC) Anlage durchzuführen, muss das auszuführende Programm nach DIN 66025 übertragen werden @Hirsch2000.
+Auch Speicherprogrammierbare Steuerungen (SPS) benötigen ein Anwenderprogramm nach EN 61131-3 oder der PLCopen-Spezifikation [@Heinrich2015;@OPCFoundation2014].
 Diese Befehlsketten werden entweder mit einem Speichermedium auf den Steuerungs-PC kopiert oder direkt an dessen Terminal kodiert. 
 Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke @Ayatollahi2013.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
@@ -1022,7 +1013,7 @@ see [@Ayatollahi2013;@Pauker2013;@Pauker2014]
 Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen.
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
 Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
-Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage und den Schwerpunkt des Designs.
+Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs.
 Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
 Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.
 
@@ -1031,16 +1022,11 @@ Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den
 ##### S1 -- Werkzeugmaschine ohne Schnittstellen.
 
 Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden.
-Die CNC ist fest mit dem Steuerungscomputer verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
+Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
 Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
+Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS.
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
 Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
-<!-- TODO
-- AWK Abkürzung einführen (5)
-- Schnittstelle? (def) Extern? Serielle geht immer In 5.
-- Schrittmotoren und SERVOS => Antriebssteuerung
-- sehr komplex => wahrscheinlich nur einfache Tischfräse
--->
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
@@ -1048,11 +1034,11 @@ _Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befe
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
 Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
-Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden.  
+Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.  
 Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
 Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme.
-<!-- TODO
+<!-- ASK
 - CNC bleibt Maschinenspezifisch
 - DIN 66025 für M-Befehle
 - CNC Welt + SPS Welt einzeln betrachten => nummeriert 
@@ -1069,8 +1055,8 @@ Informationsmodelle und Protokolle definiert und über Teilsysteme Implementiert
 Selbiges gilt auch für Geräte der ersten Kategorie.-->
 Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
 Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
-<!-- TODO UML => OPC UA, etc. @Pauker2016 -->
-<!-- TODO
+<!-- UML => OPC UA, etc. @Pauker2016 -->
+<!-- ASK
 - Werkzeugmaschine ist im Kontext weiterer Automatisierungseinrichtungen
 - SPS soll genauso handhabbar sein
 -->
@@ -1085,11 +1071,6 @@ Wie in @fig:uc-produktionsleiter dargestellt, ist ein Produktionsleiter hauptsä
 Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten  um auch Wartungsaufträge delegieren zu können.
 Altmaschinen können diese Daten auch erfassen.
 Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.
-<!-- TODO
-- Keine Maschinenmodellierung durch Monteur => Hersteller
-- Einrichten = Setup 
-- erstes Einrichten durch Hersteller 
--->
 
 ![Anwendungsfälle eines Produktionsleiters](figures/uc-produktionsleiter){#fig:uc-produktionsleiter}
 
@@ -1098,9 +1079,7 @@ Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanb
 Ein Montagearbeiter ist neben dem Zusammensetzen einer Maschine verantwortlich für die Verwaltung und Reparatur der einzelnen Komponenten (vgl. @fig:uc-montagearbeiter).
 Dafür muss er wissen, welche Teile verbaut werden sollen und wie diese zusammenhängen.
 Eine einfache Stückliste leistet das nicht und muss bei der Anlagenmodernisierung durch ein digitales Modell der Zusammensetzung -- zugänglich auch für andere Teammitglieder -- abgebildet werden.
-<!-- TODO
-- Wartung durch Monteur
--->
+Bei modernen Anlagen ist der Maschinenhersteller ist für die Modellierung des Informationsmodells zur Maschinenstruktur und für die initiale Einrichtung verantwortlich.
 
 ![Anwendungsfälle eines Montagearbeiters](figures/uc-montagearbeiter){#fig:uc-montagearbeiter}
 
@@ -1111,8 +1090,6 @@ Er integriert sie in den Kontext der Produktionsstrecke und bindet sie an das be
 Kenntnis der technischen Schnittstellen für diese Integration entnimmt er dem digitalen Modell der Maschine.
 Die detaillierte Darstellung des Systemzustands hilft einem Maschinenbediener bei der Überwachung des Fertigungsschritts und der Reaktion bei Störfällen.
 Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwortet.
-<!-- TODO
--->
 
 ![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
@@ -1138,10 +1115,9 @@ Kann ich die Sensordaten einfach übernehmen?
 
 * CNC
     1. DNC-Schnittstellenadapter
-    2. Motortreiber als Schnittstelle
-    3. Motoren als Schnittstelle
+    2. Schrittmotoren und SERVOS => Adapter für Antriebssteuerung 
 * Peripherie
-    1. maschineneigene SPS ansprechen (OPC UA Wrapper)
+    1. maschineneigene SPS ansprechen (OPC UA Wrapper) => eher vermeiden, CNC kapselt bereits
     2. Surrogate direkt an Sensor/Aktuator angeschlossen
 
 * CNC
