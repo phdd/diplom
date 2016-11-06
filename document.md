@@ -420,6 +420,7 @@ Im Sinne der Industrie 4.0 wird diese Form ortsgebundener Arbeitsplätze an Bede
 Damit müssen die Daten über geeignete Schnittstellen zur Verfügung stehen.
 Subsysteme können dann auch automatisiert über Zustandsänderungen der Maschine in Kenntnis gesetzt werden.
 Weiterhin braucht ein CPPS diese Informationen um adäquat reagieren zu können (vgl. @sec:cyber-physische-produktionssysteme, @Lee2008).
+Abgesehen von der notwendigen Dezentralisierung und dem Informationsgewinn für Rückkopplungsschleifen gilt es einen Werkzeugbruch zugunsten von Maschinenverfügbarkeit und Produktqualität, respektive der Ökonomie des gesamten Produktionssystems, zu verhindern @Ambhore2015.
 
 R1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
@@ -477,10 +478,40 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 
 ## Überwachung des Maschinenbetriebs
 
-- Überblick @Teti2010
-- Power Signal Analysis @Deshpande2011
-- TCM @Lee2006, @Ambhore2015
-- RT-Monitoring @Downey2016
+In cyber-physischen Produktionssystemen ist Adaptivität durch Rückkopplung zentrales Element.
+Doch um korrigierend auf einen Produktionsprozess wirken zu können, muss der Zustand des physischen Systems bekannt sein. 
+Dieser wird durch Sensorik an der Maschine erfasst und in einem Modell persistiert (vgl. zu diesem Absatz @sec:cyber-physische-produktionssysteme).
+
+![Messgrößen bei der Maschinenüberwachung aus @Teti2010](figures/monitoring-kategorien){#fig:monitoring-kategorien}
+
+Vielschichtige Möglichkeiten dieser Art der Erfassung von Betriebs- und Prozessdaten wurden über die Jahre untersucht.
+Einen aktuellen Überblick hierzu veröffentlichten Teti et al. @Teti2010.
+Für die Datenaggregation werden im Kontext dieser Arbeit direkte und indirekte Messmethoden mittels Sensorik betrachtet.
+Bei einer direkten Messung werden Parameter wie Leistungsaufnahme, Drehzahl eines Motors oder die Position erfasst.
+Indirekte Messungen hingegen sind dem Prozess näher und erfassen Daten wie die auf ein Werkzeug wirkende Kraft, Temperaturen am Werkstück oder Vibrationen.
+@fig:monitoring-kategorien stellt diese beiden Kategorien am Beispiel einer Werkzeugmaschine dar.
+Weitere von Teti et al. untersuchte Forschungsgebiete befassten sich mit Signalverarbeitung und Sensordatenfusion, der Kategorisierung von Messpunkten (Monitoring Scopes) und der Entscheidungsfindung bezüglich konkreter Reaktionen auf sich ändernde Zustände (vgl. zu diesem Absatz @Teti2010).  
+Eine andere ausführliche Studie zu Arbeiten der Fertigungsprozessüberwachung wurde von Liang et al. veröffentlicht.
+Sie kategorisierten Forschungsarbeiten nach der Anwendung auf konkrete Anwendungsfälle (vgl. zu diesem Absatz @Liang2004).  
+Einen konkreten Anwendungsfall zur Signalverarbeitung untersuchten Deshpande und Pieper bei Altmaschinen.
+Ihr Ziel war eine nicht-invasive Methode der Echtzeitüberwachung über die Stromaufnahme.
+Die in Kilowatt eingehenden Verbrauchsdaten wurden durch an Bedingungen gekoppelte Schwellwerte in Status (an, aus, Leerlauf), Energieverbrauch, Werkzeugwechsel und Werkstückdurchsatz unterschieden.
+Via TCP und UDP konnten diese Informationen zur Weiterverarbeitung an Fremdsysteme übergeben werden.
+Für die Case Study und einen anschließenden Vergleich hatten Deshpande und Pieper auch moderne Maschinen mit der UPC ausgestattet (vgl. zu diesem Absatz @Deshpande2011).  
+Der abstrakte Weg vom Produktionsprozess bis zur Quantifizierung des Werkzeugzustands wurde durch Ambhore et al. beschrieben.
+Vom physischen Prozess ausgehend erfassen Sensoren unterschiedliche Werte, die durch Signalanalysen und Klassifikation zur Beschaffenheit des Werkzeugs führen (vgl. @fig:tcm-flow).
+Zu jedem dieser Schritte des Tool Condition Monitoring (TCM) erläutern die Autoren aktuelle Forschungsarbeiten und belegen die ökonomische Relevanz (vgl. zu diesem Absatz @Ambhore2015).  
+
+![Tool Condition Monitoring-System nach @Ambhore2015](figures/tcm-flow){#fig:tcm-flow}
+
+Durch einer Instanz dieses Prozesses wurden indirekte Datenaggregation, Signalverarbeitung und TCM insgesamt am Beispiel von CNC-Maschinen in der Dissertation von Lee erforscht.
+In seiner Arbeit untersucht und verglich er zahlreiche Sensorsysteme und analysierte durch neuronale Netzwerke und statistische Regression den Zustand des Werkzeugs (vgl. zu diesem Absatz @Lee2006).  
+Fusion von Sensordaten in einer Fallstudie war Schwerpunkt der Arbeit zu TCM von Downey et al. 
+Die Verortung und Signalkorrelation von Akustikemissions-, Vibrations- und Kraftsensorik ermöglicht das Erkennen von schlechten und guten Fräsverhältnissen.
+Sie berücksichtigten dabei auch den aktuell ausgeführten CNC-Befehl (vgl. zu diesem Absatz @Downey2016).  
+
+Die Konzepte und Zusammenfassungen von Teti et al. @Teti2010, Deshpande und Pieper @Deshpande2011, Ambhore et al. @Ambhore2015, Lee @Lee2006, Liang et al. @Liang2004 und Downey et al. @Downey2016 dienen der Kategorisierung von Überwachungsmöglichkeiten.
+Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von Ambhore et al. (vgl. @fig:tcm-flow).
 
 ## Steuerung von Fertigungssystemen 
 
@@ -507,8 +538,7 @@ Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle St
 
 ## Zusammenfassung
 
-Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst.
-Wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
+Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
 +-------------------+---------------+-------------+-------------+-------------+
 |                   | Überwachung   | Steuerung   | Standards   | Lokalität   |
