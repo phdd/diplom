@@ -542,14 +542,17 @@ Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt.
 Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt.
 OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage.
-Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.
+Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.  
+Zum Einsatz von Robotern innerhalb flexibler Fertigungssysteme forschten Pauker et al.
+Sie entwarfen ein Konzept, ähnlich dem von Ayatollahi et al., für die Steuerung und Überwachung von Robotern.
+Die proprietäre Software des Roboters wird durch einen OPC UA Server gekapselt.
+Ein Informationsmodell bildet den Roboter mit Funktionalität und Zuständen in Form von Variablen ab.
+Ändert sich zur Laufzeit das vom Roboter eingesetzte Werkzeug, wird dies auch im Informationsmodell widergespiegelt.
+Das Fehlen standardisierter Steuerungsschnittstellen wird den Autoren nach durch OPC UA ausgeglichen.
+Außerdem existierte damit eine semantische Beschreibung der Komponenten eines Roboters (vgl. zu diesem Abschnitt @Pauker2014).  
+Die Weiterentwicklung des Konzepts der Steuerung beliebiger Maschinen über OPC UA bestärkt dessen Eignung für die Integration von Altmaschinen.
+Bezüglich der Anforderungen gilt die selbe Argumentation wie bei Ayatollahi et al. @Ayatollahi.
 
-* CNC-Werkzeugmaschine 
-    - mit DNC
-    - ohne DNC
-* SPS
-
-- OPC UA für Robotersteuerung @Pauker2014
 - OPC UA SOA (SPS) @Windmann2015
   + @Hammerstingl2015
 
@@ -578,7 +581,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 +-------------------+---------------+-------------+-------------+-------------+
 | @Ayatollahi2013   | ●             | ●           | ●           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Pauker2014       | ○             | ○           | ○           | ○           |
+| @Pauker2014       | ●             | ●           | ●           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Windmann2015     | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
