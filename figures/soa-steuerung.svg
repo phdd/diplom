@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="101.13652pt"
+   height="122.06709pt"
+   id="svg4155"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="soa-steuerung.svg">
+  <metadata
+     id="metadata4237">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4235" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     id="namedview4233"
+     showgrid="false"
+     inkscape:document-units="pt"
+     units="pt"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.2559054"
+     inkscape:cx="273.18778"
+     inkscape:cy="58.852237"
+     inkscape:window-x="1366"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4155" />
+  <text
+     font-size="12.7998"
+     style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:start;fill:#000000"
+     x="627.65552"
+     y="127.56842"
+     id="text4197">
+    <tspan
+       x="627.65552"
+       y="127.56842"
+       id="tspan4199" />
+  </text>
+  <g
+     id="g4779"
+     transform="matrix(0.52326427,0,0,0.52326427,-334.47052,-10.046674)">
+    <g
+       id="g4157">
+      <rect
+         id="rect4159"
+         height="70"
+         width="240"
+         y="20"
+         x="640"
+         style="fill:#e2ffe2" />
+      <rect
+         id="rect4161"
+         height="70"
+         width="240"
+         y="20"
+         x="640"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.60000002" />
+      <text
+         id="text4163"
+         y="50.900002"
+         x="760"
+         style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+         font-size="12.7998">
+        <tspan
+           id="tspan4165"
+           y="50.900002"
+           x="760" />
+        <tspan
+           id="tspan4167"
+           y="66.900002"
+           x="760">Informationsmodell, Dienste</tspan>
+      </text>
+    </g>
+    <g
+       id="g4169">
+      <rect
+         id="rect4171"
+         height="90"
+         width="240"
+         y="90"
+         x="640"
+         style="fill:#e2ffe2" />
+      <rect
+         id="rect4173"
+         height="90"
+         width="240"
+         y="90"
+         x="640"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.60000002" />
+      <text
+         id="text4175"
+         y="122.9"
+         x="760"
+         style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+         font-size="12.7998">
+        <tspan
+           id="tspan4177"
+           y="122.9"
+           x="760" />
+        <tspan
+           id="tspan4179"
+           y="138.89999"
+           x="760">(nicht echtzeitfähig)</tspan>
+        <tspan
+           id="tspan4181"
+           y="154.89999"
+           x="760">C++, C#, Java</tspan>
+      </text>
+    </g>
+    <g
+       id="g4183">
+      <rect
+         id="rect4185"
+         height="90"
+         width="240"
+         y="180"
+         x="640"
+         style="fill:#ecf2ff" />
+      <rect
+         id="rect4187"
+         height="90"
+         width="240"
+         y="180"
+         x="640"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.60000002" />
+      <text
+         id="text4189"
+         y="212.89999"
+         x="760"
+         style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+         font-size="12.7998">
+        <tspan
+           id="tspan4191"
+           y="212.89999"
+           x="760" />
+        <tspan
+           id="tspan4193"
+           y="228.89999"
+           x="760">(echtzeitfähig)</tspan>
+        <tspan
+           id="tspan4195"
+           y="244.89999"
+           x="760">IEC 61131-3</tspan>
+      </text>
+    </g>
+    <text
+       id="text4201"
+       y="50"
+       x="760"
+       style="font-style:normal;font-weight:700;font-size:16.0753994px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+       font-size="16.0754">
+      <tspan
+         id="tspan4203"
+         y="50"
+         x="760">OPC UA</tspan>
+    </text>
+    <text
+       id="text4205"
+       y="120"
+       x="760"
+       style="font-style:normal;font-weight:700;font-size:16.0753994px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+       font-size="16.0754">
+      <tspan
+         id="tspan4207"
+         y="120"
+         x="760">Software-Agent</tspan>
+    </text>
+    <text
+       id="text4209"
+       y="210"
+       x="760"
+       style="font-style:normal;font-weight:700;font-size:16.0753994px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+       font-size="16.0754">
+      <tspan
+         id="tspan4211"
+         y="210"
+         x="760">Maschinensteuerung</tspan>
+    </text>
+    <g
+       id="g4213">
+      <rect
+         id="rect4215"
+         height="40"
+         width="120"
+         y="270"
+         x="640"
+         style="fill:#ecf2ff" />
+      <rect
+         id="rect4217"
+         height="40"
+         width="120"
+         y="270"
+         x="640"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.60000002" />
+      <text
+         id="text4219"
+         y="293.89999"
+         x="700"
+         style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+         font-size="12.7998">
+        <tspan
+           id="tspan4221"
+           y="293.89999"
+           x="700">E/A</tspan>
+      </text>
+    </g>
+    <g
+       id="g4223">
+      <rect
+         id="rect4225"
+         height="40"
+         width="120"
+         y="270"
+         x="760"
+         style="fill:#ecf2ff" />
+      <rect
+         id="rect4227"
+         height="40"
+         width="120"
+         y="270"
+         x="760"
+         style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:1.60000002" />
+      <text
+         id="text4229"
+         y="293.89999"
+         x="820"
+         style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:middle;fill:#000000"
+         font-size="12.7998">
+        <tspan
+           id="tspan4231"
+           y="293.89999"
+           x="820">Feldbus</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

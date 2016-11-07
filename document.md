@@ -515,29 +515,29 @@ Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von
 
 ## Steuerung von Fertigungssystemen 
 
-Die Steuerung von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne SPS über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt @Hirsch2000.
+Die Kontrolle von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne speicherprogrammierbare Steuerungen (SPS) über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt @Hirsch2000.
 Während der erste Fall kaum Schwerpunkt aktueller Forschung ist, wurden DNC-Protokolle für die Fertigungsintegration detailliert beleuchtet.  
 Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme.
 Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework.
 Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden.
-Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).  
+Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).
 Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
 Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
-Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.
+Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.  
 Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll.
 Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.  
 Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
 Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
+
+![Flexible Fertigungszelle des IFT Wien @Ayatollahi2013](figures/ffz-ift){#fig:ffz-ift}
+
 Ayatollahi et al. entwickelten eine CNC-Steuerungsvariante auf Basis eines DNC-Protokolls mit OPC UA (vgl. @sec:opc-unified-architecture).
 Für die Integration einer Drehmaschine in ein flexibles Fertigungssystem, wurde ein Informationsmodell entworfen.
 Ein Server, verantwortlich für die Aktualisierung des Laufzeitmodells des Maschinenkontexts, hält die Verbindung zur Maschine und stellt die physikalischen Informationen und Methoden zur Kontrolle der CNC bereit.
 @fig:ffz-ift zeigt den konzeptuellen Aufbau des Systems am Institut für Fertigungstechnik der TU Wien.
-
-![Flexible Fertigungszelle des IFT Wien @Ayatollahi2013](figures/ffz-ift){#fig:ffz-ift}
-
-Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuerung entwickelt (vgl. zu diesem Absatz @Ayatollahi2013).  
+Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuerung entwickelt (vgl. zu diesem Absatz @Ayatollahi2013).
 Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit einem in der Industrie etablierten Standard [@OPCFoundation2014;@Hoppe2014].
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt.
 Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt.
@@ -549,12 +549,30 @@ Die proprietäre Software des Roboters wird durch einen OPC UA Server gekapselt.
 Ein Informationsmodell bildet den Roboter mit Funktionalität und Zuständen in Form von Variablen ab.
 Ändert sich zur Laufzeit das vom Roboter eingesetzte Werkzeug, wird dies auch im Informationsmodell widergespiegelt.
 Das Fehlen standardisierter Steuerungsschnittstellen wird den Autoren nach durch OPC UA ausgeglichen.
-Außerdem existierte damit eine semantische Beschreibung der Komponenten eines Roboters (vgl. zu diesem Abschnitt @Pauker2014).  
-Die Weiterentwicklung des Konzepts der Steuerung beliebiger Maschinen über OPC UA bestärkt dessen Eignung für die Integration von Altmaschinen.
-Bezüglich der Anforderungen gilt die selbe Argumentation wie bei Ayatollahi et al. @Ayatollahi.
+Außerdem existierte damit eine semantische Beschreibung der Komponenten eines Roboters (vgl. zu diesem Abschnitt @Pauker2014).
+Aufgrund des Fokus auf Produktionsmaschinen wird die Steuerung von Robotern in dieser Arbeit nicht weiter betrachtet.
+Die Weiterentwicklung des Konzepts der Steuerung beliebiger Maschinen über OPC UA bestärkt jedoch dessen Eignung für die Integration von Altmaschinen.  
+Auch ältere SPS profitierten von der Beschreibung von Struktur und Funktionalität durch OPC UA.
+Durch die Zusammenarbeit des PLCopen Konsortiums und der OPC Foundation (vgl. @sec:speicherprogrammierbare-steuerung) wird außerdem die Programmierung von SPS mit OPC UA möglich.  
 
-- OPC UA SOA (SPS) @Windmann2015
-  + @Hammerstingl2015
+![Service-orientierte Steuerungslogik nach @Windmann2015](figures/soa-steuerung){#fig:soa-steuerung}
+
+Auf Basis von OPC UA stellte Windmann et al. das in @fig:soa-steuerung abgebildete, Service-orientierte Steuerungskonzept für die Automatisierung von Feldgeräten mit SPS vor.
+Der Fokus lag dabei auf Plug & Produce, wodurch sich das Gerät eigenständig in die Infrastruktur integriert, konfiguriert und arbeitet.
+Aufgaben die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
+Die Ein- und Ausgabe, sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
+Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren das Konzept (vgl. zu diesem Absatz @Windmann2015).
+Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) lässt weitere Abstraktionen zu und kann für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
+Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
+Der Software-Agent als Teil der Geräteabstraktion lässt neben der lokalen Datenhaltung auch komplexere Logik für Rückkopplungsschleifen zu, wodurch R4 erfüllt ist.
+
+Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte.
+Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
+Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
+Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
+Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
+Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
+Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung -- meist mittels Software-Adaptern.
 
 ## System- und Softwarearchitektur flexibler Produktion
 
@@ -580,8 +598,6 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 | @Ferrolho2005     | ●             | ●           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Ayatollahi2013   | ●             | ●           | ●           | ◐           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Pauker2014       | ●             | ●           | ●           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Windmann2015     | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
