@@ -220,7 +220,7 @@ Vielen CNC-Anlagen fehlt der Speicher für Programme mit mehreren tausend Bewegu
 Derlei Befehlslisten müssen während der Bearbeitung durch ein Fremdsystem an die Maschine sukzessiv übertragen werden. 
 Das Konzept der _Direct Numerical Control_ (DNC) steht für diese Verbindung via RS-232 oder Parallel Port.
 Fremdsysteme sind PCs oder dedizierte DNC-Transfergeräte, die den Code von Speichermedien wie USB-Sticks und SD-Karten beziehen.
-DNC, verstanden als _Distributed Numerical Control_, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund.
+DNC, verstanden als _Distributed Numerical Control_, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund @Hirsch2000.
 
 Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation.
 Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz @Smid2008).  
@@ -460,9 +460,9 @@ R3
 
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
-Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System (vgl. @Bonomi2012).
+Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System.
 Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
-Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden @Bonomi2012.
+Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden (vgl. zu diesem Absatz @Bonomi2012).
 Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
 R4
@@ -515,8 +515,26 @@ Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von
 
 ## Steuerung von Fertigungssystemen 
 
-- RS-232 Protokoll für CNC von Dreh-/Fräsmaschine @Ferrolho2005
-- RS-232/Ethernet Protokoll für Roboter und CNC in FFS @Ferrolho2007
+Die Steuerung von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne SPS über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt @Hirsch2000.
+Während der erste Fall kaum Schwerpunkt aktueller Forschung ist, wurden DNC-Protokolle für die Fertigungsintegration detailliert beleuchtet.  
+Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme.
+Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework.
+Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden.
+Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).  
+Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
+Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
+Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.
+Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später.
+Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
+Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll.
+Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.  
+
+
+* CNC-Werkzeugmaschine 
+    - mit DNC
+    - ohne DNC
+* SPS
+
 - OPC UA für CNC @Ayatollahi2013
 - OPC UA für Robotersteuerung @Pauker2014
 - OPC UA SOA (SPS) @Windmann2015
@@ -543,6 +561,8 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 +-------------------+---------------+-------------+-------------+-------------+
 |                   | Überwachung   | Steuerung   | Standards   | Lokalität   |
 +===================+===============+=============+=============+=============+
+| @Ferrolho2005     | ●             | ●           | ○           | ○           |
++-------------------+---------------+-------------+-------------+-------------+
 | @Ayatollahi2013   | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Pauker2014       | ○             | ○           | ○           | ○           |
@@ -587,7 +607,7 @@ Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschie
 Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.  
-Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. @Ayatollahi2013, @sec:forschungsstand).
+Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
 Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme.
 <!-- ASK
