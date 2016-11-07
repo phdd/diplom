@@ -309,17 +309,12 @@ Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist 
 <p class="caption">Figure 11: Flexible Fertigungszelle des IFT Wien <span class="citation">[27]</span></p>
 </div>
 <p>Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuerung entwickelt (vgl. zu diesem Absatz <span class="citation">[27]</span>).<br />
-Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit einem in der Industrie etablierten Standard <span class="citation">[10, 25]</span>. Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt. Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt. OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage. Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.</p>
+Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit einem in der Industrie etablierten Standard <span class="citation">[10, 25]</span>. Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt. Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt. OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage. Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.<br />
+Zum Einsatz von Robotern innerhalb flexibler Fertigungssysteme forschten Pauker et al. Sie entwarfen ein Konzept, ähnlich dem von Ayatollahi et al., für die Steuerung und Überwachung von Robotern. Die proprietäre Software des Roboters wird durch einen OPC UA Server gekapselt. Ein Informationsmodell bildet den Roboter mit Funktionalität und Zuständen in Form von Variablen ab. Ändert sich zur Laufzeit das vom Roboter eingesetzte Werkzeug, wird dies auch im Informationsmodell widergespiegelt. Das Fehlen standardisierter Steuerungsschnittstellen wird den Autoren nach durch OPC UA ausgeglichen. Außerdem existierte damit eine semantische Beschreibung der Komponenten eines Roboters (vgl. zu diesem Abschnitt <span class="citation">[42]</span>).<br />
+Die Weiterentwicklung des Konzepts der Steuerung beliebiger Maschinen über OPC UA bestärkt dessen Eignung für die Integration von Altmaschinen. Bezüglich der Anforderungen gilt die selbe Argumentation wie bei Ayatollahi et al. <strong>???</strong>.</p>
 <ul>
-<li>CNC-Werkzeugmaschine
-<ul>
-<li>mit DNC</li>
-<li>ohne DNC</li>
-</ul></li>
-<li><p>SPS</p></li>
-<li>OPC UA für Robotersteuerung <span class="citation">[42]</span></li>
 <li>OPC UA SOA (SPS) <span class="citation">[13]</span></li>
-<li><p><span class="citation">[18]</span></p></li>
+<li><span class="citation">[18]</span></li>
 </ul>
 <h2 id="sec:system--und-softwarearchitektur-flexibler-produktion"><span class="header-section-number">4.3</span> System- und Softwarearchitektur flexibler Produktion</h2>
 <ul>
@@ -372,10 +367,10 @@ Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit
 </tr>
 <tr class="odd">
 <td><p><span class="citation">[42]</span></p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>◐</p></td>
 </tr>
 <tr class="even">
 <td><p><span class="citation">[13]</span></p></td>
