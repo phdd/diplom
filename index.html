@@ -164,7 +164,7 @@ Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine mit Computer Numerica
 <p class="caption">Figure 4: Beispielkonstruktion und G-Code für eine Drehbank</p>
 </div>
 <p>G-Code teilt sich in zwei Gruppen von Instruktionen, die wiederum herstellerspezifisch beziehungsweise generisch sind. Abbildung 4 zeigt das Beispiel einer Konstruktion und dessen Programm mit Bewegungsinstruktionen (G-Befehle) und sonstige Anweisungen (M-Befehle) für die Herstellung auf einer Drehbank<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>. Das Einspannen des Rohlings durch <code>M12</code> schließt die Klammern - in der Konstruktion als schraffierte Blöcke dargestellt. Ein Eilgang, wie durch <code>G0 X100 Z50</code>, richtet das Werkzeug ohne das Entfernen von Material an einem bestimmten Punkt aus, wobei sich <code>A</code> im Beipiel an Position <code>(X = 100, Z = 50)</code> befindet. Der Befehl <code>G1</code> wird für den eigentlichen Fräsvorgang verwendet und lässt das Werkzeug mit einer Geschwindigkeit (Vorschub) von 600 mm/min durch das Material laufen.</p>
-<p>Vielen CNC-Anlagen fehlt der Speicher für Programme mit mehreren tausend Bewegungsinstruktionen. Derlei Befehlslisten müssen während der Bearbeitung durch ein Fremdsystem an die Maschine sukzessiv übertragen werden. Das Konzept der <em>Direct Numerical Control</em> (DNC) steht für diese Verbindung via RS-232 oder Parallel Port. Fremdsysteme sind PCs oder dedizierte DNC-Transfergeräte, die den Code von Speichermedien wie USB-Sticks und SD-Karten beziehen. DNC, verstanden als <em>Distributed Numerical Control</em>, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund.</p>
+<p>Vielen CNC-Anlagen fehlt der Speicher für Programme mit mehreren tausend Bewegungsinstruktionen. Derlei Befehlslisten müssen während der Bearbeitung durch ein Fremdsystem an die Maschine sukzessiv übertragen werden. Das Konzept der <em>Direct Numerical Control</em> (DNC) steht für diese Verbindung via RS-232 oder Parallel Port. Fremdsysteme sind PCs oder dedizierte DNC-Transfergeräte, die den Code von Speichermedien wie USB-Sticks und SD-Karten beziehen. DNC, verstanden als <em>Distributed Numerical Control</em>, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund <span class="citation">[21]</span>.</p>
 <p>Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation. Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz <span class="citation">[22]</span>).<br />
 Dennoch sind auch moderne CNC-Anlagen in ihrer Funktion limitiert, da der verwendete G-Code lediglich Instruktionen und prozedurale Daten abbilden kann, wodurch ein Großteil der Konstruktionsinformationen verloren geht. Zwei neue Standards, namentlich STEP-NC (ISO 10303-238) und Function Blocks (IEC 61499), etablieren sich aus diesem Grund. Durch diese sollen CNC-Maschinen mit mehr Informationen, für intelligentere Fertigung und bessere Interoperabilität, ausgestattet werden. Beispielsweise wird durch STEP-NC die Abhängigkeit von Parametern reduziert. Neuberechnungen zur Laufzeit beziehen unter anderem Verformungen durch Erhitzen des Werkstücks in die Fahrtenplanung ein. Function Blocks dagegen, sind Teil eines Standards für verteilte industrielle Prozesse und Kontrollsysteme. Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC. (vgl. zu diesem Absatz <span class="citation">[23]</span>).<br />
 Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nur indirekt durch CNC steuerbar sind. Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert <span class="citation">[21]</span>.</p>
@@ -273,7 +273,7 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
 </dd>
 </dl>
 <h2 id="sec:lokalität"><span class="header-section-number">3.4</span> Lokalität</h2>
-<p>CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können. Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert. Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System (vgl. <span class="citation">[36]</span>). Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen. Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden <span class="citation">[36]</span>. Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. <span class="citation">[5]</span>).</p>
+<p>CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können. Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert. Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System. Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen. Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden (vgl. zu diesem Absatz <span class="citation">[36]</span>). Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. <span class="citation">[5]</span>).</p>
 <dl>
 <dt>R4</dt>
 <dd>Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
@@ -300,13 +300,20 @@ Der abstrakte Weg vom Produktionsprozess bis zur Quantifizierung des Werkzeugzus
 Fusion von Sensordaten in einer Fallstudie war Schwerpunkt der Arbeit zu TCM von Downey et al. Die Verortung und Signalkorrelation von Akustikemissions-, Vibrations- und Kraftsensorik ermöglicht das Erkennen von schlechten und guten Fräsverhältnissen. Sie berücksichtigten dabei auch den aktuell ausgeführten CNC-Befehl (vgl. zu diesem Absatz <span class="citation">[39]</span>).</p>
 <p>Die Konzepte und Zusammenfassungen von Teti et al. <span class="citation">[37]</span>, Deshpande und Pieper <span class="citation">[8]</span>, Ambhore et al. <span class="citation">[35]</span>, Lee <span class="citation">[38]</span>, Liang et al. <span class="citation">[4]</span> und Downey et al. <span class="citation">[39]</span> dienen der Kategorisierung von Überwachungsmöglichkeiten. Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von Ambhore et al. (vgl. Abbildung 10).</p>
 <h2 id="sec:steuerung-von-fertigungssystemen"><span class="header-section-number">4.2</span> Steuerung von Fertigungssystemen</h2>
+<p>Die Steuerung von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne SPS über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt <span class="citation">[21]</span>. Während der erste Fall kaum Schwerpunkt aktueller Forschung ist, wurden DNC-Protokolle für die Fertigungsintegration detailliert beleuchtet.<br />
+Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme. Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework. Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden. Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz <span class="citation">[40]</span>).<br />
+Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. Abschnitt 3). Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht. Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist. Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später. Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen. Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll. Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.</p>
 <ul>
-<li>RS-232 Protokoll für CNC von Dreh-/Fräsmaschine <span class="citation">[40]</span></li>
-<li>RS-232/Ethernet Protokoll für Roboter und CNC in FFS <span class="citation">[9]</span></li>
+<li>CNC-Werkzeugmaschine
+<ul>
+<li>mit DNC</li>
+<li>ohne DNC</li>
+</ul></li>
+<li><p>SPS</p></li>
 <li>OPC UA für CNC <span class="citation">[27]</span></li>
 <li>OPC UA für Robotersteuerung <span class="citation">[41]</span></li>
 <li>OPC UA SOA (SPS) <span class="citation">[13]</span></li>
-<li><span class="citation">[18]</span></li>
+<li><p><span class="citation">[18]</span></p></li>
 </ul>
 <h2 id="sec:system--und-softwarearchitektur-flexibler-produktion"><span class="header-section-number">4.3</span> System- und Softwarearchitektur flexibler Produktion</h2>
 <ul>
@@ -344,19 +351,19 @@ Fusion von Sensordaten in einer Fallstudie war Schwerpunkt der Arbeit zu TCM von
 </thead>
 <tbody>
 <tr class="odd">
+<td><p><span class="citation">[40]</span></p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="even">
 <td><p><span class="citation">[27]</span></p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 </tr>
-<tr class="even">
-<td><p><span class="citation">[41]</span></p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-</tr>
 <tr class="odd">
 <td><p><span class="citation">[41]</span></p></td>
 <td><p>○</p></td>
@@ -365,27 +372,34 @@ Fusion von Sensordaten in einer Fallstudie war Schwerpunkt der Arbeit zu TCM von
 <td><p>○</p></td>
 </tr>
 <tr class="even">
+<td><p><span class="citation">[41]</span></p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="odd">
 <td><p><span class="citation">[5]</span></p></td>
 <td><p>●</p></td>
 <td><p>●</p></td>
 <td><p>◐</p></td>
 <td><p>◐</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><span class="citation">[20]</span></p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><span class="citation">[44]</span></p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><span class="citation">[32]</span></p></td>
 <td><p>○</p></td>
 <td><p>○</p></td>
@@ -401,7 +415,7 @@ Fusion von Sensordaten in einer Fallstudie war Schwerpunkt der Arbeit zu TCM von
 <p>Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden. Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen. Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden. Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS. Somit ist außer dem Lokalitätskriterium (vgl. Abschnitt 3.4) keine der Anforderung erfüllt. Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.</p>
 <h5 id="sec:s2-werkzeugmaschine-mit-direct-numerical-control."><span class="header-section-number">5.1.0.0.2</span> S2 – Werkzeugmaschine mit Direct Numerical Control.</h5>
 <p><em>Direct Numerical Control</em> (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. Abschnitt <strong>??</strong>). Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich <span class="citation">[47]</span>. Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem. Dem Entwickler steht keine Schnittstelle für diese zur Verfügung. Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.<br />
-Ayatollahi et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine <em>EMCO Concept Turn 55</em>, an der auch dieser Anwendungsfall orientiert ist (vgl. <span class="citation">[27]</span>, Abschnitt 4). Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik. Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme. <!-- ASK
+Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine <em>EMCO Concept Turn 55</em>, an der auch dieser Anwendungsfall orientiert ist (vgl. <span class="citation">[27, 40]</span>, Abschnitt 4.2). Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik. Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme. <!-- ASK
 - CNC bleibt Maschinenspezifisch
 - DIN 66025 für M-Befehle
 - CNC Welt + SPS Welt einzeln betrachten => nummeriert 
