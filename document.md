@@ -528,14 +528,27 @@ Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll.
 Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.  
+Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
+Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
+Ayatollahi et al. entwickelten eine CNC-Steuerungsvariante auf Basis eines DNC-Protokolls mit OPC UA (vgl. @sec:opc-unified-architecture).
+Für die Integration einer Drehmaschine in ein flexibles Fertigungssystem, wurde ein Informationsmodell entworfen.
+Ein Server, verantwortlich für die Aktualisierung des Laufzeitmodells des Maschinenkontexts, hält die Verbindung zur Maschine und stellt die physikalischen Informationen und Methoden zur Kontrolle der CNC bereit.
+@fig:ffz-ift zeigt den konzeptuellen Aufbau des Systems am Institut für Fertigungstechnik der TU Wien.
 
+![Flexible Fertigungszelle des IFT Wien @Ayatollahi2013](figures/ffz-ift){#fig:ffz-ift}
+
+Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuerung entwickelt (vgl. zu diesem Absatz @Ayatollahi2013).  
+Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit einem in der Industrie etablierten Standard [@OPCFoundation2014;@Hoppe2014].
+Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt.
+Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt.
+OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage.
+Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.
 
 * CNC-Werkzeugmaschine 
     - mit DNC
     - ohne DNC
 * SPS
 
-- OPC UA für CNC @Ayatollahi2013
 - OPC UA für Robotersteuerung @Pauker2014
 - OPC UA SOA (SPS) @Windmann2015
   + @Hammerstingl2015
@@ -563,11 +576,11 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 +===================+===============+=============+=============+=============+
 | @Ferrolho2005     | ●             | ●           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Ayatollahi2013   | ○             | ○           | ○           | ○           |
+| @Ayatollahi2013   | ●             | ●           | ●           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Pauker2014       | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Pauker2014       | ○             | ○           | ○           | ○           |
+| @Windmann2015     | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Wang2004         | ●             | ●           | ◐           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
