@@ -576,7 +576,21 @@ Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisier
 
 ## System- und Softwarearchitektur flexibler Produktion
 
-- Wise-Shopfloor @Wang2004
+Überwachung und Steuerung einzelner Maschinen muss im Kontext einer Produktionsumgebung mit vielen heterogenen Feldgeräten betrachtet werden.
+Die Software- und Systemarchitektur des Gesamtsystems nimmt damit eine zentrale Rolle bei der Integration von Altmaschinen ein.  
+Wang et al. entwickelten eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
+Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
+Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
+Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
+Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
+Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
+In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
+Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt (vgl. zu diesem Absatz @Wang2004).  
+Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
+Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
+Damit ist R3 nur ansatzweise erfüllt.
+Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.  
+
 - WAN-CNC mit OPC @Torrisi2008
 - Rekonfigurierbarkeit flexibler Fertigungszellen @Pauker2013
 - SOA-Retrofitting einer Fabrikautomatisierung @Moctezuma2012
@@ -587,6 +601,8 @@ Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisier
   + Surrogate
   + Wrapper
   + ...
+
+[^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
 
 ## Zusammenfassung
 
@@ -599,7 +615,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 +-------------------+---------------+-------------+-------------+-------------+
 | @Ayatollahi2013   | ●             | ●           | ●           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Windmann2015     | ○             | ○           | ○           | ○           |
+| @Windmann2015     | ●             | ●           | ●           | ●           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Wang2004         | ●             | ●           | ◐           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
