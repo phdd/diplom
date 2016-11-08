@@ -517,7 +517,7 @@ Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von
 
 Die Kontrolle von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne speicherprogrammierbare Steuerungen (SPS) über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt @Hirsch2000.
 Während der erste Fall kaum Schwerpunkt aktueller Forschung ist, wurden DNC-Protokolle für die Fertigungsintegration detailliert beleuchtet.  
-Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme.
+Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme (FFS).
 Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework.
 Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden.
 Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).
@@ -534,7 +534,7 @@ Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablier
 ![Flexible Fertigungszelle des IFT Wien @Ayatollahi2013](figures/ffz-ift){#fig:ffz-ift}
 
 Ayatollahi et al. entwickelten eine CNC-Steuerungsvariante auf Basis eines DNC-Protokolls mit OPC UA (vgl. @sec:opc-unified-architecture).
-Für die Integration einer Drehmaschine in ein flexibles Fertigungssystem, wurde ein Informationsmodell entworfen.
+Für die Integration einer Drehmaschine in ein FFS, wurde ein Informationsmodell entworfen.
 Ein Server, verantwortlich für die Aktualisierung des Laufzeitmodells des Maschinenkontexts, hält die Verbindung zur Maschine und stellt die physikalischen Informationen und Methoden zur Kontrolle der CNC bereit.
 @fig:ffz-ift zeigt den konzeptuellen Aufbau des Systems am Institut für Fertigungstechnik der TU Wien.
 Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuerung entwickelt (vgl. zu diesem Absatz @Ayatollahi2013).
@@ -543,7 +543,7 @@ Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüll
 Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt.
 OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage.
 Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.  
-Zum Einsatz von Robotern innerhalb flexibler Fertigungssysteme forschten Pauker et al.
+Zum Einsatz von Robotern innerhalb FFS forschten Pauker et al.
 Sie entwarfen ein Konzept, ähnlich dem von Ayatollahi et al., für die Steuerung und Überwachung von Robotern.
 Die proprietäre Software des Roboters wird durch einen OPC UA Server gekapselt.
 Ein Informationsmodell bildet den Roboter mit Funktionalität und Zuständen in Form von Variablen ab.
@@ -590,9 +590,25 @@ Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk bef
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
 Damit ist R3 nur ansatzweise erfüllt.
 Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.  
+Handelt es sich, wie in einem flexiblen Fertigungssystem (FFS), um einen Verbund von Maschinen, werden Rekonfigurierbarkeit und flexible Datenhaltung architektonisch relevant.
+Die Heterogenität und Austauschbarkeit der Feldgeräte (vgl. @sec:fertigung-und-automatisierung) muss zur Laufzeit berücksichtigt werden.
+Unter dieser Maßgabe entwarfen Pauker et al. eine Kommunikations- und Integrationsarchitektur für die Montage und Konfiguration einer Fertigungszelle auf Informationsebene.
+Das Design beinhaltet ein Informationsmodell, sowie zentrale Datenhaltung für die Komponenten einer Zelle.
+@fig:vgl-arch-ffz stellt den Unterschied zwischen einem herkömmlichen und dem Fertigungssystem von Pauker et al. dar.
 
-- WAN-CNC mit OPC @Torrisi2008
-- Rekonfigurierbarkeit flexibler Fertigungszellen @Pauker2013
+![Vergleich der Architekturen von Fertigungszellen aus @Pauker2013](figures/vgl-arch-ffz){#fig:vgl-arch-ffz}
+
+In ihrem Konzept werden die unterschiedlichen Kommunikationskanäle, wie Feldbusse, serielle und digitale Ein-/Ausgabe-Schnittstellen, durch ein TCP/IP-Protokoll auf Ethernet-Basis vereinheitlicht.
+Aus dem Bereich der intelligenten Systeme übernahmen die Autoren das Blackboard-Konzept (vgl. @HayesRoth1985) für den Informationscache, respektive die zentrale Datenhaltung.
+Parameter für die Kommunikation, der Maschinenstatus, das aktuelle Programm, sowie Informationen zu angeschlossenen Geräten werden hierfür in einer XML-Datei abgelegt.
+Eine Sequenzkontrollkomponente legt seine Forderungen (z.B. starte CNC-Programm) in dieser Datei ab, wodurch andere ihre Aufgaben eigenständig abholen und wahrnehmen können.
+Komponenten des FFS werden durch ein adaptierendes, nicht standardisiertes Protokoll angebunden.
+Dieser Ansatz reduziert die Komplexität der Gerätetopologie und führt zu einem geringen Konfigurationsaufwand (vgl. zu diesem Absatz @Pauker2013).  
+Steuerung und Überwachung können mit dem Blackboard auch aus der Ferne geschehen, womit R1 und R2 erfüllt sind.
+Standardisierung ist nicht Teil des Konzepts, könnte aber mit einer OPC UA-Anbindung durchgesetzt werden.
+Gleiches gilt für die Lokalität von Daten und Logik, wodurch die Anforderungen R2 und R3 nicht erfüllt sind.
+Für Retrofitting relevant ist die Arbeit im Bezug auf die zur Laufzeit mögliche Rekonfiguration der Komponenten.  
+
 - SOA-Retrofitting einer Fabrikautomatisierung @Moctezuma2012
 - SOA-Retrofitting + OPC UA @Durkop2014
 - CPS-Architektur für I4.0 @Lee2015
@@ -606,7 +622,7 @@ Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenser
 
 ## Zusammenfassung
 
-Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
+Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
 +-------------------+---------------+-------------+-------------+-------------+
 |                   | Überwachung   | Steuerung   | Standards   | Lokalität   |
@@ -619,7 +635,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden Forschungsarbeiten ist 
 +-------------------+---------------+-------------+-------------+-------------+
 | @Wang2004         | ●             | ●           | ◐           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Pauker2013       | ○             | ○           | ○           | ○           |
+| @Pauker2013       | ●             | ●           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Durkop2014       | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
