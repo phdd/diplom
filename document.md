@@ -234,7 +234,7 @@ Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC
 Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nur indirekt durch CNC steuerbar sind.
 Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert @Hirsch2000.
 
-[^lathe-example]: nach [www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners](http://www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners/) vom 07.10.2016
+[^lathe-example]: nach [www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners](http://www.helmancnc.com/cnc-lathe-simple-g-code-example-g-code-programming-for-beginners/) (abgerufen am 7.10.2016)
 
 ### Speicherprogrammierbare Steuerung
 
@@ -342,7 +342,7 @@ Plattformunabhängigkeit wird durch frei verfügbare, aber auch proprietäre Imp
 Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden für die Programmiersprachen Ansi C/C++, .NET, Java und weitere durch die OPC Foundation bereitgestellt.
 
 [^opc]: Open Platform Communications
-[^opc-def]: nach [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) vom 23.09.2016
+[^opc-def]: nach [opcfoundation.org/about/what-is-opc](https://opcfoundation.org/about/what-is-opc/) (abgerufen am 23.09.2016)
 
 ## Cyber-physische Produktionssysteme
 
@@ -517,23 +517,23 @@ Der Rahmen dieser Arbeit endet mit dem Erfassen des Sensor-Signals im Modell von
 
 Die Kontrolle von Werkzeugmaschinen geht von einem Computer aus, der CNC und interne speicherprogrammierbare Steuerungen (SPS) über eine proprietäre Schnittstelle oder Direct Numerical Control (DNC) mit Befehlen versorgt @Hirsch2000.
 Während der erste Fall kaum Schwerpunkt aktueller Forschung ist, wurden DNC-Protokolle für die Fertigungsintegration detailliert beleuchtet.  
-Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme (FFS).
+Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible Fertigungssysteme (FFS) @Ferrolho2005.
 Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework.
 Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden.
 Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).
 Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
 Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
 Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.  
-Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später.
+Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später @Ferrolho2007.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
-Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll.
+Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll (vgl. zu diesem Absatz @Ferrolho2007).
 Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.  
 Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
 Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
 
 ![Flexible Fertigungszelle des IFT Wien @Ayatollahi2013](figures/ffz-ift){#fig:ffz-ift}
 
-Ayatollahi et al. entwickelten eine CNC-Steuerungsvariante auf Basis eines DNC-Protokolls mit OPC UA (vgl. @sec:opc-unified-architecture).
+Ayatollahi et al. entwickelten eine CNC-Steuerungsvariante auf Basis eines DNC-Protokolls mit OPC UA (vgl. @sec:opc-unified-architecture) @Ayatollahi2013.
 Für die Integration einer Drehmaschine in ein FFS, wurde ein Informationsmodell entworfen.
 Ein Server, verantwortlich für die Aktualisierung des Laufzeitmodells des Maschinenkontexts, hält die Verbindung zur Maschine und stellt die physikalischen Informationen und Methoden zur Kontrolle der CNC bereit.
 @fig:ffz-ift zeigt den konzeptuellen Aufbau des Systems am Institut für Fertigungstechnik der TU Wien.
@@ -544,7 +544,7 @@ Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüll
 OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage.
 Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.  
 Zum Einsatz von Robotern innerhalb FFS forschten Pauker et al.
-Sie entwarfen ein Konzept, ähnlich dem von Ayatollahi et al., für die Steuerung und Überwachung von Robotern.
+Sie entwarfen ein Konzept, ähnlich dem von Ayatollahi et al., für die Steuerung und Überwachung von Robotern @Pauker2014.
 Die proprietäre Software des Roboters wird durch einen OPC UA Server gekapselt.
 Ein Informationsmodell bildet den Roboter mit Funktionalität und Zuständen in Form von Variablen ab.
 Ändert sich zur Laufzeit das vom Roboter eingesetzte Werkzeug, wird dies auch im Informationsmodell widergespiegelt.
@@ -557,7 +557,7 @@ Durch die Zusammenarbeit des PLCopen Konsortiums und der OPC Foundation (vgl. @s
 
 ![Service-orientierte Steuerungslogik nach @Windmann2015](figures/soa-steuerung){#fig:soa-steuerung}
 
-Auf Basis von OPC UA stellte Windmann et al. das in @fig:soa-steuerung abgebildete, Service-orientierte Steuerungskonzept für die Automatisierung von Feldgeräten mit SPS vor.
+Auf Basis von OPC UA stellte Windmann et al. das in @fig:soa-steuerung abgebildete, Service-orientierte Steuerungskonzept für die Automatisierung von Feldgeräten mit SPS vor @Windmann2015.
 Der Fokus lag dabei auf Plug & Produce, wodurch sich das Gerät eigenständig in die Infrastruktur integriert, konfiguriert und arbeitet.
 Aufgaben die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
 Die Ein- und Ausgabe, sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
@@ -565,14 +565,6 @@ Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren da
 Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) lässt weitere Abstraktionen zu und kann für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
 Der Software-Agent als Teil der Geräteabstraktion lässt neben der lokalen Datenhaltung auch komplexere Logik für Rückkopplungsschleifen zu, wodurch R4 erfüllt ist.
-
-Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte.
-Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
-Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
-Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
-Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
-Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
-Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung -- meist mittels Software-Adaptern.
 
 ## System- und Softwarearchitektur flexibler Produktion
 
@@ -592,7 +584,7 @@ Damit ist R3 nur ansatzweise erfüllt.
 Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.  
 Handelt es sich, wie in einem flexiblen Fertigungssystem (FFS), um einen Verbund von Maschinen, werden Rekonfigurierbarkeit und flexible Datenhaltung architektonisch relevant.
 Die Heterogenität und Austauschbarkeit der Feldgeräte (vgl. @sec:fertigung-und-automatisierung) muss zur Laufzeit berücksichtigt werden.
-Unter dieser Maßgabe entwarfen Pauker et al. eine Kommunikations- und Integrationsarchitektur für die Montage und Konfiguration einer Fertigungszelle auf Informationsebene.
+Unter dieser Maßgabe entwarfen Pauker et al. eine Kommunikations- und Integrationsarchitektur für die Montage und Konfiguration einer Fertigungszelle auf Informationsebene @Pauker2013.
 Das Design beinhaltet ein Informationsmodell, sowie zentrale Datenhaltung für die Komponenten einer Zelle.
 @fig:vgl-arch-ffz stellt den Unterschied zwischen einem herkömmlichen und dem Fertigungssystem von Pauker et al. dar.
 
@@ -605,11 +597,28 @@ Eine Sequenzkontrollkomponente legt seine Forderungen (z.B. starte CNC-Programm)
 Komponenten des FFS werden durch ein adaptierendes, nicht standardisiertes Protokoll angebunden.
 Dieser Ansatz reduziert die Komplexität der Gerätetopologie und führt zu einem geringen Konfigurationsaufwand (vgl. zu diesem Absatz @Pauker2013).  
 Steuerung und Überwachung können mit dem Blackboard auch aus der Ferne geschehen, womit R1 und R2 erfüllt sind.
-Standardisierung ist nicht Teil des Konzepts, könnte aber mit einer OPC UA-Anbindung durchgesetzt werden.
+Standardisierung ist nicht Teil des Konzepts, soll aber mit einer OPC UA-Anbindung durchgesetzt werden.
 Gleiches gilt für die Lokalität von Daten und Logik, wodurch die Anforderungen R2 und R3 nicht erfüllt sind.
 Für Retrofitting relevant ist die Arbeit im Bezug auf die zur Laufzeit mögliche Rekonfiguration der Komponenten.  
+Während Pauker et al. die horizontale Vereinheitlichung der Kommunikation anstreben, forschten Moctezuma et al. an vertikalem und horizontalem Informationsaustausch @Moctezuma2012.
+Dafür modernisierten die Autoren die Fastory Forschungsfertigungsstrecke.
+Wenn die zur Steuerung notwendige Echtzeit nahe der Maschine bereitgestellt wird, können Web-Services die Anlagen für den abstrakteren Informationsaustausch kapseln.
+Die ursprünglich heterogene Feldgerätelandschaft wurde durch eine Service-orientierte Architektur (SOA) ersetzt.
+Ziel des Konzept ist unter anderem die Einsparung von Energie, Flexibilisierung und Rekonfigurierbarkeit, die Fähigkeit der eigenständigen Wiederherstellung nach Ausfall und Fehler (self-recovery), sowie prädiktive Wartung (predictive Maintenance).
+Eine zentrale Anforderung an die Schnittstellen der Geräterepräsentation ist, neben Skalierbarkeit und Homogenität, die lokale Verarbeitung von Daten.
+Intelligente Remote Terminal Units (RTU), wie auf der rechten Seite der @fig:rtu-retrofitting, kapseln dazu das industrielle Equipment.
 
-- SOA-Retrofitting einer Fabrikautomatisierung @Moctezuma2012
+![Equipment ohne und mit RTU-Retrofitting aus @Moctezuma2012](figures/rtu-retrofitting){#fig:rtu-retrofitting}
+
+Das original-Equipment besteht aus der physischen Schicht (Physical) für Aktuatoren und Sensoren.
+Darüber (Processing) werden die Daten umgewandelt -- bei einfachen Sensoren auch ohne Verarbeitung durchgereicht.
+Die Schnittstellenschicht (Interface) bindet das Gerät an ein Bussystem, digitale Ein-/Ausgabesysteme oder andere, teils proprietäre Kommunikationsmedien (vgl. @sec:fertigung-und-automatisierung).
+Mit der aufsetzenden RTU wird zuerst eine, zum jeweiligen Medium kompatible Schnittstelle eingesetzt.
+Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der RTU.
+Durch die Kommunikationsschicht werden dann Informationen, anstelle der Daten des original-Equipments weitergereicht und konsumiert.
+Eine RTU kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
+Das Konzept von Moctezuma et al. erfüllt alle Anforderungen, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.
+
 - SOA-Retrofitting + OPC UA @Durkop2014
 - CPS-Architektur für I4.0 @Lee2015
 - I4.0-Komponente (Bild 9) @Adolphs2015
@@ -621,6 +630,20 @@ Für Retrofitting relevant ist die Arbeit im Bezug auf die zur Laufzeit möglich
 [^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
 
 ## Zusammenfassung
+
+Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte.
+Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
+Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
+Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
+Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
+Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
+Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung -- meist mittels Software-Adaptern.
+
+Alle betrachteten Konzepte erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines cyber-physischen Produktionssystems.
+Standards werden zu einem Großteil unterstützt, sind jedoch meist nicht der Schwerpunkt wissenschaftlicher Betrachtungen.
+Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. @sec:opc-unified-architecture).
+Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie[^ibh-link] und Software[^ignition-opcua] ausgestattet werden.
+Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.
 
 Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
@@ -637,12 +660,17 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 +-------------------+---------------+-------------+-------------+-------------+
 | @Pauker2013       | ●             | ●           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
+| @Moctezuma2012    | ●             | ●           | ●           | ●           |
++-------------------+---------------+-------------+-------------+-------------+
 | @Durkop2014       | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Lee2015          | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
+
+[^ibh-link]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 8.11.2016)
+[^ignition-opcua]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
 
 # Konzeption
 
