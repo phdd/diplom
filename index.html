@@ -343,21 +343,13 @@ Die Kombination aus Rekonfigurierbarkeit (<span class="citation">[21]</span>), W
 <p>Ein Modul ist eine mechatronische Einheit, die abstrakte Funktionalität, beziehungsweise Dienste, externalisiert. Die Implementierung der Funktionen ist gekapselt und besteht aus Sensoren, Aktuatoren und einer Kontrollkomponente. Echtzeitkommunikation wird zwischen den Geräten, nicht aber zwischen den Modulen bereitgestellt. Die Schnittstelle der beiden Schichten wird durch OPC UA bereitgestellt. Dürkop et al. erläutern einen möglichen Arbeitsablauf in dem eine Prozessdefinitionssprache, wie die Business Process Execution Language (BPEL), den übergeordneten Produktionsablauf beschreibt. Anhand derer ermittelt eine Orchestrierungskomponente die für den Prozess benötigten Dienste auf Modulebene. Identifizierte Dienste werden mithilfe eines Diensteverzeichnis (Service Directory) ausgewählt (vgl. zu diesem Absatz <span class="citation">[19]</span>).<br />
 Überwachung und Steuerung werden von entfernten Subsystemen teilweise übernommen. Feingranulare Logik zur Kontrolle des einzelnen Geräts wird lokal verortet und übermittelt Informationen durch standardisierte Protokolle. Damit sind alle Anforderungen erfüllt, wodurch die beschriebene Architektur für die Modernisierung von Altanlagen tauglich ist.<br />
 Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht. Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt. Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne <span class="citation">[33]</span>. Die unterste Ebene (Smart Connection) dient der zuverlässigen und akkuraten Erfassung von Daten der Maschinen und Komponenten, sowie deren Ethernet-basierte Kommunikation. Darauf aufbauend (Data-to-Information Conversion) werden die Daten in Informationen gewandelt. Inferenzsysteme und intelligente Analysen dienen hier der Ausfall- und Leistungsvorhersage und führen zur Selbstwahrnehmung (self-awareness) des Equipments. Die folgende Cyber-Schicht bietet digitale Zwillinge der Maschinen und ihrer Komponenten. Sie vergleichen die Leistungsmerkmale ihres physischen Äquivalents mit denen anderer Maschinen (self-compare), führen eine Historie (Time-Machine) und stellen eine cyber-physische Schnittstelle (Cyber-Physical Interface, CPI) für die Machine-to-Machine, beziehungsweise M2M-Kommunikation. Auf einer darüber liegenden Schicht der Kognition, werten Systeme zur Entscheidungsfindung (Decision Support Systems, DSS) zur Unterstützung des Nutzers die Informationen der Cyber-Schicht aus. Auch die Simulation und Synthese weiterer Schritte zählt zu den Aufgaben der Cognition-Ebene. Die oberste Schicht (Configuration) ist als Kontrollinstanz verantwortlich für die Rückkopplung des physischen Raums in das virtuelle Modell. Das Konzept der Time-Machine der Cyber-Ebene verwaltet Momentaufnahmen des erfassten Kontextes (Snapshot Collection) und verhilft dem System zu einer kumulierten Maschinenhistorie. Dadurch kann das aktuelle Verhalten mit bereits bekanntem verglichen werden (Similarity Identification) und ermöglicht Vorhersagen. Durch Simulation können Verhaltensmuster für Szenarien extrapoliert und optimierte Schritte synthetisiert werden (vgl. zu diesem Absatz <span class="citation">[33]</span>).<br />
-Aufgrund der abstrakten Beschreibung einer Schichtenarchitektur werden die Anforderungen nur teilweise erfüllt. Die Time-Machine läuft nicht zwangsläufig nahe der Maschine. Dennoch erfolgen Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS, womit R1 erfüllt ist. Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüllt demnach R2 nicht. R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden. Die Verortung von Daten und Logik ist zweigeteilt. Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.</p>
-<p>Die Gemeinsamkeit aller vorgestellten Architekturkonzepte liegt in der Verwendung von Adaptern im Allgemeinen und Maschinenrepräsentanten im Speziellen. …</p>
-<ul>
-<li>I4.0-Komponente (Bild 9) <span class="citation">[42]</span></li>
-<li>Virt. Maschinenabb.</li>
-<li>Surrogate</li>
-<li>Wrapper</li>
-<li>…</li>
-</ul>
+Aufgrund der abstrakten Beschreibung einer Schichtenarchitektur werden die Anforderungen nur teilweise erfüllt. Die Time-Machine läuft nicht zwangsläufig nahe der Maschine. Dennoch erfolgen Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS, womit R1 erfüllt ist. Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüllt demnach R2 nicht. R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden. Die Verortung von Daten und Logik ist zweigeteilt. Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet. Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.</p>
 <h2 id="sec:zusammenfassung"><span class="header-section-number">4.4</span> Zusammenfassung</h2>
 <p>Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte. Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt. Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle. Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz <span class="citation">[47]</span>).<br />
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz <span class="citation">[6]</span>).<br />
 Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz <span class="citation">[48]</span>).<br />
-Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung – meist mittels Software-Adaptern.</p>
-<p>Alle betrachteten Konzepte erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines Produktionssystems. Standards werden zu einem Großteil unterstützt, sind jedoch oft nicht der Schwerpunkt wissenschaftlicher Betrachtungen. Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. Abschnitt 2.2). Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> und Software<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a> ausgestattet werden. Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.</p>
+Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Vereinheitlichung der Schnittstellen und deren Durchsetzung – meist mittels Software-Adaptern. Die Gemeinsamkeit aller vorgestellten Architekturkonzepte liegt in der Verwendung von Maschinenrepräsentanten. Auch die Aufteilung einer solchen Repräsentation in zwei Schichten ist etabliert. Der Echtzeit-Kontakt zur physischen Welt wird durch eine bereitgestellt. Intelligentes Informationsmanagement, Analyse- und Rechenfähigkeit durch die andere <span class="citation">[49]</span>. Das Referenzarchitekturmodell RAMI4.0 der VDI/VDE-Gesellschaft beschreibt diese Komponente als I4.0-Komponente mit virtueller Verwaltungsschale <span class="citation">[42]</span>.<br />
+Nahezu alle betrachteten Forschungsarbeiten erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines Produktionssystems. Standards werden oft gefordert, stehen jedoch meist nicht im Zentrum der wissenschaftlichen Betrachtungen. Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. Abschnitt 2.2). Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> und Software<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a> ausgestattet werden. Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.</p>
 <p>Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in Tabelle 1 zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.</p>
 <table>
 <caption>Table 1: Anforderungen bzgl. bestehender Forschungsarbeiten</caption>
@@ -437,12 +429,12 @@ Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisier
 </tbody>
 </table>
 <h1 id="sec:konzeption"><span class="header-section-number">5</span> Konzeption</h1>
-<p>Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in Abschnitt 1 beschriebenen Problemen unter Berücksichtigung der Anforderungen aus Abschnitt 3. Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt. Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert <span class="citation">[49]</span>. Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs. Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben. Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.</p>
+<p>Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in Abschnitt 1 beschriebenen Problemen unter Berücksichtigung der Anforderungen aus Abschnitt 3 und Konzepten aus Abschnitt 4. Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt. Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert <span class="citation">[50]</span>. Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs. Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben. Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.</p>
 <h2 id="sec:szenarien"><span class="header-section-number">5.1</span> Szenarien</h2>
 <h5 id="sec:s1-werkzeugmaschine-ohne-schnittstellen."><span class="header-section-number">5.1.0.0.1</span> S1 – Werkzeugmaschine ohne Schnittstellen.</h5>
 <p>Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden. Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen. Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden. Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS. Somit ist außer dem Lokalitätskriterium (vgl. Abschnitt 3.4) keine der Anforderung erfüllt. Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.</p>
 <h5 id="sec:s2-werkzeugmaschine-mit-direct-numerical-control."><span class="header-section-number">5.1.0.0.2</span> S2 – Werkzeugmaschine mit Direct Numerical Control.</h5>
-<p><em>Direct Numerical Control</em> (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. Abschnitt <strong>??</strong>). Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich <span class="citation">[50]</span>. Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem. Dem Entwickler steht keine Schnittstelle für diese zur Verfügung. Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.<br />
+<p><em>Direct Numerical Control</em> (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. Abschnitt <strong>??</strong>). Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich <span class="citation">[51]</span>. Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem. Dem Entwickler steht keine Schnittstelle für diese zur Verfügung. Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.<br />
 Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine <em>EMCO Concept Turn 55</em>, an der auch dieser Anwendungsfall orientiert ist (vgl. <span class="citation">[28, 41]</span>, Abschnitt 4.2). Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik. Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme. <!-- ASK
 - CNC bleibt Maschinenspezifisch
 - DIN 66025 für M-Befehle
@@ -456,7 +448,7 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 - SPS soll genauso handhabbar sein
 --></p>
 <h2 id="sec:anwendungsfälle"><span class="header-section-number">5.2</span> Anwendungsfälle</h2>
-<p>Die unterschiedlichen Anforderungen der mit dem System interagierenden Menschen werden in Anwendungsfällen deutlich, die auszugsweise aus den Personas von Denner et al. hervorgegangen sind <span class="citation">[51]</span>.</p>
+<p>Die unterschiedlichen Anforderungen der mit dem System interagierenden Menschen werden in Anwendungsfällen deutlich, die auszugsweise aus den Personas von Denner et al. hervorgegangen sind <span class="citation">[52]</span>.</p>
 <h5 id="sec:a1-produktionsleiter."><span class="header-section-number">5.2.0.0.1</span> A1 – Produktionsleiter.</h5>
 <p>Wie in Abbildung 16 dargestellt, ist ein Produktionsleiter hauptsächlich für die Erstellung, Überwachung und Dokumentation von Produktionsplänen zuständig. Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten um auch Wartungsaufträge delegieren zu können. Altmaschinen können diese Daten auch erfassen. Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.</p>
 <div class="figure">
@@ -477,7 +469,7 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 </div>
 <hr />
 <p><strong>MATERIAL</strong></p>
-<p>Warum OPC UA? =&gt; <span class="citation">[52]</span></p>
+<p>Warum OPC UA? =&gt; <span class="citation">[53]</span></p>
 <p><span class="citation">[13]</span> vs. <span class="citation">[46]</span>:</p>
 <ul>
 <li>horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten</li>
@@ -563,7 +555,7 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 </li>
 <li>Ethernet-basierte Kommunikation</li>
 </ul></li>
-<li>Konzept eines <em>Cell Controller</em> als Basis (vgl. <span class="citation">[28, 53]</span>)</li>
+<li>Konzept eines <em>Cell Controller</em> als Basis (vgl. <span class="citation">[28, 54]</span>)</li>
 <li>kein Maschinenspez. NC-Terminal =&gt; verteiltes System =&gt; entfernte Mensch-Maschine-Schnittstelle (vgl. <span class="citation">[14]</span>)</li>
 <li>Rekonfigurierbare FFZ <span class="citation">[19, 21]</span></li>
 <li>Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen
@@ -614,7 +606,7 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 <li>Service-/Protokolllayer (OPC UA)</li>
 <li>CPS-Layer, Hardwareanbindung</li>
 <li>Einbetten eines dedizierten Web-Services <span class="citation">[5]</span></li>
-<li>Stage braucht eingebettetes Kontrollsystem <span class="citation">[54]</span></li>
+<li>Stage braucht eingebettetes Kontrollsystem <span class="citation">[55]</span></li>
 </ul>
 <!-- ## Kommunikations- & Informationsmodell -->
 <p><span class="citation">[21]</span> Komponentengranularität bis zur Achse (intelligente Maschinenteile)</p>
@@ -660,8 +652,8 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 <li>Steuerungsalternative <em>Programs</em></li>
 <li>Fog mit OPC UA und WS</li>
 <li>BPEL/BPMN/etc. für abstrakte Leitebene</li>
-<li>MDSD mit <span class="citation">[55]</span></li>
-<li>CNC ersetzen durch STEP-NC? <span class="citation">[24, 56–58]</span></li>
+<li>MDSD mit <span class="citation">[56]</span></li>
+<li>CNC ersetzen durch STEP-NC? <span class="citation">[24, 57–59]</span></li>
 <li>AutomationML und OPC UA <span class="citation">[26]</span></li>
 <li>Case-Study!!!</li>
 <li>Möglichkeiten des Nutzens der Daten
@@ -817,35 +809,38 @@ Selbiges gilt auch für Geräte der ersten Kategorie.--> Im letzten Fall verfüg
 <div id="ref-piCASSO">
 <p>[48] ISW Universität Stuttgart, „piCASSO“. [Online]. Verfügbar unter: <a href="http://www.projekt-picasso.de/" class="uri">http://www.projekt-picasso.de/</a>. [Zugegriffen: 27-Aug-2016]</p>
 </div>
+<div id="ref-Monostori2016">
+<p>[49] L. Monostori, B. Kádár, T. Bauernhansl, S. Kondoh, S. Kumara, G. Reinhart, O. Sauer, G. Schuh, W. Sihn, und K. Ueda, „Cyber-physical systems in manufacturing“, <em>CIRP Annals - Manufacturing Technology</em>, Bd. 65, S. 621–641, 2016. </p>
+</div>
 <div id="ref-Kruchten1995">
-<p>[49] P. Kruchten, „Architectural Blueprints - The ‚4+1‘ View Model of Software Architecture“, <em>IEEE Software</em>, Bd. 12, Nr. 6, S. 42–50, 1995. </p>
+<p>[50] P. Kruchten, „Architectural Blueprints - The ‚4+1‘ View Model of Software Architecture“, <em>IEEE Software</em>, Bd. 12, Nr. 6, S. 42–50, 1995. </p>
 </div>
 <div id="ref-Alting1994">
-<p>[50] L. Alting, <em>Manufacturing Engineering Processes</em>. 1994. </p>
+<p>[51] L. Alting, <em>Manufacturing Engineering Processes</em>. 1994. </p>
 </div>
 <div id="ref-Denner2015">
-<p>[51] J. Denner, P. Heinrich, C. Heldman, und A. Richter, „Project Deliverable 1.2 - First version of requirements of workers and organisations“, 2015 [Online]. Verfügbar unter: <a href="http://www.facts4workers.eu" class="uri">http://www.facts4workers.eu</a></p>
+<p>[52] J. Denner, P. Heinrich, C. Heldman, und A. Richter, „Project Deliverable 1.2 - First version of requirements of workers and organisations“, 2015 [Online]. Verfügbar unter: <a href="http://www.facts4workers.eu" class="uri">http://www.facts4workers.eu</a></p>
 </div>
 <div id="ref-Izaguirre2011">
-<p>[52] M. J. A. G. Izaguirre, A. Lobov, und J. L. M. Lastra, „OPC-UA and DPWS interoperability for factory floor monitoring using complex event processing“, <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, S. 205–210, 2011. </p>
+<p>[53] M. J. A. G. Izaguirre, A. Lobov, und J. L. M. Lastra, „OPC-UA and DPWS interoperability for factory floor monitoring using complex event processing“, <em>IEEE International Conference on Industrial Informatics (INDIN)</em>, S. 205–210, 2011. </p>
 </div>
 <div id="ref-Fallah2016a">
-<p>[53] S. M. Fallah, S. Wolny, und M. Wimmer, „Towards model-integrated service-oriented manufacturing execution system“, in <em>2016 1st International Workshop on Cyber-Physical Production Systems (CPPS)</em>, 2016, S. 1–5. </p>
+<p>[54] S. M. Fallah, S. Wolny, und M. Wimmer, „Towards model-integrated service-oriented manufacturing execution system“, in <em>2016 1st International Workshop on Cyber-Physical Production Systems (CPPS)</em>, 2016, S. 1–5. </p>
 </div>
 <div id="ref-Wang2008">
-<p>[54] Y. Wang, M. C. Vuran, und S. Goddard, „Cyber-physical systems in industrial process control“, <em>ACM SIGBED Review</em>, Bd. 5, Nr. 1, S. 1–2, 2008. </p>
+<p>[55] Y. Wang, M. C. Vuran, und S. Goddard, „Cyber-physical systems in industrial process control“, <em>ACM SIGBED Review</em>, Bd. 5, Nr. 1, S. 1–2, 2008. </p>
 </div>
 <div id="ref-Pauker2016">
-<p>[55] F. Pauker, T. Frühwirth, und B. Kittl, „A systematic approach to OPC UA information model design“, in <em>49th CIRP Conference on Manufacturing Systems</em>, 2016. </p>
+<p>[56] F. Pauker, T. Frühwirth, und B. Kittl, „A systematic approach to OPC UA information model design“, in <em>49th CIRP Conference on Manufacturing Systems</em>, 2016. </p>
 </div>
 <div id="ref-Suh2003">
-<p>[56] S. Suh, B. Lee, D. Chung, und S. Cheon, „Architecture and implementation of a shop-floor programming system for STEP-compliant CNC“, <em>Computer-Aided Design</em>, Bd. 35, Nr. 12, S. 1069–1083, 2003. </p>
+<p>[57] S. Suh, B. Lee, D. Chung, und S. Cheon, „Architecture and implementation of a shop-floor programming system for STEP-compliant CNC“, <em>Computer-Aided Design</em>, Bd. 35, Nr. 12, S. 1069–1083, 2003. </p>
 </div>
 <div id="ref-Xu2006">
-<p>[57] X. Xu und S. Newman, „Making CNC machine tools more open, interoperable and intelligent - a review of the technologies“, <em>Computers in Industry</em>, Bd. 57, Nr. 2, S. 141–152, 2006. </p>
+<p>[58] X. Xu und S. Newman, „Making CNC machine tools more open, interoperable and intelligent - a review of the technologies“, <em>Computers in Industry</em>, Bd. 57, Nr. 2, S. 141–152, 2006. </p>
 </div>
 <div id="ref-Xu2006b">
-<p>[58] X. Xu, „Realization of STEP-NC enabled machining“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 22, Nr. 2, S. 144–153, 2006. </p>
+<p>[59] X. Xu, „Realization of STEP-NC enabled machining“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 22, Nr. 2, S. 144–153, 2006. </p>
 </div>
 </div>
 <div class="footnotes">
