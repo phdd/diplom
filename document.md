@@ -641,9 +641,28 @@ Damit sind alle Anforderungen erfüllt, wodurch die beschriebene Architektur fü
 Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht.
 Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt.
 Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne @Lee2015.
+Die unterste Ebene (Smart Connection) dient der zuverlässigen und akkuraten Erfassung von Daten der Maschinen und Komponenten, sowie deren Ethernet-basierte Kommunikation.
+Darauf aufbauend (Data-to-Information Conversion) werden die Daten in Informationen gewandelt.
+Inferenzsysteme und intelligente Analysen dienen hier der Ausfall- und Leistungsvorhersage und führen zur Selbstwahrnehmung (self-awareness) des Equipments.
+Die folgende Cyber-Schicht bietet digitale Zwillinge der Maschinen und ihrer Komponenten.
+Sie vergleichen die Leistungsmerkmale ihres physischen Äquivalents mit denen anderer Maschinen (self-compare), führen eine Historie (Time-Machine) und stellen eine cyber-physische Schnittstelle (Cyber-Physical Interface, CPI) für die Machine-to-Machine, beziehungsweise M2M-Kommunikation.
+Auf einer darüber liegenden Schicht der Kognition, werten Systeme zur Entscheidungsfindung (Decision Support Systems, DSS) zur Unterstützung des Nutzers die Informationen der Cyber-Schicht aus.
+Auch die Simulation und Synthese weiterer Schritte zählt zu den Aufgaben der Cognition-Ebene.
+Die oberste Schicht (Configuration) ist als Kontrollinstanz verantwortlich für die Rückkopplung des physischen Raums in das virtuelle Modell.
+Das Konzept der Time-Machine der Cyber-Ebene verwaltet Momentaufnahmen des erfassten Kontextes (Snapshot Collection) und verhilft dem System zu einer kumulierten Maschinenhistorie.
+Dadurch kann das aktuelle Verhalten mit bereits bekanntem verglichen werden (Similarity Identification) und ermöglicht Vorhersagen.
+Durch Simulation können Verhaltensmuster für Szenarien extrapoliert und optimierte Schritte synthetisiert werden (vgl. zu diesem Absatz @Lee2015).  
+Aufgrund der abstrakten Beschreibung einer Schichtenarchitektur werden die Anforderungen nur teilweise erfüllt.
+Die Time-Machine läuft nicht zwangsläufig nahe der Maschine.
+Dennoch erfolgen Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS, womit R1 erfüllt ist.
+Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüllt demnach R2 nicht.
+R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden.
+Die Verortung von Daten und Logik ist zweigeteilt.
+Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
 
+Die Gemeinsamkeit aller vorgestellten Architekturkonzepte liegt in der Verwendung von Adaptern im Allgemeinen und Maschinenrepräsentanten im Speziellen. 
+...
 
-- CPS-Architektur für I4.0 @Lee2015
 - I4.0-Komponente (Bild 9) @Adolphs2015
   + Virt. Maschinenabb.
   + Surrogate
@@ -687,7 +706,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 +-------------------+---------------+-------------+-------------+-------------+
 | @Durkop2014       | ●             | ●           | ●           | ●           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Lee2015          | ○             | ○           | ○           | ○           |
+| @Lee2015          | ●             | ○           | ○           | ◐           |
 +-------------------+---------------+-------------+-------------+-------------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
