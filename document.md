@@ -171,6 +171,7 @@ Letzteres wird in der Praxis jedoch kaum genutzt.
 Ein weiterer, stark verbreiteter Repräsentant ist die serielle Schnittstelle RS-232.  
 Die dritte Klasse von Kommunikationssystemen verbindet Bus-basierte Geräte.
 Traditionelle Bussysteme und Real-Time Ethernet (RTE) sind Stand der Technik und erlauben die Definition der Strukturen durch einen Bus-Master.
+RTE ist hierbei ein Überbegriff verschiedener Netzwerkstandards wie Profinet IO, EtherNet/IP und EtherCAT @Durkop2014.
 Bildverarbeitungssysteme, ihre Protokolle (z.B. GigE Vision[^gigevision]) und Beschreibungssprachen (z.B. GenICam[^genicam]) sind hier verbreitet.
 Für Konfiguration und Überwachung der Systeme wird eine Mensch-Maschine-Schnittstelle (MMS) eingesetzt (vgl. zu diesem Absatz @Hammerstingl2015).  
 Feldbusse sind digitale bidirektionale, serielle Kommunikationsnetzwerke für echtzeitfähige, verteilte Kontrolle von Instrumenten, Steuerungseinheiten und Aktuatoren @Mahalik2003.
@@ -562,7 +563,7 @@ Der Fokus lag dabei auf Plug & Produce, wodurch sich das Gerät eigenständig in
 Aufgaben die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
 Die Ein- und Ausgabe, sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
 Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren das Konzept (vgl. zu diesem Absatz @Windmann2015).
-Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) lässt weitere Abstraktionen zu und kann für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
+Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) kann nach entsprechenden Anpassungen für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
 Der Software-Agent als Teil der Geräteabstraktion lässt neben der lokalen Datenhaltung auch komplexere Logik für Rückkopplungsschleifen zu, wodurch R4 erfüllt ist.
 
@@ -617,9 +618,31 @@ Mit der aufsetzenden RTU wird zuerst eine, zum jeweiligen Medium kompatible Schn
 Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der RTU.
 Durch die Kommunikationsschicht werden dann Informationen, anstelle der Daten des original-Equipments weitergereicht und konsumiert.
 Eine RTU kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
-Das Konzept von Moctezuma et al. erfüllt alle Anforderungen, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.
+Das Konzept von Moctezuma et al. erfüllt alle Anforderungen, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.  
+Die Kombination aus Rekonfigurierbarkeit (@Pauker2013), Web-Service-basierter Kapselung von Feldgeräten (@Moctezuma2012) und der lokalen Informationsgewinnung aus Anlagen-Rohdaten untersuchten Dürkop et al. im Kontext von SOA @Durkop2014.
+Die vorgeschlagene Architektur ermöglicht Plug-and-Produce, respektive die automatische Rekonfiguration nach physischen Veränderungen auf Basis abstrakter Prozessdefinitionen.
+Da industrielle Automation beispielsweise Echtzeitkommunikation erfordert, ist eine reine SOA-Lösung unzureichend.
+Ein Vorteil von Web-Services besteht in der Möglichkeit der Kombination zu abstrakten Diensten.
+Der Produktionsprozess bestünde aus der Komposition mehrerer Fertigungszellen und Transportsysteme.
+In vorgestellten Konzept wird daher die strikte Trennung von Web-Service Modul und Echtzeit-Gerätekontrolle postuliert, dargestellt in @fig:module-field-level.
 
-- SOA-Retrofitting + OPC UA @Durkop2014
+![Aufteilung von Geräten in Automatisierungsmodule @Durkop2014](figures/module-field-level){#fig:module-field-level}
+
+Ein Modul ist eine mechatronische Einheit, die abstrakte Funktionalität, beziehungsweise Dienste, externalisiert.
+Die Implementierung der Funktionen ist gekapselt und besteht aus Sensoren, Aktuatoren und einer Kontrollkomponente.
+Echtzeitkommunikation wird zwischen den Geräten, nicht aber zwischen den Modulen bereitgestellt.
+Die Schnittstelle der beiden Schichten wird durch OPC UA bereitgestellt.
+Dürkop et al. erläutern einen möglichen Arbeitsablauf in dem eine Prozessdefinitionssprache, wie die Business Process Execution Language (BPEL), den übergeordneten Produktionsablauf beschreibt.
+Anhand derer ermittelt eine Orchestrierungskomponente die für den Prozess benötigten Dienste auf Modulebene.
+Identifizierte Dienste werden mithilfe eines Diensteverzeichnis (Service Directory) ausgewählt (vgl. zu diesem Absatz @Durkop2014).  
+Überwachung und Steuerung werden von entfernten Subsystemen teilweise übernommen.
+Feingranulare Logik zur Kontrolle des einzelnen Geräts wird lokal verortet und übermittelt Informationen durch standardisierte Protokolle.
+Damit sind alle Anforderungen erfüllt, wodurch die beschriebene Architektur für die Modernisierung von Altanlagen tauglich ist.  
+Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht.
+Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt.
+Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne @Lee2015.
+
+
 - CPS-Architektur für I4.0 @Lee2015
 - I4.0-Komponente (Bild 9) @Adolphs2015
   + Virt. Maschinenabb.
@@ -639,8 +662,8 @@ Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik 
 Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
 Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung -- meist mittels Software-Adaptern.
 
-Alle betrachteten Konzepte erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines cyber-physischen Produktionssystems.
-Standards werden zu einem Großteil unterstützt, sind jedoch meist nicht der Schwerpunkt wissenschaftlicher Betrachtungen.
+Alle betrachteten Konzepte erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines Produktionssystems.
+Standards werden zu einem Großteil unterstützt, sind jedoch oft nicht der Schwerpunkt wissenschaftlicher Betrachtungen.
 Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. @sec:opc-unified-architecture).
 Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie[^ibh-link] und Software[^ignition-opcua] ausgestattet werden.
 Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.
@@ -662,7 +685,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 +-------------------+---------------+-------------+-------------+-------------+
 | @Moctezuma2012    | ●             | ●           | ●           | ●           |
 +-------------------+---------------+-------------+-------------+-------------+
-| @Durkop2014       | ○             | ○           | ○           | ○           |
+| @Durkop2014       | ●             | ●           | ●           | ●           |
 +-------------------+---------------+-------------+-------------+-------------+
 | @Lee2015          | ○             | ○           | ○           | ○           |
 +-------------------+---------------+-------------+-------------+-------------+
