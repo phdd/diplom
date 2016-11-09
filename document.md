@@ -765,15 +765,20 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 
 Warum OPC UA? => @Izaguirre2011
 
+
+@Windmann2015 vs. @Moctezuma2012:
+
+* horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
+* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services
+
+
 > Specifications like Device Profile for
-> Web Services (DPWS) and OPC Unified Architecture (OPCUA)
+> Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
 > are the most suitable solutions for implementing a Service
 > Oriented Architecture (SOA) on the shop-floor level
 > which includes eventing mechanisms
 
-Was passiert hinter/wer arbeitet mit der VMR?
 Orchestrierung? Überall Siemens Systeme => Was nun?
-Kann ich die Sensordaten einfach übernehmen? 
 
 ## Virtuelle Maschinenrepräsentation
 
@@ -943,14 +948,12 @@ Blocking Factors/mögliche Kritik?
 ## Ausblick
 
 * Steuerungsalternative _Programs_
+* Fog mit OPC UA und WS
+* BPEL/BPMN/etc. für abstrakte Leitebene
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
-* Prozessmodell für Abstrakte Leitebene
 * AutomationML und OPC UA @OPCFoundation2014
-* Wo läuft die Logik für orchestrierende Steuerung? (OPC UA Clients)
-* Surrogate als reaktiver Agent => Einbindung in MAS denkbar
-* Echtzeitfähigkeit des Konzepts überprüfen
 * Case-Study!!!
 * Möglichkeiten des Nutzens der Daten
-    * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten?
+    * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
     * Automatische Erkennung von Gut-/Schlechtteilen
