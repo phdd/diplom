@@ -659,15 +659,7 @@ Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüll
 R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden.
 Die Verortung von Daten und Logik ist zweigeteilt.
 Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
-
-Die Gemeinsamkeit aller vorgestellten Architekturkonzepte liegt in der Verwendung von Adaptern im Allgemeinen und Maschinenrepräsentanten im Speziellen. 
-...
-
-- I4.0-Komponente (Bild 9) @Adolphs2015
-  + Virt. Maschinenabb.
-  + Surrogate
-  + Wrapper
-  + ...
+Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.
 
 [^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
 
@@ -679,10 +671,14 @@ Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und ande
 Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
 Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
-Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Standardisierung und deren Durchsetzung -- meist mittels Software-Adaptern.
-
-Alle betrachteten Konzepte erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines Produktionssystems.
-Standards werden zu einem Großteil unterstützt, sind jedoch oft nicht der Schwerpunkt wissenschaftlicher Betrachtungen.
+Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Vereinheitlichung der Schnittstellen und deren Durchsetzung -- meist mittels Software-Adaptern.
+Die Gemeinsamkeit aller vorgestellten Architekturkonzepte liegt in der Verwendung von Maschinenrepräsentanten. 
+Auch die Aufteilung einer solchen Repräsentation in zwei Schichten ist etabliert.
+Der Echtzeit-Kontakt zur physischen Welt wird durch eine bereitgestellt.
+Intelligentes Informationsmanagement, Analyse- und Rechenfähigkeit durch die andere @Monostori2016.
+Das Referenzarchitekturmodell RAMI4.0 der VDI/VDE-Gesellschaft beschreibt diese Komponente als I4.0-Komponente mit virtueller Verwaltungsschale @Adolphs2015.  
+Nahezu alle betrachteten Forschungsarbeiten erlauben die Steuerung und Überwachung durch Nutzungsschnittstellen oder Subsysteme eines Produktionssystems.
+Standards werden oft gefordert, stehen jedoch meist nicht im Zentrum der wissenschaftlichen Betrachtungen.
 Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. @sec:opc-unified-architecture).
 Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie[^ibh-link] und Software[^ignition-opcua] ausgestattet werden.
 Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.
@@ -716,7 +712,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 
 # Konzeption
 
-Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen.
+Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen und Konzepten aus @sec:forschungsstand.
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
 Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
 Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs.
