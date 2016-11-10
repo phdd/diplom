@@ -540,11 +540,11 @@ Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet
 Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
 Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
 Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.
-R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssysteme PCs verwendet werden.  <!-- WORK -->
+R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssysteme PCs verwendet werden. 
 Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später @Ferrolho2007.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll (vgl. zu diesem Absatz @Ferrolho2007).
-Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3) und Lokalität (R4) nicht diskutiert, weswegen sie hier als Erweiterung des vorangegangenen Konzepts verstanden wird.  
+Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3), Lokalität (R4) nicht diskutiert und kein Einplatinencomputer zur Kontrolle eingesetzt (R5), weswegen sie hier lediglich als Erweiterung des vorangegangenen Konzepts verstanden wird.  
 Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
 Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
 
@@ -558,6 +558,7 @@ Weiterhin wurde ein OPC UA Frontend für den speziellen Fall der Maschinensteuer
 Die Autoren verifizierten den Anwendungsfall der Steuerung von CNC-Maschinen mit einem in der Industrie etablierten Standard [@OPCFoundation2014;@Hoppe2014].
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 vollständig erfüllt.
 Das Lokalitätskriterium ist bezüglich der Erfassung von Maschinendaten erfüllt.
+Lediglich der Anforderung R5 wird das Konzept aufgrund der Verwendung eines PCs nicht gerecht.
 OPC UA beinhaltet auch die Spezifikation von Historie und beantwortet damit auch die Persistenzfrage.
 Analyse und Rückkopplung sind nicht Teil des Konzepts von Ayatollahi et al. und müssen durch Subsysteme implementiert werden.  
 Zum Einsatz von Robotern innerhalb FFS forschten Pauker et al.
@@ -582,6 +583,7 @@ Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren da
 Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) kann nach entsprechenden Anpassungen für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
 Der Software-Agent als Teil der Geräteabstraktion lässt neben der lokalen Datenhaltung auch komplexere Logik für Rückkopplungsschleifen zu, wodurch R4 erfüllt ist.
+Durch die Verwendung eines Industrie-PCs zur Steuerung wird das Konzept der Anforderung R5 nicht gerecht.
 
 ## System- und Softwarearchitektur flexibler Produktion
 
@@ -598,7 +600,8 @@ Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architect
 Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
 Damit ist R3 nur ansatzweise erfüllt.
-Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.  
+Da aber Persistenz von Prozess- und Betriebsdaten von einem dedizierten Datenserver übernommen wird, ist das Lokalitätskriterium (R4) nur teilweise erfüllt.
+Anforderung R5 ist nicht erfüllt, da ein PC Steuerung die Steuerung übernimmt.  
 Handelt es sich, wie in einem flexiblen Fertigungssystem (FFS), um einen Verbund von Maschinen, werden Rekonfigurierbarkeit und flexible Datenhaltung architektonisch relevant.
 Die Heterogenität und Austauschbarkeit der Feldgeräte (vgl. @sec:fertigung-und-automatisierung) muss zur Laufzeit berücksichtigt werden.
 Unter dieser Maßgabe entwarfen Pauker et al. eine Kommunikations- und Integrationsarchitektur für die Montage und Konfiguration einer Fertigungszelle auf Informationsebene @Pauker2013.
@@ -616,6 +619,7 @@ Dieser Ansatz reduziert die Komplexität der Gerätetopologie und führt zu eine
 Steuerung und Überwachung können mit dem Blackboard auch aus der Ferne geschehen, womit R1 und R2 erfüllt sind.
 Standardisierung ist nicht Teil des Konzepts, soll aber mit einer OPC UA-Anbindung durchgesetzt werden.
 Gleiches gilt für die Lokalität von Daten und Logik, wodurch die Anforderungen R2 und R3 nicht erfüllt sind.
+Auch R5 ist durch das Konzept nicht abgedeckt.
 Für Retrofitting relevant ist die Arbeit im Bezug auf die zur Laufzeit mögliche Rekonfiguration der Komponenten.  
 Während Pauker et al. die horizontale Vereinheitlichung der Kommunikation anstreben, forschten Moctezuma et al. an vertikalem und horizontalem Informationsaustausch @Moctezuma2012.
 Dafür modernisierten die Autoren die Fastory Forschungsfertigungsstrecke.
@@ -634,7 +638,8 @@ Mit der aufsetzenden RTU wird zuerst eine, zum jeweiligen Medium kompatible Schn
 Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der RTU.
 Durch die Kommunikationsschicht werden dann Informationen, anstelle der Daten des original-Equipments weitergereicht und konsumiert.
 Eine RTU kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
-Das Konzept von Moctezuma et al. erfüllt alle Anforderungen, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.  
+Das Konzept von Moctezuma et al. erfüllt die Anforderungen R1-R4, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.
+Lediglich R5 ist kein Teil des Konzepts.  
 Die Kombination aus Rekonfigurierbarkeit (@Pauker2013), Web-Service-basierter Kapselung von Feldgeräten (@Moctezuma2012) und der lokalen Informationsgewinnung aus Anlagen-Rohdaten untersuchten Dürkop et al. im Kontext von SOA @Durkop2014.
 Die vorgeschlagene Architektur ermöglicht Plug-and-Produce, respektive die automatische Rekonfiguration nach physischen Veränderungen auf Basis abstrakter Prozessdefinitionen.
 Da industrielle Automation beispielsweise Echtzeitkommunikation erfordert, ist eine reine SOA-Lösung unzureichend.
@@ -653,7 +658,8 @@ Anhand derer ermittelt eine Orchestrierungskomponente die für den Prozess benö
 Identifizierte Dienste werden mithilfe eines Diensteverzeichnis (Service Directory) ausgewählt (vgl. zu diesem Absatz @Durkop2014).  
 Überwachung und Steuerung werden von entfernten Subsystemen teilweise übernommen.
 Feingranulare Logik zur Kontrolle des einzelnen Geräts wird lokal verortet und übermittelt Informationen durch standardisierte Protokolle.
-Damit sind alle Anforderungen erfüllt, wodurch die beschriebene Architektur für die Modernisierung von Altanlagen tauglich ist.  
+Damit sind die Anforderungen R1-4 erfüllt, wodurch die beschriebene Architektur zum Großteil für die Modernisierung von Altanlagen tauglich ist.
+Anforderung R5 ist kein Teil des Konzepts von Dürkop et al.  
 Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht.
 Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt.
 Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne @Lee2015.
@@ -675,6 +681,7 @@ Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüll
 R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden.
 Die Verortung von Daten und Logik ist zweigeteilt.
 Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
+Die technologische Sicht wird bei dieser Architektur nicht thematisiert, wodurch Anforderung R5 nicht erfüllt wird.
 Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.
 
 [^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
@@ -698,8 +705,6 @@ Standards werden oft gefordert, stehen jedoch meist nicht im Zentrum der wissens
 Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architecture (vgl. @sec:opc-unified-architecture).
 Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie[^ibh-link] und Software[^ignition-opcua] ausgestattet werden.
 Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.
-
-<!-- TODO: R5 Bla bla -->
 
 Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
