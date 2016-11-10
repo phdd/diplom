@@ -74,6 +74,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
+    - Einsatz von Einplatinencomputern als Integrationsequipment
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
@@ -85,6 +86,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 Im Rahmen dieser Arbeit gilt die Definition von Bergweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
 Der funktionale Umfang einer Maschine wird durch neue Module für die Übertragung und verteilte Verarbeitung der Daten ausgebaut.
 Dadurch wird die Kommunikation zwischen individuellen Geräten und Produkten der Fertigung ermöglicht, bis die Fabrik den künftigen Standards, Direktiven und Prinzipien der Industrie 4.0 genügt @Bergweiler2015.
+In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterung des Equipments, in Einplatinencomputern bestehen.
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
@@ -473,6 +475,19 @@ Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten dur
 Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle, sowie die Aggregation der Daten, direkt an der Maschine geschieht.
 Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem Lokalitätskriterium @Bonomi2012.
 
+## Integrationshardware
+
+Die Leistungsfähigkeit von Einplatinencomputern, wie dem Raspberry Pi[^raspberry] oder Arduino[^arduino], sowie deren Tauglichkeit im Bereich der Maschinensteuerung (vgl. @Grigoriev2016), ist in der industriellen Fertigung nicht zu ignorieren.
+Die Ökonomie eines Fertigungssystems hängt unmittelbar an den Kosten für zusätzliche Hardware, wodurch preisgünstige, eingebettete Systeme, nicht nur durch cyber-physische Produktion, an Attraktivität gewinnen [@Lee2008;@Kargermann2013].
+Weiterhin können Einplatinencomputer durch Echtzeitbetriebssystemen auch zeitkritische Steuerungsaufgaben (vgl. @sec:speicherprogrammierbare-steuerung) übernehmen.
+Demnach müssen Einplatinencomputer (Single-Board Computer) für das hardwareseitige Retrofitting eingesetzt werden.
+
+R5
+: Einplatinencomputer werden als zusätzliche Hardware zum Retrofitting eingesetzt, wodurch die Kosten der Modernisierungsmaßnahmen gering ausfallen.
+
+[^raspberry]: [raspberrypi.org](https://www.raspberrypi.org/) (abgerufen am 10.11.2016)
+[^arduino]: [arduino.cc](https://www.arduino.cc/) (abgerufen am 10.11.2016)
+
 # Forschungsstand
 
 Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
@@ -524,7 +539,8 @@ Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsme
 Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).
 Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
 Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
-Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.  
+Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.
+R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssysteme PCs verwendet werden.  <!-- WORK -->
 Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später @Ferrolho2007.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll (vgl. zu diesem Absatz @Ferrolho2007).
@@ -683,27 +699,29 @@ Hervorzuheben ist hierbei die Verwendung der etablierten OPC Unified Architectur
 Aktuelle Feldgeräte besitzen entweder einen eingebetteten OPC UA Server, sind darauf vorbereitet oder können mit zusätzlicher Peripherie[^ibh-link] und Software[^ignition-opcua] ausgestattet werden.
 Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produktionskomponenten nahe und muss in ein Konzept für die Integration von Altmaschinen einfließen.
 
+<!-- TODO: R5 Bla bla -->
+
 Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
-+-------------------+---------------+-------------+-------------+-------------+
-|                   | Überwachung   | Steuerung   | Standards   | Lokalität   |
-+===================+===============+=============+=============+=============+
-| @Ferrolho2005     | ●             | ●           | ○           | ○           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Ayatollahi2013   | ●             | ●           | ●           | ◐           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Windmann2015     | ●             | ●           | ●           | ●           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Wang2004         | ●             | ●           | ◐           | ◐           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Pauker2013       | ●             | ●           | ○           | ○           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Moctezuma2012    | ●             | ●           | ●           | ●           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Durkop2014       | ●             | ●           | ●           | ●           |
-+-------------------+---------------+-------------+-------------+-------------+
-| @Lee2015          | ●             | ○           | ○           | ◐           |
-+-------------------+---------------+-------------+-------------+-------------+
++-------------------+------+------+------+------+------+
+|                   | R1   | R2   | R3   | R4   | R5   |
++===================+======+======+======+======+======+
+| @Ferrolho2005     | ●    | ●    | ○    | ○    | ○    |
++-------------------+------+------+------+------+------+
+| @Ayatollahi2013   | ●    | ●    | ●    | ◐    | ○    |
++-------------------+------+------+------+------+------+
+| @Windmann2015     | ●    | ●    | ●    | ●    | ○    |
++-------------------+------+------+------+------+------+
+| @Wang2004         | ●    | ●    | ◐    | ◐    | ○    |
++-------------------+------+------+------+------+------+
+| @Pauker2013       | ●    | ●    | ○    | ○    | ○    |
++-------------------+------+------+------+------+------+
+| @Moctezuma2012    | ●    | ●    | ●    | ●    | ○    |
++-------------------+------+------+------+------+------+
+| @Durkop2014       | ●    | ●    | ●    | ●    | ○    |
++-------------------+------+------+------+------+------+
+| @Lee2015          | ●    | ○    | ○    | ◐    | ○    |
++-------------------+------+------+------+------+------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
