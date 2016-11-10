@@ -280,7 +280,7 @@ Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die ge
 
 Die EN 61131-3 ist nicht die einzige Möglichkeit der Programmierung einer SPS.
 Zugunsten vertikaler und horizontaler Integration hat die PLCopen[^plcopen], eine Vereinigung von Steuerungsherstellern, und die OPC-Foundation Funktionsbausteine in einer Spezifikation für OPC UA abgebildet.
-Damit kann die SPS eine aktive Rolle innerhalb der Automatisierungspyramide einnehmen und sich beispielsweise Produktionsaufträge eigenständig abholen (vgl. zu diesem Absatz @OPCFoundation2014).
+Damit kann die SPS eine aktive Rolle innerhalb der Automatisierungspyramide einnehmen und sich beispielsweise Produktionsaufträge eigenständig abholen (vgl. zu diesem Absatz [@OPCFoundation2014;@PLCopen2010]).
 
 [^plcopen]: [www.plcopen.org](http://www.plcopen.org/)
 
@@ -790,16 +790,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 
 Die unterschiedlichen Anforderungen der mit dem System interagierenden Menschen werden in Anwendungsfällen deutlich, die auszugsweise aus den Personas von Denner et al. hervorgegangen sind @Denner2015.
 
-##### A1 -- Produktionsleiter.
-
-Wie in @fig:uc-produktionsleiter dargestellt, ist ein Produktionsleiter hauptsächlich für die Erstellung, Überwachung und Dokumentation von Produktionsplänen zuständig.
-Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten  um auch Wartungsaufträge delegieren zu können.
-Altmaschinen können diese Daten auch erfassen.
-Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.
-
-![Anwendungsfälle eines Produktionsleiters](figures/uc-produktionsleiter){#fig:uc-produktionsleiter}
-
-##### A2 -- Montagearbeiter.
+##### A1 -- Montagearbeiter.
 
 Ein Montagearbeiter ist neben dem Zusammensetzen einer Maschine verantwortlich für die Verwaltung und Reparatur der einzelnen Komponenten (vgl. @fig:uc-montagearbeiter).
 Dafür muss er wissen, welche Teile verbaut werden sollen und wie diese zusammenhängen.
@@ -807,6 +798,15 @@ Eine einfache Stückliste leistet das nicht und muss bei der Anlagenmodernisieru
 Bei modernen Anlagen ist der Maschinenhersteller ist für die Modellierung des Informationsmodells zur Maschinenstruktur und für die initiale Einrichtung verantwortlich.
 
 ![Anwendungsfälle eines Montagearbeiters](figures/uc-montagearbeiter){#fig:uc-montagearbeiter}
+
+##### A2 -- Produktionsleiter.
+
+Wie in @fig:uc-produktionsleiter dargestellt, ist ein Produktionsleiter hauptsächlich für die Erstellung, Überwachung und Dokumentation von Produktionsplänen zuständig.
+Er ist für eine reibungslos funktionierende Fertigungsstrecke verantwortlich und benötigt eine zusammenfassende Darstellung der Betriebs- und Prozessdaten  um auch Wartungsaufträge delegieren zu können.
+Altmaschinen können diese Daten auch erfassen.
+Jedoch lassen sie die Einsicht aus der Ferne aufgrund fehlender Infrastrukturanbindung nicht zu.
+
+![Anwendungsfälle eines Produktionsleiters](figures/uc-produktionsleiter){#fig:uc-produktionsleiter}
 
 ##### A3 -- Maschinenbediener.
 
@@ -818,115 +818,33 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 
 ![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
-
-
----
-
-**MATERIAL**
-
-Warum OPC UA? => @Izaguirre2011
-
+## Systemkontext
 
 @Windmann2015 vs. @Moctezuma2012:
 
 * horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
 * vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services
 
+![Kontext der zu integrierenden Altanlage](figures/systemkontext){#fig:systemkontext}
+
+##### Virtuelle Maschinenrepräsentation.
+
+##### Verknüpfung von Altanlage und VMR.
+
+##### Verknüpfung der VMR mit externen Systemen.
+
+* Externe Systeme?
+
+##### Verknüpfung der VMR mit Feldgeräten.
+
+## Informations- und Kommunikationsmodell
 
 > Specifications like Device Profile for
 > Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
 > are the most suitable solutions for implementing a Service
 > Oriented Architecture (SOA) on the shop-floor level
 > which includes eventing mechanisms
-
-Orchestrierung? Überall Siemens Systeme => Was nun?
-
-## Virtuelle Maschinenrepräsentation
-
-* CNC
-    1. DNC-Schnittstellenadapter
-    2. Schrittmotoren und SERVOS => Adapter für Antriebssteuerung 
-* Peripherie
-    1. maschineneigene SPS ansprechen (OPC UA Wrapper) => eher vermeiden, CNC kapselt bereits
-    2. Surrogate direkt an Sensor/Aktuator angeschlossen
-
-* CNC
-* automatisierte Werkzeugkomponenten (AWK)
-* Überwachung
-* Ethernetanbindung mit TCP/IP
-* Surrogate ist standardisierendes Element
-
-
----
-
-* System- und Softwarearchitektur
-    - 
-* Informationsmodell
-  - Modellierung der Anlagenstruktur
-  - Laufzeitmodell
-* Überwachung
-  - Datenaggregation und Persistenz
-  - Bereitstellung von Informationen
-* Steuerung
-  - Numerisch kontrollierte Maschinen
-  - SPS und automatisierte Komponenten
-    1. kein Ethernet mit TCP/IP 
-        + gekoppelt an Bus
-        + SPS-Netzwerkkarten nachrüstbar
-    2. Ethernet mit TCP/IP
-        + Ignition OPC UA Modul
-        + PLCopen Companion Specification für OPC UA
-    3. integrierter OPC UA Server 
-* Rückkopplung
-
----
-
-* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
-* Sensorwert-Thresholds für Anomaly Detection
-* Distributed NC!
-
-* Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
-
-* http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951 (OPC UA für S5 & S7)
-* https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html (TCP/IP & OPC UA für S7)
-* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  (SW-Wrapper für SPS)
-  The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
-  Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
-  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
-
-* Laufzeitkonfiguration des Surrogate? 
-* Surrogate in bestehende Netzwerkinfrastruktur einbinden?
-    1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
-      1. Auswahl des Access-Points
-      2. Festlegen der OPC UA Discovery-Service Adresse
-    2. SG mit Infrastr. verbunden + Registrierung bei Discovery-Service
-    3. OPC UA Systemevent => neues Surrogate registriert
-    3. Konfiguration des Adressraums via HTTP/WebApp
-
-* Controlling nicht aus der Cloud @... sondern an der Maschine  
-    * CNC-Kernel auf dediziertem Controller  
-      * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
-    * Echtzeit kein Problem (OPC UA kann's eh nicht)  
-    * kein Feldbus, keine Koppler, kein DI/DO (vgl. @Grigoriev2016)  
-    * Ethernet-basierte Kommunikation  
-    
-* Konzept eines _Cell Controller_ als Basis (vgl. [@Ayatollahi2013;@Fallah2016a])
-* kein Maschinenspez. NC-Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle  (vgl. @Grigoriev2016)
-* Rekonfigurierbare FFZ [@Pauker2013;@Durkop2014]
-* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
-    * Smoothieboard/Embedded kompakte(soft-)SPS als Adapter zu Maschine
-* Wiederverwendung @Ayatollahi2013
-    * des Informationsmodells
-    * des Flow-Charts für die Server-Logik (teilweise)
-* Persistenzkonzept: Blackboard? @Pauker2013
-* Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti)
-
-* Framework
-    - Definition der Bindings von Extension Points in OPC UA Modell
-
-* SPS siehe @Windmann2015 Bild 3
-  - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
+> -- @Izaguirre2011
 
 > Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
 > The IEC standardization commission recommends OPC UA as a standard for the implementation 
@@ -935,38 +853,113 @@ Orchestrierung? Überall Siemens Systeme => Was nun?
 > communication channel must still exist.
 > -- @Hammerstingl2015
 
-Nach Rücksprache
+* But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
+
+### Modellierung der Anlagenstruktur
 
 * OPC UA zur Metamodellierung bzgl. der Machine/SPS
-* But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
-* OPC UA Modell synchron mit Realität => Laufzeitmodell
-* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
-* Elemente eines Frameworks mit Schichtenarch. im Client/Server-Stil
-* Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
-* FB-Loop intern oder extern?
-* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
-* "zentral" auswerten mit Cloud-Analytics (Big Data)
+* Wiederverwendung @Ayatollahi2013
+    * des Informationsmodells
 
 OPC4Factory:
 
-> OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden.
+> OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. 
 
-* Statusreport: Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) => **Abb. 9 I4.0-Komponente** @Adolphs2015 
-* Kruchten 4+1?
-* arc42?
+### Laufzeitmodell
 
-<!-- ## Virtuelle Maschinenrepräsentation -->
+* OPC UA Modell synchron mit Realität => Laufzeitmodell
 
-* Service-/Protokolllayer (OPC UA)
-* CPS-Layer, Hardwareanbindung
-* Einbetten eines dedizierten Web-Services  @Wang2004 
-* Stage braucht eingebettetes Kontrollsystem @Wang2008
+## Virtuelle Maschinenrepräsentation
 
-<!-- ## Kommunikations- & Informationsmodell -->
+* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
+* "zentral" auswerten mit Cloud-Analytics (Big Data)
+* Bereitstellung von Informationen
+    - Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
+* Laufzeitkonfiguration des Surrogate? 
+* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
+    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
+    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
+    
+* Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti) => WS-Ansätze 
 
-@Pauker2013 Komponentengranularität bis zur Achse (intelligente Maschinenteile)
+* automatisierte Werkzeugkomponenten (AWK)
+* Überwachung
+* Ethernetanbindung mit TCP/IP
+* Surrogate ist standardisierendes Element
+* kein Maschinenspez. Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle
 
-<!-- ## Systemintegration -->
+### Überwachung und Steuerung
+
+- Datenaggregation und Persistenz
+* Persistenzkonzept: Blackboard? @Pauker2013 Ausblick?
+* Controlling nicht aus der Cloud @... sondern an der Maschine  
+    * CNC-Kernel auf dediziertem Controller  
+        * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
+    * Echtzeit kein Problem (OPC UA kann's eh nicht)
+    * Ethernet-basierte Kommunikation 
+
+Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden. @OPC4Factory
+  
+#### Numerisch kontrollierte Maschinen
+
++ ohne DNC
++ mit DNC
+
+* CNC
+    1. DNC-Schnittstellenadapter
+    2. Schrittmotoren und SERVOS => Adapter für Antriebssteuerung 
+* Peripherie
+    1. maschineneigene SPS ansprechen (OPC UA Wrapper) => eher vermeiden, CNC kapselt bereits
+    2. Surrogate direkt an Sensor/Aktuator angeschlossen
+
+#### SPS und automatisierte Komponenten
+    1. kein Ethernet mit TCP/IP 
+        + gekoppelt an Bus
+        + SPS-Netzwerkkarten nachrüstbar
+    2. Ethernet mit TCP/IP
+        + Ignition OPC UA Modul
+        + PLCopen Companion Specification für OPC UA
+    3. integrierter OPC UA Server 
+
+* SPS siehe @Windmann2015 Bild 3
+  - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
+
+* http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951 (OPC UA für S5 & S7)
+* https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html (TCP/IP & OPC UA für S7)
+* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  (SW-Wrapper für SPS)
+  The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
+  Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
+  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
+
+### Logische Architektur
+
+- Definition der Bindings von Extension Points in UA Modell =>Framework
+- Elemente mit Schichtenarch. im Client/Server-Stil
+- Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
+
+### Laufzeitsicht
+
+* Surrogate in bestehende Netzwerkinfrastruktur einbinden?
+    1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
+      1. Auswahl des Access-Points
+      2. Festlegen der OPC UA Discovery-Service Adresse
+    2. SG mit Infrastr. verbunden + Registrierung bei Discovery-Service
+    3. OPC UA Systemevent => neues Surrogate registriert
+    3. Konfiguration des Adressraums via HTTP/WebApp
+
+* Wiederverwendung @Ayatollahi2013
+    * des Flow-Charts für die Server-Logik (teilweise)
+
+### Softwareorganisation
+
+### Verteilungssicht
+
+## Rückkopplung
+
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
+* FB-Loop intern oder extern?
+* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
+* Sensorwert-Thresholds für Anomaly Detection
 
 ## Zusammenfassung
 
@@ -975,6 +968,8 @@ OPC4Factory:
 * Smoothieboard als Maschinen-Adapter
     - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
 * open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
+
+## Testsuite
 
 ## Zusammenfassung
 
