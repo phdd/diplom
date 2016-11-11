@@ -308,6 +308,8 @@ Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ei
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
+### Informationsarchitektur
+
 ![Spezifikationen von OPC UA](figures/opc-ua-architecture "OPC UA Übersicht"){#fig:opc-ua-architecture}
 
 In @fig:opc-ua-architecture ist die dafür notwendige Informationsstruktur dargestellt @OPCFoundation2014.
@@ -333,6 +335,41 @@ Darauf aufbauend werden generische Informationsmodelle definiert, die unter ande
 * **Programs**  
   Komplexe Aufgaben werden durch Programme repräsentiert und mit Zustandsautomaten beschrieben.
   
+### Transportprotokolle
+
+"Protokoll-Bindings" erlauben den Transport der Daten zwischen einem OPC UA Client und Server durch unterschiedliche Mechanismen.
+Diese können parallel verwendet werden und arbeiten transparent, auch ohne Zutun des Entwicklers.
+Die Bereitstellung der drei Varianten kann ohne Anpassungen der Software verändert werden.
+@fig:opcua-transport stellt die Kommunikationsvarianten gegenüber und zeigt deren orthogonale Eingliederung.
+
+![OPC UA Transportvarianten](figures/opcua-transport){#fig:opcua-transport}
+
+##### Binärprotokoll (UA-Binary).
+
+Dieses vorgeschriebene Protokoll bietet die beste Performance und den geringsten Overhead.
+Da weder XML-Inhalte umgewandelt, noch SOAP oder HTTP verwendet werden, ist es aufgrund des geringen Ressourcenverbrauchs für eingebettete Geräte geeignet.
+Außerdem bietet es die beste Interoperabilität, weil Binärdaten im Gegensatz zu XML-Dokumenten weniger Freiheitsgrade besitzen.
+
+##### Webservice (XML-SOAP).
+
+Eine optionale Web-Service-Schnittstelle kann durch den OPC UA Server bereitgestellt werden.
+Der Overhead ist größer, da der Nachrichtenaustausch mit XML das Protokoll verlangsamt.
+Somit herrscht wenig bis keine Akzeptanz beim Einsatz mit kleinen und Kleinstgeräten.
+Dem gegenüber erfährt SOAP umfassende Werkzeugunterstützung und kann leicht durch .NET oder Java-Anwendungen verwendet werden.
+Weiterhin ist es durch die Verwendung von HTTP/HTTPS Firewall-freundlich.
+
+##### Hybrid (UA-Binary über HTTPS).
+
+Das Hybridprotokoll verbindet binären und SOAP-basierten Nachrichtenaustausch.
+Der Overhead ordnet sich zwischen den Verwendeten Kommunikationsmechanismen ein, wobei die die Vorteile beider vereinigt werden.
+Die binär kodierte Nachricht wird hierbei in den HTTPS-Frames versendet und ermöglicht eine Firewall-freundliche Kommunikation.
+
+Dieser Abschnitt wurde der Website von ascolab[^ascolab] entnommen.
+
+[^ascolab]: [ascolab.com/de/unified-architecture/protokolle.html](http://www.ascolab.com/de/unified-architecture/protokolle.html) (abgerufen am 11.11.2016)
+
+### Modularität und Erweiterbarkeit
+
 Viele bereits existierende Modelle, wie MTConnect, PLCopen, FDI und ISA95, unterscheiden sich von OPC UA durch fehlende Erweiterbarkeit.
 Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen, wie Hoppe schrieb @Hoppe2014:
 
@@ -823,7 +860,7 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 @Windmann2015 vs. @Moctezuma2012:
 
 * horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
-* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services
+* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt
 
 ![Kontext der zu integrierenden Altanlage](figures/systemkontext){#fig:systemkontext}
 
@@ -868,6 +905,7 @@ OPC4Factory:
 ### Laufzeitmodell
 
 * OPC UA Modell synchron mit Realität => Laufzeitmodell
+* Local Context Model nach @Watzoldt2014
 
 ## Virtuelle Maschinenrepräsentation
 
@@ -933,11 +971,15 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 
 ### Logische Architektur
 
+<!-- TODO: Sicht erklären -->
+
 - Definition der Bindings von Extension Points in UA Modell =>Framework
 - Elemente mit Schichtenarch. im Client/Server-Stil
 - Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
 
 ### Laufzeitsicht
+
+<!-- TODO: Sicht erklären -->
 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
     1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
@@ -952,7 +994,11 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 
 ### Softwareorganisation
 
+<!-- TODO: Sicht erklären -->
+
 ### Verteilungssicht
+
+<!-- TODO: Sicht erklären -->
 
 ## Rückkopplung
 
@@ -965,14 +1011,24 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 
 # Implementation
 
-* Smoothieboard als Maschinen-Adapter
-    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
-* open62541 oder ähnliche OPC UA Stack-Implementierungen für Server auf Pi
+* Smoothieboard => CNC-Kernel
+* Raspberry => Processing Element
+* GrovePi => homogene Sensor-/Aktuator-Anbindung
+* Programmiersprache: Javascript  
+  => dynamisch
+  => ohne Codegenerierung
+  => Runtime-Binding
+* Node.js als Application Framework
+    - node-opcua Stackimplementierung => noch kein WS-Transport
+    - node-grovepi Framework für GrovePi
 
 ## Testsuite
 
 ## Zusammenfassung
 
+* Smoothieboard als Maschinen-Adapter
+    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
+    
 # Evaluation
 
 These/Behauptung?
@@ -1003,7 +1059,7 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
-* Steuerungsalternative _Programs_
+* Steuerungsalternative OPC UA _Programs_
 * Fog mit OPC UA und WS
 * BPEL/BPMN/etc. für abstrakte Leitebene
 * MDSD mit @Pauker2016
