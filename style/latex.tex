@@ -35,6 +35,16 @@
 \let\originaltoprule\toprule
 \renewcommand{\toprule}{\originaltoprule[0pt]}% No top rule
 
+% Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+\usepackage{float}
+\let\origfigure=\figure
+\let\endorigfigure=\endfigure
+\renewenvironment{figure}[1][]{%
+  \origfigure[htbp]
+}{%
+  \endorigfigure
+}
+
 \makenomenclature
 
 %Schriften
