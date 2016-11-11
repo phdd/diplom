@@ -776,10 +776,13 @@ Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konz
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
 Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
 Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs.
+Das Informations- und Kommunikationsmodell der VMR mit OPC UA ergänzt die Anlage um eine in der Industrie etablierte, semantische Schnittstelle.
 Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
 Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.
 
-## Szenarien
+## Kontext
+
+### Szenarien
 
 ##### S1 -- Werkzeugmaschine ohne Schnittstellen.
 
@@ -792,7 +795,7 @@ Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
-_Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-steuerung).
+_Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-kontrolle).
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
 Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
@@ -823,7 +826,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 - SPS soll genauso handhabbar sein
 -->
 
-## Anwendungsfälle
+### Anwendungsfälle
 
 Die unterschiedlichen Anforderungen der mit dem System interagierenden Menschen werden in Anwendungsfällen deutlich, die auszugsweise aus den Personas von Denner et al. hervorgegangen sind @Denner2015.
 
@@ -855,24 +858,18 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 
 ![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
-## Systemkontext
+### Systemumgebung
 
-@Windmann2015 vs. @Moctezuma2012:
-
-* horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
-* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt
+Durch die Anwendungsfälle und Szenarien ergibt sich ein Systemkontext, dargestellt in @fig:systemkontext.
+In diesem interagiert der Produktionsleiter mit dem Enterprise Resource Management (ERP) und einem Produktionsplanungssystem (PPS).
+Aufträge und benötigte Ressourcen werden hier in die Planung der Fertigung überführt.
+Die Bedienung der konkreten Maschinen geschieht über eine Virtuelle Maschinenrepräsentation (VMR).
+Diese kapselt die in den Szenarien vorgestellten Altanlagen und ist weiterhin mit den Feldgeräten und der Produktionsplanung verbunden.
+Ein Maschinenbediener muss nicht direkt an der Anlage arbeiten, sondern kann die Steuerung und Überwachung von einer entfernten Nutzungsschnittstelle übernehmen.
+Der Montagearbeiter agiert auf Feldebene, kennt die Systemstrukturen und verwaltet und wartet das Produktionsequipment.
+Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und die Integration mit externen Systemen, wie einem ERP-System, wird in diesem Konzept vorgestellt.
 
 ![Kontext der zu integrierenden Altanlage](figures/systemkontext){#fig:systemkontext}
-
-##### Virtuelle Maschinenrepräsentation.
-
-##### Verknüpfung von Altanlage und VMR.
-
-##### Verknüpfung der VMR mit externen Systemen.
-
-* Externe Systeme?
-
-##### Verknüpfung der VMR mit Feldgeräten.
 
 ## Informations- und Kommunikationsmodell
 
@@ -918,18 +915,38 @@ OPC4Factory:
     * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
     * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
     
-* Kontrolle der Arbeitssequenz? (PROtEUS, BPMN/Activiti) => WS-Ansätze 
-
 * automatisierte Werkzeugkomponenten (AWK)
 * Überwachung
 * Ethernetanbindung mit TCP/IP
 * Surrogate ist standardisierendes Element
 * kein Maschinenspez. Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle
 
-### Überwachung und Steuerung
+### Anlagenkapselung 
+
+mit @Moctezuma2012
+
+### Vertikale Integration
+
+* Externe Systeme?
+
+@Windmann2015 vs. @Moctezuma2012:
+
+* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt, aber ungeeignet für Einplatinencomputer (vgl. @sec:transportprotokolle)
+
+Der digitale Zwilling auf der Cyber-Ebene (@Lee2015) besitzt einen Proxy zur Umwandlung des binärem UA-Protokolls in einen UA-Webservice.
+
+Time-Machine @Lee2015
+
+### Horizontale Integration
+
+@Windmann2015 vs. @Moctezuma2012:
+
+* horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
 
 - Datenaggregation und Persistenz
-* Persistenzkonzept: Blackboard? @Pauker2013 Ausblick?
+* Persistenzkonzept: 
+    - Blackboard @Pauker2013 
+    - Time-Maschine @Lee2015
 * Controlling nicht aus der Cloud @... sondern an der Maschine  
     * CNC-Kernel auf dediziertem Controller  
         * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
@@ -939,6 +956,11 @@ OPC4Factory:
 Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden. @OPC4Factory
   
 #### Numerisch kontrollierte Maschinen
+
+[@Ferrolho2005;@Ferrolho2007]
+
+S1: 
+* standardkonforme Schnittstelle f. Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
 
 + ohne DNC
 + mit DNC
@@ -950,7 +972,7 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
     1. maschineneigene SPS ansprechen (OPC UA Wrapper) => eher vermeiden, CNC kapselt bereits
     2. Surrogate direkt an Sensor/Aktuator angeschlossen
 
-#### SPS und automatisierte Komponenten
+#### Speicherprogrammierbare Steuerung
     1. kein Ethernet mit TCP/IP 
         + gekoppelt an Bus
         + SPS-Netzwerkkarten nachrüstbar
@@ -961,6 +983,7 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 
 * SPS siehe @Windmann2015 Bild 3
   - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
+* PLCopen geht auch...
 
 * http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951 (OPC UA für S5 & S7)
 * https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html (TCP/IP & OPC UA für S7)
@@ -968,6 +991,16 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
   The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
   Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
   Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
+
+### Cyber-physische Rückkopplung
+
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
+* FB-Loop intern oder extern?
+* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausb
+* lick)
+* Sensorwert-Thresholds für Anomaly Detection
+
+## Softwareframework
 
 ### Logische Architektur
 
@@ -977,7 +1010,7 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 - Elemente mit Schichtenarch. im Client/Server-Stil
 - Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
 
-### Laufzeitsicht
+### Verhalten zur Laufzeit
 
 <!-- TODO: Sicht erklären -->
 
@@ -992,22 +1025,13 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
 * Wiederverwendung @Ayatollahi2013
     * des Flow-Charts für die Server-Logik (teilweise)
 
-### Softwareorganisation
+### Organisation
 
 <!-- TODO: Sicht erklären -->
 
-### Verteilungssicht
+### Verteilung
 
 <!-- TODO: Sicht erklären -->
-
-## Rückkopplung
-
-* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
-* FB-Loop intern oder extern?
-* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausblick)
-* Sensorwert-Thresholds für Anomaly Detection
-
-## Zusammenfassung
 
 # Implementation
 
@@ -1023,8 +1047,6 @@ Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da St
     - node-grovepi Framework für GrovePi
 
 ## Testsuite
-
-## Zusammenfassung
 
 * Smoothieboard als Maschinen-Adapter
     - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
@@ -1051,20 +1073,18 @@ Blocking Factors/mögliche Kritik?
 * Industriekomponenten nicht mit Smoothieboard vergleichbar 
 * Energieverbrauch?
 
-## Zusammenfassung
-
 # Zusammenfassung
 
 ## Schlussfolgerung
 
 ## Ausblick
 
-* Steuerungsalternative OPC UA _Programs_
-* Fog mit OPC UA und WS
-* BPEL/BPMN/etc. für abstrakte Leitebene
+* Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
+* Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
+* BPEL/BPMN/etc. für abstrakte Leitebene (vgl. @Durkop2014)
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
-* AutomationML und OPC UA @OPCFoundation2014
+* AutomationML und OPC UA (vgl. @OPCFoundation2014)
 * Case-Study!!!
 * Möglichkeiten des Nutzens der Daten
     * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
