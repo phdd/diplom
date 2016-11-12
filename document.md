@@ -708,7 +708,7 @@ Sie vergleichen die Leistungsmerkmale ihres physischen Äquivalents mit denen an
 Auf einer darüber liegenden Schicht der Kognition, werten Systeme zur Entscheidungsfindung (Decision Support Systems, DSS) zur Unterstützung des Nutzers die Informationen der Cyber-Schicht aus.
 Auch die Simulation und Synthese weiterer Schritte zählt zu den Aufgaben der Cognition-Ebene.
 Die oberste Schicht (Configuration) ist als Kontrollinstanz verantwortlich für die Rückkopplung des physischen Raums in das virtuelle Modell.
-Das Konzept der Time-Machine der Cyber-Ebene verwaltet Momentaufnahmen des erfassten Kontextes (Snapshot Collection) und verhilft dem System zu einer kumulierten Maschinenhistorie.
+Das Konzept der Time-Machine der Cyber-Ebene verwaltet Momentaufnahmen des erfassten Kontexts (Snapshot Collection) und verhilft dem System zu einer kumulierten Maschinenhistorie.
 Dadurch kann das aktuelle Verhalten mit bereits bekanntem verglichen werden (Similarity Identification) und ermöglicht Vorhersagen.
 Durch Simulation können Verhaltensmuster für Szenarien extrapoliert und optimierte Schritte synthetisiert werden (vgl. zu diesem Absatz @Lee2015).  
 Aufgrund der abstrakten Beschreibung einer Schichtenarchitektur werden die Anforderungen nur teilweise erfüllt.
@@ -800,9 +800,6 @@ Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschie
 Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.  
-Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch dieser Anwendungsfall orientiert ist (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
-Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
-Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme.
 <!-- ASK
 - CNC bleibt Maschinenspezifisch
 - DIN 66025 für M-Befehle
@@ -825,6 +822,10 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 - Werkzeugmaschine ist im Kontext weiterer Automatisierungseinrichtungen
 - SPS soll genauso handhabbar sein
 -->
+
+Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch die Anwendungsfälle S1 und S2 orientiert sind (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
+Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
+Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme in Szenario S2.
 
 ### Anwendungsfälle
 
@@ -871,7 +872,7 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 
 ![Kontext der zu integrierenden Altanlage](figures/systemkontext){#fig:systemkontext}
 
-## Informations- und Kommunikationsmodell
+## Informationsmodell
 
 Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt @Hammerstingl2015.
 OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
@@ -905,27 +906,38 @@ Um sie mit der VMR verknüpfen zu können, sind Konfigurationsparameter, wie phy
 Diese sollen im Informationsmodell festgelegt werden können.
 Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede AWK ergänzt, dargestellt in @fig:opcua-cpps.
 Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
-Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür der Szenarien S1-2.
-Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.  
+Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür des Szenarios S1/2.
+Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.
+Eine physische Verbindung beinhaltet ein Property ```ConnectionIdentifier```, welches die Konfigurationsparameter repräsentiert.  
 Im Anwendungsfall A1 wird bei der Montage der Maschine das Modell um die Beschreibung der physischen Verbindungen ergänzt.
 Auch bei der Verwaltung der Maschinenkomponenten unterstützt das Modell den Monteur.
-Ein Wartungsauftrag des Produktionsleiters (Anwendungsfall A2) kann im Modell mit einer solchen Verbindung verknüpft werden.
+Ein Wartungsauftrag des Produktionsleiters (A2) kann im Modell mit einer solchen Verbindung verknüpft werden.
 Der Maschinenbediener (A3) bekommt im Fehlerfall ein UA-Ereignis mit der detaillierten Beschreibung des Ausfallgrunds an die jeweilige Nutzungsschnittstelle.
 
 Das Informationsmodell besteht demnach aus drei Schichten der Spezifikation.
 Allem zugrunde liegt die UA-Definition (OPC UA Part 5[^opcua5]).
 Darauf aufbauend wurden die Modellelemente von Ayatollahi et al. zur Steuerung und Überwachung der Altanlage übernommen (OPC4Factory, @Ayatollahi2013).
-Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept entworfenen Erweiterung aus (CPPS).
+Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept entworfenen UA-Erweiterung aus (CPPS).
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
 [^opcua5]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model) (abgerufen am 12.11.2016)
 
 ### Laufzeitmodell
 
-* OPC UA Modell synchron mit Realität => Laufzeitmodell
-* Local Context Model nach @Watzoldt2014
+Beim Start der VMR wird das Informationsmodell geladen und steht für andere Maschinen und Nutzungsschnittstellen zur Verfügung.
+Die angeschlossenen Sensoren erfassen permanent den physischen Kontext und aktualisieren das Informationsmodell zur Laufzeit.
+Damit besitzt die VMR ein Local Context Model nach Wätzoldt und Giese @Watzoldt2014.
+Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hinter der VMR an, wird auch der aktuelle Kontext präsentiert.
 
-Zur Laufzeit wird die Drehmaschine (```MachineType```) aus Szenario S2 mit Instanzen dieser Objekt-Typen beschrieben.
+![Laufzeitmodell der Maschine der Szenarien S1/2](figures/opc4factory-runtime){#fig:opc4factory-runtime}
+
+In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines OPC UA-Anwendungsprogramms[^uaexpert] zu sehen.
+Durch die beispielhaften Methoden ```Close_Door``` und ```Open_Door```, sowie die Variable ```Door_Status``` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
+Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für die Konsistenz von Realität virtuellem Modell.
+Änderungen an der Struktur dem AWK werden im Modell reflektiert und dessen Struktur neu organisiert.
+In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
+
+[^uaexpert]: [unified-automation.com/products/development-tools/uaexpert.html](https://www.unified-automation.com/products/development-tools/uaexpert.html) (abgerufen am 12.11.2016)
 
 ## Virtuelle Maschinenrepräsentation
 
