@@ -811,7 +811,7 @@ Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Sy
 
 ##### S3 -- Speicherprogrammierbare Steuerungen.
 
-Beim Retrofitting von speicherprogrammierbaren Steuerungen werden in dieser Arbeit drei Fälle unterschieden.
+Beim Retrofitting von speicherprogrammierbaren Steuerungen (SPS) werden in dieser Arbeit drei Fälle unterschieden.
 Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus.
 <!-- Das Nachrüsten modularer Steuerungen mit einer Netzwerkkarte sorgt für die Integration in ein Netzwerk. -->
 Der zweite Fall von zu modernisierenden SPS setzt eine Netzwerkanbindung voraus, veräußert jedoch weder ein Informationsmodell noch standardisierte Kommunikationsprotokolle.
@@ -863,7 +863,7 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 Durch die Anwendungsfälle und Szenarien ergibt sich ein Systemkontext, dargestellt in @fig:systemkontext.
 In diesem interagiert der Produktionsleiter mit dem Enterprise Resource Management (ERP) und einem Produktionsplanungssystem (PPS).
 Aufträge und benötigte Ressourcen werden hier in die Planung der Fertigung überführt.
-Die Bedienung der konkreten Maschinen geschieht über eine Virtuelle Maschinenrepräsentation (VMR).
+Die Bedienung der konkreten Maschinen geschieht über eine virtuelle Maschinenrepräsentation (VMR).
 Diese kapselt die in den Szenarien vorgestellten Altanlagen und ist weiterhin mit den Feldgeräten und der Produktionsplanung verbunden.
 Ein Maschinenbediener muss nicht direkt an der Anlage arbeiten, sondern kann die Steuerung und Überwachung von einer entfernten Nutzungsschnittstelle übernehmen.
 Der Montagearbeiter agiert auf Feldebene, kennt die Systemstrukturen und verwaltet und wartet das Produktionsequipment.
@@ -872,6 +872,76 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 ![Kontext der zu integrierenden Altanlage](figures/systemkontext){#fig:systemkontext}
 
 ## Informations- und Kommunikationsmodell
+
+Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt.
+OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
+Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenkapselung besprochen wird @Hammerstingl2015.  
+Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschreibung in einem UA-Adressraummodell hinterlegt.
+
+### Modellierung der Anlagenstruktur
+
+Das Metamodell der UA bietet unter anderem typisierte Objekte, Variablen und Methoden.
+Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten (AWK) einer Maschine baumartig organisiert.
+Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren AWK und numerische Kontrolle definiert @Ayatollahi2013.
+Diese Erweiterung der Data-Access Spezifikation (vgl. @fig:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
+Variablen und Methoden sind Elemente, welche durch die ```hasComponent```-Relation mit einer Maschinenkomponente verknüpft werden.
+Beispielsweise komponiert ein Objekte vom Typ ```LoadingDoorType``` sowohl die Variable ```Door_Status```, als auch Methoden zum Öffnen (```Open_Door```) und Schließen (```Close_Door```) einer Ladetür.
+
+![OPC UA Modellerweiterung nach @Ayatollahi2013](figures/opc4factory){#fig:opc4factory}
+
+Bei der Modellierung einer SPS bietet sich die Companion Specification der PLCopen an (vgl. @sec:speicherprogrammierbare-steuerung).
+Durch Abbildung von Funktionsbausteinen und Ein-/Ausgabeparametern auf den UA-Adressraum können Anwendungen die Anlagenstrukturen auf gleiche Weise erfragen und manipulieren @PLCopen.
+Bei der Verwendung der IBH Link UA, ist die Informationsmodellierung implizit in der Variablendefinition enthalten und wird via Ethernet auf das Gerät übertragen[^ibhlinkua].
+Wird das Ignition OPC UA Softwaremodul verwendet, TODO
+Innerhalb dieses Konzepts hängt der Verwendete Ansatz vom jeweiligen Nutzungskontext ab.
+Da Standardisierung jedoch eine Zentrale Anforderung bei der Anlagenmodernisierung ist, wird die Variante mit PLCopen bevorzugt.
+
+CPPS-Erweiterung?
+Anwendungsfälle?
+
+* Modellierungstools
+
+OPC4Factory:
+
+> OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. 
+
+[^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
+
+### Laufzeitmodell
+
+* OPC UA Modell synchron mit Realität => Laufzeitmodell
+* Local Context Model nach @Watzoldt2014
+
+Zur Laufzeit wird die Drehmaschine (```MachineType```) aus Szenario S2 mit Instanzen dieser Objekt-Typen beschrieben.
+
+## Virtuelle Maschinenrepräsentation
+
+* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
+* "zentral" auswerten mit Cloud-Analytics (Big Data)
+* Bereitstellung von Informationen
+    - Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
+* Laufzeitkonfiguration des Surrogate? 
+* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
+    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
+    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
+* automatisierte Werkzeugkomponenten (AWK)
+* Überwachung
+* Ethernetanbindung mit TCP/IP
+* Surrogate ist standardisierendes Element
+* kein Maschinenspez. Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle
+* Somit kann die Steuerung der AWK durch UA-Methoden erfolgen.
+* Eine Alternative ist die Veränderung von Variablen.
+
+### Anlagenkapselung 
+
+mit @Moctezuma2012
+
+* Echtzeitkapselung
+* Szenarien!
+
+### Vertikale Integration
+
+* Externe Systeme?
 
 > Specifications like Device Profile for
 > Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
@@ -886,48 +956,6 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 > However, OPC UA does not allow real-time transmission, which is why a real-time
 > communication channel must still exist.
 > -- @Hammerstingl2015
-
-* But not hard real-time (not yet) => nicht geeignet für direkt Bewegungskontrolle @Pauker2014
-
-### Modellierung der Anlagenstruktur
-
-* OPC UA zur Metamodellierung bzgl. der Machine/SPS
-* Wiederverwendung @Ayatollahi2013
-    * des Informationsmodells
-
-OPC4Factory:
-
-> OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. 
-
-### Laufzeitmodell
-
-* OPC UA Modell synchron mit Realität => Laufzeitmodell
-* Local Context Model nach @Watzoldt2014
-
-## Virtuelle Maschinenrepräsentation
-
-* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
-* "zentral" auswerten mit Cloud-Analytics (Big Data)
-* Bereitstellung von Informationen
-    - Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
-* Laufzeitkonfiguration des Surrogate? 
-* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
-    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
-    
-* automatisierte Werkzeugkomponenten (AWK)
-* Überwachung
-* Ethernetanbindung mit TCP/IP
-* Surrogate ist standardisierendes Element
-* kein Maschinenspez. Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle
-
-### Anlagenkapselung 
-
-mit @Moctezuma2012
-
-### Vertikale Integration
-
-* Externe Systeme?
 
 @Windmann2015 vs. @Moctezuma2012:
 
