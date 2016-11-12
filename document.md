@@ -873,9 +873,9 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 
 ## Informations- und Kommunikationsmodell
 
-Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt.
+Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt @Hammerstingl2015.
 OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
-Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenkapselung besprochen wird @Hammerstingl2015.  
+Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenkapselung besprochen wird @Hammerstingl2015.
 Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschreibung in einem UA-Adressraummodell hinterlegt.
 
 ### Modellierung der Anlagenstruktur
@@ -883,29 +883,42 @@ Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschre
 Das Metamodell der UA bietet unter anderem typisierte Objekte, Variablen und Methoden.
 Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten (AWK) einer Maschine baumartig organisiert.
 Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren AWK und numerische Kontrolle definiert @Ayatollahi2013.
-Diese Erweiterung der Data-Access Spezifikation (vgl. @fig:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
+Diese Erweiterung der Data-Access Spezifikation (vgl. @sec:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
+In diesem Teilmodell sind, bis auf den ```BaseObjectType``` der grundlegenden UA Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
 Variablen und Methoden sind Elemente, welche durch die ```hasComponent```-Relation mit einer Maschinenkomponente verknüpft werden.
 Beispielsweise komponiert ein Objekte vom Typ ```LoadingDoorType``` sowohl die Variable ```Door_Status```, als auch Methoden zum Öffnen (```Open_Door```) und Schließen (```Close_Door```) einer Ladetür.
 
 ![OPC UA Modellerweiterung nach @Ayatollahi2013](figures/opc4factory){#fig:opc4factory}
 
-Bei der Modellierung einer SPS bietet sich die Companion Specification der PLCopen an (vgl. @sec:speicherprogrammierbare-steuerung).
+Bei der Modellierung einer SPS wie in Szenario S3 bietet sich die Companion Specification der PLCopen an (vgl. @sec:speicherprogrammierbare-steuerung).
 Durch Abbildung von Funktionsbausteinen und Ein-/Ausgabeparametern auf den UA-Adressraum können Anwendungen die Anlagenstrukturen auf gleiche Weise erfragen und manipulieren @PLCopen.
 Bei der Verwendung der IBH Link UA, ist die Informationsmodellierung implizit in der Variablendefinition enthalten und wird via Ethernet auf das Gerät übertragen[^ibhlinkua].
-Wird das Ignition OPC UA Softwaremodul verwendet, TODO
+Wird das Ignition OPC UA Softwaremodul verwendet, kann das Modell frei und damit nach der Erweiterung von Ayatollahi et al. gestaltet werden.
+Eine Alternative zu dem vorgestellten Informationsmodell für SPS ist das von Windmann (vgl. Bild 4 in @Windmann2015).
 Innerhalb dieses Konzepts hängt der Verwendete Ansatz vom jeweiligen Nutzungskontext ab.
-Da Standardisierung jedoch eine Zentrale Anforderung bei der Anlagenmodernisierung ist, wird die Variante mit PLCopen bevorzugt.
+Da Standardisierung jedoch eine zentrale Anforderung der Anlagenmodernisierung ist, wird die Variante mit PLCopen bevorzugt.  
 
-CPPS-Erweiterung?
-Anwendungsfälle?
+![CPPS Erweiterung des Informationsmodells](figures/opcua-cpps){#fig:opcua-cpps}
 
-* Modellierungstools
+Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren mit der realen Welt in Verbindung (vgl. @sec:cyber-physische-produktionssysteme).
+Um sie mit der VMR verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
+Diese sollen im Informationsmodell festgelegt werden können.
+Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede AWK ergänzt, dargestellt in @fig:opcua-cpps.
+Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
+Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür der Szenarien S1-2.
+Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.  
+Im Anwendungsfall A1 wird bei der Montage der Maschine das Modell um die Beschreibung der physischen Verbindungen ergänzt.
+Auch bei der Verwaltung der Maschinenkomponenten unterstützt das Modell den Monteur.
+Ein Wartungsauftrag des Produktionsleiters (Anwendungsfall A2) kann im Modell mit einer solchen Verbindung verknüpft werden.
+Der Maschinenbediener (A3) bekommt im Fehlerfall ein UA-Ereignis mit der detaillierten Beschreibung des Ausfallgrunds an die jeweilige Nutzungsschnittstelle.
 
-OPC4Factory:
-
-> OPC UA Server und ihre Informationsmodelle repräsentieren alle für die Automatisierungs-aufgaben erforderlichen Komponenten der angeschlossenen Maschinen und Roboter (Ladetüren, Spannmittel, Werkzeuge, NC-Programme etc.) mit ihren Attributen, Ereignissen und Methoden. 
+Das Informationsmodell besteht demnach aus drei Schichten der Spezifikation.
+Allem zugrunde liegt die UA-Definition (OPC UA Part 5[^opcua5]).
+Darauf aufbauend wurden die Modellelemente von Ayatollahi et al. zur Steuerung und Überwachung der Altanlage übernommen (OPC4Factory, @Ayatollahi2013).
+Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept entworfenen Erweiterung aus (CPPS).
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
+[^opcua5]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model) (abgerufen am 12.11.2016)
 
 ### Laufzeitmodell
 
@@ -1022,6 +1035,7 @@ S1:
 
 ### Cyber-physische Rückkopplung
 
+* PhysicalConnection (aktive Teilkomponente, z.B. Akustische Emission und Ladetür) ausgefallen?
 * Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
 * FB-Loop intern oder extern?
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausb
