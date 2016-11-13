@@ -66,7 +66,7 @@ Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuel
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
 Automatisierte Werkzeugkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
-Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
+Einplatinencomputer (Single Board Computer, SBC) sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
 
 Auch ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
@@ -74,7 +74,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
-    - Einsatz von Einplatinencomputern als Integrationsequipment
+    - Einsatz von SBC als Integrationsequipment
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
@@ -86,7 +86,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 Im Rahmen dieser Arbeit gilt die Definition von Bergweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
 Der funktionale Umfang einer Maschine wird durch neue Module für die Übertragung und verteilte Verarbeitung der Daten ausgebaut.
 Dadurch wird die Kommunikation zwischen individuellen Geräten und Produkten der Fertigung ermöglicht, bis die Fabrik den künftigen Standards, Direktiven und Prinzipien der Industrie 4.0 genügt @Bergweiler2015.
-In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterung des Equipments, in Einplatinencomputern bestehen.
+In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterung des Equipments, in SBC bestehen.
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
@@ -514,10 +514,10 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 ## Integrationshardware
 
-Die Leistungsfähigkeit von Einplatinencomputern, wie dem Raspberry Pi[^raspberry] oder Arduino[^arduino], sowie deren Tauglichkeit im Bereich der Maschinensteuerung (vgl. @Grigoriev2016), ist in der industriellen Fertigung nicht zu ignorieren.
+Die Leistungsfähigkeit von Einplatinencomputern (Single Board Computer, SBC), wie dem Raspberry Pi[^raspberry] oder Arduino[^arduino], sowie deren Tauglichkeit im Bereich der Maschinensteuerung (vgl. @Grigoriev2016), ist in der industriellen Fertigung nicht zu ignorieren.
 Die Ökonomie eines Fertigungssystems hängt unmittelbar an den Kosten für zusätzliche Hardware, wodurch preisgünstige, eingebettete Systeme, nicht nur durch cyber-physische Produktion, an Attraktivität gewinnen [@Lee2008;@Kargermann2013].
-Weiterhin können Einplatinencomputer durch Echtzeitbetriebssystemen auch zeitkritische Steuerungsaufgaben (vgl. @sec:speicherprogrammierbare-steuerung) übernehmen.
-Demnach müssen Einplatinencomputer (Single-Board Computer) für das hardwareseitige Retrofitting eingesetzt werden.
+Weiterhin können SBC durch Echtzeitbetriebssystemen auch zeitkritische Steuerungsaufgaben (vgl. @sec:speicherprogrammierbare-steuerung) übernehmen.
+Demnach müssen SBC für das hardwareseitige Retrofitting eingesetzt werden.
 
 R5
 : Einplatinencomputer werden als zusätzliche Hardware zum Retrofitting eingesetzt, wodurch die Kosten der Modernisierungsmaßnahmen gering ausfallen.
@@ -581,7 +581,7 @@ R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssy
 Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später @Ferrolho2007.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll (vgl. zu diesem Absatz @Ferrolho2007).
-Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3), Lokalität (R4) nicht diskutiert und kein Einplatinencomputer zur Kontrolle eingesetzt (R5), weswegen sie hier lediglich als Erweiterung des vorangegangenen Konzepts verstanden wird.  
+Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3), Lokalität (R4) nicht diskutiert und kein Einplatinencomputer (Single Board Computer, SBC) zur Kontrolle eingesetzt (R5), weswegen sie hier lediglich als Erweiterung des vorangegangenen Konzepts verstanden wird.  
 Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
 Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
 
@@ -944,7 +944,7 @@ In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
 Die virtuelle Maschinenrepräsentation (VMR) ist in der Verwaltungsschale einer I4.0-Komponente des RAMI4.0 Referenzmodells eingebettet und bietet fachliche Funktionalität (vgl. Bild 9 aus @Adolphs2015).
 Durch sie können einzelne Baugruppen, Sensoren/Aktuatoren oder ganze Maschinen im Kontext eines Produktionssystems abgebildet werden.
 Bei der Modernisierung von Altanlagen mittels dieses Konzepts müssen allem voran die Schnittstellen durch eine VMR gekapselt werden, was in den folgenden Abschnitten detailliert beschrieben wird.  
-Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schichten und Komponenten der Arbeiten von Lee et al. und Moctezuma et al. [@Lee2015;@Moctezuma2012], dargestellt in @fig:vmr-concept.
+Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schichten und Komponenten der Arbeiten von Lee et al., Moctezuma et al. und Dürkop et al. [@Lee2015;@Moctezuma2012;@Durkop2014], dargestellt in @fig:vmr-concept.
 
 ![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
 
@@ -953,48 +953,26 @@ Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abg
 Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:-überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
+Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
 Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) des digitalen Zwillings auf Cyber-Ebene übernommen (vgl. @Lee2015).
 Der Zwilling steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch die Leistungsfähigkeit intelligenter Analysealgorithmen nicht beeinträchtigt wird.
-Historische Maschinendaten werden durch Historical Access (OPC UA Part 11[^opcua11]) in der VMR persistiert.
 Die Verbindung zwischen TM und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
 
 [^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
 
 ### Anlagenkapselung 
 
-mit @Moctezuma2012
+Die RTU besitzt eine Schnittstelle zur Altanlage, die das physische Gerät von der VMR separiert und auf der Smart Connection Ebene implementiert ist [@Moctezuma2012;@Lee2015].
+In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer (Single Board Computer, SBC) auf dem Device-Level (vgl. @fig:vmr-concept) realisiert.
+Der SBC fungiert als Gateway zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) oder WebSockets.
+Eine Software-Middleware auf dem SBC ist für diese Datenvermittlung verantwortlich (vgl. @sec:softwareframework).
+Eine weitere Möglichkeit der physikalischen Anbindung sind SBCs mit vorbereiteter Middleware wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
+Szenario S2 reduziert den Einsatz des SBC auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll wie bei Ferrolho et al. @Ferrolho2005.
+Bei Szenario S3 repräsentiert die bereits besprochene externe Soft- und Hardware die VMR (vgl. [@sec:zusammenfassung;@sec:modellierung-der-anlagenstruktur]<!-- SOTA -->).
+Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert [@Teti2010;@Liang2004;@Downey2016].
 
-* Echtzeitkapselung
-* Szenarien!
-
-Eine Nutzungsschnittstelle bietet eine aggregierte Übersicht aller VMR und ermöglicht die zentrale Steuerung und Überwachung durch den Maschinenbediener aus Anwendungsfall A3.
-
-### Vertikale Integration
-
-* Externe Systeme?
-* OPC UA Proxy für SOAP+HTTP im Module nach Moctezuma
-
-> Specifications like Device Profile for
-> Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
-> are the most suitable solutions for implementing a Service
-> Oriented Architecture (SOA) on the shop-floor level
-> which includes eventing mechanisms
-> -- @Izaguirre2011
-
-> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
-> The IEC standardization commission recommends OPC UA as a standard for the implementation 
-> of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
-> However, OPC UA does not allow real-time transmission, which is why a real-time
-> communication channel must still exist.
-> -- @Hammerstingl2015
-
-@Windmann2015 vs. @Moctezuma2012:
-
-* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt, aber ungeeignet für Einplatinencomputer (vgl. @sec:transportprotokolle)
-
-Der digitale Zwilling auf der Cyber-Ebene (@Lee2015) besitzt einen Proxy zur Umwandlung des binärem UA-Protokolls in einen UA-Webservice.
-
-Time-Machine @Lee2015
+[^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
+[^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
 
 ### Horizontale Integration
 
@@ -1055,6 +1033,33 @@ S1:
   The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
   Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
   Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
+
+### Vertikale Integration
+
+* Externe Systeme?
+* OPC UA Proxy für SOAP+HTTP im Module nach Moctezuma
+
+> Specifications like Device Profile for
+> Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
+> are the most suitable solutions for implementing a Service
+> Oriented Architecture (SOA) on the shop-floor level
+> which includes eventing mechanisms
+> -- @Izaguirre2011
+
+> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
+> The IEC standardization commission recommends OPC UA as a standard for the implementation 
+> of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
+> However, OPC UA does not allow real-time transmission, which is why a real-time
+> communication channel must still exist.
+> -- @Hammerstingl2015
+
+@Windmann2015 vs. @Moctezuma2012:
+
+* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt, aber ungeeignet für Einplatinencomputer (vgl. @sec:transportprotokolle)
+
+Der digitale Zwilling auf der Cyber-Ebene (@Lee2015) besitzt einen Proxy zur Umwandlung des binärem UA-Protokolls in einen UA-Webservice.
+
+Time-Machine @Lee2015
 
 ### Cyber-physische Rückkopplung
 
