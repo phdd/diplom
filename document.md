@@ -941,21 +941,24 @@ In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
 
 ## Virtuelle Maschinenrepräsentation
 
-* "zentral" erfassen durch RAMI4.0 Verwaltungsschale
-* "zentral" auswerten mit Cloud-Analytics (Big Data)
-* Bereitstellung von Informationen
-    - Umwandlung von Daten zu Informationen?? (vgl. @Lee2015)
-* Laufzeitkonfiguration des Surrogate? 
-* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
-    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
-* automatisierte Werkzeugkomponenten (AWK)
-* Überwachung
-* Ethernetanbindung mit TCP/IP
-* Surrogate ist standardisierendes Element
-* kein Maschinenspez. Terminal => verteiltes System => entfernte Mensch-Maschine-Schnittstelle
-* Somit kann die Steuerung der AWK durch UA-Methoden erfolgen.
-* Eine Alternative ist die Veränderung von Variablen.
+Die virtuelle Maschinenrepräsentation (VMR) ist in der Verwaltungsschale einer I4.0-Komponente des RAMI4.0 Referenzmodells eingebettet und bietet fachliche Funktionalität (vgl. Bild 9 aus @Adolphs2015).
+Durch sie können einzelne Baugruppen, Sensoren/Aktuatoren oder ganze Maschinen im Kontext eines Produktionssystems abgebildet werden.
+Bei der Modernisierung von Altanlagen mittels dieses Konzepts müssen allem voran die Schnittstellen durch eine VMR gekapselt werden, was in den folgenden Abschnitten detailliert beschrieben wird.  
+Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schichten und Komponenten der Arbeiten von Lee et al. und Moctezuma et al. [@Lee2015;@Moctezuma2012], dargestellt in @fig:vmr-concept.
+
+![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
+
+Die intelligente Remote Terminal Unit (RTU), respektive VMR, kapselt die Altanlage und bietet nahtlose M2M-Kommunikation auf Feldebene durch die Comm-Schicht.
+Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
+Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:-überwachung-des-maschinenbetriebs)
+So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
+Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
+Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) des digitalen Zwillings auf Cyber-Ebene übernommen (vgl. @Lee2015).
+Der Zwilling steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch die Leistungsfähigkeit intelligenter Analysealgorithmen nicht beeinträchtigt wird.
+Historische Maschinendaten werden durch Historical Access (OPC UA Part 11[^opcua11]) in der VMR persistiert.
+Die Verbindung zwischen TM und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
+
+[^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
 
 ### Anlagenkapselung 
 
@@ -964,9 +967,12 @@ mit @Moctezuma2012
 * Echtzeitkapselung
 * Szenarien!
 
+Eine Nutzungsschnittstelle bietet eine aggregierte Übersicht aller VMR und ermöglicht die zentrale Steuerung und Überwachung durch den Maschinenbediener aus Anwendungsfall A3.
+
 ### Vertikale Integration
 
 * Externe Systeme?
+* OPC UA Proxy für SOAP+HTTP im Module nach Moctezuma
 
 > Specifications like Device Profile for
 > Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
@@ -995,6 +1001,7 @@ Time-Machine @Lee2015
 @Windmann2015 vs. @Moctezuma2012:
 
 * horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
+* automatische Eingliederung auf Feldebene durch OPC UA Service Discovery 
 
 - Datenaggregation und Persistenz
 * Persistenzkonzept: 
@@ -1005,6 +1012,10 @@ Time-Machine @Lee2015
         * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
     * Echtzeit kein Problem (OPC UA kann's eh nicht)
     * Ethernet-basierte Kommunikation 
+
+* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
+    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
+    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
 
 Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden. @OPC4Factory
   
@@ -1102,8 +1113,7 @@ S1:
 
 ## Testsuite
 
-* Smoothieboard als Maschinen-Adapter
-    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
+
     
 # Evaluation
 
@@ -1124,8 +1134,11 @@ Blocking Factors/mögliche Kritik?
 
 * Leistung von embedded computing devices => siehe @Grigoriev2016
 * Pi hat Grenzen bei CNC => Smoothieboard
+* Smoothieboard als Maschinen-Adapter
+    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
 * Industriekomponenten nicht mit Smoothieboard vergleichbar 
 * Energieverbrauch?
+* RAMI4.0-Konformität
 
 # Zusammenfassung
 
