@@ -516,8 +516,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="368.65287"
-     inkscape:cy="226.2294"
+     inkscape:cx="191.15287"
+     inkscape:cy="90.939668"
      inkscape:document-units="pt"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -541,7 +541,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -756,9 +756,9 @@
     <path
        style="fill:#4f81bd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 115.17969,170.17773 0,0.10352 -7.15625,14.0918 c 0,0 3.13998,-1.50196 5.60547,-1.50196 l 0,27.65039 c -2.27982,-8.1e-4 -5.60547,-1.5039 -5.60547,-1.5039 l 7.15625,14.09375 0,0.10351 0.0254,-0.0527 0.0273,0.0527 0,-0.10351 7.1543,-14.09375 c 0,0 -3.13998,1.5039 -5.60547,1.5039 l 0,-27.65039 c 2.27987,0 5.60547,1.50196 5.60547,1.50196 l -7.15625,-14.0918 0,-0.10352 -0.0254,0.0527 -0.0254,-0.0527 z"
-       transform="translate(5.997241,600.57598)"
        id="path16621"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       transform="translate(5.997241,600.57598)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.95137119px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -784,9 +784,9 @@
     <path
        style="fill:#4f81bd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 299.29102,170.17773 0,0.10352 -7.15625,14.0918 c 0,0 3.13997,-1.50196 5.60546,-1.50196 l 0,27.65039 c -2.27981,-8.1e-4 -5.60546,-1.5039 -5.60546,-1.5039 l 7.15625,14.09375 0,0.10351 0.0254,-0.0527 0.0273,0.0527 0,-0.10351 7.1543,-14.09375 c 0,0 -3.13803,1.5039 -5.60352,1.5039 l 0,-27.65039 c 2.27982,8.2e-4 5.60352,1.50196 5.60352,1.50196 l -7.1543,-14.0918 0,-0.10352 -0.0273,0.0527 -0.0254,-0.0527 z"
-       transform="translate(5.997241,600.57598)"
        id="path16127"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       transform="translate(5.997241,600.57598)" />
     <path
        style="fill:#4f81bd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 191.28433,823.66218 0,-0.10299 -7.15496,-14.09262 c 0,0 3.13978,1.47778 5.6052,1.50209 0,-32.73929 46.5436,-32.73929 46.5436,0 2.46543,-0.0243 5.60521,-1.50209 5.60521,-1.50209 l -7.15496,14.09262 0,0.10299 -0.0278,-0.0514 -0.0259,0.0514 0,-0.10299 -7.15589,-14.09262 c 0,0 3.32629,1.51854 5.60613,1.50209 0,-29.39315 -40.23876,-29.14061 -40.23876,0 2.27984,0.0164 5.60618,-1.50209 5.60618,-1.50209 l -7.15595,14.09262 0,0.10299 -0.0259,-0.0514 -0.0268,0.0514 z"

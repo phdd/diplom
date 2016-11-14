@@ -791,7 +791,7 @@ Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SP
 Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
 Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS.
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
-Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und automatisierte Werkzeugkomponenten vollständig durch die VMR bereitgestellt werden.
+Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und automatisierte Werkzeugkomponenten vollständig durch die virtuelle Maschinenrepräsentation (VMR) bereitgestellt werden.
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
@@ -809,14 +809,10 @@ Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die V
 ##### S3 -- Speicherprogrammierbare Steuerungen.
 
 Beim Retrofitting von speicherprogrammierbaren Steuerungen (SPS) werden in dieser Arbeit drei Fälle unterschieden.
-Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus.
-<!-- Das Nachrüsten modularer Steuerungen mit einer Netzwerkkarte sorgt für die Integration in ein Netzwerk. -->
-Der zweite Fall von zu modernisierenden SPS setzt eine Netzwerkanbindung voraus, veräußert jedoch weder ein Informationsmodell noch standardisierte Kommunikationsprotokolle.
-<!--Existiert, im zweiten Fall, eine physische Netzwerkverbindung, müssen 
-Informationsmodelle und Protokolle definiert und über Teilsysteme Implementiert werden.
-Selbiges gilt auch für Geräte der ersten Kategorie.-->
+Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus (S3.1).
+Der zweite Fall von zu modernisierenden SPS setzt eine Netzwerkanbindung voraus, veräußert jedoch weder ein Informationsmodell noch standardisierte Kommunikationsprotokolle (S3.2).
 Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
-Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen.
+Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen (S3.3).
 <!-- UML => OPC UA, etc. @Pauker2016 -->
 <!-- ASK
 - Werkzeugmaschine ist im Kontext weiterer Automatisierungseinrichtungen
@@ -864,7 +860,7 @@ Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwo
 Durch die Anwendungsfälle und Szenarien ergibt sich ein Systemkontext, dargestellt in @fig:systemkontext.
 In diesem interagiert der Produktionsleiter mit dem Enterprise Resource Management (ERP) und einem Produktionsplanungssystem (PPS).
 Aufträge und benötigte Ressourcen werden hier in die Planung der Fertigung überführt.
-Die Bedienung der konkreten Maschinen geschieht über eine virtuelle Maschinenrepräsentation (VMR).
+Die Bedienung der konkreten Maschinen geschieht über die virtuelle Maschinenrepräsentation (VMR).
 Diese kapselt die in den Szenarien vorgestellten Altanlagen und ist weiterhin mit den Feldgeräten und der Produktionsplanung verbunden.
 Ein Maschinenbediener muss nicht direkt an der Anlage arbeiten, sondern kann die Steuerung und Überwachung von einer entfernten Nutzungsschnittstelle übernehmen.
 Der Montagearbeiter agiert auf Feldebene, kennt die Systemstrukturen und verwaltet und wartet das Produktionsequipment.
@@ -902,7 +898,7 @@ Da Standardisierung jedoch eine zentrale Anforderung der Anlagenmodernisierung i
 ![CPPS Erweiterung des Informationsmodells](figures/opcua-cpps){#fig:opcua-cpps}
 
 Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren mit der realen Welt in Verbindung (vgl. @sec:cyber-physische-produktionssysteme).
-Um sie mit der VMR verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
+Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
 Diese sollen im Informationsmodell festgelegt werden können.
 Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
 Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
@@ -919,12 +915,11 @@ Allem zugrunde liegt die UA-Definition (OPC UA Part 5[^opcua5]).
 Darauf aufbauend wurden die Modellelemente von Ayatollahi et al. zur Steuerung und Überwachung der Altanlage übernommen (OPC4Factory, @Ayatollahi2013).
 Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept entworfenen UA-Erweiterung aus (CPPS).
 
-[^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
 [^opcua5]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model) (abgerufen am 12.11.2016)
 
 ### Laufzeitmodell
 
-Beim Start der VMR wird das Informationsmodell geladen und steht für andere Maschinen und Nutzungsschnittstellen zur Verfügung.
+Beim Start der virtuelle Maschinenrepräsentation (VMR) wird das Informationsmodell geladen und steht für andere Maschinen und Nutzungsschnittstellen zur Verfügung.
 Die angeschlossenen Sensoren erfassen permanent den physischen Kontext und aktualisieren das Informationsmodell zur Laufzeit.
 Damit besitzt die VMR ein Local Context Model nach Wätzoldt und Giese @Watzoldt2014.
 Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hinter der VMR an, wird auch der aktuelle Kontext präsentiert.
@@ -963,85 +958,61 @@ Die Verbindung zwischen Time-Machine und anderen Diensten und VMR wird durch im 
 ### Anlagenanbindung
 
 Die Remote Terminal Unit besitzt eine Schnittstelle zur Altanlage, die das physische Gerät von der VMR separiert und auf der Smart Connection Ebene implementiert ist [@Moctezuma2012;@Lee2015].
-In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer auf dem Device-Level (vgl. @fig:vmr-concept) realisiert.
-Der Einplatinencomputer fungiert als Gateway zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) oder WebSockets.
+In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer auf Feldebene (Device-Level, vgl. @fig:vmr-concept) realisiert.
+Der Einplatinencomputer fungiert als Integrationshardware zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) mit HTTP oder WebSockets.
 Eine Software-Middleware auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich (vgl. @sec:softwareframework).
-Eine weitere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
-Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll wie bei Ferrolho et al. @Ferrolho2005.
-
-TODO
-
-Bei Szenario S3 repräsentiert die bereits besprochene externe Soft- und Hardware die VMR (vgl. [@sec:zusammenfassung;@sec:modellierung-der-anlagenstruktur]<!-- SOTA -->).
-
-Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert [@Teti2010;@Liang2004;@Downey2016].
+Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
+Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
+Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll, wie bei Ferrolho et al., wobei die Echtzeitkontrolle der Anlagensteuerung selbst obliegt @Ferrolho2005.
+Im Szenario S1 kann Echtzeitfähigkeit nur über zusätzliche Steuerungshardware gewährleistet werden.
+So können bei der Verbindung der VMR mit der Antriebssteuerung einer CNC, ebenfalls Einplatinencomputer verwendet werden, die wiederum eine Middleware mit Schnittstelle bereitstellen @Grigoriev2016.  
+Für die Anlagenanbindung in Szenario S3 werden drei Fälle unterschieden.
+Sollte keine Ethernetanbindung mit TCP/IP existieren (S3.1) muss die SPS durch Hardware entsprechen erweitert werden.
+Die SPS ist lediglich an ein Bussystem gekoppelt und wird mit einer Ethernet-Karte erweitert.
+Bei existierendem TCP/IP Kommunikationskanal (Szenario S3.2) repräsentiert externe Soft- und Hardware die VMR und stellt die UA-Verbindung bereit.
+Eine Komponente mit integriertem UA-Server ist die IBH Link UA[^ibhlinkua] für die Steuerungen S5 und S7 von Siemens.
+Weiterhin existieren Softwarelösung für SPS von Allen-Bradley oder Siemens, sowie verschiedenen proprietären Protokollen, wie das Ignition OPC UA Module[^ignitionopc].
+Dieses Softwaremodul ist ein UA-Server der mittels Treibern SPS, andere Geräte und Netzwerkprotokolle kapselt.
+Bei bestehenden Informationsmodellen (S3.3) kann die Middleware als Adapter für das Informationsmodell der SPS fungieren und eines nach @sec:informationsmodell kommunizieren (vgl. @sec:modellierung-der-anlagenstruktur).  
+Windmann et al. beschrieben einen generischen Ansatz für die Anbindung von Steuerungen, abseits industrieller Hersteller @Windmann2015.
+Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vorgestellten VMR.
 
 [^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
 [^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
+[^ignitionopc]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
 
 ### Horizontale Integration
 
-@Windmann2015 vs. @Moctezuma2012:
+Durch die Verbreitung der OPC Unified Architecture (UA) sind neben deren Informationsmodell (vgl. @sec:informationsmodell) die Kommunikationskonzepte geeignet für diese Arbeit.
+Beim Starten der Middleware auf dem Einplatinencomputer wird zuerst das  Informationsmodell der virtuellen Maschinenrepräsentation (VMR) geladen und initialisiert.
+Danach integriert sie sich selbstständig in das Fertigungssystem um mit anderem Equipment interagieren zu können.
+Die Dienste der UA zum Auffinden von Geräten (OPC UA Discovery) werden für die automatische Eingliederung der VMR genutzt, dargestellt durch @fig:horizontale-integration.
 
-* horizontale Integration mit OPC UA, wegen Verbreitung unter Feldgeräten
-* automatische Eingliederung auf Feldebene durch OPC UA Service Discovery 
+![Horizontale VMR-Integration](figures/horizontale-integration){#fig:horizontale-integration}
 
-- Datenaggregation und Persistenz
-* Persistenzkonzept: 
-    - Blackboard @Pauker2013 
-    - Time-Maschine @Lee2015
-* Controlling nicht aus der Cloud @... sondern an der Maschine  
-    * CNC-Kernel auf dediziertem Controller  
-        * Kernel muss nicht portiert werden (vgl. @Grigoriev2016)  
-    * Echtzeit kein Problem (OPC UA kann's eh nicht)
-    * Ethernet-basierte Kommunikation 
+Dafür wird ein Eintrag im Diensteverzeichnis der UA (Local Discovery Server, LDS) angelegt (linke Hälfte der @fig:horizontale-integration).
+Der UA-Server der VMR sendet eine Nachricht an den LDS, dessen Adresse bekannt sein muss und informiert ihn damit über seine Verfügbarkeit  (@fig:horizontale-integration, a.1).
+UA-Clients können diesen Knotenpunkt nach Diensten fragen (a.2) und erhalten die jeweilige Beschreibung (a.3).
+Danach kann dieser Client die Dienste der VMR in Anspruch nehmen (a.4).
+Soll kein zentralisiertes Diensteverzeichnis verwendet werden, bietet das Multicast Domain Name System (mDNS) eine Alternative (rechte Hälfte der @fig:horizontale-integration).
+Durch Multicasts im lokalen Netzwerk der VMR können Feldgeräte ad hoc die verfügbaren Dienste erfragen (b.1).
+Wird solch eine Anfrage durch ein Feldgerät abgesendet, schicken ihr die umliegenden Geräte eine Beschreibung ihrer Funktionalität (b.2).
+Der Client entscheidet sich für die VMR und nutzt dessen Dienste (b.3).
+Nachteilig ist hierbei die Beschränkung auf das lokale Subnetz.  
+Für die eigentliche Verbindung zu den Diensten bestehender Feldgeräte mit der VMR, respektive die horizontale Integration, wird das binäre UA-Transportprotokoll verwendet (vgl. @sec:transportprotokolle), da die Integrationshardware mit ressourcenschonender Software betrieben werden muss.
 
-* Bisher OPC UA Server als Adapter zu proprietären Maschinenprotokollen 
-    * Server <-> Maschine => Server <-> Adapter <-> Maschine ?
-    * andere embedded Geräte => Smoothieboard kompakte(soft-)SPS als Adapter zu Maschine
-
-Die Kommunikation auf dieser Ebene __erfordert keine Echtzeitfähigkeit__, da Steuerungsaufgaben mit Echtzeitanforderungen ausschließlich innerhalb der Maschinen- bzw. Robotersteuerung abgewickelt werden. @OPC4Factory
-  
-#### Numerisch kontrollierte Maschinen
-
-[@Ferrolho2005;@Ferrolho2007]
-
-S1: 
-* standardkonforme Schnittstelle f. Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
-
-+ ohne DNC
-+ mit DNC
-
-* CNC
-    1. DNC-Schnittstellenadapter
-    2. Schrittmotoren und SERVOS => Adapter für Antriebssteuerung 
-* Peripherie
-    1. maschineneigene SPS ansprechen (OPC UA Wrapper) => eher vermeiden, CNC kapselt bereits
-    2. Surrogate direkt an Sensor/Aktuator angeschlossen
-
-#### Speicherprogrammierbare Steuerung
-    1. kein Ethernet mit TCP/IP 
-        + gekoppelt an Bus
-        + SPS-Netzwerkkarten nachrüstbar
-    2. Ethernet mit TCP/IP
-        + Ignition OPC UA Modul
-        + PLCopen Companion Specification für OPC UA
-    3. integrierter OPC UA Server 
-
-* SPS siehe @Windmann2015 Bild 3
-  - Surrogate+OPCUA-Modell auch für SPS (Programm übertragen, starten, reset, etc.)
-* PLCopen geht auch...
-
-* http://www.sps-magazin.de/?inc=artikel/article_show&nr=92951 (OPC UA für S5 & S7)
-* https://www.traeger.de/industrial-ethernet/s7-lan-mpi-lan.html (TCP/IP & OPC UA für S7)
-* https://en.wikipedia.org/wiki/Ignition_SCADA#OPC-UA  (SW-Wrapper für SPS)
-  The OPC-UA Ignition module is an OPC server that supports modular drivers for PLCs and other devices and network connections. It is the first 100% native Java OPC UA stack.[14] The OPC-UA module includes a Quick Client that allows users to read and write PLC register values via an AJAX web page hosted on the Ignition Gateway.
-  Current drivers include A-B Suite, ModbusTCP, Siemens Ethernet, and Simple TCP/UDP, allowing users to connect to a multitude of devices such as PLCs, solar cells, lights, generators, flow meters, bar code scanners, etc.
-  Inductive Automation offers the Ignition OPC-UA server for free. The required license must be obtained through the company web site or by direct contact.
+Die Anwendungsfälle eines Monteurs (A1) werden zwischen dem Module- und dem Cyber-Level des VMR-Konzepts unterstützt (vgl. @fig:vmr-concept).
+Mit einem UA-Client hat er die Möglichkeit die Maschinenkomponenten zu verwalten und die abgeschlossene Wartung derer zu bestätigen.
+Über diesen Client kann auch der Maschinenbediener (A3) die Altanlage auf den Betrieb vorbereiten, indem er die physikalischen Verbindungen, also Instanzen des ```PhysicalConnectionType```, konfiguriert (vgl. @sec:modellierung-der-anlagenstruktur).
+Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände einsehen, die Situation und Ausnahmefälle vorhersehen.
+Bevor CNC-Programme ausgeführt werden hat er die Möglichkeit sie anhand der aktuellen Situation anzupassen.
+Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und dessen programmatischer Austausch.
 
 ### Vertikale Integration
 
 * Externe Systeme?
 * OPC UA Proxy für SOAP+HTTP im Module nach Moctezuma
+* WS, weil BPEL zur Orchestrierung von Prozessen möglich
 
 > Specifications like Device Profile for
 > Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
@@ -1073,6 +1044,8 @@ Time-Machine @Lee2015
 * Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausb
 * lick)
 * Sensorwert-Thresholds für Anomaly Detection
+
+[^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
 
 ## Softwareframework
 
