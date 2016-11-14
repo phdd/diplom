@@ -148,7 +148,7 @@ Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie
 Auf der Prozessebene (Level 0) des Beispiels geschieht die physikalische Fertigung des Produkts.
 Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Schicht zu abstrakteren Informationen verarbeitet werden.
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
-Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:numerische-steuerung) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
+Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:numerische-kontrolle) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
 Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
 Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
@@ -188,7 +188,7 @@ Weiterhin stehen damit die Daten aller Schichten für jeden anderen Netzwerkteil
 Diese Form der Kommunikations- und Informationsstruktur ist nach Hammerstingl und Reinhart in einer vierten Klasse zu finden.
 @fig:automationsstruktur zeigt OPC und OPC UA (vgl. @sec:opc-unified-architecture) als Standard für den Datenaustauch zwischen dem Produktionsplanungssystem (PPS) und den speicherprogrammierbaren Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung).
 Mit dieser Technologie stellen Geräte aktiv ihre virtuelle Beschreibung bereit, was durch die Hersteller unterstützt und vorangetrieben wird (vgl. zu diesem Absatz @Hammerstingl2015).
-Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-steuerung) kontrollierte Werkzeugmaschinen können so Informationen zu Zustand und Produktionsfortschritt bereitstellen.
+Auch mit numerischer Steuerung (CNC, vgl. @sec:numerische-kontrolle) kontrollierte Werkzeugmaschinen können so Informationen zu Zustand und Produktionsfortschritt bereitstellen.
 
 [^ole]: Object Linking and Embedding
 [^iolink]: Implementierung der IEC TR 61131-9
@@ -872,7 +872,7 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 
 Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt @Hammerstingl2015.
 OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
-Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenkapselung besprochen wird @Hammerstingl2015.
+Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenanbindung besprochen wird @Hammerstingl2015.
 Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschreibung in einem UA-Adressraummodell hinterlegt.
 
 ### Modellierung der Anlagenstruktur
