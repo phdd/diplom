@@ -66,7 +66,7 @@ Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuel
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
 Automatisierte Werkzeugkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
-Einplatinencomputer (Single Board Computer, SBC) sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
+Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
 
 Auch ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
 Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
@@ -74,7 +74,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
-    - Einsatz von SBC als Integrationsequipment
+    - Einsatz von Einplatinencomputern als Integrationsequipment
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
@@ -86,7 +86,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
 Im Rahmen dieser Arbeit gilt die Definition von Bergweiler, nach der Retrofitting die Erweiterung des Equipments einer Anlage durch zusätzliche Hardware meint.
 Der funktionale Umfang einer Maschine wird durch neue Module für die Übertragung und verteilte Verarbeitung der Daten ausgebaut.
 Dadurch wird die Kommunikation zwischen individuellen Geräten und Produkten der Fertigung ermöglicht, bis die Fabrik den künftigen Standards, Direktiven und Prinzipien der Industrie 4.0 genügt @Bergweiler2015.
-In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterung des Equipments, in SBC bestehen.
+In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterung des Equipments, in Einplatinencomputern bestehen.
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
@@ -514,10 +514,10 @@ Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderli
 
 ## Integrationshardware
 
-Die Leistungsfähigkeit von Einplatinencomputern (Single Board Computer, SBC), wie dem Raspberry Pi[^raspberry] oder Arduino[^arduino], sowie deren Tauglichkeit im Bereich der Maschinensteuerung (vgl. @Grigoriev2016), ist in der industriellen Fertigung nicht zu ignorieren.
+Die Leistungsfähigkeit von Einplatinencomputern, wie dem Raspberry Pi[^raspberry] oder Arduino[^arduino], sowie deren Tauglichkeit im Bereich der Maschinensteuerung (vgl. @Grigoriev2016), ist in der industriellen Fertigung nicht zu ignorieren.
 Die Ökonomie eines Fertigungssystems hängt unmittelbar an den Kosten für zusätzliche Hardware, wodurch preisgünstige, eingebettete Systeme, nicht nur durch cyber-physische Produktion, an Attraktivität gewinnen [@Lee2008;@Kargermann2013].
-Weiterhin können SBC durch Echtzeitbetriebssystemen auch zeitkritische Steuerungsaufgaben (vgl. @sec:speicherprogrammierbare-steuerung) übernehmen.
-Demnach müssen SBC für das hardwareseitige Retrofitting eingesetzt werden.
+Weiterhin können Einplatinencomputer durch Echtzeitbetriebssystemen auch zeitkritische Steuerungsaufgaben (vgl. @sec:speicherprogrammierbare-steuerung) übernehmen.
+Demnach müssen Einplatinencomputer für das hardwareseitige Retrofitting eingesetzt werden.
 
 R5
 : Einplatinencomputer werden als zusätzliche Hardware zum Retrofitting eingesetzt, wodurch die Kosten der Modernisierungsmaßnahmen gering ausfallen.
@@ -581,7 +581,7 @@ R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssy
 Eine Sammlung von Softwarewerkzeugen für die Steuerung von Robotern, Fräs- und Drehmaschinen entwickelten Ferrolho et al. zwei Jahre später @Ferrolho2007.
 Sie erkannten die Notwendigkeit von DNC-Adaptern und schufen ein erweitertes Framework für die verteilte Kontrolle dieser Produktionsmaschinen.
 Die Generizität der dabei entstandenen Softwarearchitektur wurde in einem Fallstudie mit fünf Anlagen verifiziert und erlaubt die Integration, unabhängig von Hersteller und verwendetem Protokoll (vgl. zu diesem Absatz @Ferrolho2007).
-Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3), Lokalität (R4) nicht diskutiert und kein Einplatinencomputer (Single Board Computer, SBC) zur Kontrolle eingesetzt (R5), weswegen sie hier lediglich als Erweiterung des vorangegangenen Konzepts verstanden wird.  
+Dennoch wurde auch in dieser Arbeit kein Standard verwendet (R3), Lokalität (R4) nicht diskutiert und kein Einplatinencomputer zur Kontrolle eingesetzt (R5), weswegen sie hier lediglich als Erweiterung des vorangegangenen Konzepts verstanden wird.  
 Die Standardisierung von Kommunikationsprotokollen und Informationsmodellen ist eine Forderung der Industrie 4.0 @Adolphs2015.
 Somit müssen auch bei der Aufbereitung der Steuerung einer Altmaschine etablierte Standards beachtet werden.
 
@@ -664,17 +664,17 @@ Wenn die zur Steuerung notwendige Echtzeit nahe der Maschine bereitgestellt wird
 Die ursprünglich heterogene Feldgerätelandschaft wurde durch eine Service-orientierte Architektur (SOA) ersetzt.
 Ziel des Konzept ist unter anderem die Einsparung von Energie, Flexibilisierung und Rekonfigurierbarkeit, die Fähigkeit der eigenständigen Wiederherstellung nach Ausfall und Fehler (self-recovery), sowie prädiktive Wartung (predictive Maintenance).
 Eine zentrale Anforderung an die Schnittstellen der Geräterepräsentation ist, neben Skalierbarkeit und Homogenität, die lokale Verarbeitung von Daten.
-Intelligente Remote Terminal Units (RTU), wie auf der rechten Seite der @fig:rtu-retrofitting, kapseln dazu das industrielle Equipment.
+Intelligente Remote Terminal Units, wie auf der rechten Seite der @fig:rtu-retrofitting, kapseln dazu das industrielle Equipment.
 
-![Equipment ohne und mit RTU-Retrofitting aus @Moctezuma2012](figures/rtu-retrofitting){#fig:rtu-retrofitting}
+![Equipment ohne und mit Retrofitting aus @Moctezuma2012](figures/rtu-retrofitting){#fig:rtu-retrofitting}
 
 Das original-Equipment besteht aus der physischen Schicht (Physical) für Aktuatoren und Sensoren.
 Darüber (Processing) werden die Daten umgewandelt -- bei einfachen Sensoren auch ohne Verarbeitung durchgereicht.
 Die Schnittstellenschicht (Interface) bindet das Gerät an ein Bussystem, digitale Ein-/Ausgabesysteme oder andere, teils proprietäre Kommunikationsmedien (vgl. @sec:fertigung-und-automatisierung).
-Mit der aufsetzenden RTU wird zuerst eine, zum jeweiligen Medium kompatible Schnittstelle eingesetzt.
-Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der RTU.
+Mit der aufsetzenden Remote Terminal Unit wird zuerst eine, zum jeweiligen Medium kompatible Schnittstelle eingesetzt.
+Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der Remote Terminal Unit.
 Durch die Kommunikationsschicht werden dann Informationen, anstelle der Daten des original-Equipments weitergereicht und konsumiert.
-Eine RTU kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
+Eine Remote Terminal Unit kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
 Das Konzept von Moctezuma et al. erfüllt die Anforderungen R1-R4, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.
 Lediglich R5 ist kein Teil des Konzepts.  
 Die Kombination aus Rekonfigurierbarkeit (@Pauker2013), Web-Service-basierter Kapselung von Feldgeräten (@Moctezuma2012) und der lokalen Informationsgewinnung aus Anlagen-Rohdaten untersuchten Dürkop et al. im Kontext von SOA @Durkop2014.
@@ -775,7 +775,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen und Konzepten aus @sec:forschungsstand.
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
 Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
-Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten (AWK) und damit den Schwerpunkt des hier vorgestellten Designs.
+Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten und damit den Schwerpunkt des hier vorgestellten Designs.
 Das Informations- und Kommunikationsmodell der VMR mit OPC UA ergänzt die Anlage um eine in der Industrie etablierte, semantische Schnittstelle.
 Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
 Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.
@@ -786,18 +786,18 @@ Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den
 
 ##### S1 -- Werkzeugmaschine ohne Schnittstellen.
 
-Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch AWK von außen beeinflusst werden.
-Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SPS für AWK ist dem Entwickler verborgen.
+Besitzt die Altanlage keinerlei Schnittstellen, können weder CNC noch automatisierte Werkzeugkomponenten von außen beeinflusst werden.
+Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SPS für automatisierte Werkzeugkomponenten ist dem Entwickler verborgen.
 Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
 Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS.
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
-Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und AWK vollständig durch die VMR bereitgestellt werden.
+Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und automatisierte Werkzeugkomponenten vollständig durch die VMR bereitgestellt werden.
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
 _Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-kontrolle).
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
-Die maschineneigene SPS ist verantwortlich für AWK wie Türautomatik oder Kühlsystem.
+Die maschineneigene SPS ist verantwortlich für automatisierte Werkzeugkomponenten wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.  
 <!-- ASK
@@ -824,7 +824,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 -->
 
 Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch die Anwendungsfälle S1 und S2 orientiert sind (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
-Die in dieser Anlage verbauten AWK sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
+Die in dieser Anlage verbauten automatisierte Werkzeugkomponenten sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme in Szenario S2.
 
 ### Anwendungsfälle
@@ -882,8 +882,8 @@ Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschre
 ### Modellierung der Anlagenstruktur
 
 Das Metamodell der UA bietet unter anderem typisierte Objekte, Variablen und Methoden.
-Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten (AWK) einer Maschine baumartig organisiert.
-Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren AWK und numerische Kontrolle definiert @Ayatollahi2013.
+Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten einer Maschine baumartig organisiert.
+Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren automatisierte Werkzeugkomponenten und numerische Kontrolle definiert @Ayatollahi2013.
 Diese Erweiterung der Data-Access Spezifikation (vgl. @sec:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
 In diesem Teilmodell sind, bis auf den ```BaseObjectType``` der grundlegenden UA Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
 Variablen und Methoden sind Elemente, welche durch die ```hasComponent```-Relation mit einer Maschinenkomponente verknüpft werden.
@@ -904,7 +904,7 @@ Da Standardisierung jedoch eine zentrale Anforderung der Anlagenmodernisierung i
 Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren mit der realen Welt in Verbindung (vgl. @sec:cyber-physische-produktionssysteme).
 Um sie mit der VMR verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
 Diese sollen im Informationsmodell festgelegt werden können.
-Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede AWK ergänzt, dargestellt in @fig:opcua-cpps.
+Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
 Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
 Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür des Szenarios S1/2.
 Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.
@@ -934,7 +934,7 @@ Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hi
 In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines OPC UA-Anwendungsprogramms[^uaexpert] zu sehen.
 Durch die beispielhaften Methoden ```Close_Door``` und ```Open_Door```, sowie die Variable ```Door_Status``` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
 Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für die Konsistenz von Realität virtuellem Modell.
-Änderungen an der Struktur dem AWK werden im Modell reflektiert und dessen Struktur neu organisiert.
+Änderungen an der Struktur der automatisierte Werkzeugkomponenten werden im Modell reflektiert und dessen Struktur neu organisiert.
 In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
 
 [^uaexpert]: [unified-automation.com/products/development-tools/uaexpert.html](https://www.unified-automation.com/products/development-tools/uaexpert.html) (abgerufen am 12.11.2016)
@@ -948,27 +948,31 @@ Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schich
 
 ![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
 
-Die intelligente Remote Terminal Unit (RTU), respektive VMR, kapselt die Altanlage und bietet nahtlose M2M-Kommunikation auf Feldebene durch die Comm-Schicht.
+Die intelligente Remote Terminal Unit, respektive VMR, kapselt die Altanlage und bietet nahtlose M2M-Kommunikation auf Feldebene durch die Comm-Schicht.
 Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
 Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:-überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
-Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) des digitalen Zwillings auf Cyber-Ebene übernommen (vgl. @Lee2015).
-Der Zwilling steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch die Leistungsfähigkeit intelligenter Analysealgorithmen nicht beeinträchtigt wird.
-Die Verbindung zwischen TM und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
+Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine auf Cyber-Ebene übernommen (vgl. @Lee2015).
+Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch die Leistungsfähigkeit intelligenter Analysealgorithmen nicht beeinträchtigt wird.
+Die Verbindung zwischen Time-Machine und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
 
 [^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
 
-### Anlagenkapselung 
+### Anlagenanbindung
 
-Die RTU besitzt eine Schnittstelle zur Altanlage, die das physische Gerät von der VMR separiert und auf der Smart Connection Ebene implementiert ist [@Moctezuma2012;@Lee2015].
-In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer (Single Board Computer, SBC) auf dem Device-Level (vgl. @fig:vmr-concept) realisiert.
-Der SBC fungiert als Gateway zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) oder WebSockets.
-Eine Software-Middleware auf dem SBC ist für diese Datenvermittlung verantwortlich (vgl. @sec:softwareframework).
-Eine weitere Möglichkeit der physikalischen Anbindung sind SBCs mit vorbereiteter Middleware wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
-Szenario S2 reduziert den Einsatz des SBC auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll wie bei Ferrolho et al. @Ferrolho2005.
+Die Remote Terminal Unit besitzt eine Schnittstelle zur Altanlage, die das physische Gerät von der VMR separiert und auf der Smart Connection Ebene implementiert ist [@Moctezuma2012;@Lee2015].
+In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer auf dem Device-Level (vgl. @fig:vmr-concept) realisiert.
+Der Einplatinencomputer fungiert als Gateway zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) oder WebSockets.
+Eine Software-Middleware auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich (vgl. @sec:softwareframework).
+Eine weitere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
+Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll wie bei Ferrolho et al. @Ferrolho2005.
+
+TODO
+
 Bei Szenario S3 repräsentiert die bereits besprochene externe Soft- und Hardware die VMR (vgl. [@sec:zusammenfassung;@sec:modellierung-der-anlagenstruktur]<!-- SOTA -->).
+
 Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert [@Teti2010;@Liang2004;@Downey2016].
 
 [^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
@@ -1151,6 +1155,7 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
+* aufgrund der aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
 * Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
 * BPEL/BPMN/etc. für abstrakte Leitebene (vgl. @Durkop2014)
