@@ -945,7 +945,7 @@ Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schich
 
 Die intelligente Remote Terminal Unit, respektive VMR, kapselt die Altanlage und bietet nahtlose M2M-Kommunikation auf Feldebene durch die Comm-Schicht.
 Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
-Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:-überwachung-des-maschinenbetriebs)
+Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
@@ -960,14 +960,15 @@ Die Verbindung zwischen Time-Machine und anderen Diensten und VMR wird durch im 
 Die Remote Terminal Unit besitzt eine Schnittstelle zur Altanlage, die das physische Gerät von der VMR separiert und auf der Smart Connection Ebene implementiert ist [@Moctezuma2012;@Lee2015].
 In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer auf Feldebene (Device-Level, vgl. @fig:vmr-concept) realisiert.
 Der Einplatinencomputer fungiert als Integrationshardware zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) mit HTTP oder WebSockets.
-Eine Software-Middleware auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich (vgl. @sec:softwareframework).
+In Szenario S1 kapselt er die Antriebssteuerung der CNC und dessen interne SPS.
+Eine Software-Middleware (vgl. @sec:softwareframework) auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich und implementiert die Comm-, Processing und Interface-Schicht der Remote Terminal Unit (vgl. @fig:vmr-concept).
 Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
 Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
 Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll, wie bei Ferrolho et al., wobei die Echtzeitkontrolle der Anlagensteuerung selbst obliegt @Ferrolho2005.
 Im Szenario S1 kann Echtzeitfähigkeit nur über zusätzliche Steuerungshardware gewährleistet werden.
 So können bei der Verbindung der VMR mit der Antriebssteuerung einer CNC, ebenfalls Einplatinencomputer verwendet werden, die wiederum eine Middleware mit Schnittstelle bereitstellen @Grigoriev2016.  
 Für die Anlagenanbindung in Szenario S3 werden drei Fälle unterschieden.
-Sollte keine Ethernetanbindung mit TCP/IP existieren (S3.1) muss die SPS durch Hardware entsprechen erweitert werden.
+Sollte keine Ethernetanbindung mit TCP/IP existieren (S3.1) muss die SPS durch Hardware entsprechen ausgestattet werden.
 Die SPS ist lediglich an ein Bussystem gekoppelt und wird mit einer Ethernet-Karte erweitert.
 Bei existierendem TCP/IP Kommunikationskanal (Szenario S3.2) repräsentiert externe Soft- und Hardware die VMR und stellt die UA-Verbindung bereit.
 Eine Komponente mit integriertem UA-Server ist die IBH Link UA[^ibhlinkua] für die Steuerungen S5 und S7 von Siemens.
@@ -1004,9 +1005,9 @@ Für die eigentliche Verbindung zu den Diensten bestehender Feldgeräte mit der 
 Die Anwendungsfälle eines Monteurs (A1) werden zwischen dem Module- und dem Cyber-Level des VMR-Konzepts unterstützt (vgl. @fig:vmr-concept).
 Mit einem UA-Client hat er die Möglichkeit die Maschinenkomponenten zu verwalten und die abgeschlossene Wartung derer zu bestätigen.
 Über diesen Client kann auch der Maschinenbediener (A3) die Altanlage auf den Betrieb vorbereiten, indem er die physikalischen Verbindungen, also Instanzen des ```PhysicalConnectionType```, konfiguriert (vgl. @sec:modellierung-der-anlagenstruktur).
-Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände einsehen, die Situation und Ausnahmefälle vorhersehen.
+Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände einsehen, die Situation einsehen und Ausnahmefälle antizipieren.
 Bevor CNC-Programme ausgeführt werden hat er die Möglichkeit sie anhand der aktuellen Situation anzupassen.
-Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und dessen programmatischer Austausch.
+Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und dessen programmatischer Austausch im Laufzeitmodell.
 
 ### Vertikale Integration
 
