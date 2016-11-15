@@ -949,9 +949,10 @@ Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitorin
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
-Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine auf Cyber-Ebene übernommen (vgl. @Lee2015).
-Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch die Leistungsfähigkeit intelligenter Analysealgorithmen nicht beeinträchtigt wird.
+Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) auf Cyber-Ebene übernommen (vgl. @Lee2015).
+Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch intelligente Analysealgorithmen (vgl. Time-Machine Mechanismen in @sec:system--und-softwarearchitektur-flexibler-produktion) auf leistungsfähiger Hardware implementiert werden können.
 Die Verbindung zwischen Time-Machine und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
+Die darüberliegenden Ebenen der Cognition und Configuration sind kein Teil dieses Konzepts.
 
 [^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
 
@@ -965,6 +966,7 @@ Eine Software-Middleware (vgl. @sec:softwareframework) auf dem Einplatinencomput
 Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
 Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
 Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll, wie bei Ferrolho et al., wobei die Echtzeitkontrolle der Anlagensteuerung selbst obliegt @Ferrolho2005.
+Falls die zu modernisierenden Anlagen über COM/DCOM (vgl. @sec:opc-unified-architecture) verfügen, können Gateways, wie das Unified Automation UaGateway[^uagateway] oder der MatrikonOPC UA Proxy[^matrikonopc], im Retrofitting eingesetzt werden.
 Im Szenario S1 kann Echtzeitfähigkeit nur über zusätzliche Steuerungshardware gewährleistet werden.
 So können bei der Verbindung der VMR mit der Antriebssteuerung einer CNC, ebenfalls Einplatinencomputer verwendet werden, die wiederum eine Middleware mit Schnittstelle bereitstellen @Grigoriev2016.  
 Für die Anlagenanbindung in Szenario S3 werden drei Fälle unterschieden.
@@ -981,6 +983,8 @@ Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vo
 [^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
 [^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
 [^ignitionopc]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
+[^uagateway]: [unified-automation.com/products/wrapper-and-proxy/uagateway.html](https://www.unified-automation.com/products/wrapper-and-proxy/uagateway.html) (abgerufen am 15.11.2016)
+[^matrikonopc]: [matrikonopc.de/opc-ua/products/ua-proxy.aspx](http://www.matrikonopc.de/opc-ua/products/ua-proxy.aspx) (abgerufen am 15.11.2016)
 
 ### Horizontale Integration
 
@@ -1011,31 +1015,20 @@ Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und desse
 
 ### Vertikale Integration
 
-* Externe Systeme?
-* OPC UA Proxy für SOAP+HTTP im Module nach Moctezuma
-* WS, weil BPEL zur Orchestrierung von Prozessen möglich
-
-> Specifications like Device Profile for
-> Web Services (DPWS, @Moctezuma2012) and OPC Unified Architecture (OPC UA, @Windmann2015)
-> are the most suitable solutions for implementing a Service
-> Oriented Architecture (SOA) on the shop-floor level
-> which includes eventing mechanisms
-> -- @Izaguirre2011
-
-> Unlike web services, OPC UA is currently integrated in a large number of PLCs on the market. (vgl. OPC-UA Ignition Module, Gegenargument SOA TODO)
-> The IEC standardization commission recommends OPC UA as a standard for the implementation 
-> of a smart factory [23]. For this reason, OPC UA is used as server standard for NGDs.
-> However, OPC UA does not allow real-time transmission, which is why a real-time
-> communication channel must still exist.
-> -- @Hammerstingl2015
-
-@Windmann2015 vs. @Moctezuma2012:
-
-* vertikale Integration mit WS (BPEL etc. mgl.), wegen Verbreitung unter ERP/highlevel Services => bereits von OPC UA unterstützt, aber ungeeignet für Einplatinencomputer (vgl. @sec:transportprotokolle)
-
-Der digitale Zwilling auf der Cyber-Ebene (@Lee2015) besitzt einen Proxy zur Umwandlung des binärem UA-Protokolls in einen UA-Webservice.
-
-Time-Machine @Lee2015
+* Wolke in @fig:systemkontext?
+* Verbindung VMR mit Cyber-Level
+* OPC UA Proxy Moctezuma-Module
+    - OPC UA Client für VMR
+    - Server für Modul (Server?? DPWS??)
+    - Im Gegensatz zu Moctezuma keine RT in Modul, sondern in VMR/RTU
+* WS
+    - interface could be formalized by using WSDL, for example
+    - BPEL zur Orchestrierung von Prozessen möglich (vgl. Dürkop)
+    - Verbreitung unter MES/ERP/highlevel Services
+    - Modulare Anbindung an Time-Machine
+    - Unterstützung durch UA mit XML/SOAP via HTTP
+    - Ressourcenintensiv (vgl. @sec:transportprotokolle)
+      => für Einplatinencomputer ungeeignet 
 
 ### Cyber-physische Rückkopplung
 
@@ -1130,6 +1123,7 @@ Blocking Factors/mögliche Kritik?
 ## Ausblick
 
 * aufgrund der aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
+* Wise-ShopFloor mit OPC UA horizontal integrieren
 * Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
 * BPEL/BPMN/etc. für abstrakte Leitebene (vgl. @Durkop2014)
