@@ -367,7 +367,7 @@ Die binär kodierte Nachricht wird hierbei in den HTTPS-Frames versendet und erm
 Dieser Abschnitt wurde der Website von ascolab[^ascolab] entnommen.
 
 [^ascolab]: [ascolab.com/de/unified-architecture/protokolle.html](http://www.ascolab.com/de/unified-architecture/protokolle.html) (abgerufen am 11.11.2016)
-[^soap]: Simple Object Access Protocol: standardisierter Datenaustausch via XML
+[^soap]: Simple Object Access Protocol: standardisierter Datenaustausch via XML, [w3.org/TR/soap](http://www.w3.org/TR/soap/) (abgerufen am 15.11.2016)
 
 ### Modularität und Erweiterbarkeit
 
@@ -698,6 +698,15 @@ Identifizierte Dienste werden mithilfe eines Diensteverzeichnis (Service Directo
 Feingranulare Logik zur Kontrolle des einzelnen Geräts wird lokal verortet und übermittelt Informationen durch standardisierte Protokolle.
 Damit sind die Anforderungen R1-4 erfüllt, wodurch die beschriebene Architektur zum Großteil für die Modernisierung von Altanlagen tauglich ist.
 Anforderung R5 ist kein Teil des Konzepts von Dürkop et al.  
+In der vorangegangenen Arbeit schlagen die Autoren den Einsatz von Device Profiles for Web Services[^dpws] (DPWS) als Modulimplementierung vor.
+DPWS ist die Standardisierung einer generischen Web-Service-Middleware für Geräteprofile, welche Struktur und angebotene Dienste des Equipments definieren.
+Aufbauend auf dem SOAP-Standard kombiniert DPWS eine Auswahl von Web Service Spezifikationen, wie WS-Addressing[^wsaddressing] und WS-Policy[^wspolicy], um das Nachrichtenmodell zu beschränken (vgl. zu diesem Absatz @Candido2010).
+Aber auch im Zusammenhang mit Erweiterungen können dann eingebettete Systeme andere DPWS-fähige Geräte auffinden und unter anderem mit Ereignissen kommunizieren.
+Unterschiede, Gemeinsamkeiten und Interoperabilität von OPC UA und DPWS wurden durch Cândido et al. untersucht @Candido2010.
+Eine teilweise Kopplung beider Standards über Complex Event Processing (CEP) erreichten Izaguirre et al. @Izaguirre2011.
+Ein übergreifendes Informationsmodell und eine Middleware für die Verbindung von OPC UA und DPWS stellten Bony et al. vor @Bony2011.
+Sie postulieren, dass weder OPC UA noch DPWS die Anforderungen einer SOA auf Feldebene erfüllen können und die Kombination beider vorteilhaft wäre.
+
 Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht.
 Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt.
 Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne @Lee2015.
@@ -723,6 +732,9 @@ Die technologische Sicht wird bei dieser Architektur nicht thematisiert, wodurch
 Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.
 
 [^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
+[^dpws]: [docs.oasis-open.org/ws-dd/dpws/wsdd-dpws-1.1-spec.html](http://docs.oasis-open.org/ws-dd/dpws/wsdd-dpws-1.1-spec.html) (abgerufen am 15.11.2016)
+[^wsaddressing]: [w3.org/2002/ws/addr](https://www.w3.org/2002/ws/addr/) (abgerufen am 15.11.2016)
+[^wspolicy]: [w3.org/2002/ws/policy](https://www.w3.org/2002/ws/policy/) (abgerufen am 15.11.2016)
 
 ## Zusammenfassung
 
@@ -1016,21 +1028,15 @@ Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und desse
 
 ### Vertikale Integration
 
-* Wolke in @fig:systemkontext?
-* Verbindung VMR mit Cyber-Level
-* OPC UA Proxy Moctezuma-Module
-    - OPC UA Client für VMR
-    - Server für Modul (Server?? DPWS??)
-    - Im Gegensatz zu Moctezuma keine RT innerhalb des Moduls, sondern in VMR/RTU wie in Windmann2015
-    - OPC UA + DPWS
-* WS
-    - interface could be formalized by using WSDL, for example
-    - BPEL zur Orchestrierung von Prozessen möglich (vgl. Dürkop)
-    - Verbreitung unter MES/ERP/highlevel Services
-    - Modulare Anbindung an Time-Machine
-    - Unterstützung durch UA mit XML/SOAP via HTTP
-    - Ressourcenintensiv (vgl. @sec:transportprotokolle)
-      => für Einplatinencomputer ungeeignet 
+Durch die Anlagenanbindung (vgl. @sec:anlagenanbindung) und horizontale Integration (vgl. @sec:horizontale-integration) kapselt die virtuelle Maschinenrepräsentation (VMR) die Funktionalität, sowie den Zustand der Altanlage und ermöglicht die nahtlose Kommunikation mit anderen Feldgeräten und Nutzungsschnittstellen.
+Mit dem Modulkonzept von Dürkop et al. kommen Rekonfigurierbarkeit (vgl. @Pauker2013) und die Schnittstelle zu einer SOA hinzu @Durkop2014.
+Die UA ermöglicht zwar dem MES oder SCADA-System das Vordringen bis auf Feldebene (vgl. @sec:fertigung-und-automatisierung, [@OPCFoundation2014;@Bony2011]), jedoch fehlen ihr die Konzepte für eine übergeordnete Produktionsplanung und -steuerung, die in Prozessen formalisiert beschrieben (z.B. mit BPEL) und innerhalb einer SOA ausgeführt werden kann (vgl. @Durkop2014).
+Mit der Spezifikation der Device Profiles for Web Services (DPWS) wird in diesem Konzept eine Modulimplementierung verwendet, die eine industrienahe, rekonfigurierbare, vertikale Integration und Prozessebene ermöglicht.
+Das Modul nach Dürkop et al. koppelt die VMR mit den übergeordneten Ebenen der 5C-Architektur via DPWS [@Durkop2014;@Lee2015].
+Nach ihrer Initialisierung verbindet sich die VMR mit ihrem Modul-Pendant auf der Cyber-Ebene, welches Anfragen und Ereignisse zwischen den beiden Schnittstellen vermittelt.
+Eine Konkretisierung der Vermittlung durch das Modul geht über den Rahmen dieser Arbeit hinaus.
+
+UCs
 
 ### Cyber-physische Rückkopplung
 
@@ -1124,7 +1130,8 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
-* aufgrund der aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
+* Modulimplementierung (Dürkop) bzgl. Bony oder Izaguirre konkretisieren
+* aufgrund der Aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
 * Wise-ShopFloor mit OPC UA horizontal integrieren
 * Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
