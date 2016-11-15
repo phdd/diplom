@@ -347,7 +347,7 @@ Die Bereitstellung der drei Varianten kann ohne Anpassungen der Software veränd
 ##### Binärprotokoll (UA-Binary).
 
 Dieses vorgeschriebene Protokoll bietet die beste Performance und den geringsten Overhead.
-Da weder XML-Inhalte umgewandelt, noch SOAP oder HTTP verwendet werden, ist es aufgrund des geringen Ressourcenverbrauchs für eingebettete Geräte geeignet.
+Da weder XML-Inhalte umgewandelt, noch SOAP[^soap] oder HTTP verwendet werden, ist es aufgrund des geringen Ressourcenverbrauchs für eingebettete Geräte geeignet.
 Außerdem bietet es die beste Interoperabilität, weil Binärdaten im Gegensatz zu XML-Dokumenten weniger Freiheitsgrade besitzen.
 
 ##### Webservice (XML-SOAP).
@@ -367,6 +367,7 @@ Die binär kodierte Nachricht wird hierbei in den HTTPS-Frames versendet und erm
 Dieser Abschnitt wurde der Website von ascolab[^ascolab] entnommen.
 
 [^ascolab]: [ascolab.com/de/unified-architecture/protokolle.html](http://www.ascolab.com/de/unified-architecture/protokolle.html) (abgerufen am 11.11.2016)
+[^soap]: Simple Object Access Protocol: standardisierter Datenaustausch via XML
 
 ### Modularität und Erweiterbarkeit
 
@@ -951,7 +952,7 @@ Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelt
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
 Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) auf Cyber-Ebene übernommen (vgl. @Lee2015).
 Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch intelligente Analysealgorithmen (vgl. Time-Machine Mechanismen in @sec:system--und-softwarearchitektur-flexibler-produktion) auf leistungsfähiger Hardware implementiert werden können.
-Die Verbindung zwischen Time-Machine und anderen Diensten und VMR wird durch im Web-Service-Modul nach Dürkop et al. und bindet Cyber- und Conversion-Schicht der 5C-Architektur [@Durkop2014;@Lee2015].
+Die Verbindung zwischen Time-Machine, anderen Diensten und VMR, symbolisiert durch die Wolke in @fig:vmr-concept, wird mit dem Web-Service-Modul nach Dürkop et al. an die Cyber- und Conversion-Schicht der 5C-Architektur gebunden [@Durkop2014;@Lee2015].
 Die darüberliegenden Ebenen der Cognition und Configuration sind kein Teil dieses Konzepts.
 
 [^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
@@ -1020,7 +1021,8 @@ Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und desse
 * OPC UA Proxy Moctezuma-Module
     - OPC UA Client für VMR
     - Server für Modul (Server?? DPWS??)
-    - Im Gegensatz zu Moctezuma keine RT in Modul, sondern in VMR/RTU
+    - Im Gegensatz zu Moctezuma keine RT innerhalb des Moduls, sondern in VMR/RTU wie in Windmann2015
+    - OPC UA + DPWS
 * WS
     - interface could be formalized by using WSDL, for example
     - BPEL zur Orchestrierung von Prozessen möglich (vgl. Dürkop)
