@@ -1062,11 +1062,13 @@ Der Monteur aus Anwendungsfall A1 kann diese Aufträge einsehen und entsprechend
 
 ### Cyber-physische Rückkopplung
 
-* MAPE-K @IBM2006
-* Laufzeitmodell als Kontext Knowledge Base 
+In selbst-adaptiven Systemen wird ein Ziel-behafteter Zustand, wie der einer Altanlage, über Rückkopplungsschleifen verglichen und angepasst.
+
+* MAPE-K (vgl. @sec:cyber-physische-produktionssysteme)
+* Laufzeitmodell als physischer Kontext der Wissensbasis
 * PhysicalConnection (aktive Teilkomponente, z.B. Akustische Emission und Ladetür) ausgefallen?
-* Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
-* FB-Loop intern VMR und extern nach @Lee2015
+* Zu erwartendes Verhalten des physischen Systems über FB-Loop kontrollierbar => Modellierung/Sprache der _Regeln?_
+* FB-Loop intern VMR und extern auf Configuration-Ebene nach @Lee2015
 * Sensorwert-Thresholds für Anomaly Detection
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
