@@ -404,7 +404,19 @@ Mit CPS ([@fig:cps]c) existiert nicht nur ein passives Modell des Realweltsystem
 Das Wissen um den Zustand des Realitätsausschnitts verhilft zur Steuerung der ES, wodurch neben dem realen Objekt ein synchrones, virtuelles Modellobjekt entsteht.
 Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Dingen der physischen Welt.
 Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
-Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten. 
+Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten.  
+MAPE-K ist ein geeignetes Konzept cyber-physischer Rückkopplung und besteht aus den Phasen Monitor, Analyze, Plan und Execute.
+Eine übergeordnete Wissensbasis (Knowledge-Base) beinhaltet das physische Modell, sowie Regeln und Ziele des verwalteten Elements, respektive der Fertigungsanlage.
+In @fig:mapek sind die Phasen und ihre Beziehungen zueinander dargestellt.
+
+![MAPE-K Kontrollschleife nach @IBM2006](figures/mapek){#fig:mapek}
+
+Die Sensordaten werden vom Monitoring erfasst und im Kontextmodell der Wissensbasis abgelegt.
+Symptome, beziehungsweise Ereignisse die eine Analyse des Modells anstoßen, werden ermittelt.
+In der folgenden Analyse werden die Ziele der Rückkopplung im physischen Kontext überprüft.
+Ist ein Eingreifen in die Realität erforderlich um die Ziele zu erfüllen, wird ein Veränderungsanfrage (Change-Request) an die Planungskomponente von MAPE-K übergeben.
+Diese Phase mündet in einem Veränderungsplan (Change-Plan) der sich an Regeln und Zielen orientiert und mittels Execute über Aktuatoren ausgeführt wird (vgl. zu diesem Absatz @IBM2006).
+Das Konzept ist etabliert und bewerkstelligt die Rückkopplung in adaptiven, cyber-physischen Systemen [@Watzoldt2014;@Seiger2016;@Seiger2015].  
 In Systemen von CPS (CPSoS, [@fig:cps]d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle interagieren.
 CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage cyber-physischer Produktionssysteme (CPPS).  
 Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, welche Informationen und Dienste über das Netzwerk der gesamten Produktionsstrecke teilen.
@@ -1050,11 +1062,11 @@ Der Monteur aus Anwendungsfall A1 kann diese Aufträge einsehen und entsprechend
 
 ### Cyber-physische Rückkopplung
 
+* MAPE-K @IBM2006
+* Laufzeitmodell als Kontext Knowledge Base 
 * PhysicalConnection (aktive Teilkomponente, z.B. Akustische Emission und Ladetür) ausgefallen?
 * Zu erwartendes Verhalten des physischen Systems über FB-Loop (MAPE-K?) kontrollierbar => Modellierung/Sprache der _Regeln?_
-* FB-Loop intern oder extern?
-* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen => Ausb
-* lick)
+* FB-Loop intern VMR und extern nach @Lee2015
 * Sensorwert-Thresholds für Anomaly Detection
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
@@ -1140,7 +1152,8 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
-* Prozess-Engine nach @Seiger2016
+* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen) @Seiger2016
+* Prozess-Engine nach @Seiger2015
 * Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
 * aufgrund der Aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
 * Wise-ShopFloor mit OPC UA horizontal integrieren
