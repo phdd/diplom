@@ -415,10 +415,17 @@ Die Sensordaten werden vom Monitoring erfasst und im Kontextmodell der Wissensba
 Symptome, beziehungsweise Ereignisse die eine Analyse des Modells anstoßen, werden ermittelt.
 In der folgenden Analyse werden die Ziele der Rückkopplung im physischen Kontext überprüft.
 Ist ein Eingreifen in die Realität erforderlich um die Ziele zu erfüllen, wird ein Veränderungsanfrage (Change-Request) an die Planungskomponente von MAPE-K übergeben.
-Diese Phase mündet in einem Veränderungsplan (Change-Plan) der sich an Regeln und Zielen orientiert und mittels Execute über Aktuatoren ausgeführt wird (vgl. zu diesem Absatz @IBM2006).
+Diese Phase mündet in einem Veränderungsplan (Change-Plan) der sich an Regeln und Zielen orientiert und mittels Execute über Aktuatoren ausgeführt wird (vgl. zu diesem Absatz @IBM2006).  
+In CPS werden außerdem semantische Kontrollregeln benötigt um die Rückkopplung mit MAPE-K zu ermöglichen.
+Die Regeln werden in der Kombination von Ereignis, Bedingung und Aktion festgehalten, besser bekannt als Event-Condition-Action (ECA, vgl. zu diesem Absatz @Tan2008).
+In der Monitor-Phase von MAPE-K werden die Ereignisse gesammelt.
+Die Analyse wertet die Bedingungen aus, woraufhin die Planung eine Aktion ermittelt, die von der Execute-Phase durchgeführt wird.
+So kann ein Ereignis beispielsweise die Veränderung eines Sensorwertes sein.
+In der Analyse ergibt sich das Überschreiten eines Schwellwertes.
+Die Planung sucht eine Aktion den Wert zu senken und überlässt die Ausführung der Execute-Phase.
 Das Konzept ist etabliert und bewerkstelligt die Rückkopplung in adaptiven, cyber-physischen Systemen [@Watzoldt2014;@Seiger2016;@Seiger2015].  
 In Systemen von CPS (CPSoS, [@fig:cps]d) wird die physische Welt in Realweltsysteme gegliedert, die über ihre Modelle interagieren.
-CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage cyber-physischer Produktionssysteme (CPPS).  
+CPSoS bieten Potential für die vierte industrielle Revolution und sind Grundlage cyber-physischer Produktionssysteme (CPPS).
 Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsentiert, welche Informationen und Dienste über das Netzwerk der gesamten Produktionsstrecke teilen.
 CPS sind fundamentale Elemente eines CPPS, die unmittelbaren Zugriff auf relevante Informationen, Maschinenparameter, Produktionsprozesse und deren Produkte besitzen.
 Durch die Dezentralisierung der Produktionslogik haben CPPS, im Gegensatz zu traditionellen Produktionssystemen, wesentliche Vorteile bezüglich Transparenz, Adaptivität, Ressourceneffizienz und Flexibilität.
@@ -927,7 +934,7 @@ Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können,
 Diese sollen im Informationsmodell festgelegt werden können.
 Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
 Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
-Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür des Szenarios S1/2.
+Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür des Szenarien S1/2.
 Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.
 Eine physische Verbindung beinhaltet ein Property ```ConnectionIdentifier```, welches die Konfigurationsparameter repräsentiert.  
 Im Anwendungsfall A1 wird bei der Montage der Maschine das Modell um die Beschreibung der physischen Verbindungen ergänzt.
@@ -935,10 +942,21 @@ Auch bei der Verwaltung der Maschinenkomponenten unterstützt das Modell den Mon
 Ein Wartungsauftrag des Produktionsleiters (A2) kann im Modell mit einer solchen Verbindung verknüpft werden.
 Der Maschinenbediener (A3) bekommt im Fehlerfall ein UA-Ereignis mit der detaillierten Beschreibung des Ausfallgrunds an die jeweilige Nutzungsschnittstelle.
 
+![ECA Erweiterung des Informationsmodells](figures/opcua-cpps-eca){#fig:opcua-cpps-eca}
+
+Die Regeln einer cyber-physischen Rückkopplung werden mit der Anlagenstruktur der VMR modelliert, dargestellt in @fig:opcua-cpps-eca.
+Dafür wurde das UA-Informationsmodell um den Variablentyp ```PhysicalConditionType``` und den Referenztyp ```HasPhysicalActionType``` erweitert (vgl. [@fig:opcua-cpps-eca]a).
+Instanzen (im Beispiel ```StopCondition```) des ersten sind als Teil der Variablen (```NC_Program_Status```) einer automatisierten Werkzeugkomponente (```NC```) der Maschine (```EMCO CONCEPT TURN 55```) beschrieben.
+Diese beinhalten den Wert einer Bedingung (_Stop_) und können beliebigen Typs sein. 
+Mit dem zweiten Typ wird die jeweilige Aktion, respektive UA-Methode (```Open_Door```) referenziert.
+Eine Modellierung der Ereignisse von Event-Condition-Action ist nicht notwendig (vgl. @sec:cyber-physische-rückkopplung).
+Wird nun der Wert einer Variablen verändert und der neue entspricht der verknüpften Bedingung, folgt die physische Aktion.
+Im Beispiel der [@fig:opcua-cpps-eca]b soll demnach die Ladetür der Anlage geöffnet werden, wenn die numerische Kontrolle stoppt.
+
 Das Informationsmodell besteht demnach aus drei Schichten der Spezifikation.
 Allem zugrunde liegt die UA-Definition (OPC UA Part 5[^opcua5]).
 Darauf aufbauend wurden die Modellelemente von Ayatollahi et al. zur Steuerung und Überwachung der Altanlage übernommen (OPC4Factory, @Ayatollahi2013).
-Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept entworfenen UA-Erweiterung aus (CPPS).
+Die Verbindung mit dem physikalischen Kontext und die Modellierung der Regeln für cyber-physische Rückkopplung gehen von der in diesem Konzept entworfenen UA-Erweiterung aus (CPPS).
 
 [^opcua5]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model) (abgerufen am 12.11.2016)
 
@@ -946,7 +964,8 @@ Die Verbindung mit dem physikalischen Kontext geht von der in diesem Konzept ent
 
 Beim Start der virtuelle Maschinenrepräsentation (VMR) wird das Informationsmodell geladen und steht für andere Maschinen und Nutzungsschnittstellen zur Verfügung.
 Die angeschlossenen Sensoren erfassen permanent den physischen Kontext und aktualisieren das Informationsmodell zur Laufzeit.
-Damit besitzt die VMR ein Local Context Model nach Wätzoldt und Giese @Watzoldt2014.
+Außerdem werden die Regeln für Rückkopplung innerhalb der VMR auch aus diesem Modell gewonnen.
+Damit besitzt die VMR eine Wissenbasis mit Local Context und Runtime Adaptation Model nach Wätzoldt und Giese @Watzoldt2014.
 Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hinter der VMR an, wird auch der aktuelle Kontext präsentiert.
 
 ![Laufzeitmodell der Maschine der Szenarien S1/2](figures/opc4factory-runtime){#fig:opc4factory-runtime}
@@ -1062,9 +1081,19 @@ Der Monteur aus Anwendungsfall A1 kann diese Aufträge einsehen und entsprechend
 
 ### Cyber-physische Rückkopplung
 
-In selbst-adaptiven Systemen wird ein Ziel-behafteter Zustand, wie der einer Altanlage, über Rückkopplungsschleifen verglichen und angepasst.
+In cyber-physischen Produktionssystemen (CPPS) wird der reale Zustand eines verwalteten Elements über Rückkopplungsschleifen (Feedback Control Loop, FLC) mit Zielen und erwartetem Verhalten verglichen und auf ihn eingewirkt (vgl. @sec:cyber-physische-produktionssysteme).
+Bei der Modernisierung von Fertigungsanlagen kann der Automatisierungsgrad erhöht werden, wenn die Maschine selbst als verwaltetes Element ihren Zustand teilweise kontrolliert.
+Eine interne FCL als Teil der virtuellen Maschinenrepräsentation (VMR) ist für diese Selbstwahrnehmung (self-aware) der Anlage zuständig.
+Zur eigenständigen Konfiguration (self-configure), Selbstadaptivität (self-adaptive) und Fähigkeit zum Vergleich (self-compare) im Kontext der Produktionsstrecke wird eine externe FCL genutzt, die auf dem Configure-Level der Architektur nach Lee et al. arbeitet @Lee2015.
+Letztere liegt außerhalb des Rahmens dieser Arbeit.  
+Im Gegensatz zur externen FCL, ist die interne Teil des verwalteten Elements und damit Teil der VMR @Weyns2013.
+MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Event-Condition-Action (ECA, vgl. auch @Klein2011).
+Eine gesonderte Verarbeitung von Ereignissen ist nicht notwendig.
+Die VMR benötigt keinen internen Ereignismechanismus und kann direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
+Damit müssen lediglich die Bedingung nach der Variablenaktualisierung ausgewertet und die entsprechende Aktion ausgeführt werden.
 
 * MAPE-K (vgl. @sec:cyber-physische-produktionssysteme)
+* regelbasierte ECA Plan-Phase
 * Laufzeitmodell als physischer Kontext der Wissensbasis
 * PhysicalConnection (aktive Teilkomponente, z.B. Akustische Emission und Ladetür) ausgefallen?
 * Zu erwartendes Verhalten des physischen Systems über FB-Loop kontrollierbar => Modellierung/Sprache der _Regeln?_
@@ -1121,8 +1150,6 @@ In selbst-adaptiven Systemen wird ein Ziel-behafteter Zustand, wie der einer Alt
 
 ## Testsuite
 
-
-    
 # Evaluation
 
 These/Behauptung?
@@ -1137,6 +1164,7 @@ Umsetzung?
 * Proof of concept
 * Case-Study mgl.?
 * HIL-Simulation?
+* Tabelle mit Komponenten und deren konzeptueller und implementeller Umsetzungsgrad
 
 Blocking Factors/mögliche Kritik?
 
@@ -1148,13 +1176,20 @@ Blocking Factors/mögliche Kritik?
 * Energieverbrauch?
 * RAMI4.0-Konformität
 
+* ECA für MAPE-K FCL
+    - nur einfache Conditions im Informationsmodell abbildbar (bisher)
+    - conflicts between policies can arise that are hard to detect @Huebscher2008
+    - Conditions können alle OPC UA Typen annehmen (auch Ranges)
+* Integrationskonfiguration Teil des Informationsmodells => zentrale Modellierung aller Details mit etablierten Tools
+
 # Zusammenfassung
 
 ## Schlussfolgerung
 
 ## Ausblick
 
-* Regelbasierte Rückkopplung => anlernen dessen ist Engineering, nicht Forschung (kann man immer noch machen) @Seiger2016
+* Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
+* externe FCL (Cyber- und Configuration-Level nach @Lee2015)
 * Prozess-Engine nach @Seiger2015
 * Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
 * aufgrund der Aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
