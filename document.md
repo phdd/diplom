@@ -1032,11 +1032,21 @@ Durch die Anlagenanbindung (vgl. @sec:anlagenanbindung) und horizontale Integrat
 Mit dem Modulkonzept von Dürkop et al. kommen Rekonfigurierbarkeit (vgl. @Pauker2013) und die Schnittstelle zu einer SOA hinzu @Durkop2014.
 Die UA ermöglicht zwar dem MES oder SCADA-System das Vordringen bis auf Feldebene (vgl. @sec:fertigung-und-automatisierung, [@OPCFoundation2014;@Bony2011]), jedoch fehlen ihr die Konzepte für eine übergeordnete Produktionsplanung und -steuerung, die in Prozessen formalisiert beschrieben (z.B. mit BPEL) und innerhalb einer SOA ausgeführt werden kann (vgl. @Durkop2014).
 Mit der Spezifikation der Device Profiles for Web Services (DPWS) wird in diesem Konzept eine Modulimplementierung verwendet, die eine industrienahe, rekonfigurierbare, vertikale Integration und Prozessebene ermöglicht.
-Das Modul nach Dürkop et al. koppelt die VMR mit den übergeordneten Ebenen der 5C-Architektur via DPWS [@Durkop2014;@Lee2015].
-Nach ihrer Initialisierung verbindet sich die VMR mit ihrem Modul-Pendant auf der Cyber-Ebene, welches Anfragen und Ereignisse zwischen den beiden Schnittstellen vermittelt.
+Das Modul nach Dürkop et al. koppelt die VMR mit den übergeordneten Ebenen der 5C-Architektur via DPWS und ist in @fig:vertikale-integration dargestellt [@Durkop2014;@Lee2015].
+Nach ihrer Initialisierung verbindet sich die VMR mit dem UA-Client ihres Modul-Pendants ([@fig:vertikale-integration].1) auf der Cyber-Ebene, welches Anfragen und Ereignisse zwischen den beiden Schnittstellen vermittelt.
 Eine Konkretisierung der Vermittlung durch das Modul geht über den Rahmen dieser Arbeit hinaus.
 
-UCs
+![Vertikale Integration der VMR](figures/vertikale-integration){#fig:vertikale-integration}
+
+Im Anwendungsfall A2 kann der Produktionsleiter einen übergeordneten Produktionsprozess inklusive der Altanlage definieren, Überwachen und anstoßen ([@fig:vertikale-integration].2/3).
+Eine Prozess-Engine ist verantwortlich für die Delegation der Fertigungsschritte und führt die in BPEL definierten Service-Aufrufe an die SOA-Module aus (vgl. Beispielarbeitsablauf in @Durkop2014, [@fig:vertikale-integration].4/5/6).
+Diese schicken dann die Methodenaufrufe an den UA-Server der VMR und steuern damit die Maschine ([@fig:vertikale-integration].7).
+Durch die Verwendung einer formalisierten Prozesssprache, wie der BPEL, ist die Dokumentation in Anwendungsfall A2 abgedeckt.
+Die gesammelten Daten der Altanlage werden permanent im Informationsmodell der VMR aktualisiert (vgl. @sec:laufzeitmodell).
+Das Modul regiert durch UA-Ereignisse auf Veränderungen des Modells und gibt diese durch DPWS-Ereignisse an übergeordnete Dienste, wie ein ERP, Mobilgerät oder Time-Machine, weiter.
+Eine geeignete Nutzungsschnittstelle (User-Interface, UI) aggregiert diese Ereignisse und bereitet sie für den Produktionsleiter zentral auf.
+Fällt eine Anlage aus, wird dies mittels Ereignis durchgereicht und visualisiert, so das die Vergabe von Wartungsaufträgen (A2) erfolgen kann.
+Der Monteur aus Anwendungsfall A1 kann diese Aufträge einsehen und entsprechend reagieren.
 
 ### Cyber-physische Rückkopplung
 
@@ -1130,16 +1140,14 @@ Blocking Factors/mögliche Kritik?
 
 ## Ausblick
 
-* Modulimplementierung (Dürkop) bzgl. Bony oder Izaguirre konkretisieren
+* Prozess-Engine nach @Seiger2016
+* Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
 * aufgrund der Aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
 * Wise-ShopFloor mit OPC UA horizontal integrieren
 * Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
-* BPEL/BPMN/etc. für abstrakte Leitebene (vgl. @Durkop2014)
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
 * AutomationML und OPC UA (vgl. @OPCFoundation2014)
+* Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
 * Case-Study!!!
-* Möglichkeiten des Nutzens der Daten
-    * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
-    * Automatische Erkennung von Gut-/Schlechtteilen
