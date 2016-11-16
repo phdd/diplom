@@ -945,7 +945,7 @@ Der Maschinenbediener (A3) bekommt im Fehlerfall ein UA-Ereignis mit der detaill
 ![ECA Erweiterung des Informationsmodells](figures/opcua-cpps-eca){#fig:opcua-cpps-eca}
 
 Die Regeln einer cyber-physischen Rückkopplung werden mit der Anlagenstruktur der VMR modelliert, dargestellt in @fig:opcua-cpps-eca.
-Dafür wurde das UA-Informationsmodell um den Variablentyp ```PhysicalConditionType``` und den Referenztyp ```HasPhysicalActionType``` erweitert (vgl. [@fig:opcua-cpps-eca]a).
+Dafür wurde das Informationsmodell um den Variablentyp ```PhysicalConditionType``` und den Referenztyp ```HasPhysicalActionType``` erweitert (vgl. [@fig:opcua-cpps-eca]a).
 Instanzen (im Beispiel ```StopCondition```) des ersten sind als Teil der Variablen (```NC_Program_Status```) einer automatisierten Werkzeugkomponente (```NC```) der Maschine (```EMCO CONCEPT TURN 55```) beschrieben.
 Diese beinhalten den Wert einer Bedingung (_Stop_) und können beliebigen Typs sein. 
 Mit dem zweiten Typ wird die jeweilige Aktion, respektive UA-Methode (```Open_Door```) referenziert.
@@ -1087,18 +1087,11 @@ Eine interne FCL als Teil der virtuellen Maschinenrepräsentation (VMR) ist für
 Zur eigenständigen Konfiguration (self-configure), Selbstadaptivität (self-adaptive) und Fähigkeit zum Vergleich (self-compare) im Kontext der Produktionsstrecke wird eine externe FCL genutzt, die auf dem Configure-Level der Architektur nach Lee et al. arbeitet @Lee2015.
 Letztere liegt außerhalb des Rahmens dieser Arbeit.  
 Im Gegensatz zur externen FCL, ist die interne Teil des verwalteten Elements und damit Teil der VMR @Weyns2013.
-MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Event-Condition-Action (ECA, vgl. auch @Klein2011).
-Eine gesonderte Verarbeitung von Ereignissen ist nicht notwendig.
-Die VMR benötigt keinen internen Ereignismechanismus und kann direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
-Damit müssen lediglich die Bedingung nach der Variablenaktualisierung ausgewertet und die entsprechende Aktion ausgeführt werden.
-
-* MAPE-K (vgl. @sec:cyber-physische-produktionssysteme)
-* regelbasierte ECA Plan-Phase
-* Laufzeitmodell als physischer Kontext der Wissensbasis
-* PhysicalConnection (aktive Teilkomponente, z.B. Akustische Emission und Ladetür) ausgefallen?
-* Zu erwartendes Verhalten des physischen Systems über FB-Loop kontrollierbar => Modellierung/Sprache der _Regeln?_
-* FB-Loop intern VMR und extern auf Configuration-Ebene nach @Lee2015
-* Sensorwert-Thresholds für Anomaly Detection
+MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Event-Condition-Action (ECA, vgl. auch @Klein2011 und @sec:cyber-physische-produktionssysteme).
+Eine gesonderte Verarbeitung von Ereignissen ist während des Monitorings nicht notwendig.
+Die VMR benötigt keinen internen Ereignismechanismus und kann in dieser Phase direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
+Damit müssen lediglich die Bedingung nach der Variablenaktualisierung in der Analysephase ausgewertet, die entsprechenden Methoden ausgewählt (Plan) und ausgeführt (Execute) werden.
+Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsmodell mit dem Zustand der Anlage und den ECA-Regeln genutzt (vgl. @sec:modellierung-der-anlagenstruktur).
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
 
