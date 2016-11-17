@@ -1130,6 +1130,7 @@ Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsm
 
 # Implementation
 
+* HasEffect statt HasPhysicalAction (Stack-Impl. unvollständig)
 * Smoothieboard => CNC-Kernel
 * Raspberry => Processing Element
 * GrovePi => homogene Sensor-/Aktuator-Anbindung
@@ -1157,7 +1158,15 @@ Umsetzung?
 * Proof of concept
 * Case-Study mgl.?
 * HIL-Simulation?
+* Messung der Rückkopplungsgeschwindigkeit => node profiling (https://nodejs.org/en/docs/guides/simple-profiling/)
 * Tabelle mit Komponenten und deren konzeptueller und implementeller Umsetzungsgrad
+
+* Implementierung der PhysicalCondition bzgl. konstanter Variablen unvollständig; bisher String, Bool => node-opcua
+* Conditions durch UA-Datentype ausdrucksstark (Range), aber weder logisch kombinierbar noch zeitlich einzuordnen
+* Logik ist in der VMR, dennoch keine Echtzeit => Ausblick ECA RT Abbildung (RT OS + statische C/C++ Code Generierung für die Regeln beim Deployment)
+    - Not-Aus etc. verbindungsorientiert anbinden
+* Konflikte in ECA-Regeln
+* der Action fehlen die Parameter der Methode
 
 Blocking Factors/mögliche Kritik?
 
@@ -1185,7 +1194,8 @@ Blocking Factors/mögliche Kritik?
 * externe FCL (Cyber- und Configuration-Level nach @Lee2015)
 * Prozess-Engine nach @Seiger2015
 * Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
-* aufgrund der Aktualität und der "Lösung" weiterer derzeitiger "Echtzeitprobleme" TSN Ethernet mit aufnehmen
+* TSN Ethernet trägt RT vertikal nach oben
+* Nutzungsschnittstellen (Unified Automation Android App)
 * Wise-ShopFloor mit OPC UA horizontal integrieren
 * Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
