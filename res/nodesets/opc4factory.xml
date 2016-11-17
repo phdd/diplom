@@ -1,4 +1,4 @@
-<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:opc4factory/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:opc4factory/Types.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <NamespaceUris>
         <Uri>urn:opc4factory</Uri>
     </NamespaceUris>
@@ -16,7 +16,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="wv+QzjP5jq14HMvmj/CLOw==" Version="1.4.4"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="jRXPayOCG03oKn4lU82qCA==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObjectType NodeId="ns=1;i=1005" BrowseName="1:KillSwitchType">
@@ -138,8 +138,8 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6008</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7010</Reference>
-            <Reference ReferenceType="HasModellingRule">i=80</Reference>
         </References>
     </UAObject>
     <UAMethod ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=7009" BrowseName="1:Close_Door" MethodDeclarationId="ns=1;i=7001">
@@ -383,8 +383,8 @@
         <References>
             <Reference ReferenceType="HasModellingRule">i=80</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6022</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6022" BrowseName="1:Temperature" UserAccessLevel="3" AccessLevel="3">

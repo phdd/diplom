@@ -1,3 +1,30 @@
+# Virtual Machine Representation (VMR)
+
+## Prerequisites
+
+Software you need is
+
+* Node.js (>= 7.1)
+* NPM (>= 3.10)
+* GrovePi [github.com/DexterInd/GrovePi](https://github.com/DexterInd/GrovePi)
+    - ```git clone https://github.com/DexterInd/GrovePi.git``` 
+    - ```bash GrovePi/Script/install.sh```
+
+## Installation
+
+1. install a local Grunt with ```npm install -g grunt grunt-cli``` (as root)
+2. checkout this repository by ```git clone https://github.com/phdd/diplom.git vmr```
+3. move into the folder with ```cd vmr```
+4. and switch to the prototype branch ```git checkout surrogate```
+
+## Build and run
+
+1. install all dependencies and build the VMR ```npm install```
+2. run the VMR with ```node dist/app.js --objectModel=objects.xml```
+
+_Objects.xml_ contains the OPC UA information model you may replace with your own. Prefix the run command for debug output with ```DEBUG=cps:*```
+
+<!--
 ```
 ElectionSensor = require '../cps/PresidentSensor'
 
@@ -32,3 +59,4 @@ class PhysicalPresidentType
 #noinspection JSUnresolvedVariable
 module.exports = PhysicalWorldDominationType
 ```
+-->

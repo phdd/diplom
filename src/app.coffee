@@ -1,6 +1,7 @@
 path = require 'path'
 cpps = require './cpps'
 opcua = require 'node-opcua'
+watch = require('watchjs').watch
 GrovePi = require('node-grovepi').GrovePi
 debug = require('debug')('cps:surrogate')
 argv = require('minimist')(process.argv.slice 2)
@@ -62,6 +63,11 @@ findObjectsTyped = (objectType, namespace) ->
 
   objects
 
+findAndExecuteActionFor = (condition) =>
+  references = condition.findReferencesEx 'HasEffect'
+  for reference in references.filter((ref) => ref.isForward)
+    addressSpace.findNode(reference.nodeId).execute [], condition, ->
+
 bindVariablesTo = (object) ->
   for variable in variablesOf object.instance
     do (variable, object) ->
@@ -72,6 +78,21 @@ bindVariablesTo = (object) ->
           dataType: addressSpaceVariable.dataType.value
 
       addressSpaceVariable.bindVariable bindDescription, true
+
+      physicalConditions = []
+      references = addressSpaceVariable.findHierarchicalReferences()
+      for reference in references.filter((ref) => ref.isForward)
+        condition = addressSpace.findNode reference.nodeId
+        conditionType = addressSpace.findNode(condition.typeDefinition).browseName.name
+        if conditionType is 'PhysicalConditionType'
+          physicalConditions.push condition
+
+      if physicalConditions.length > 0
+        watch object.instance, variable, -> 
+          for condition in physicalConditions
+            if condition.readValue().value.value is addressSpaceVariable.readValue().value.value
+              debug "#{condition.browseName.name} for #{addressSpaceVariable.browseName.name} has been met".yellow
+              findAndExecuteActionFor condition
 
 bindMethodsTo = (object) ->
   for method in methodsOf object.instance

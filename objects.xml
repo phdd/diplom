@@ -1,4 +1,4 @@
-<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:objects/Types.xsd" xmlns:s2="urn:opc4factory/Types.xsd" xmlns:s3="urn:cpps/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:objects/Types.xsd" xmlns:s2="urn:opc4factory/Types.xsd" xmlns:s3="urn:cpps/Types.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <NamespaceUris>
         <Uri>urn:objects</Uri>
         <Uri>urn:opc4factory</Uri>
@@ -12,11 +12,12 @@
         <Alias Alias="HasTypeDefinition">i=40</Alias>
         <Alias Alias="HasProperty">i=46</Alias>
         <Alias Alias="HasComponent">i=47</Alias>
+        <Alias Alias="HasEffect">i=54</Alias>
         <Alias Alias="Argument">i=296</Alias>
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="PZksXO69wYIgU5ZG42m2DA==" Version="1.4.4"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="hfm2y8U3YRQz9MjBQL2Qww==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5002" BrowseName="1:MillingMachine">
@@ -65,13 +66,28 @@
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
         </References>
+        <Value>
+            <uax:Boolean>false</uax:Boolean>
+        </Value>
     </UAVariable>
     <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6010" BrowseName="2:Kill_Switch_Triggered" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Kill_Switch_Triggered</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6017</Reference>
         </References>
+    </UAVariable>
+    <UAVariable DataType="Boolean" NodeId="ns=1;i=6017" BrowseName="1:TrueCondition" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>TrueCondition</DisplayName>
+        <References>
+            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6010</Reference>
+        </References>
+        <Value>
+            <uax:Boolean>true</uax:Boolean>
+        </Value>
     </UAVariable>
     <UAMethod ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=7001" BrowseName="2:Reset" MethodDeclarationId="ns=2;i=7017">
         <DisplayName>Reset</DisplayName>
@@ -83,7 +99,7 @@
         <DisplayName>LoadingDoor</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent">ns=1;i=7008</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6011</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6013</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7009</Reference>
@@ -97,7 +113,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAMethod>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6011" BrowseName="2:Door_Status" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6013" BrowseName="2:Door_Status" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Door_Status</DisplayName>
         <Description>may be "open", "closed" or "undefined"</Description>
         <References>
@@ -130,17 +146,19 @@
         <DisplayName>Open_Door</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
+            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6017</Reference>
+            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6018</Reference>
         </References>
     </UAMethod>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5008" BrowseName="3:OpeningGear">
         <DisplayName>OpeningGear</DisplayName>
         <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6011</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5008" NodeId="ns=1;i=6013" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5008" NodeId="ns=1;i=6011" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>ConnectionIdentifier</DisplayName>
         <References>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5008</Reference>
@@ -213,9 +231,21 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6018</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable SymbolicName="StoppedCondition" DataType="String" NodeId="ns=1;i=6018" BrowseName="1:StopCondition" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>StopCondition</DisplayName>
+        <References>
+            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6006</Reference>
+        </References>
+        <Value>
+            <uax:String>Stop</uax:String>
         </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5007" BrowseName="3:NCInterpreter">

@@ -1,4 +1,4 @@
-<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:cpps/Types.xsd" xmlns:s2="urn:opc4factory/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="urn:cpps/Types.xsd" xmlns:s2="urn:opc4factory/Types.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <NamespaceUris>
         <Uri>urn:cpps</Uri>
         <Uri>urn:opc4factory</Uri>
@@ -13,9 +13,22 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ModelInfo Tool="UaModeler" Hash="V1NFEJvSWWm/7zZjuBIc0A==" Version="1.4.4"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="tbDE8cA3LSrBZbjmdkswOQ==" Version="1.5.0"/>
         </Extension>
     </Extensions>
+    <UAReferenceType NodeId="ns=1;i=4002" BrowseName="1:HasPhysicalAction">
+        <DisplayName>HasPhysicalAction</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=32</Reference>
+        </References>
+        <InverseName>IsPhysicalActionOf</InverseName>
+    </UAReferenceType>
+    <UAVariableType ValueRank="-2" NodeId="ns=1;i=2002" BrowseName="1:PhysicalConditionType">
+        <DisplayName>PhysicalConditionType</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+        </References>
+    </UAVariableType>
     <UAObjectType NodeId="ns=1;i=1003" BrowseName="1:PhysicalKillSwitchType">
         <DisplayName>PhysicalKillSwitchType</DisplayName>
         <References>

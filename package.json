@@ -6,8 +6,9 @@
     "lodash": "^4.14.0",
     "minimist": "^1.2.0",
     "node-grovepi": "^2.0.9",
-    "node-opcua": "git+https://github.com/node-opcua/node-opcua.git#252639802eef453d4d311c9b7c7276a19247dda4",
-    "serialport": "^4.0.1"
+    "node-opcua": "git+https://github.com/phdd/node-opcua.git",
+    "serialport": "^4.0.1",
+    "watchjs": "0.0.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
