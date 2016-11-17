@@ -1,10 +1,15 @@
 {
   "name": "surrogate",
   "version": "1.0.0",
+  "author": "Peter Heisig <peter.heisig@tu-dresden.de>",
+  "license": "Apache 2.0",
   "dependencies": {
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
     "debug": "^2.2.0",
     "lodash": "^4.14.0",
     "minimist": "^1.2.0",
+    "mocha": "^3.1.2",
     "node-grovepi": "^2.0.9",
     "node-opcua": "git+https://github.com/phdd/node-opcua.git",
     "serialport": "^4.0.1",
@@ -17,7 +22,8 @@
     "grunt-contrib-watch": "^1.0.0"
   },
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/app.js --objectModel=objects.xml",
+    "test": "./node_modules/.bin/mocha --reporter spec --compilers coffee:coffee-script/register",
     "postinstall": "grunt"
   }
 }
