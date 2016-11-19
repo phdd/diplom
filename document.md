@@ -642,7 +642,7 @@ Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
 Der Software-Agent als Teil der Geräteabstraktion lässt neben der lokalen Datenhaltung auch komplexere Logik für Rückkopplungsschleifen zu, wodurch R4 erfüllt ist.
 Durch die Verwendung eines Industrie-PCs zur Steuerung wird das Konzept der Anforderung R5 nicht gerecht.
 
-## System- und Softwarearchitektur flexibler Produktion
+## Architektur flexibler Produktion
 
 Überwachung und Steuerung einzelner Maschinen muss im Kontext einer Produktionsumgebung mit vielen heterogenen Feldgeräten betrachtet werden.
 Die Software- und Systemarchitektur des Gesamtsystems nimmt damit eine zentrale Rolle bei der Integration von Altmaschinen ein.  
@@ -994,7 +994,7 @@ So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
 Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) auf Cyber-Ebene übernommen (vgl. @Lee2015).
-Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch intelligente Analysealgorithmen (vgl. Time-Machine Mechanismen in @sec:system--und-softwarearchitektur-flexibler-produktion) auf leistungsfähiger Hardware implementiert werden können.
+Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch intelligente Analysealgorithmen (vgl. Time-Machine Mechanismen in @sec:architektur-flexibler-produktion) auf leistungsfähiger Hardware implementiert werden können.
 Die Verbindung zwischen Time-Machine, anderen Diensten und VMR, symbolisiert durch die Wolke in @fig:vmr-concept, wird mit dem Web-Service-Modul nach Dürkop et al. an die Cyber- und Conversion-Schicht der 5C-Architektur gebunden [@Durkop2014;@Lee2015].
 Die darüberliegenden Ebenen der Cognition und Configuration sind kein Teil dieses Konzepts.
 
@@ -1085,25 +1085,67 @@ In cyber-physischen Produktionssystemen (CPPS) wird der reale Zustand eines verw
 Bei der Modernisierung von Fertigungsanlagen kann der Automatisierungsgrad erhöht werden, wenn die Maschine selbst als verwaltetes Element ihren Zustand teilweise kontrolliert.
 Eine interne FCL als Teil der virtuellen Maschinenrepräsentation (VMR) ist für diese Selbstwahrnehmung (self-aware) der Anlage zuständig.
 Zur eigenständigen Konfiguration (self-configure), Selbstadaptivität (self-adaptive) und Fähigkeit zum Vergleich (self-compare) im Kontext der Produktionsstrecke wird eine externe FCL genutzt, die auf dem Configure-Level der Architektur nach Lee et al. arbeitet @Lee2015.
-Letztere liegt außerhalb des Rahmens dieser Arbeit.  
+Letztere liegt außerhalb des Rahmens dieser Arbeit.
 Im Gegensatz zur externen FCL, ist die interne Teil des verwalteten Elements und damit Teil der VMR @Weyns2013.
 MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Event-Condition-Action (ECA, vgl. auch @Klein2011 und @sec:cyber-physische-produktionssysteme).
+
 Eine gesonderte Verarbeitung von Ereignissen ist während des Monitorings nicht notwendig.
 Die VMR benötigt keinen internen Ereignismechanismus und kann in dieser Phase direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
-Damit müssen lediglich die Bedingung nach der Variablenaktualisierung in der Analysephase ausgewertet, die entsprechenden Methoden ausgewählt (Plan) und ausgeführt (Execute) werden.
+Wurde beispielsweise die Variable ```NC_Program_Status``` aktualisiert, werden alle darunter organisierten Variablen vom Typ ```PhysicalConditionType``` im Modell lokalisiert.
+In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist ```StopCondition``` die gesuchte.
+Stimmt der Wert der Bedingung (im Beispiel _Stop_) mit dem neuen Wert überein wird eine Veränderungsanfrage (Change Request) bezüglich der Bedingung an die Planungsphase übergeben.
+Die Übereinstimmung, festgestellt in der Analyse, ist nicht auf die Gleichheit der Werte beschränkt.
+Mit Verwendung beliebiger Variablentypen der UA-Spezifikation, können numerische Werte, Zeichenketten und strukturelle Attribute wie Wertebereiche oder Zeitstempel verglichen werden.  
+So kann MAPE-K beispielsweise die Temperatur eines Werkzeugs für normalen Betrieb und Störfall unterscheiden, indem die Wertebereiche (UA-Datentyp _Range_) in entsprechenden ```PhysicalConditionType```-Variablen festgehalten werden.
+Eine Veränderungsanfrage beinhaltet die geltende Bedingung, durch die wiederum ```HasPhysicalAction```-Referenzen auf UA-Methoden verweisen (vgl. @sec:modellierung-der-anlagenstruktur).
+In der Planung werden diese Referenzen aufgelöst und sich dahinter verbergenden UA-Methoden an die Ausführungsphase übergeben.
 Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsmodell mit dem Zustand der Anlage und den ECA-Regeln genutzt (vgl. @sec:modellierung-der-anlagenstruktur).
 
 [^ibhlinkua]: [opcfoundation.org/products/view/ibh-link-ua](https://opcfoundation.org/products/view/ibh-link-ua) (abgerufen am 12.11.2016)
 
 ## Softwareframework
 
+In diesem Kapitel wird das besprochene Konzept der virtuellen Maschinenrepräsentation (VMR) in einem Software-Framework umgesetzt, welches die Remote Terminal Unit von Moctezuma et al. implementiert @Moctezuma2012.
+Ein Framework ist ein komplexes Software-System, welches sich Konzepten der Vererbung objektorientierter Programmierung und dynamischen Bindens von Bausteinen bedient.
+Es zeichnet sich durch externe Schnittstellen, Variabilität und -erweiterbarkeit aus und besteht aus abgeschlossenen und halbfertigen Elementen.
+Die übergeordnete Architektur, respektive die Komposition und Interaktion der Bausteine, ist vordefiniert und wird nicht verändert.
+Auf der anderen Seite stehen Aspekte der spezifischen Anwendungsdomäne die bei dem Entwurf einer Software nicht antizipiert werden können und an das Framework in Form von Zusatzmodulen anzubinden sind (vgl. zu diesem Absatz @Pree1994).
+
 ### Logische Architektur
 
-<!-- TODO: Sicht erklären -->
+![Framework-Schichten und -Komponenten](figures/framework){#fig:framework}
 
-- Definition der Bindings von Extension Points in UA Modell =>Framework
-- Elemente mit Schichtenarch. im Client/Server-Stil
-- Microkernel-Ansatz (Plugins für OPC UA Typen, Sensoren und Aktuatoren)
+Die abgeschlossene drei-Schicht-Architektur des VMR-Frameworks ist in @fig:framework dargestellt.
+Auf der Smart Connection, beziehungsweise Interface Ebene, wird der Signalaustausch mit der Altanlage vermittelt und eine einheitliche Schnittstelle bereitgestellt (vlg. @sec:anlagenanbindung).
+Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
+Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkontrollkomponente konsumiert, prozessiert und produziert (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
+Eine MAPE-K-Rückkopplungsschleife (vgl: @sec:cyber-physische-rückkopplung) interagiert mit dieser.
+Für die Kommunikation der Informationen des Adapters bietet der Adressraum des Laufzeitmodells der VMR eine strukturelle Beschreibung der Anlage (vgl. @sec:informationsmodell).
+Ein OPC UA Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der Altanlage.
+
+##### Interface. 
+
+Auf dieser Schicht implementieren cyber-physische Adapter (CPA) die Anbindung an digitale/analoge Ein-/Ausgangssignale und serielle Schnittstellen (vgl. @sec:anlagenanbindung).
+Sie erfassen den physischen Kontext, vermitteln Manipulation und stellen die Daten der Maschine für die Modellkontrolle bereit.
+Durch die Heterogenität der Schnittstellen von Steuerungs- und Datenerfassungshardware müssen Adapter an das Framework gebunden werden können.
+Ob Direct Numerical Control (DNC), IO-Link oder einfach Sensorik (vgl. @sec:kommunikationssysteme), wie schon bei Ferrolho et al. muss das jeweilige System gekapselt werden. [@Ferrolho2005;@Ferrolho2007].
+Diese Protokollkapselung, in @fig:framework ein digitaler Relais-Aktuator, implementieren den Erweiterungspunkt des jeweiligen Signaltyps.
+
+##### Processing. 
+
+Die ```Model Control``` ist zentrale Komponente dieser Schicht und verantwortet die Verwaltung des Laufzeitmodells (vgl. @sec:laufzeitmodell).
+Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA)Informationsmodell geschrieben.
+Wird eine UA-Methode aufgerufen, delegiert ```Model Control``` dies an die jeweilige Implementierung.
+Die Implementierung des Erweiterungspunkts ```Equipment``` erlaubt die Abbildung der Logik einer automatisierten Maschinenkomponente.
+Sie beschreibt deren Methoden und Variablen und besteht aus einer oder mehreren Protokollkapselungen der Interface-Ebene.
+Im Beispiel der @fig:framework ist ```Loading_Door``` das Abbild der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (```Relay Actuator```) für den Schließmechanismus (```Door_Lock```).
+Die ```Model Control``` ist außerdem verantwortlich für die Initialisierung der VMR.
+Sie verbindet beim Start die in der Implementierung des Abbilds gekennzeichneten Variablen und Methoden mit dem Laufzeitmodell.
+Welche Implementierung für das Abbild geladen wird, beschreiben die Erweiterung _OPC4Factory_ und _CPPS_ (vgl. @fig:opc4factory in @sec:modellierung-der-anlagenstruktur) im Informationsmodell.
+Wird im Modell der Maschine beispielsweise eine Instanz des ```LoadingDoorType``` gefunden, lädt ```Model Control``` die Implementierung dieses Typs und initialisiert sinde mit den Informationen des ```connectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps).
+
+
+- Observer für Variablenüberwachung
 
 ### Verhalten zur Laufzeit
 
@@ -1129,6 +1171,8 @@ Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsm
 <!-- TODO: Sicht erklären -->
 
 # Implementation
+
+* Context Adapter mit Hard- (GrovePi) und Software (GrovePi SDK)
 
 * HasEffect statt HasPhysicalAction (Stack-Impl. unvollständig)
 * Smoothieboard => CNC-Kernel
@@ -1187,6 +1231,8 @@ Blocking Factors/mögliche Kritik?
 # Zusammenfassung
 
 ## Schlussfolgerung
+
+* Forschungsfragen aufgreifen!
 
 ## Ausblick
 
