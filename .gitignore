@@ -116,3 +116,5 @@ sympy-plots-for-*.tex/
 .directory
 
 !*.final.pdf
+*.lock
+*.db

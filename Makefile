@@ -27,19 +27,27 @@ NON_LATEX_ARGS = \
 
 FIGURES = $(wildcard figures/*.svg)
 
-WATCH_SCRIPT = \
-	from livereload import Server, shell; \
-	server = Server(); \
-	server.watch('document.md', shell('make html', cwd = '.')); \
-	server.watch('presentation.md', shell('make presentation', cwd = '.')); \
-	server.serve(root = '.'); \
+hello:
+	@echo ""
+	@echo -e " \033[1mSuper awesome Thesis Builder v1.0\033[m"
+	@echo "-----------------------------------"
+
+bye:
+	@echo ""
 
 all: pdf html epub presentation
 
-pdf: latex figures-pdf build-latex
+announce-figures-pdf:
+	@echo -e "> \033[1minkscape:\033[m SVG => PDF"
+
+announce-figures-png:
+	@echo -e "> \033[1minkscape:\033[m SVG => PNG"
+
+pdf: hello latex announce-figures-pdf figures-pdf build-latex bye
 
 latex: compile-appendix-tex fix-mendeley-bug
-	pandoc \
+	@echo -e "> \033[1mpandoc:\033[m Markdown => Latex"
+	@pandoc \
 		metadata.yml \
 		$(LATEX_ARGS) \
 		--listings \
@@ -47,8 +55,9 @@ latex: compile-appendix-tex fix-mendeley-bug
 		--output=document.tex \
 		--default-image-extension=pdf \
 
-html: fix-mendeley-bug
-	pandoc \
+html: hello fix-mendeley-bug bye
+	@echo -e "> \033[1mpandoc:\033[m Markdown => HTML"
+	@pandoc \
 		metadata.yml \
 		$(ARGS) \
 		$(HTML_ARGS) \
@@ -60,8 +69,9 @@ html: fix-mendeley-bug
 		--css=style/html.css \
 		--default-image-extension=svg \
 
-epub: figures-png fix-mendeley-bug
-	pandoc \
+epub: hello announce-figures-png figures-png fix-mendeley-bug bye
+	@echo -e "> \033[1mpandoc:\033[m Markdown => EPUB"
+	@pandoc \
 		metadata.yml \
 		$(ARGS) \
 		$(NON_LATEX_ARGS) \
@@ -70,8 +80,9 @@ epub: figures-png fix-mendeley-bug
 		--epub-stylesheet=style/epub.css \
 		--default-image-extension=png \
 
-presentation: figures-png fix-mendeley-bug
-	pandoc \
+presentation: hello announce-figures-png figures-png fix-mendeley-bug bye
+	@echo -e "> \033[1mpandoc:\033[m Presentation"
+	@pandoc \
 		$(HTML_ARGS) \
 		metadata.yml \
 		presentation.md \
@@ -86,17 +97,14 @@ presentation: figures-png fix-mendeley-bug
 		--mathjax \
 		--csl style/ieee.csl \
 
-watch: 
-	echo "$(WATCH_SCRIPT)" | python
-
 build-latex: 
-	xelatex document
-	biber   document
-	xelatex document
-	xelatex document
+	@echo -e "> \033[1mxelatex:\033[m Latex => PDF"
+	@./latexrun -O . --bibtex-cmd biber --latex-cmd xelatex \
+		-W no-underfull -W no-overfull \
+		document
 
 compile-appendix-tex:
-	pandoc \
+	@pandoc \
 		metadata.yml \
 		appendix.md \
 		--listings \
@@ -106,21 +114,21 @@ compile-appendix-tex:
 		--number-sections \
 
 fix-mendeley-bug:
-	sed -i -e "s/{\\\_}/_/g" "bibliography.bib"
-	sed -i -e "s/{\\\~}/~/g" "bibliography.bib"
+	@echo -e "> fixing Mendeley bullshit"
+	@sed -i -e "s/{\\\_}/_/g" "bibliography.bib"
+	@sed -i -e "s/{\\\~}/~/g" "bibliography.bib"
 
 figures-pdf: $(FIGURES:%.svg=%.pdf)
 figures-png: $(FIGURES:%.svg=%.png)
 
 %.pdf: %.svg
-	inkscape -A $*.pdf $*.svg
+	@echo -e "  - $*"
+	@inkscape -A $*.pdf $*.svg >/dev/null 2>&1
 
 %.png: %.svg
-	inkscape -d 192 -e $*.png $*.svg
+	@echo -e "  - $*"
+	@inkscape -d 192 -e $*.png $*.svg >/dev/null 2>&1
 
 clean:
-	rm -f \
-		*.tex *.aux *.dvi *.log *.pdf *.html *.mobi \
-		*.out *.epub *.toc *.thm *.lot *.lof *.blg  \
-		*.bbl *.nlo *.lol *.cb *.bcf *.run.xml \
-		figures/*.png figures/*.pdf
+	@./latexrun --clean-all
+	@rm -f figures/*.png figures/*.pdf \
