@@ -479,7 +479,8 @@ class Message(collections.namedtuple(
         if self._color:
             terminfo.send('sgr0')
             
-        info = (self.msg[:60] + '...') if len(self.msg) > 60 else self.msg
+        length = 70
+        info = (self.msg[:length] + '...') if len(self.msg) > length else self.msg
         sys.stdout.write(info + '\n')
 
     @classmethod
@@ -980,8 +981,9 @@ class LaTeX(Task):
                 msg = msg._replace(msg=msg.msg.split(' ', 1)[1])
             if re.match(r'Reference .* undefined', msg.msg):
                 have_undefined_reference = True
-            if have_undefined_reference and \
-               re.match(r'There were undefined references', msg.msg):
+            if re.match(r'Unused global option.*', msg.msg):
+                continue
+            if re.match(r'There were undefined references', msg.msg):
                 # LaTeX prints this at the end so the user knows it's
                 # worthwhile looking back at the log.  Since latexrun
                 # makes the earlier messages obvious, this is
@@ -1104,8 +1106,9 @@ class LaTeXFilter:
         if eof and len(self.__file_stack) and not self.__fatal_error:
             # Fatal errors generally cause TeX to "succumb" without
             # closing the file stack, so don't complain in that case.
-            self.__message('warning', None,
-                           "unbalanced `(' in log; file names may be wrong")
+            #self.__message('warning', None,
+            #               "unbalanced `(' in log; file names may be wrong")
+            pass
         return self
 
     def get_messages(self):
@@ -1216,7 +1219,7 @@ class LaTeXFilter:
                 return self.__runaway()
             if lookingatre(r'(Overfull|Underfull|Loose|Tight) \\[hv]box \('):
                 return self.__bad_box()
-            if lookingatre('(Package |Class |LaTeX |pdfTeX )?(\w+ )?warning: ', re.I):
+            if lookingatre('(Package |Class |LaTeX |pdfTeX |Unused )?(\w+ )?warning: ', re.I):
                 return self.__generic_warning()
             if lookingatre('No file .*\\.tex\\.$', re.M):
                 # This happens with \includes of missing files.  For

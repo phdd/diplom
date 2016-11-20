@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="309.26465pt"
+   width="368.98398pt"
    stroke-miterlimit="10"
    font-weight="normal"
-   height="162.0181pt"
+   height="193.30396pt"
    font-style="normal"
    font-size="12"
    id="svg2"
@@ -39,8 +39,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1057"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
      id="namedview566"
      showgrid="false"
      units="pt"
@@ -50,9 +50,9 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="1.2018209"
-     inkscape:cx="347.94055"
-     inkscape:cy="-46.732383"
-     inkscape:window-x="1366"
+     inkscape:cx="278.20048"
+     inkscape:cy="-7.6250566"
+     inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
@@ -369,7 +369,7 @@
   </defs>
   <g
      id="g6081"
-     transform="matrix(0.58617257,0,0,0.58617257,0.29308629,0.29308628)">
+     transform="matrix(0.69936309,0,0,0.69936309,0.34968154,0.34968155)">
     <g
        id="g122"
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1;text-rendering:geometricPrecision">

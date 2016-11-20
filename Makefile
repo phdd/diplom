@@ -5,8 +5,11 @@ ARGS = \
 	--from=markdown \
 	--standalone \
 	--bibliography=bibliography.bib \
-	--filter pandoc-crossref \
 	--smart \
+
+ifndef DISABLE_REFS
+	ARGS += --filter pandoc-crossref 
+endif
 
 LATEX_ARGS = \
 	$(ARGS) \
@@ -17,7 +20,10 @@ LATEX_ARGS = \
 
 HTML_ARGS = \
 	--webtex \
-	--filter pandoc-citeproc \
+
+ifndef DISABLE_REFS
+	HTML_ARGS += --filter pandoc-citeproc 
+endif
 
 NON_LATEX_ARGS = \
 	appendix.md \

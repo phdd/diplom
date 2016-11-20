@@ -932,9 +932,11 @@ Da Standardisierung jedoch eine zentrale Anforderung der Anlagenmodernisierung i
 Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren mit der realen Welt in Verbindung (vgl. @sec:cyber-physische-produktionssysteme).
 Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
 Diese sollen im Informationsmodell festgelegt werden können.
-Dafür wird die Spezifikation von Ayatollahi et al. um ein oder mehrere physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
+Dafür wird die Spezifikation von Ayatollahi et al. um physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
+Beispielsweise besitzt der ```LoadingDoorType``` aus dem OPC4Factory-Namensraum eine Unterklasse ```PhysicalLoadingDoorType```.
+Eine Anlagendefinition vom Type ```MachineType``` kann dann das optionale Objekt ```Loading_Door``` beinhalten.
 Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
-Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür des Szenarien S1/2.
+Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür der Szenarien S1/2.
 Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.
 Eine physische Verbindung beinhaltet ein Property ```ConnectionIdentifier```, welches die Konfigurationsparameter repräsentiert.  
 Im Anwendungsfall A1 wird bei der Montage der Maschine das Modell um die Beschreibung der physischen Verbindungen ergänzt.
@@ -1134,22 +1136,38 @@ Diese Protokollkapselung, in @fig:framework ein digitaler Relais-Aktuator, imple
 ##### Processing. 
 
 Die ```Model Control``` ist zentrale Komponente dieser Schicht und verantwortet die Verwaltung des Laufzeitmodells (vgl. @sec:laufzeitmodell).
-Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA)Informationsmodell geschrieben.
+Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA) Informationsmodell geschrieben.
 Wird eine UA-Methode aufgerufen, delegiert ```Model Control``` dies an die jeweilige Implementierung.
 Die Implementierung des Erweiterungspunkts ```Equipment``` erlaubt die Abbildung der Logik einer automatisierten Maschinenkomponente.
 Sie beschreibt deren Methoden und Variablen und besteht aus einer oder mehreren Protokollkapselungen der Interface-Ebene.
-Im Beispiel der @fig:framework ist ```Loading_Door``` das Abbild der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (```Relay Actuator```) für den Schließmechanismus (```Door_Lock```).
+Im Beispiel der @fig:framework ist ```LoadingDoorType``` die Implementation des Abbilds der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (```RelayActuator```) für den Schließmechanismus ```Door_Lock``` (vgl. [@fig:opc4factory;@fig:opcua-cpps] in @sec:modellierung-der-anlagenstruktur).
 Die ```Model Control``` ist außerdem verantwortlich für die Initialisierung der VMR.
 Sie verbindet beim Start die in der Implementierung des Abbilds gekennzeichneten Variablen und Methoden mit dem Laufzeitmodell.
 Welche Implementierung für das Abbild geladen wird, beschreiben die Erweiterung _OPC4Factory_ und _CPPS_ (vgl. @fig:opc4factory in @sec:modellierung-der-anlagenstruktur) im Informationsmodell.
-Wird im Modell der Maschine beispielsweise eine Instanz des ```LoadingDoorType``` gefunden, lädt ```Model Control``` die Implementierung dieses Typs und initialisiert sinde mit den Informationen des ```connectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps).
+Wird im Modell der Maschine beispielsweise eine Instanz des ```LoadingDoorType``` gefunden, lädt ```Model Control``` die Implementierung dieses Typs und initialisiert sie mit den Informationen des ```connectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur).  
+Für die Rückkopplung ist ```Feedback Control``` verantwortlich.
+Beim Initialisieren des Modells werden die Variablen der Abbilder von Maschinenkomponenten (```Physical```) an die Implementierungen von ```Equipment``` gebunden.
+Für jede Variable überprüft ```Feedback Control``` die Existenz von Instanzen des ```PhysicalConditionType``` und verknüpft einen Beobachter (Observer) mit ihr (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
+Jede Wertänderung löst eine Iteration der MAPE-K Kontrollschleife aus und führt schlussendlich zur Ausführung einer oder mehrerer UA-Methoden.
 
+##### Communication.
 
-- Observer für Variablenüberwachung
+Beim Start der VMR wird der UA-Server mit den internen Modellen aus @sec:modellierung-der-anlagenstruktur (VMR Models) und den Instanzen einer externen Strukturbeschreibung der Anlage (Machine Definition) initialisiert (vgl. @fig:vmr-models).
+Konfigurationsparameter des Servers sind statisch und müssen nach der Auslieferung der Software festgelegt werden.
+Neben denen der vorausgesetzten Netzwerkanbindung wird der Middleware die Referenz auf eine Datei mit der _Machine Definition_ übergeben (vgl. @fig:opc4factory-runtime in @sec:laufzeitmodell).
+Diese, wie auch alle Modellerweiterungen, liegt im XML-Format vor und enthält die Knoten des Informationsmodells und ihre Verbindungen (UANodeSet).
+Für die Modellierung der _Machine Definition_ kann die Software UaModeler[^uamodeler] eingesetzt werden.
+Mit dem binären Transportprotokoll der UA kommuniziert der Server die von ```Model Control``` gepflegten Informationen im Laufzeitmodell an andere Maschinen und Nutzungsschnittstellen.
+
+![Zusammensetzung des Adressraums der VMR](figures/vmr-models){#fig:vmr-models}
+
+[^uamodeler]: (opcfoundation.org/products/view/uamodeler)[https://opcfoundation.org/products/view/uamodeler] (abgerufen am 20.11.2016)
 
 ### Verhalten zur Laufzeit
 
-<!-- TODO: Sicht erklären -->
+In diesem Abschnitt wird die dynamische Struktur der virtuellen Maschinenrepräsentation (VMR) für die einzelnen Komponenten beschrieben.
+Voraussetzung für die Initialisierung ist eine mit der Middleware ausgelieferte Machine Definition.
+
 
 * Surrogate in bestehende Netzwerkinfrastruktur einbinden?
     1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
