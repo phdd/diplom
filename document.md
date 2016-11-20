@@ -1131,7 +1131,8 @@ Auf dieser Schicht implementieren cyber-physische Adapter (CPA) die Anbindung an
 Sie erfassen den physischen Kontext, vermitteln Manipulation und stellen die Daten der Maschine für die Modellkontrolle bereit.
 Durch die Heterogenität der Schnittstellen von Steuerungs- und Datenerfassungshardware müssen Adapter an das Framework gebunden werden können.
 Ob Direct Numerical Control (DNC), IO-Link oder einfach Sensorik (vgl. @sec:kommunikationssysteme), wie schon bei Ferrolho et al. muss das jeweilige System gekapselt werden. [@Ferrolho2005;@Ferrolho2007].
-Diese Protokollkapselung, in @fig:framework ein digitaler Relais-Aktuator, implementieren den Erweiterungspunkt des jeweiligen Signaltyps.
+Diese Protokollkapselung, in @fig:framework ein digitaler Relais-Aktuator, implementieren den Erweiterungspunkt des jeweiligen Signaltyps des CPA.
+Ein CPA kann zusätzliche Hardware benötigen.
 
 ##### Processing. 
 
@@ -1140,11 +1141,12 @@ Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA) Informa
 Wird eine UA-Methode aufgerufen, delegiert ```Model Control``` dies an die jeweilige Implementierung.
 Die Implementierung des Erweiterungspunkts ```Equipment``` erlaubt die Abbildung der Logik einer automatisierten Maschinenkomponente.
 Sie beschreibt deren Methoden und Variablen und besteht aus einer oder mehreren Protokollkapselungen der Interface-Ebene.
-Im Beispiel der @fig:framework ist ```LoadingDoorType``` die Implementation des Abbilds der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (```RelayActuator```) für den Schließmechanismus ```Door_Lock``` (vgl. [@fig:opc4factory;@fig:opcua-cpps] in @sec:modellierung-der-anlagenstruktur).
+Im Beispiel der @fig:framework ist ```PhysicalLoadingDoorType``` die Implementation des Abbilds der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (```RelayActuator```) für den Schließmechanismus ```Door_Lock``` (vgl. [@fig:opc4factory;@fig:opcua-cpps] in @sec:modellierung-der-anlagenstruktur).
 Die ```Model Control``` ist außerdem verantwortlich für die Initialisierung der VMR.
 Sie verbindet beim Start die in der Implementierung des Abbilds gekennzeichneten Variablen und Methoden mit dem Laufzeitmodell.
 Welche Implementierung für das Abbild geladen wird, beschreiben die Erweiterung _OPC4Factory_ und _CPPS_ (vgl. @fig:opc4factory in @sec:modellierung-der-anlagenstruktur) im Informationsmodell.
-Wird im Modell der Maschine beispielsweise eine Instanz des ```LoadingDoorType``` gefunden, lädt ```Model Control``` die Implementierung dieses Typs und initialisiert sie mit den Informationen des ```connectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur).  
+Wird im Modell der Maschine beispielsweise eine Instanz eines ```PhysicalLoadingDoorType``` gefunden, lädt ```Model Control``` die Implementierung dieses Typs und initialisiert sie mit den Informationen des ```connectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur).
+Die Verknüpfung zwischen Implementierung und Modelldefinition kann durch Namenskonvention oder Annotationen in der jeweiligen Programmiersprache erfolgen.  
 Für die Rückkopplung ist ```Feedback Control``` verantwortlich.
 Beim Initialisieren des Modells werden die Variablen der Abbilder von Maschinenkomponenten (```Physical```) an die Implementierungen von ```Equipment``` gebunden.
 Für jede Variable überprüft ```Feedback Control``` die Existenz von Instanzen des ```PhysicalConditionType``` und verknüpft einen Beobachter (Observer) mit ihr (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
@@ -1165,20 +1167,40 @@ Mit dem binären Transportprotokoll der UA kommuniziert der Server die von ```Mo
 
 ### Verhalten zur Laufzeit
 
-In diesem Abschnitt wird die dynamische Struktur der virtuellen Maschinenrepräsentation (VMR) für die einzelnen Komponenten beschrieben.
-Voraussetzung für die Initialisierung ist eine mit der Middleware ausgelieferte Machine Definition.
+##### Initialisierung.
+
+![Initialisierung des Frameworks](figures/framework-init){#fig:framework-init}
+
+Voraussetzung für die Initialisierung der virtuellen Maschinenrepräsentation (VMR) ist eine mit der Middleware ausgelieferte Machine Definition.
+Die ```Model Control``` startet den OPC UA Server mit dieser Definition als Parameter, dargestellt in @fig:framework-init (1).
+Danach werden die cyber-physischen Adapter (CPA) instantiiert und etwaige Hardwarekomponenten für die Anbindung der Signale initialisiert (2).
+Der UA-Server kreiert den Adressraum (3), respektive das Laufzeitmodell der VMR, und lädt die Modelle (4).
+Ist das Informationsmodell vollständig geladen, sendet der Server das entsprechende Signal (5) und die ```Model Control``` sucht nach dem für die Anlage definierten Equipment (5.1).
+Für jede im Informationsmodell gefundene, automatisierte Werkzeugkomponente wird nun die Implementierung gesucht (5.3).
+Dem bereits angesprochenen Beispiel einer Ladetür (```PhysicalLoadingDoorType```, vgl. @fig:framework in @sec:logische-architektur) ist wenigstens ein Relais (```RelayActuator```) für den Schließmechanismus (```Door_Lock```) untergeordnet.
+Diese Ausprägungen des ```PhysicalConnectionType``` halten die Informationen zur Instanziierung der Implementierung in einem ```ConnectionIdentifier```-Attribut und werden aus dem Modell geladen (5.4, vgl. @sec:modellierung-der-anlagenstruktur).
+Nun kann der ```PhysicalLoadingDoorType``` geladen und dessen Logik, respektive Variablen und Methoden, an den UA-Server gebunden werden (5.6).
+Für die horizontale Integration der VMR muss sich der Server mit einem der in @sec:horizontale-integration vorgestellen Discovery-Mechanismen in das Produktionssystem eingliedern.
+
+##### Methodendelegation.
+
+![Methodendelegation im Framework](figures/methodendelegation){#fig:methodendelegation}
+
+call implementation = Async => Loading Door kann zwar die Zustandsveränderung aufzeichnen, nicht aber überprüfen => Feedback notwendig.
+openRelay() => Physische Adresse durch connectionIdentifier in PhysicalConnectionType bekannt.
+Relay Aktuator ist Erweiterung von digital I/O und Teil von Physical Loading Door
+
+##### Kontextveränderung.
 
 
-* Surrogate in bestehende Netzwerkinfrastruktur einbinden?
-    1. direkte SG-Kommunikation (Wifi-Direct, BT, ...) zur Konfiguation der Netzwerkanbindung via Mobile device
-      1. Auswahl des Access-Points
-      2. Festlegen der OPC UA Discovery-Service Adresse
-    2. SG mit Infrastr. verbunden + Registrierung bei Discovery-Service
-    3. OPC UA Systemevent => neues Surrogate registriert
-    3. Konfiguration des Adressraums via HTTP/WebApp
 
-* Wiederverwendung @Ayatollahi2013
-    * des Flow-Charts für die Server-Logik (teilweise)
+##### Rückkopplung.
+
+Aktion: 
+NC -> NC_Program_Status -> ActiveCondition => Close_Door()
+
+Verifikation/Assertion:
+Loading_Door -> Door_Status -> ClosedCondition ('Closed') => ?
 
 ### Organisation
 
@@ -1229,6 +1251,11 @@ Umsetzung?
     - Not-Aus etc. verbindungsorientiert anbinden
 * Konflikte in ECA-Regeln
 * der Action fehlen die Parameter der Methode
+* Redundanz der PhysicalConditions (Closed für Relay-Aktuator/Contact-Sensor)
+* Reaktion (NC Stopped => Open_Door()) vs. Verifikation+Kompensation
+    - Door_Status == 'Closed' impliziert Contact_Status == 'Closed' 
+        + Was, wenn nicht => Kompensationsstrategie?
+    - (RelayActuatorClosed)-[HasPhysicalEffect]->(ContactSensorClosed)->?
 
 Blocking Factors/mögliche Kritik?
 
