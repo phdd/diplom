@@ -1252,10 +1252,12 @@ Umsetzung?
 * Konflikte in ECA-Regeln
 * der Action fehlen die Parameter der Methode
 * Redundanz der PhysicalConditions (Closed für Relay-Aktuator/Contact-Sensor)
-* Reaktion (NC Stopped => Open_Door()) vs. Verifikation+Kompensation
+* imperative Regeln (NC Stopped => Open_Door()) vs. deklarative Systembeschreibung 
     - Door_Status == 'Closed' impliziert Contact_Status == 'Closed' 
         + Was, wenn nicht => Kompensationsstrategie?
     - (RelayActuatorClosed)-[HasPhysicalEffect]->(ContactSensorClosed)->?
+    - Imperativ beschreibt wie Feedback Control reagiert => alle Möglichkeiten müssen beschrieben werden
+    - Deklarativ beschreibt was bei einem bestimmten Systemzustand erwartet wird und wie auf eine unerwartete Situation zu reagieren ist
 
 Blocking Factors/mögliche Kritik?
 
