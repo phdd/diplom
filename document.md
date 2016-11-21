@@ -777,6 +777,8 @@ Somit liegt die Verwendung dieser Spezifikationen für die Steuerung von Produkt
 
 Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konzept relevanten, Forschungsarbeiten ist in @tbl:sota-req zusammengefasst, wobei ● die Erfüllung, ◐ die eingeschränkte oder teilweise Erfüllung und ○ die Nichterfüllung symbolisiert.
 
+\clearpage
+
 +-------------------+------+------+------+------+------+
 |                   | R1   | R2   | R3   | R4   | R5   |
 +===================+======+======+======+======+======+
@@ -913,7 +915,7 @@ Das Metamodell der UA bietet unter anderem typisierte Objekte, Variablen und Met
 Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten einer Maschine baumartig organisiert.
 Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren automatisierte Werkzeugkomponenten und numerische Kontrolle definiert @Ayatollahi2013.
 Diese Erweiterung der Data-Access Spezifikation (vgl. @sec:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
-In diesem Teilmodell sind, bis auf den `BaseObjectType` der grundlegenden UA Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
+In diesem Teilmodell sind, bis auf den `BaseObjectType` der grundlegenden UA-Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
 Variablen und Methoden sind Elemente, welche durch die `hasComponent`-Relation mit einer Maschinenkomponente verknüpft werden.
 Beispielsweise komponiert ein Objekte vom Typ `LoadingDoorType` sowohl die Variable `Door_Status`, als auch Methoden zum Öffnen (`Open_Door`) und Schließen (`Close_Door`) einer Ladetür.
 
@@ -972,7 +974,7 @@ Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hi
 
 ![Laufzeitmodell der Maschine der Szenarien S1/2](figures/opc4factory-runtime){#fig:opc4factory-runtime}
 
-In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines OPC UA-Anwendungsprogramms[^uaexpert] zu sehen.
+In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines Anwendungsprogramms[^uaexpert] zu sehen.
 Durch die beispielhaften Methoden `Close_Door` und `Open_Door`, sowie die Variable `Door_Status` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
 Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für die Konsistenz von Realität virtuellem Modell.
 Änderungen an der Struktur der automatisierte Werkzeugkomponenten werden im Modell reflektiert und dessen Struktur neu organisiert.
@@ -1125,7 +1127,7 @@ Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
 Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkontrollkomponente konsumiert, prozessiert und produziert (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
 Eine MAPE-K-Rückkopplungsschleife (vgl: @sec:cyber-physische-rückkopplung) interagiert mit dieser.
 Für die Kommunikation der Informationen des Adapters bietet der Adressraum des Laufzeitmodells der VMR eine strukturelle Beschreibung der Anlage (vgl. @sec:informationsmodell).
-Ein OPC UA Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der Altanlage.
+Ein UA-Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der Altanlage.
 
 ![Framework-Schichten und -Komponenten](figures/framework){#fig:framework}
 
@@ -1141,7 +1143,7 @@ Neben der Software kann ein CPA zusätzliche Hardware benötigen.
 ##### Processing. 
 
 Die Model Control ist zentrale Komponente dieser Schicht und verantwortet die Verwaltung des Laufzeitmodells (vgl. @sec:laufzeitmodell).
-Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA) Informationsmodell geschrieben.
+Jede von den CPA kommunizierte Veränderung wird hier in das UA-Informationsmodell geschrieben.
 Wird eine UA-Methode aufgerufen, delegiert Model Control dies an die jeweilige Implementierung.
 Die Implementierung des Erweiterungspunkts Equipment erlaubt die Abbildung der Logik einer automatisierten Maschinenkomponente.
 Sie beschreibt deren Methoden und Variablen und besteht aus einer oder mehreren Protokollkapselungen der Interface-Ebene.
@@ -1180,7 +1182,7 @@ Es wird angenommen, dass die VMR in ein Netzwerk integriert ist und uneingeschr�
 ![Initialisierung des Frameworks](figures/framework-init){#fig:framework-init}
 
 Voraussetzung für die Initialisierung der VMR ist eine mit der Middleware ausgelieferte Machine Definition.
-Die Model Control startet den OPC UA Server mit dieser als Parameter, dargestellt in @fig:framework-init (1).
+Die Model Control startet den UA-Server mit dieser als Parameter, dargestellt in @fig:framework-init (1).
 Danach werden die cyber-physischen Adapter (CPA) instantiiert und etwaige Hardwarekomponenten für die Anbindung der Signale initialisiert (2).
 Der UA-Server kreiert den Adressraum (3), respektive das Laufzeitmodell der VMR, und lädt die Modelle (4).
 Ist das Informationsmodell vollständig geladen, sendet der Server das entsprechende Signal (5) und die Model Control sucht nach dem für die Anlage definierten Equipment (5.1).

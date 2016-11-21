@@ -105,9 +105,7 @@ presentation: hello announce-figures-png figures-png fix-mendeley-bug bye
 
 build-latex: 
 	@echo -e "> \033[1mxelatex:\033[m Latex => PDF"
-	@./latexrun -O . --bibtex-cmd biber --latex-cmd xelatex \
-		-W no-underfull -W no-overfull \
-		document
+	@./latexrun -O . --bibtex-cmd biber --latex-cmd xelatex document
 
 compile-appendix-tex:
 	@pandoc \
