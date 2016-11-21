@@ -13,9 +13,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="370.25076pt"
+   width="377.25076pt"
    height="140.45564pt"
-   viewBox="0 0 462.81346 175.56956"
+   viewBox="0 0 471.56346 175.56956"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -29,16 +29,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="203.33413"
-     inkscape:cy="96.825768"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="215.38246"
+     inkscape:cy="-11.798393"
      inkscape:document-units="pt"
      inkscape:current-layer="g4451"
      showgrid="false"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1366"
+     inkscape:window-y="23"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -247,7 +247,7 @@
            sodipodi:role="line">Industry Standard Information Models</tspan><tspan
            id="tspan4411"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:11.98619843px;line-height:113.99999857%;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#333333"
-           y="363.88995"
+           y="363.94888"
            x="392.31348"
            sodipodi:role="line">Companion Specs - FDI, PLCopen, ISA 95, MDIS, ...</tspan></text>
       <text
@@ -317,7 +317,7 @@
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:16.48102188px;line-height:113.99999857%;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;writing-mode:lr-tb;text-anchor:middle">Information Access</tspan><tspan
            sodipodi:role="line"
            x="354.96683"
-           y="452.1532"
+           y="452.21213"
            style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:11.98619843px;line-height:113.99999857%;font-family:'Sansation Light';-inkscape-font-specification:'Sansation Light, Light';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#333333"
            id="tspan4417">Data Model and Services</tspan></text>
       <text

@@ -129,10 +129,12 @@ figures-png: $(FIGURES:%.svg=%.png)
 
 %.pdf: %.svg
 	@echo -e "  - $*"
+	@sed -i -e "s/Vis.\\+Par.\\+\\] //g" "$*.svg"
 	@inkscape -A $*.pdf $*.svg >/dev/null 2>&1
 
 %.png: %.svg
 	@echo -e "  - $*"
+	@sed -i -e "s/Vis.\\+Par.\\+\\] //g" "$*.svg"
 	@inkscape -d 192 -e $*.png $*.svg >/dev/null 2>&1
 
 clean:

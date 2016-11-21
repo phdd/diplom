@@ -45,6 +45,10 @@
   \endorigfigure
 }
 
+\let\latexincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{%
+  \latexincludegraphics[width=\textwidth-50pt,#1]{#2}}
+
 \makenomenclature
 
 %Schriften
@@ -207,7 +211,7 @@
 \deffootnote[1em]{1.1em}{1.6em}{\textsuperscript{\thefootnotemark}\,}
 %\deffootnote{0em}{1.6em}{\thefootnotemark.\enskip}
 
-\usepackage[all]{nowidow}
+\usepackage[defaultlines=4,all]{nowidow}
 
 % Bib-File
 \bibliography{bibliography.bib}
@@ -218,12 +222,12 @@
 \begin{figure}[htbp]
   \begin{minipage}[t][3cm][c]{\textwidth/2+1.7cm}
 	
-		\includegraphics[height=3.5em]{figures/tud.pdf}  
+		\latexincludegraphics[height=3.5em]{figures/tud.pdf}  
 
   \end{minipage}
   \begin{minipage}[t][3cm][c]{\textwidth/2-1.7cm}
 	\begin{flushright}  	
-  	\includegraphics[height=3.5em]{figures/logo.pdf}
+  	\latexincludegraphics[height=3.5em]{figures/logo.pdf}
 	\end{flushright}
   \end{minipage}
 \end{figure}

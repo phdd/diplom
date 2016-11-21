@@ -997,7 +997,7 @@ Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelt
 Außerdem werden historische Maschinendaten durch die Historical Access Spezifikation (OPC UA Part 11[^opcua11]) in der VMR persistiert.
 Die zentrale Auswertung der Informationen wird von den Mechanismen der Time-Machine (TM) auf Cyber-Ebene übernommen (vgl. @Lee2015).
 Diese steht in Verbindung mit der VMR, ist aber nicht direkt an der Anlage verortet, wodurch intelligente Analysealgorithmen (vgl. Time-Machine Mechanismen in @sec:architektur-flexibler-produktion) auf leistungsfähiger Hardware implementiert werden können.
-Die Verbindung zwischen Time-Machine, anderen Diensten und VMR, symbolisiert durch die Wolke in @fig:vmr-concept, wird mit dem Web-Service-Modul nach Dürkop et al. an die Cyber- und Conversion-Schicht der 5C-Architektur gebunden [@Durkop2014;@Lee2015].
+Die Verbindung zwischen Time-Machine, anderen Diensten und VMR, symbolisiert durch die gestrichelte Grenze in @fig:vmr-concept, wird mit dem Web-Service-Modul nach Dürkop et al. an die Cyber- und Conversion-Schicht der 5C-Architektur gebunden [@Durkop2014;@Lee2015].
 Die darüberliegenden Ebenen der Cognition und Configuration sind kein Teil dieses Konzepts.
 
 [^opcua11]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-11-historical-access) (abgerufen am 12.11.2016)
@@ -1115,8 +1115,6 @@ Auf der anderen Seite stehen Aspekte der spezifischen Anwendungsdomäne die bei 
 
 ### Logische Architektur
 
-![Framework-Schichten und -Komponenten](figures/framework){#fig:framework}
-
 Die abgeschlossene drei-Schicht-Architektur des VMR-Frameworks ist in @fig:framework dargestellt.
 Auf der Smart Connection, beziehungsweise Interface Ebene, wird der Signalaustausch mit der Altanlage vermittelt und eine einheitliche Schnittstelle bereitgestellt (vlg. @sec:anlagenanbindung).
 Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
@@ -1124,6 +1122,8 @@ Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkon
 Eine MAPE-K-Rückkopplungsschleife (vgl: @sec:cyber-physische-rückkopplung) interagiert mit dieser.
 Für die Kommunikation der Informationen des Adapters bietet der Adressraum des Laufzeitmodells der VMR eine strukturelle Beschreibung der Anlage (vgl. @sec:informationsmodell).
 Ein OPC UA Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der Altanlage.
+
+![Framework-Schichten und -Komponenten](figures/framework){#fig:framework}
 
 ##### Interface. 
 
