@@ -6,8 +6,8 @@ Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde d
 Zum Ende des 19. Jahrhunderts ermöglichte die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
 Knapp einhundert Jahre nach dieser zweiten Revolution wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
 Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
-Im Jahr 2011 wurde ausgehend von _Lean Production_ der Begriff _Industrie 4.0_ geprägt, der die vierte Industrielle Revolution beschreibt (vgl. zu diesem Abschnitt [@Gausemeier2014]).
-Sie zeichnet sich durch neue Ansätze wie das _Internet of Things_ (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
+Im Jahr 2011 wurde ausgehend von Lean Production der Begriff Industrie 4.0 geprägt, der die vierte Industrielle Revolution beschreibt (vgl. zu diesem Abschnitt [@Gausemeier2014]).
+Sie zeichnet sich durch neue Ansätze wie das Internet of Things (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
 
 ## Motivation
 
@@ -19,7 +19,7 @@ Gerade diese älteren Anlagen besitzen häufig keine Möglichkeit der Integratio
 Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.  
 Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
 Vor einigen Jahren wurden bis zu 60% der Arbeitszeit eines Werkers auf die Übertragung des Entwurfs eines Fertigungsschrittes in die Umsetzung an der Maschine verwendet @Gunasekaran2000.
-So besitzt eine Altmaschine als Teil des Fertigungsprozesses keine Möglichkeit externer Kommunikation und kein _Application Programming Interface_ (API) @Deshpande2011.
+So besitzt eine Altmaschine als Teil des Fertigungsprozesses keine Möglichkeit externer Kommunikation und kein Application Programming Interface (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
 So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung (vgl. zu diesem Absatz [@Deshpande2011;@Ferrolho2007]).
 Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen [@Wang2004;@Hoppe2014].
@@ -42,12 +42,12 @@ Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
   In der Konsequent wird außerdem die Planung der Fertigung vereinfacht und die Zeit bis zur Produktion gesenkt.
   Weiterhin sollen Störfälle wie Werkzeugbruch und -wechsel ad hoc an Verantwortliche kommuniziert werden.
 
-Im Kontext dieser Arbeit gilt eine Anlage als _integriert_, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. Kapitel 3) genügt.
+Im Kontext dieser Arbeit gilt eine Anlage als integriert, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. Kapitel 3) genügt.
 Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernisierung für die  Industrie 4.0 durch weitere Ziele unterstützt:
 
 * Eine dezentrale Informations- und Kommunikationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen.
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig offener Schnittstellen nicht mehr unterbrochen. 
-  Durch damit einheitlich mögliche _Machine-To-Machine_ (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
+  Durch damit einheitlich mögliche Machine-To-Machine (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
 * Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
  
@@ -99,7 +99,7 @@ Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines grob
 
 ## Methode und Aufbau
 
-Angelehnt an die _Design Science Research Methodology_ (DSRM) wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
+Angelehnt an die Design Science Research Methodology wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
 Durch die folgenden Grundlagen (Kapitel 2) werden essentielle Technologien und Konzepte beschrieben.
 Die sich anschließenden Anforderungen (Kapitel 3) spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte (Kapitel 4) für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
 Durch die prototypische Implementation (Kapitel 5) des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
@@ -166,7 +166,7 @@ Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die
 Hammertringl und Reinhart fanden vier Klassen von Kommunikationssystemen in dieser durch eine Befragung ermittelten Struktur.
 Sensoren und Aktuatoren der ersten Klasse sind direkt verbunden und übermitteln binäre oder analoge Informationen rein physikalischer Natur, wie Strom mit 24V oder Druckluft.
 Sie stellen keine standardisierte, digitale Beschreibung ihrer Funktion bereit, wodurch dem angeschlossenen Gerät diese händisch mitgeteilt werden muss.  
-Feldgeräte mit _IO-Link_[^iolink]-Fähigkeit können durch die IO Device Description (IO-DD) beschrieben werden und sind Teil einer zweiten Klasse mit Direktverbindung.
+Feldgeräte mit IO-Link[^iolink]-Fähigkeit können durch die IO Device Description (IO-DD) beschrieben werden und sind Teil einer zweiten Klasse mit Direktverbindung.
 Innerhalb dieser können minimale Protokolle beschrieben und die Identifikation der Komponenten durchgeführt werden.
 Dadurch kann innerhalb dieser Klasse extern parametriert und eine maschinenlesbare Beschreibung übertragen werden.
 Letzteres wird in der Praxis jedoch kaum genutzt.
@@ -221,9 +221,9 @@ Der Befehl `G1` wird für den eigentlichen Fräsvorgang verwendet und lässt das
 
 Vielen CNC-Anlagen fehlt der Speicher für Programme mit mehreren tausend Bewegungsinstruktionen.
 Derlei Befehlslisten müssen während der Bearbeitung durch ein Fremdsystem an die Maschine sukzessiv übertragen werden. 
-Das Konzept der _Direct Numerical Control_ (DNC) steht für diese Verbindung via RS-232 oder Parallel Port.
+Das Konzept der Direct Numerical Control (DNC) steht für diese Verbindung via RS-232 oder Parallel Port.
 Fremdsysteme sind PCs oder dedizierte DNC-Transfergeräte, die den Code von Speichermedien wie USB-Sticks und SD-Karten beziehen.
-DNC, verstanden als _Distributed Numerical Control_, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund @Hirsch2000.
+DNC, verstanden als Distributed Numerical Control, ermöglicht weiterhin die Verteilung von Programmen auf einen Maschinenverbund @Hirsch2000.
 
 Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation.
 Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz @Smid2008).  
@@ -290,9 +290,9 @@ Der Austausch und die Modellierung von Daten kann in einem heterogenen Technolog
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
 So sehen Mitarbeiter aus 278 Unternehmen, des Maschinen- und Anlagenbaus, Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
 Die OPC[^opc] Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
-Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automatisierungsraum industriell produzierender Unternehmen auf Basis des _Distributed Component Object Model_ (DCOM).
+Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automatisierungsraum industriell produzierender Unternehmen auf Basis des Distributed Component Object Model (DCOM).
 Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls, RPC) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
-Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der _OPC Unified Architecture_ (OPC UA)[^opc-def].
+Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der OPC Unified Architecture (OPC UA)[^opc-def].
 Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundation2014.
 
 * sicherer, zuverlässiger Informationsaustausch
@@ -378,7 +378,7 @@ Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen, wie H
 * Welche Objekte, Methoden, Variablen und Ereignisse definieren die Schnittstelle für
   Konfiguration, Initialisierung, Diagnose und Laufzeit? 
 
-Die Erweiterbarkeit des Informationsmodells von OPC UA (vgl. @fig:opc-ua-architecture) ermöglicht _Companion Specifications_, die diesen Mangel ausgleichen und zusätzlich domänenspezifische Definitionen erlauben.
+Die Erweiterbarkeit des Informationsmodells von OPC UA (vgl. @fig:opc-ua-architecture) ermöglicht Companion Specifications, die diesen Mangel ausgleichen und zusätzlich domänenspezifische Definitionen erlauben.
 Plattformunabhängigkeit wird durch frei verfügbare, aber auch proprietäre Implementierungen des Softwareinfrastruktur-Stacks ermöglicht.
 Ein API, Codegeneratoren für den Adressraum und Entwicklungswerkzeuge werden für die Programmiersprachen Ansi C/C++, .NET, Java und weitere durch die OPC Foundation bereitgestellt.
 
@@ -647,13 +647,13 @@ Durch die Verwendung eines Industrie-PCs zur Steuerung wird das Konzept der Anfo
 Überwachung und Steuerung einzelner Maschinen muss im Kontext einer Produktionsumgebung mit vielen heterogenen Feldgeräten betrachtet werden.
 Die Software- und Systemarchitektur des Gesamtsystems nimmt damit eine zentrale Rolle bei der Integration von Altmaschinen ein.  
 Wang et al. entwickelten eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
-Ein Web-basierter Thin-Client des _Wise-ShopFloor_ ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
+Ein Web-basierter Thin-Client des Wise-ShopFloor ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
 Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
 Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
 Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
 Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
 In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
-Die Schnittstelle zwischen Server und Maschine wurde durch einen _Open Architecture Controller_[^oac] bereitgestellt (vgl. zu diesem Absatz @Wang2004).  
+Die Schnittstelle zwischen Server und Maschine wurde durch einen Open Architecture Controller[^oac] bereitgestellt (vgl. zu diesem Absatz @Wang2004).  
 Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
 Damit ist R3 nur ansatzweise erfüllt.
@@ -827,7 +827,7 @@ Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
-_Direct Numerical Control_ (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-kontrolle).
+Direct Numerical Control (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-kontrolle).
 Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
 Die maschineneigene SPS ist verantwortlich für automatisierte Werkzeugkomponenten wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
@@ -913,9 +913,9 @@ Das Metamodell der UA bietet unter anderem typisierte Objekte, Variablen und Met
 Mit dessen Instanzen werden die automatisierten Werkzeugkomponenten einer Maschine baumartig organisiert.
 Das grundständige Modell eines UA-Adressraums wurde bereits für die Integration einer Werkzeugmaschine erweitert und Modellelemente für deren automatisierte Werkzeugkomponenten und numerische Kontrolle definiert @Ayatollahi2013.
 Diese Erweiterung der Data-Access Spezifikation (vgl. @sec:informationsarchitektur) von Ayatollahi et al. wird in dem vorliegenden Konzept verwendet und ist in @fig:opc4factory dargestellt.
-In diesem Teilmodell sind, bis auf den ```BaseObjectType``` der grundlegenden UA Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
-Variablen und Methoden sind Elemente, welche durch die ```hasComponent```-Relation mit einer Maschinenkomponente verknüpft werden.
-Beispielsweise komponiert ein Objekte vom Typ ```LoadingDoorType``` sowohl die Variable ```Door_Status```, als auch Methoden zum Öffnen (```Open_Door```) und Schließen (```Close_Door```) einer Ladetür.
+In diesem Teilmodell sind, bis auf den `BaseObjectType` der grundlegenden UA Spezifikation, alle Elemente aus dem Namensraum _OPC4Factory_.
+Variablen und Methoden sind Elemente, welche durch die `hasComponent`-Relation mit einer Maschinenkomponente verknüpft werden.
+Beispielsweise komponiert ein Objekte vom Typ `LoadingDoorType` sowohl die Variable `Door_Status`, als auch Methoden zum Öffnen (`Open_Door`) und Schließen (`Close_Door`) einer Ladetür.
 
 ![OPC UA Modellerweiterung nach @Ayatollahi2013](figures/opc4factory){#fig:opc4factory}
 
@@ -933,12 +933,12 @@ Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren m
 Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
 Diese sollen im Informationsmodell festgelegt werden können.
 Dafür wird die Spezifikation von Ayatollahi et al. um physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
-Beispielsweise besitzt der ```LoadingDoorType``` aus dem OPC4Factory-Namensraum eine Unterklasse ```PhysicalLoadingDoorType```.
-Eine Anlagendefinition vom Type ```MachineType``` kann dann das optionale Objekt ```Loading_Door``` beinhalten.
-Die Objekte ```Opening_Gear``` und ```Door_Lock``` sind vom Typ ```PhysicalConnectionType``` aus dem Namensraum _CPPS_.
+Beispielsweise besitzt der `LoadingDoorType` aus dem OPC4Factory-Namensraum eine Unterklasse `PhysicalLoadingDoorType`.
+Eine Anlagendefinition vom Type `MachineType` kann dann das optionale Objekt `Loading_Door` beinhalten.
+Die Objekte `Opening_Gear` und `Door_Lock` sind vom Typ `PhysicalConnectionType` aus dem Namensraum CPPS.
 Sie sind aktive, virtuelle Teilkomponenten der Maschine und in diesem Beispiel verantwortlich für die Bewegung und einen Schließmechanismus der Anlagentür der Szenarien S1/2.
 Die Bewegung kann durch einen Servomotor-Aktuator und das Verschließen durch ein Relais ausgeführt werden.
-Eine physische Verbindung beinhaltet ein Property ```ConnectionIdentifier```, welches die Konfigurationsparameter repräsentiert.  
+Eine physische Verbindung beinhaltet ein Property `ConnectionIdentifier`, welches die Konfigurationsparameter repräsentiert.  
 Im Anwendungsfall A1 wird bei der Montage der Maschine das Modell um die Beschreibung der physischen Verbindungen ergänzt.
 Auch bei der Verwaltung der Maschinenkomponenten unterstützt das Modell den Monteur.
 Ein Wartungsauftrag des Produktionsleiters (A2) kann im Modell mit einer solchen Verbindung verknüpft werden.
@@ -947,10 +947,10 @@ Der Maschinenbediener (A3) bekommt im Fehlerfall ein UA-Ereignis mit der detaill
 ![ECA Erweiterung des Informationsmodells](figures/opcua-cpps-eca){#fig:opcua-cpps-eca}
 
 Die Regeln einer cyber-physischen Rückkopplung werden mit der Anlagenstruktur der VMR modelliert, dargestellt in @fig:opcua-cpps-eca.
-Dafür wurde das Informationsmodell um den Variablentyp ```PhysicalConditionType``` und den Referenztyp ```HasPhysicalActionType``` erweitert (vgl. [@fig:opcua-cpps-eca]a).
-Instanzen (im Beispiel ```StopCondition```) des ersten sind als Teil der Variablen (```NC_Program_Status```) einer automatisierten Werkzeugkomponente (```NC```) der Maschine (```EMCO CONCEPT TURN 55```) beschrieben.
-Diese beinhalten den Wert einer Bedingung (_Stop_) und können beliebigen Typs sein. 
-Mit dem zweiten Typ wird die jeweilige Aktion, respektive UA-Methode (```Open_Door```) referenziert.
+Dafür wurde das Informationsmodell um den Variablentyp `PhysicalConditionType` und den Referenztyp `HasPhysicalActionType` erweitert (vgl. [@fig:opcua-cpps-eca]a).
+Instanzen (im Beispiel `StopCondition`) des ersten sind als Teil der Variablen (`NC_Program_Status`) einer automatisierten Werkzeugkomponente (`NC`) der Maschine (`EMCO CONCEPT TURN 55`) beschrieben.
+Diese beinhalten den Wert einer Bedingung ("Stop") und können beliebigen Typs sein. 
+Mit dem zweiten Typ wird die jeweilige Aktion, respektive UA-Methode (`Open_Door`) referenziert.
 Eine Modellierung der Ereignisse von Event-Condition-Action ist nicht notwendig (vgl. @sec:cyber-physische-rückkopplung).
 Wird nun der Wert einer Variablen verändert und der neue entspricht der verknüpften Bedingung, folgt die physische Aktion.
 Im Beispiel der [@fig:opcua-cpps-eca]b soll demnach die Ladetür der Anlage geöffnet werden, wenn die numerische Kontrolle stoppt.
@@ -973,7 +973,7 @@ Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hi
 ![Laufzeitmodell der Maschine der Szenarien S1/2](figures/opc4factory-runtime){#fig:opc4factory-runtime}
 
 In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines OPC UA-Anwendungsprogramms[^uaexpert] zu sehen.
-Durch die beispielhaften Methoden ```Close_Door``` und ```Open_Door```, sowie die Variable ```Door_Status``` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
+Durch die beispielhaften Methoden `Close_Door` und `Open_Door`, sowie die Variable `Door_Status` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
 Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für die Konsistenz von Realität virtuellem Modell.
 Änderungen an der Struktur der automatisierte Werkzeugkomponenten werden im Modell reflektiert und dessen Struktur neu organisiert.
 In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
@@ -1029,7 +1029,8 @@ Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vo
 [^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
 [^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
 [^ignitionopc]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
-[^uagateway]: [unified-automation.com/products/wrapper-and-proxy/uagateway.html](https://www.unified-automation.com/products/wrapper-and-proxy/uagateway.html) (abgerufen am 15.11.2016)
+[^uagateway]: [unified-automation.com/products/wrapper-and-proxy/uagateway.html](https://www.unified-automation.com/products/wrapper-and-proxy/uagateway.html)  
+    (abgerufen am 15.11.2016)
 [^matrikonopc]: [matrikonopc.de/opc-ua/products/ua-proxy.aspx](http://www.matrikonopc.de/opc-ua/products/ua-proxy.aspx) (abgerufen am 15.11.2016)
 
 ### Horizontale Integration
@@ -1054,7 +1055,7 @@ Für die eigentliche Verbindung zu den Diensten bestehender Feldgeräte mit der 
 
 Die Anwendungsfälle eines Monteurs (A1) werden zwischen dem Module- und dem Cyber-Level des VMR-Konzepts unterstützt (vgl. @fig:vmr-concept).
 Mit einem UA-Client hat er die Möglichkeit die Maschinenkomponenten zu verwalten und die abgeschlossene Wartung derer zu bestätigen.
-Über diesen Client kann auch der Maschinenbediener (A3) die Altanlage auf den Betrieb vorbereiten, indem er die physikalischen Verbindungen, also Instanzen des ```PhysicalConnectionType```, konfiguriert (vgl. @sec:modellierung-der-anlagenstruktur).
+Über diesen Client kann auch der Maschinenbediener (A3) die Altanlage auf den Betrieb vorbereiten, indem er die physikalischen Verbindungen, also Instanzen des `PhysicalConnectionType`, konfiguriert (vgl. @sec:modellierung-der-anlagenstruktur).
 Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände einsehen, die Situation einsehen und Ausnahmefälle antizipieren.
 Bevor CNC-Programme ausgeführt werden hat er die Möglichkeit sie anhand der aktuellen Situation anzupassen.
 Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und dessen programmatischer Austausch im Laufzeitmodell.
@@ -1093,13 +1094,13 @@ MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Eve
 
 Eine gesonderte Verarbeitung von Ereignissen ist während des Monitorings nicht notwendig.
 Die VMR benötigt keinen internen Ereignismechanismus und kann in dieser Phase direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
-Wurde beispielsweise die Variable ```NC_Program_Status``` aktualisiert, werden alle darunter organisierten Variablen vom Typ ```PhysicalConditionType``` im Modell lokalisiert.
-In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist ```StopCondition``` die gesuchte.
-Stimmt der Wert der Bedingung (im Beispiel _Stop_) mit dem neuen Wert überein wird eine Veränderungsanfrage (Change Request) bezüglich der Bedingung an die Planungsphase übergeben.
+Wurde beispielsweise die Variable `NC_Program_Status` aktualisiert, werden alle darunter organisierten Variablen vom Typ `PhysicalConditionType` im Modell lokalisiert.
+In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist `StopCondition` die gesuchte.
+Stimmt der Wert der Bedingung (im Beispiel "Stop") mit dem neuen Wert überein wird eine Veränderungsanfrage (Change Request) bezüglich der Bedingung an die Planungsphase übergeben.
 Die Übereinstimmung, festgestellt in der Analyse, ist nicht auf die Gleichheit der Werte beschränkt.
 Mit Verwendung beliebiger Variablentypen der UA-Spezifikation, können numerische Werte, Zeichenketten und strukturelle Attribute wie Wertebereiche oder Zeitstempel verglichen werden.  
-So kann MAPE-K beispielsweise die Temperatur eines Werkzeugs für normalen Betrieb und Störfall unterscheiden, indem die Wertebereiche (UA-Datentyp _Range_) in entsprechenden ```PhysicalConditionType```-Variablen festgehalten werden.
-Eine Veränderungsanfrage beinhaltet die geltende Bedingung, durch die wiederum ```HasPhysicalAction```-Referenzen auf UA-Methoden verweisen (vgl. @sec:modellierung-der-anlagenstruktur).
+So kann MAPE-K beispielsweise die Temperatur eines Werkzeugs für normalen Betrieb und Störfall unterscheiden, indem die Wertebereiche (UA-Datentyp Range) in entsprechenden `PhysicalConditionType`-Variablen festgehalten werden.
+Eine Veränderungsanfrage beinhaltet die geltende Bedingung, durch die wiederum `HasPhysicalAction`-Referenzen auf UA-Methoden verweisen (vgl. @sec:modellierung-der-anlagenstruktur).
 In der Planung werden diese Referenzen aufgelöst und sich dahinter verbergenden UA-Methoden an die Ausführungsphase übergeben.
 Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsmodell mit dem Zustand der Anlage und den ECA-Regeln genutzt (vgl. @sec:modellierung-der-anlagenstruktur).
 
@@ -1113,7 +1114,7 @@ Es zeichnet sich durch externe Schnittstellen, Variabilität und -erweiterbarkei
 Die übergeordnete Architektur, respektive die Komposition und Interaktion der Bausteine, ist vordefiniert und wird nicht verändert.
 Auf der anderen Seite stehen Aspekte der spezifischen Anwendungsdomäne die bei dem Entwurf einer Software nicht antizipiert werden können und an das Framework in Form von Zusatzmodulen anzubinden sind (vgl. zu diesem Absatz @Pree1994).
 
-Zur besseren Unterscheidbarkeit werden in diesem Abschnitt Instanzen _kursiv_ und Informationsmodellelemente ```nichtproportional``` formatiert.
+Zur besseren Unterscheidbarkeit werden in diesem Abschnitt Instanzen _kursiv_ und Informationsmodellelemente `nichtproportional` formatiert.
 In den Sequenzdiagrammen sind die Instanzen von Komponenten rechteckig und Erweiterungspunkte, beziehungsweise Entitäten als Kreis dargestellt.
 
 ### Logische Architektur
@@ -1134,7 +1135,7 @@ Auf dieser Schicht implementieren cyber-physische Adapter (CPA) die Anbindung an
 Sie erfassen den physischen Kontext, vermitteln Manipulation und stellen die Daten der Maschine für die Modellkontrolle bereit.
 Durch die Heterogenität der Schnittstellen von Steuerungs- und Datenerfassungshardware müssen Adapter an das Framework gebunden werden können.
 Ob Direct Numerical Control (DNC), IO-Link oder einfach Sensorik (vgl. @sec:kommunikationssysteme), wie schon bei Ferrolho et al. muss das jeweilige System gekapselt werden. [@Ferrolho2005;@Ferrolho2007].
-Diese Protokollkapselung, in @fig:framework ein _Relay Aktuator_, implementieren den Erweiterungspunkt des jeweiligen Signaltyps des CPA.
+Diese Protokollkapselung, in @fig:framework ein _Relay Actuator_, implementieren den Erweiterungspunkt des jeweiligen Signaltyps des CPA.
 Neben der Software kann ein CPA zusätzliche Hardware benötigen.
 
 ##### Processing. 
@@ -1144,15 +1145,15 @@ Jede von den CPA kommunizierte Veränderung wird hier in das OPC UA (UA) Informa
 Wird eine UA-Methode aufgerufen, delegiert Model Control dies an die jeweilige Implementierung.
 Die Implementierung des Erweiterungspunkts Equipment erlaubt die Abbildung der Logik einer automatisierten Maschinenkomponente.
 Sie beschreibt deren Methoden und Variablen und besteht aus einer oder mehreren Protokollkapselungen der Interface-Ebene.
-Im Beispiel der @fig:framework ist _Physical Loading Door_ die Instanz des Abbilds der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (_Relay Actuator_) für den Schließmechanismus ```Door_Lock``` (vgl. [@fig:opc4factory;@fig:opcua-cpps] in @sec:modellierung-der-anlagenstruktur).
+Im Beispiel der @fig:framework ist _Physical Loading Door_ die Instanz des Abbilds der Ladetür einer Maschine und besteht aus einem digital angebundenen Relais (_Relay Actuator_) für den Schließmechanismus `Door_Lock` (vgl. [@fig:opc4factory;@fig:opcua-cpps] in @sec:modellierung-der-anlagenstruktur).
 Die Model Control ist außerdem verantwortlich für die Initialisierung der VMR.
 Sie verbindet beim Start die in der Implementierung des Abbilds gekennzeichneten Variablen und Methoden mit dem Laufzeitmodell.
 Welche Implementierung für das Abbild geladen wird, beschreiben die Erweiterungen OPC4Factory und CPPS (vgl. @fig:opc4factory in @sec:modellierung-der-anlagenstruktur) im Informationsmodell.
-Wird im Modell der Maschine beispielsweise eine Instanz eines ```PhysicalLoadingDoorType``` gefunden, lädt Model Control die Implementierung dieses Typs und initialisiert sie mit den Informationen des ```ConnectionIdentifier``` von ```PhysicalConnectionType``` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur).
+Wird im Modell der Maschine beispielsweise eine Instanz eines `PhysicalLoadingDoorType` gefunden, lädt Model Control die Implementierung dieses Typs und initialisiert sie mit den Informationen des `ConnectionIdentifier` von `PhysicalConnectionType` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur).
 Die Verknüpfung zwischen Implementierung und Modelldefinition kann durch Namenskonvention oder Annotationen in der jeweiligen Programmiersprache erfolgen.  
 Für die Rückkopplung ist Feedback Control verantwortlich.
 Beim Initialisieren des Modells werden die Variablen der Abbilder von Maschinenkomponenten an die Implementierungen von Equipment gebunden.
-Für jede Variable überprüft Feedback Control die Existenz von Instanzen des ```PhysicalConditionType``` und evaluiert die Bedingung (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
+Für jede Variable überprüft Feedback Control die Existenz von Instanzen des `PhysicalConditionType` und evaluiert die Bedingung (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
 Jede Wertänderung löst eine Iteration der MAPE-K Kontrollschleife aus und führt schlussendlich zur Ausführung einer oder mehrerer UA-Methoden.
 
 ##### Communication.
@@ -1184,8 +1185,8 @@ Danach werden die cyber-physischen Adapter (CPA) instantiiert und etwaige Hardwa
 Der UA-Server kreiert den Adressraum (3), respektive das Laufzeitmodell der VMR, und lädt die Modelle (4).
 Ist das Informationsmodell vollständig geladen, sendet der Server das entsprechende Signal (5) und die Model Control sucht nach dem für die Anlage definierten Equipment (5.1).
 Für jede im Informationsmodell gefundene, automatisierte Werkzeugkomponente wird nun die Implementierung gesucht (5.3).
-Dem bereits angesprochenen Beispiel einer Ladetür (_Physical Loading Door_, vgl. @fig:framework in @sec:logische-architektur) ist wenigstens ein Relais (_Relay Actuator_) für den Schließmechanismus ```Door_Lock``` untergeordnet.
-Diese Ausprägungen des ```PhysicalConnectionType``` halten die Informationen zur Instanziierung der Implementierung in einem ```ConnectionIdentifier```-Attribut und werden aus dem Modell geladen (5.4, vgl. @sec:modellierung-der-anlagenstruktur).
+Dem bereits angesprochenen Beispiel einer Ladetür (_Physical Loading Door_, vgl. @fig:framework in @sec:logische-architektur) ist wenigstens ein Relais (_Relay Actuator_) für den Schließmechanismus `Door_Lock` untergeordnet.
+Diese Ausprägungen des `PhysicalConnectionType` halten die Informationen zur Instanziierung der Implementierung in einem `ConnectionIdentifier`-Attribut und werden aus dem Modell geladen (5.4, vgl. @sec:modellierung-der-anlagenstruktur).
 Nun kann _Physical Loading Door_ geladen und dessen Logik, respektive Variablen und Methoden, an den UA-Server gebunden werden (5.6).
 Für die horizontale Integration der VMR muss sich der Server mit einem der in @sec:horizontale-integration vorgestellen Discovery-Mechanismen in das Produktionssystem eingliedern.
 
@@ -1196,8 +1197,8 @@ Dafür nimmt der UA-Server die Anfrage des jeweiligen Clients entgegen und leite
 Das Beispiel der Ladetür mit einem Relais für den Schließmechanismus ist in @fig:methodendelegation (1) dargestellt.
 Daraufhin wird die mit der Methode gebundene Implementation der automatisierten Werkzeugkomponente identifiziert (1.1).
 Ein Zuordnung dieser Art kann durch Maps, also Listen von Schlüssel-Wert-Paaren oder das Beobachter-Muster (Observer) umgesetzt werden.
-Im Beispiel delegiert Model Control den Aufruf an _Physical Loading Door_ -- Instanz des ```PhysicalLoadingDoorType``` (1.2).
-Diese führt die Logik zum Schließen des Relais aus (1.2.1), wobei die physische Adresse des Aktuators aus dem ```ConnectionIdentifier``` des Informationsmodells stammt (vgl. @sec:modellierung-der-anlagenstruktur).
+Im Beispiel delegiert Model Control den Aufruf an _Physical Loading Door_ -- Instanz des `PhysicalLoadingDoorType` (1.2).
+Diese führt die Logik zum Schließen des Relais aus (1.2.1), wobei die physische Adresse des Aktuators aus dem `ConnectionIdentifier` des Informationsmodells stammt (vgl. @sec:modellierung-der-anlagenstruktur).
 Ein cyber-physischer Adapter (CPA) übermittel ein digitales Signal (1.2.1.1) an die Instanz der _Relay Actuator_-Erweiterung des digital I/O, der Teil des Equipments ist (vgl. @fig:framework).
 Mit dem Methodenaufruf der _Physical Loading Door_ an die CPA lässt sich die physische Umsetzung nicht verifizieren, da der _Relay Actuator_ keine Bestätigung der Aktion zurückgibt.
 Das Prüfen der Wirkung dieser asynchronen Methoden muss durch cyber-physische Rückkopplung geschehen (vgl. @sec:cyber-physische-rückkopplung).
@@ -1221,12 +1222,12 @@ Eine optionale Verarbeitungslogik innerhalb der _Physical Loading Door_ nach 1.3
 Nicht zuletzt wegen der asynchronen Befehle an Aktuatoren hinter der CPA, muss Rückkopplung gewährleistet werden (vgl. @sec:cyber-physische-rückkopplung).
 Beispielsweise kann die Interaktion zwischen einer Ladetür und der numerischen Steuerung abgebildet werden.
 Dafür notwendige Regeln werden in imperativer Form im Informationsmodell hinterlegt (vgl. @sec:modellierung-der-anlagenstruktur) und zur Laufzeit von der Feedback Control evaluiert.
-Wird eine Variable wie ```NC_Program_Status``` geändert, zum Beispiel weil die CNC-Werkzeugmaschine den Fertigungsschritt abgeschlossen hat, beginnt die Feedback Control die Analyse der MAPE-K-Schleife (vgl. @fig:feedback, 1).
-Nach dem Einholen der Instanzen des ```PhysicalConditionType``` im Laufzeitmodell (1.1), wird der Wert dieser gelesen und mit dem der Variable verglichen (1.3).
-So würde das Ende der CNC-Operation durch den Wert "Stop" in ```NC_Program_Status``` angezeigt.
-Dieser Wert entspricht nun dem der ```StopCondition```, wodurch die Bedingung erfüllt ist (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
-Die Feedback Control holt sich dann die Methoden hinter der ```HasPhysicalAction```-Referenz im Laufzeitmodell (1.4) und überlässt der Model Control die Ausführung (1.6).
-Im Beispiel würde die ```Open_Door```-Methode aufgerufen, womit die Ladetür nach abgeschlossener Fertigung geöffnet wird.
+Wird eine Variable wie `NC_Program_Status` geändert, zum Beispiel weil die CNC-Werkzeugmaschine den Fertigungsschritt abgeschlossen hat, beginnt die Feedback Control die Analyse der MAPE-K-Schleife (vgl. @fig:feedback, 1).
+Nach dem Einholen der Instanzen des `PhysicalConditionType` im Laufzeitmodell (1.1), wird der Wert dieser gelesen und mit dem der Variable verglichen (1.3).
+So würde das Ende der CNC-Operation durch den Wert "Stop" in `NC_Program_Status` angezeigt.
+Dieser Wert entspricht nun dem der `StopCondition`, wodurch die Bedingung erfüllt ist (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
+Die Feedback Control holt sich dann die Methoden hinter der `HasPhysicalAction`-Referenz im Laufzeitmodell (1.4) und überlässt der Model Control die Ausführung (1.6).
+Im Beispiel würde die `Open_Door`-Methode aufgerufen, womit die Ladetür nach abgeschlossener Fertigung geöffnet wird.
 
 ![Cyber-physische Rückkopplung im Framework](figures/feedback){#fig:feedback}
 
@@ -1265,7 +1266,7 @@ These/Behauptung?
 * Steigerung des Automatisierungsgrads durch Feedback Loop
 * physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
     - "Echtzeitanalyse" durch Werker auch entfernt mgl.
-* Laufzeitmodell für _online_-Monitoring
+* Laufzeitmodell für online-Monitoring
 
 Umsetzung?
 
@@ -1294,7 +1295,7 @@ Blocking Factors/mögliche Kritik?
 * Leistung von embedded computing devices => siehe @Grigoriev2016
 * Pi hat Grenzen bei CNC => Smoothieboard
 * Smoothieboard als Maschinen-Adapter
-    - Nachteil: Beobachten des Prozessfortschritts langsam (_progress_) => kann nicht in online-FB einbezogen werden
+    - Nachteil: Beobachten des Prozessfortschritts langsam (progress) => kann nicht in online-FB einbezogen werden
 * Industriekomponenten nicht mit Smoothieboard vergleichbar 
 * Energieverbrauch?
 * RAMI4.0-Konformität
@@ -1320,7 +1321,7 @@ Blocking Factors/mögliche Kritik?
 * TSN Ethernet trägt RT vertikal nach oben
 * Nutzungsschnittstellen (Unified Automation Android App)
 * Wise-ShopFloor mit OPC UA horizontal integrieren
-* Steuerungsalternative OPC UA _Programs_ (@OPCFoundation2014)
+* Steuerungsalternative OPC UA Programs (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
 * MDSD mit @Pauker2016
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
