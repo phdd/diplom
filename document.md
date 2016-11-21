@@ -1230,13 +1230,13 @@ Im Beispiel würde die ```Open_Door```-Methode aufgerufen, womit die Ladetür na
 
 ![Cyber-physische Rückkopplung im Framework](figures/feedback){#fig:feedback}
 
-### Organisation
+### Organisation und Verteilung
 
+Die interne Organisation der Komponenten des Frameworks wurde in @sec:logische-architektur besprochen ...
 
+![Organisation des Frameworks](figures/organisation){#fig:organisation}
 
-### Verteilung
-
-<!-- TODO: Sicht erklären -->
+![Verteilung des Frameworks](figures/verteilung){#fig:verteilung}
 
 # Implementation
 
