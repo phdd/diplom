@@ -1194,7 +1194,7 @@ Daraufhin wird die mit der Methode gebundene Implementation der automatisierten 
 Ein Zuordnung dieser Art kann durch Maps, also Listen von Schlüssel-Wert-Paaren oder das Beobachter-Muster (Observer) umgesetzt werden.
 Im Beispiel delegiert Model Control den Aufruf an _Physical Loading Door_ -- Instanz des ```PhysicalLoadingDoorType``` (1.2).
 Diese führt die Logik zum Schließen des Relais aus (1.2.1), wobei die physische Adresse des Aktuators aus dem ```ConnectionIdentifier``` des Informationsmodells stammt (vgl. @sec:modellierung-der-anlagenstruktur).
-Ein cyber-physischer Adapter (CPA) übermittel ein binäres Signal (1.2.1.1) an die Instanz der _Relay Actuator_-Erweiterung des digital I/O, der Teil des Equipments ist (vgl. @fig:framework).
+Ein cyber-physischer Adapter (CPA) übermittel ein digitales Signal (1.2.1.1) an die Instanz der _Relay Actuator_-Erweiterung des digital I/O, der Teil des Equipments ist (vgl. @fig:framework).
 Mit dem Methodenaufruf der _Physical Loading Door_ an die CPA lässt sich die physische Umsetzung nicht verifizieren, da der _Relay Actuator_ keine Bestätigung der Aktion zurückgibt.
 Das Prüfen der Wirkung dieser asynchronen Methoden muss durch cyber-physische Rückkopplung geschehen (vgl. @sec:cyber-physische-rückkopplung).
 
@@ -1204,27 +1204,27 @@ Das Prüfen der Wirkung dieser asynchronen Methoden muss durch cyber-physische R
 
 Mit der VMR verbundene UA-Clients können den physischen Zustand der VMR einsehen.
 Dieser wird durch Variablen repräsentiert, die stetig im Laufzeitmodell aktualisiert werden (vgl. @sec:laufzeitmodell).
-In @fig:kontextveränderung ist die Aktualisierung eines Kontaktsensors als Teil der Ladetür einer Anlage beschrieben.
-Der _Contact Sensor_ sendet die Veränderung seines Zustands binär an die CPA (1).
+In @fig:context-update ist die Aktualisierung eines Kontaktsensors als Teil der Ladetür einer Anlage beschrieben.
+Der _Contact Sensor_ sendet die Veränderung seines Zustands digital an die CPA (1).
 Sie fragt bei der Model Control nach der für die Adresse des Sensors zuständigen Implementierung (1.1) und vermittelt den neuen Status an die Instanz des Equipments (1.3).
 Die _Physical Loading Door_ gibt die Veränderung der Variable an Model Control zurück (1.3.1), die das Model schlussendlich aktualisiert (1.3.1.1).
 Eine optionale Verarbeitungslogik innerhalb der _Physical Loading Door_ nach 1.3 ist in diesem Diagramm nicht dargestellt.
 
-![Kontextveränderungen im Framework](figures/kontextveränderung){#fig:kontextveränderung}
+![Kontextveränderungen im Framework](figures/context-update){#fig:context-update}
 
 ##### Rückkopplung.
 
 Nicht zuletzt wegen der asynchronen Befehle an Aktuatoren hinter der CPA, muss Rückkopplung gewährleistet werden (vgl. @sec:cyber-physische-rückkopplung).
 Beispielsweise kann die Interaktion zwischen einer Ladetür und der numerischen Steuerung abgebildet werden.
 Dafür notwendige Regeln werden in imperativer Form im Informationsmodell hinterlegt (vgl. @sec:modellierung-der-anlagenstruktur) und zur Laufzeit von der Feedback Control evaluiert.
-Wird eine Variable wie ```NC_Program_Status``` geändert, zum Beispiel weil die CNC-Werkzeugmaschine den Fertigungsschritt abgeschlossen hat, beginnt die Feedback Control die Analyse der MAPE-K-Schleife (vgl. @fig:rückkopplung, 1).
+Wird eine Variable wie ```NC_Program_Status``` geändert, zum Beispiel weil die CNC-Werkzeugmaschine den Fertigungsschritt abgeschlossen hat, beginnt die Feedback Control die Analyse der MAPE-K-Schleife (vgl. @fig:feedback, 1).
 Nach dem Einholen der Instanzen des ```PhysicalConditionType``` im Laufzeitmodell (1.1), wird der Wert dieser gelesen und mit dem der Variable verglichen (1.3).
 So würde das Ende der CNC-Operation durch den Wert "Stop" in ```NC_Program_Status``` angezeigt.
 Dieser Wert entspricht nun dem der ```StopCondition```, wodurch die Bedingung erfüllt ist (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
 Die Feedback Control holt sich dann die Methoden hinter der ```HasPhysicalAction```-Referenz im Laufzeitmodell (1.4) und überlässt der Model Control die Ausführung (1.6).
 Im Beispiel würde die ```Open_Door```-Methode aufgerufen, womit die Ladetür nach abgeschlossener Fertigung geöffnet wird.
 
-![Cyber-physische Rückkopplung im Framework](figures/rückkopplung){#fig:rückkopplung}
+![Cyber-physische Rückkopplung im Framework](figures/feedback){#fig:feedback}
 
 ### Organisation
 
