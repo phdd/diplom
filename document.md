@@ -806,7 +806,7 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 
 Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen und Konzepten aus @sec:forschungsstand.
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
-Die verschiedenen Perspektiven auf den Entwurf werden durch das 4+1 Software-Architekturmodell nach Kruchten gegliedert @Kruchten1995.
+Die verschiedenen Perspektiven auf den Entwurf sind an das 4+1 Software-Architekturmodell nach Kruchten angelehnt @Kruchten1995.
 Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten und damit den Schwerpunkt des hier vorgestellten Designs.
 Das Informations- und Kommunikationsmodell der VMR mit OPC UA ergänzt die Anlage um eine in der Industrie etablierte, semantische Schnittstelle.
 Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
@@ -1107,7 +1107,7 @@ Als Wissensbasis für die einzelnen Schritte der Schleife wird das Informationsm
 
 ## Softwareframework
 
-In diesem Kapitel wird das besprochene Konzept der virtuellen Maschinenrepräsentation (VMR) in einem Software-Framework umgesetzt, welches die Remote Terminal Unit von Moctezuma et al. implementiert @Moctezuma2012.
+In diesem Kapitel wird das besprochene Konzept der virtuellen Maschinenrepräsentation in einem Software-Framework umgesetzt, welches die Remote Terminal Unit von Moctezuma et al. implementiert @Moctezuma2012.
 Ein Framework ist ein komplexes Software-System, welches sich Konzepten der Vererbung objektorientierter Programmierung und dynamischen Bindens von Bausteinen bedient.
 Es zeichnet sich durch externe Schnittstellen, Variabilität und -erweiterbarkeit aus und besteht aus abgeschlossenen und halbfertigen Elementen.
 Die übergeordnete Architektur, respektive die Komposition und Interaktion der Bausteine, ist vordefiniert und wird nicht verändert.
@@ -1118,7 +1118,7 @@ In den Sequenzdiagrammen sind die Instanzen von Komponenten rechteckig und Erwei
 
 ### Logische Architektur
 
-Die abgeschlossene drei-Schicht-Architektur des VMR-Frameworks ist in @fig:framework dargestellt.
+Die abgeschlossene drei-Schicht-Architektur des Frameworks der virtuellen Maschinenrepräsentation (VMR) ist in @fig:framework dargestellt.
 Auf der Smart Connection, beziehungsweise Interface Ebene, wird der Signalaustausch mit der Altanlage vermittelt und eine einheitliche Schnittstelle bereitgestellt (vlg. @sec:anlagenanbindung).
 Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
 Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkontrollkomponente konsumiert, prozessiert und produziert (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
@@ -1169,6 +1169,10 @@ Mit dem binären Transportprotokoll der UA kommuniziert der Server die von Model
 [^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
 
 ### Verhalten zur Laufzeit
+
+Die logische Architektur vorausgesetzt, beschreibt dieser Abschnitt das Verhalten der virtuellen Maschinenrepräsentation (VMR) zur Laufzeit.
+Interaktion und Kommunikation in den auftretenden Situationen werden durch Sequenzdiagramme veranschaulicht.
+Es wird angenommen, dass die VMR in ein Netzwerk integriert ist und uneingeschränkt mit UA-Clients kommunizieren kann.
 
 ##### Initialisierung
 
@@ -1228,7 +1232,7 @@ Im Beispiel würde die ```Open_Door```-Methode aufgerufen, womit die Ladetür na
 
 ### Organisation
 
-<!-- TODO: Sicht erklären -->
+
 
 ### Verteilung
 
