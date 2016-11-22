@@ -1138,7 +1138,7 @@ Sie erfassen den physischen Kontext, vermitteln Manipulation und stellen die Dat
 Durch die Heterogenität der Schnittstellen von Steuerungs- und Datenerfassungshardware müssen Adapter an das Framework gebunden werden können.
 Ob Direct Numerical Control (DNC), IO-Link oder einfach Sensorik (vgl. @sec:kommunikationssysteme), wie schon bei Ferrolho et al. muss das jeweilige System gekapselt werden. [@Ferrolho2005;@Ferrolho2007].
 Diese Protokollkapselung, in @fig:framework ein _Relay Actuator_, implementieren den Erweiterungspunkt des jeweiligen Signaltyps des CPA.
-Neben der Software kann ein CPA zusätzliche Hardware benötigen.
+Neben der Software benötigt ein CPA zusätzliche Hardware und die entsprechende Anbindung durch Softwarebibliotheken der Ausführungsplattform.
 
 ##### Processing. 
 
@@ -1235,11 +1235,25 @@ Im Beispiel würde die `Open_Door`-Methode aufgerufen, womit die Ladetür nach a
 
 ### Organisation und Verteilung
 
-Die interne Organisation der Komponenten des Frameworks wurde in @sec:logische-architektur besprochen ...
+Die interne Organisation der Komponenten des Frameworks wurde in @sec:logische-architektur besprochen.
+In diesem Abschnitt wird beschrieben, wie die Komponenten seitens der Softwarestruktur organisiert sind.
+Außerdem wird die Verteilung der Soft- und Hardware-Elemente des Frameworks diskutiert.
 
 ![Organisation des Frameworks](figures/organisation){#fig:organisation}
 
+Grundsätzlich bestehen die Komponenten aus Klassen einer objektorientierten Programmiersprache, die auf mehrere Pakete aufgeteilt sind, dargestellt in @fig:organisation.
+Das Framework der VMR, als oberstes Hierarchieelement, beinhaltet die Schichten Communication, Processing und Interface.
+Erstere, zuständig für die Kommunikation mit anderen Anlagen und Nutzungsschnittstellen auf Feldebene, benötigt eine Implementierung der UA-Spezifikation Data Access (OPC UA Part 8[^opcua8]) und des binären Transportprotokolls.
+Zur Anbindung von Variablen und Methoden ist sie abhängig von der Processing-Schicht, die deren strukturelle und logische Beschreibung, beziehungsweise Implementierung, kapselt.
+Für diesen Erweiterungspunkt existiert eine dedizierte Softwarebibliothek, in @fig:organisation "Equipment Extensions" genannt, die die Implementierungen (z.B. _Physical Loading Door_) der UA-Objecttypen (z.B. `PhysicalLoadingDoorType`) beinhaltet.
+Das Equipment (z.B. _Physical Loading Door_) besteht aus Sensoren (z.B. _Contact Sensor_) und Aktuatoren (z.B. _Relay Actuator_), die in der Bibliothek "CPA Extensions" abgelegt werden.
+Da cyber-physische Adapter (CPA) zusätzliche Hardware benötigen, existiert eine Abhängigkeit zu den jeweiligen Bibliotheken im Paket "Hardware Bindings".
+
 ![Verteilung des Frameworks](figures/verteilung){#fig:verteilung}
+
+
+
+[^opcua8]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-8-data-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-8-data-access) (abgerufen am 22.11.2016)
 
 # Implementation
 
