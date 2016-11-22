@@ -1,6 +1,6 @@
 _ = require 'lodash'
 opcua = require 'node-opcua'
-SmoothieboardActuator = require '../cps/SmoothieboardActuator'
+SmoothieboardActuator = require '../interface/SmoothieboardActuator'
 
 class PhysicalNCType
 

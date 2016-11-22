@@ -1,4 +1,4 @@
-ButtonSensor = require '../cps/ButtonSensor'
+ButtonSensor = require '../interface/ButtonSensor'
 
 class PhysicalKillSwitchType
 

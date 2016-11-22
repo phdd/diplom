@@ -1,4 +1,4 @@
-RelayActuator = require '../cps/RelayActuator'
+RelayActuator = require '../interface/RelayActuator'
 
 class PhysicalLoadingDoorType
 

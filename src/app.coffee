@@ -1,12 +1,12 @@
 path = require 'path'
-cpps = require './cpps'
+equipment = require './equipment'
 opcua = require 'node-opcua'
 watch = require('watchjs').watch
 GrovePi = require('node-grovepi').GrovePi
 debug = require('debug')('cps:surrogate')
 argv = require('minimist')(process.argv.slice 2)
 
-if not argv.objectModel? then throw Error '--objectModel=<path> missing'
+if not argv.machineDefinition? then throw Error '--machineDefinition=<path> missing'
 
 global.log = console.log
 console.log = require('debug')('console:log')
@@ -36,7 +36,7 @@ server = new opcua.OPCUAServer
     opcua.standard_nodeset_file
     path.join __dirname, 'res/nodesets/opc4factory.xml'
     path.join __dirname, 'res/nodesets/cpps.xml'
-    argv.objectModel ]
+    argv.machineDefinition ]
 
 addressSpace = null
 physicalConnections = []
@@ -132,7 +132,7 @@ bindTo = (object) ->
     return
 
   try
-    object.instance = new cpps[typeName](connections)
+    object.instance = new equipment[typeName](connections)
 
     if not variablesOf(object.instance).isEmpty() then bindVariablesTo object
     if not methodsOf(object.instance).isEmpty()   then   bindMethodsTo object
@@ -154,7 +154,7 @@ server.on 'post_initialize', ->
     do (connection) ->
       if connection.nodeId.namespace is nsObjects then physicalConnections.push connection
 
-  for objectType of cpps
+  for objectType of equipment
     do (objectType) ->
       objects = findObjectsTyped objectType, nsCpps
 

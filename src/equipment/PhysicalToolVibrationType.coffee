@@ -1,4 +1,4 @@
-AccelerationSensor = require '../cps/AccelerationSensor'
+AccelerationSensor = require '../interface/AccelerationSensor'
 
 class PhysicalToolVibrationType
 

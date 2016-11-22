@@ -1,4 +1,4 @@
-debug = require('debug')('cps:ButtonSensor')
+debug = require('debug')('interface:ButtonSensor')
 DigitalSensor = require('node-grovepi').GrovePi.sensors.base.Digital
 
 class ButtonSensor extends DigitalSensor

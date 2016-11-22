@@ -1,4 +1,4 @@
-TemperatureHumiditySensor = require '../cps/TemperatureHumiditySensor'
+TemperatureHumiditySensor = require '../interface/TemperatureHumiditySensor'
 
 class PhysicalToolTemperatureType
 

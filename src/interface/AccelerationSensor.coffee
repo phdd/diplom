@@ -1,4 +1,4 @@
-debug = require('debug')('cps:AccelerationSensor')
+debug = require('debug')('interface:AccelerationSensor')
 AccelerationI2C = require('node-grovepi').GrovePi.sensors.AccelerationI2C
 
 class AccelerationSensor extends AccelerationI2C

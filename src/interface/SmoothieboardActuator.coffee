@@ -1,8 +1,8 @@
 _ = require 'lodash'
-debug = require('debug')('cps:SmoothieboardActuator')
-SerialActuator = require './SerialActuator'
+debug = require('debug')('interface:SmoothieboardActuator')
+SerialPort = require './SerialPort'
 
-class SmoothieboardActuator extends SerialActuator
+class SmoothieboardActuator extends SerialPort
 
   constructor: (port = '/dev/ttyACM0') ->
     super port

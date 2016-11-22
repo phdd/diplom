@@ -20,9 +20,9 @@ Software you need is
 ## Build and run
 
 1. install all dependencies and build the VMR ```npm install```
-2. run the VMR with ```node dist/app.js --objectModel=objects.xml```
+2. run the VMR with ```node dist/app.js --machineDefinition=objects.xml```
 
-_Objects.xml_ contains the OPC UA information model you may replace with your own. Prefix the run command for debug output with ```DEBUG=cps:*```
+_Objects.xml_ contains the OPC UA information model for the machine definition you may replace with your own. Prefix the run command for debug output with ```DEBUG=cps:*```
 
 # License
 

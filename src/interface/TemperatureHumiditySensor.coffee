@@ -1,4 +1,4 @@
-debug = require('debug')('cps:TemperatureHumiditySensor')
+debug = require('debug')('interface:TemperatureHumiditySensor')
 DHTDigital = require('node-grovepi').GrovePi.sensors.DHTDigital
 
 class TemperatureHumiditySensor extends DHTDigital

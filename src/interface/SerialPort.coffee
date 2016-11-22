@@ -1,12 +1,12 @@
 _ = require 'lodash'
 fs = require 'fs'
-debug = require('debug')('cps:serial')
-SerialPort = require 'serialport'
+debug = require('debug')('interface:SerialPort')
+Serial = require 'serialport'
 
 stringFrom = (s) -> '' + s
 newline = '\n'
 
-class SerialActuator
+class SerialPort
 
   _serial: null
   _commands: []
@@ -16,8 +16,8 @@ class SerialActuator
     if not fs.existsSync(port)
       return debug "#{port} not available"
 
-    @_serial = new SerialPort port,
-      parser: SerialPort.parsers.readline newline
+    @_serial = new Serial port,
+      parser: Serial.parsers.readline newline
 
     @_commands = []
     @_results  = []
@@ -40,4 +40,4 @@ class SerialActuator
       .map (c) => @_commands.push c
 
 #noinspection JSUnresolvedVariable
-module.exports = SerialActuator
+module.exports = SerialPort
