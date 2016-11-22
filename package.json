@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "node dist/app.js --objectModel=objects.xml",
-    "test": "./node_modules/.bin/mocha --reporter spec --compilers coffee:coffee-script/register",
+    "test": "./node_modules/.bin/mocha --recursive --reporter spec --compilers coffee:coffee-script/register",
     "postinstall": "grunt"
   }
 }

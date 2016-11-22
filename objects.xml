@@ -17,7 +17,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="hfm2y8U3YRQz9MjBQL2Qww==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="nEH3JR70hrSo98CvaIClQw==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5002" BrowseName="1:MillingMachine">
@@ -66,9 +66,6 @@
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
         </References>
-        <Value>
-            <uax:Boolean>false</uax:Boolean>
-        </Value>
     </UAVariable>
     <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6010" BrowseName="2:Kill_Switch_Triggered" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>Kill_Switch_Triggered</DisplayName>
@@ -118,10 +115,21 @@
         <Description>may be "open", "closed" or "undefined"</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6019</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" NodeId="ns=1;i=6019" BrowseName="1:ClosedCondition" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>ClosedCondition</DisplayName>
+        <References>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6013</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
+        </References>
+        <Value>
+            <uax:String>Closed</uax:String>
         </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5006" BrowseName="3:DoorLock">
