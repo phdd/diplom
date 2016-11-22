@@ -1245,13 +1245,13 @@ Das Framework der virtuellen Maschinenrepräsentation (VMR), als oberstes Hierar
 Erstere, zuständig für die Kommunikation mit anderen Anlagen und Nutzungsschnittstellen auf Feldebene, benötigt eine Implementierung der UA-Spezifikation Data Access (OPC UA Part 8[^opcua8]) und des binären Transportprotokolls.
 Zur Anbindung von Variablen und Methoden ist sie abhängig von der Processing-Schicht, die deren strukturelle und logische Beschreibung, beziehungsweise Implementierung, kapselt.
 Für dessen Erweiterungspunkt existiert eine dedizierte Softwarebibliothek, in @fig:organisation "Equipment Extensions" genannt, die die Implementierungen (_Physical Loading Door_) der UA-Objecttypen (`PhysicalLoadingDoorType`) beinhaltet.
-Das Equipment (_Physical Loading Door_) besteht aus Sensoren (_Contact Sensor_) und Aktuatoren (_Relay Actuator_), die in der Bibliothek "CPA Extensions" abgelegt werden.
+Das Equipment (_Physical Loading Door_) besteht aus Sensoren (_Contact Sensor_) und Aktuatoren (_Relay Actuator_), die in der Bibliothek "Interface Extensions" abgelegt werden.
 Da cyber-physische Adapter (CPA) zusätzliche Hardware benötigen, existiert eine Abhängigkeit zu den jeweiligen Bibliotheken im Paket "Hardware Bindings".
 Die Klassen des Equipments benamen Methoden und Variablen durch Konvention nach denen des Informationsmodells.
 Gleiches gilt für die Namen der Klassen selbst.
 Beinhaltet beispielsweise die Instanz (`Loading_Door`) einer Ladetür (`PhysicalLoadingDoorType`) laut Modell die Methode `Open_Door`, besitzt die Klasse "PhysicalLoadingDoorType" deren gleichnamige Implementierung.  
 Eine gesonderte Rolle spielen die Pakete des Stereotyps "testSuite".
-Sie beinhalten Unit-Testfälle für die Equipment- und CPA-Implementierungen und verifizieren deren Funktionalität.
+Sie beinhalten Unit-Testfälle für die Equipment- und Interface-Implementierungen und verifizieren deren Funktionalität.
 Während diese nur bestimmte Teile des Frameworks überprüfen, bieten Integrationstests einen vertikalen Durchstich.
 Mit der Implementierung eines UA-Clients können sie zur VMR verbinden und das korrekte Zusammenspiel von Methodenaufrufen, Kontextveränderungen und Rückkopplung im Bezug auf ein ganzheitliches Anlagenmodell testen.
 
@@ -1269,7 +1269,7 @@ Diese bieten die Schnittstellen für Sensoren, Aktuatoren oder andere Geräte mi
 Die VMR wird auf dem Einplatinencomputer gespeichert und ist auf eine Anlagendefinition angewiesen.
 Für die Ausführung wird eine, der Implementierung entsprechende Laufzeitumgebung vorausgesetzt.
 Das Anlagenmodell ist, je nach verwendeten Typen automatisierter Werkzeugkomponenten (`PhysicalLoadingDoorType`), abhängig von den Implementierungen des Equipments.
-Letzteres ist wiederum auf die jeweiligen CPA-Erweiterungen angewiesen.
+Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
 
 [^opcua8]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-8-data-access](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-8-data-access) (abgerufen am 22.11.2016)
 
@@ -1290,6 +1290,10 @@ Letzteres ist wiederum auf die jeweiligen CPA-Erweiterungen angewiesen.
 * Node.js als Application Framework
     - node-opcua Stackimplementierung => noch kein WS-Transport
     - node-grovepi Framework für GrovePi
+
+## Erweiterungspunkt -- Processing
+
+## Erweiterungspunkt -- Interface
 
 ## Testsuite
 
