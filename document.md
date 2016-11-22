@@ -79,7 +79,7 @@ Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine k
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
     - adaptive Reaktion auf Zustandsänderung durch Rückkopplung.
-5. Vorstellung eines skalierenden, erweiterbaren Frameworks.
+5. Vorstellung eines skalierenden, erweiterbaren Frameworks für die softwaretechnologische Seite der virtuellen Repräsentation. 
 6. Eine prototypische Implementierung belegt die prinzipielle Durchführbarkeit.
 
 **Retrofitting** ist nicht nur die Integration von Altmaschinen.
