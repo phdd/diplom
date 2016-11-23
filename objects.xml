@@ -14,10 +14,11 @@
         <Alias Alias="HasComponent">i=47</Alias>
         <Alias Alias="HasEffect">i=54</Alias>
         <Alias Alias="Argument">i=296</Alias>
+        <Alias Alias="Range">i=884</Alias>
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="nEH3JR70hrSo98CvaIClQw==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="Y3U1Cs4aANfx9qDIqNLXMg==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5002" BrowseName="1:MillingMachine">
@@ -156,6 +157,7 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6017</Reference>
             <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6018</Reference>
+            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
         </References>
     </UAMethod>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5008" BrowseName="3:OpeningGear">
@@ -340,6 +342,7 @@
         <DisplayName>Reset_NC</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
         </References>
     </UAMethod>
     <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7005" BrowseName="2:Start_NC" MethodDeclarationId="ns=2;i=7007">
@@ -417,8 +420,31 @@
         <DisplayName>Temperature</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6020</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
+    </UAVariable>
+    <UAVariable DataType="Range" NodeId="ns=1;i=6020" BrowseName="1:OverheatCondition" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>OverheatCondition</DisplayName>
+        <References>
+            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6015</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
+            <Reference ReferenceType="HasEffect">ns=1;i=7004</Reference>
+        </References>
+        <Value>
+            <uax:ExtensionObject>
+                <uax:TypeId>
+                    <uax:Identifier>i=885</uax:Identifier>
+                </uax:TypeId>
+                <uax:Body>
+                    <uax:Range>
+                        <uax:Low>21</uax:Low>
+                        <uax:High>1000</uax:High>
+                    </uax:Range>
+                </uax:Body>
+            </uax:ExtensionObject>
+        </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=5010" BrowseName="3:TemperatureSensor">
         <DisplayName>TemperatureSensor</DisplayName>

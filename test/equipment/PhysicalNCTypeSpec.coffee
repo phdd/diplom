@@ -10,7 +10,7 @@ its = null
 chai.should()
 chai.use(spies)
 
-describe 'equipment', -> 
+describe 'Equipment', -> 
 
 	describe 'PhysicalNCType', ->
 

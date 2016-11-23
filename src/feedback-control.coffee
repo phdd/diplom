@@ -1,5 +1,8 @@
 watch = require('watchjs').watch
 debug = require('debug')('vmr:FeedbackControl')
+opcua = require 'node-opcua'
+
+DataType = opcua.DataType
 
 class FeedbackControl
 
@@ -19,9 +22,27 @@ class FeedbackControl
     if physicalConditions.length > 0
       watch equipment, variable, => 
         for condition in physicalConditions
-          if condition.readValue().value.value is addressSpaceVariable.readValue().value.value
+          if @hasBeenMet(condition, addressSpaceVariable)
             debug "#{condition.browseName.name} for #{addressSpaceVariable.browseName.name} has been met".yellow
             @findAndExecuteActionFor condition
+
+  hasBeenMet: (condition, variable) =>
+    conditionValue = condition.readValue().value
+    variableValue = variable.readValue().value
+    switch conditionValue.dataType
+
+      when DataType.Boolean 
+        return conditionValue.value is variableValue.value
+
+      when DataType.ExtensionObject
+        if conditionValue.value instanceof opcua.Range
+          return @hasRangeBeenMet conditionValue.value, variableValue.value
+
+    debug "#{condition.browseName.name} for #{variable.browseName.name}
+      is neither Boolean nor Range".yellow
+
+  hasRangeBeenMet: (range, value) =>
+    range.low < value and value < range.high
 
   findAndExecuteActionFor: (condition) =>
     references = condition.findReferencesEx 'HasEffect'
