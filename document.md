@@ -1169,8 +1169,6 @@ Mit dem binären Transportprotokoll der UA kommuniziert der Server die von Model
 
 ![Zusammensetzung des Adressraums der VMR](figures/vmr-models){#fig:vmr-models}
 
-[^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
-
 ### Verhalten zur Laufzeit
 
 Die logische Architektur vorausgesetzt, beschreibt dieser Abschnitt das Verhalten der virtuellen Maschinenrepräsentation (VMR) zur Laufzeit.
@@ -1275,6 +1273,50 @@ Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
 
 # Implementation
 
+Der Entwurf der virtuellen Maschinenrepräsentation (VMR) wurde im vorangegangenen Kapitel vorgestellt.
+Nach der Design Science Research Methodology (vgl. @sec:methode-und-aufbau) wird nun die Tauglichkeit des Konzepts anhand einer prototypischen Implementierung des Frameworks beschrieben.
+Neben verwendeten Technologien sind die technischen Details eines Beispiels für die Rückkopplung im Fokus.
+
+## Selektion der Komponenten
+
+##### Hardware.
+
+##### Software.
+
+Der Prototyp wurde mit Server-seitigem JavaScript auf Basis von "Node.js"[^nodejs] entwickelt.
+JavaScript ist, im Gegensatz zu C++ und Java, eine dynamisch typisierte Programmiersprache und wird primär für die Entwicklung von Nutzungsschnittstellen verwendet.
+Durch die serverseitige Plattform "Node.js" etablierte sie sich auch im Backend-Bereich.
+Mit der ursprünglich von Google entwickelten Laufzeitumgebung "V8"[^v8] ist sie auf einem Einplatinencomputer ausreichend leistungsfähig (vgl. @Kovatsch2012).
+Da JavaScript keine objektorientiertes Konzept verfolgt wurde mit CoffeeScript[^coffeescript] eine Skriptsprache gewählt, die in JavaScript übersetzt und damit nicht zur Laufzeit interpretiert werden muss.
+Werkzeuge zur Modellierung des OPC UA Adressraums verwenden Code-Generierung für eine schablonenartige Struktur der Implementierung von Laufzeitlogik (z.B. der UaModeler[^uamodeler] von Unified Automation).
+Dieser Schritt wird durch die Verwendung von JavaScript übersprungen.  
+Durch das umfangreiche Ökosystem von "Node.js" stehen quelloffene Softwarebibliotheken zur Verfügung.
+Eine Auflistung der hier verwendeten ist in @tab:libs beschrieben.
+
++==============+==========+
+| Bibliothek   | Funktion |
++==============+==========+
+| node-opcua   |          |
+| node-grovepi |          |
+| serialport   |          |
+| watchjs      |          |
++==============+==========+
+
+<!--
+
+    "debug": "^2.2.0",
+    "lodash": "^4.14.0",
+    "minimist": "^1.2.0",
+    "watchjs": "0.0.0"
+
+-->
+
+[^v8]: [developers.google.com/v8](https://developers.google.com/v8/) (abgerufen am 23.11.2016)
+[^nodejs]: [nodejs.org](https://nodejs.org/en/) (abgerufen am 23.11.2016)
+[^coffeescript]: [coffeescript.org](http://coffeescript.org)
+
+Verhalten zur Laufzeit!
+
 * Model Control nur für Initialisierung, Hook Pattern für das Binding
     - von Variablen und Methoden mit dem UA-Server
     - der Observer für die Feedback Control
@@ -1291,11 +1333,15 @@ Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
     - node-opcua Stackimplementierung => noch kein WS-Transport
     - node-grovepi Framework für GrovePi
 
-## Erweiterungspunkt -- Processing
+## Erweiterungspunkte
 
-## Erweiterungspunkt -- Interface
+### Processing
+
+### Interface
 
 ## Testsuite
+
+[^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
 
 # Evaluation
 

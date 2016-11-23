@@ -274,7 +274,7 @@ $teacher$
 
 \end{titlepage}
 
-\pagenumbering{roman}
+\newpage\null\thispagestyle{empty}\newpage
 
 \thispagestyle{empty}
 \vspace*{\fill}
@@ -297,6 +297,10 @@ Dresden, den $date$\\
 \emph{$author$}
 
 \linespread{1.13}
+
+\newpage\null\thispagestyle{empty}\newpage
+\setcounter{page}{1}
+\pagenumbering{roman}
 
 \pdfbookmark[1]{Inhaltsverzeichnis}{toc}
 \tableofcontents					% create a toc
