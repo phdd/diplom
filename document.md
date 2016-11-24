@@ -1345,7 +1345,7 @@ Eine Auflistung der wichtigsten verwendeten ist in @tbl:softwarebibliotheken bes
 |                | und Variablen überwachen | Feedback Control               |
 +----------------+--------------------------+--------------------------------+
 
-: Verwendete Softwarebibliotheken und deren Funktion {#tbl:softwarebibliotheken}
+: Verwendete Softwarebibliotheken {#tbl:softwarebibliotheken}
 
 Das Projekt node-opcua implementiert den Großteil des OPC UA Stacks in JavaScript.
 Auf dessen GitHub-Seite[^node-opcua] ist eine Tabelle mit dem Grad der Umsetzung der Spezifikationen dargestellt.
@@ -1357,15 +1357,60 @@ Die Umsetzung des Prototypen der VMR wird weiterhin durch eine Bibliothek für d
 
 [^v8]: [developers.google.com/v8](https://developers.google.com/v8/) (abgerufen am 23.11.2016)
 [^nodejs]: [nodejs.org](https://nodejs.org/en/) (abgerufen am 23.11.2016)
-[^coffeescript]: [coffeescript.org](http://coffeescript.org)
+[^coffeescript]: [coffeescript.org](http://coffeescript.org) (abgerufen am 23.11.2016)
 [^npm]: [npmjs.com](https://www.npmjs.com/) (abgerufen am 24.11.2016)
-[^npmref]: Die Pakete und deren Details können unter npmjs.com/package/<Bibliothek> abgerufen werden.
+[^npmref]: Die Pakete und deren Details können unter npmjs.com/package/&lt;Bibliothek&gt; abgerufen werden.
 [^node-opcua]: [github.com/node-opcua/node-opcua#supported-features](https://github.com/node-opcua/node-opcua#supported-features) (abgerufen am 24.11.2016)
 [^i2c]: [mikrocontroller.net/articles/I2C](http://www.mikrocontroller.net/articles/I2C) (abgerufen am 24.11.2016)
 
 ## Laufzeitmodell und Erweiterungspunkte
 
-* HasEffect statt HasPhysicalAction (Stack-Impl. unvollständig)
+Für die Umsetzung des Beispiels vom Anfang dieses Kapitels wurde ein OPC UA Modell der CNC-Werkzeugmaschine erstellt.
+Die für den Anwendungsfall relevanten Komponenten, Variablen und Methoden sind in @fig:implementation-model dargestellt.
+
+![Laufzeitmodell des Prototypen](figures/implementation-model){#fig:implementation-model}
+
+Im Modell besitzt die Drehmaschine eine Ladetür, eine NC-Steuerung und einen Sensor für die Temperatur des Werkzeugs.
+Letztere ist mit der Implementierung des Equipment-Erweiterungspunkts _PhysicalToolTemperatureType_ verknüpft, die eine OPC UA Variable für die tatsächliche Temperatur am Werkzeug beschreibt.
+Unter dieser Variable organisiert ist mit `OverheatCondition` ein Bereich für diesen Werte definiert, der eine Überhitzung symbolisiert und die Aktion `Stop_NC` durch Feedback Control nach sich zieht.
+Da node-opcua noch keine Unterstützung für spezialisierte Referenzen bietet, wurde `HasEffect`, aus der Spezifikation von OPC UA, als Synonym zu `HasPhysicalAction` verwendet (vgl. @sec:modellierung-der-anlagenstruktur).
+Feedback Control reagiert auf die Veränderung des Wertebereichs der Temperatur und löst `Stop_NC` aus, sobald er überschritten wurde.
+Wurde die Methode ausgeführt ändert sich die Variable `NC_Program_Status` durch die Implementierung des `PhysicalNCType`. 
+Mit der daraufhin zutreffenden `StoppedCondition` wird wiederum `Open_Door` ausgeführt.
+Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `RelayActuator` -- eine abgeleitete Klasse des `DigitalSensor` der GrovePi-Bibliothek.
+
+* Laden der Plugins (exports/processing & extends/interface)
+
+```{caption="Implementierung des Interface-Erweiterungspunkts" label="lst:relay-actuator"}
+class RelayActuator extends DigitalSensor
+
+  constructor: (@pin) ->
+    @board.pinMode @pin, @board.OUTPUT
+
+  on:  => @write 1
+  off: => @write 0
+```
+
+```{caption="Implementierung des Processing-Erweiterungspunkts" label="lst:physical-loading-door-type"}
+class PhysicalLoadingDoorType
+
+  $Door_Status: null
+
+  constructor: (options) ->
+    @DoorLock = new RelayActuator options.DoorLock.pin
+    @onState  = 'closed'
+    @offState = 'open'
+
+    @$Open_Door()
+
+  $Close_Door: =>
+    @DoorLock.on()
+    @$Door_Status = @onState
+
+  $Open_Door: =>
+    @DoorLock.off()
+    @$Door_Status = @offState
+```
 
 ## Umsetzung der Komponenten
 
