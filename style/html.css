@@ -63,7 +63,7 @@ a::selection {
   color: #0645ad;
 }
 
-p {
+body > p {
   margin: 1em 0;
     text-align: justify;
 }
