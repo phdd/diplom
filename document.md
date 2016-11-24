@@ -1241,8 +1241,8 @@ Grundsätzlich bestehen die Komponenten aus Klassen einer objektorientierten Pro
 Das Framework der virtuellen Maschinenrepräsentation (VMR), als oberstes Hierarchieelement, beinhaltet die Schichten Communication, Processing und Interface.
 Erstere, zuständig für die Kommunikation mit anderen Anlagen und Nutzungsschnittstellen auf Feldebene, benötigt eine Implementierung der UA-Spezifikation Data Access (OPC UA Part 8[^opcua8]) und des binären Transportprotokolls.
 Zur Anbindung von Variablen und Methoden ist sie abhängig von der Processing-Schicht, die deren strukturelle und logische Beschreibung, beziehungsweise Implementierung, kapselt.
-Für dessen Erweiterungspunkt existiert eine dedizierte Softwarebibliothek, in @fig:organisation "Equipment Extensions" genannt, die die Implementierungen (_Physical Loading Door_) der UA-Objecttypen (`PhysicalLoadingDoorType`) beinhaltet.
-Das Equipment (_Physical Loading Door_) besteht aus Sensoren (_Contact Sensor_) und Aktuatoren (_Relay Actuator_), die in der Bibliothek "Interface Extensions" abgelegt werden.
+Für diesen Equipment-Erweiterungspunkt existiert eine dedizierte Softwarebibliothek, in @fig:organisation "Equipment Extensions" genannt, die die Implementierungen (_Physical Loading Door_) der UA-Objecttypen (`PhysicalLoadingDoorType`) beinhaltet.
+Das Equipment (_Physical Loading Door_) besteht aus Sensoren (_Contact Sensor_) und Aktuatoren (_Relay Actuator_), die als Interface-Erweiterungspunkte in der Bibliothek "Interface Extensions" abgelegt werden.
 Da cyber-physische Adapter (CPA) zusätzliche Hardware benötigen, existiert eine Abhängigkeit zu den jeweiligen Bibliotheken im Paket "Hardware Bindings".
 Die Klassen des Equipments benamen Methoden und Variablen durch Konvention nach denen des Informationsmodells.
 Gleiches gilt für die Namen der Klassen selbst.
@@ -1377,19 +1377,15 @@ Da node-opcua noch keine Unterstützung für spezialisierte Referenzen bietet, w
 Feedback Control reagiert auf die Veränderung des Wertebereichs der Temperatur und löst `Stop_NC` aus, sobald er überschritten wurde.
 Wurde die Methode ausgeführt ändert sich die Variable `NC_Program_Status` durch die Implementierung des `PhysicalNCType`. 
 Mit der daraufhin zutreffenden `StoppedCondition` wird wiederum `Open_Door` ausgeführt.
-Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `RelayActuator` -- eine abgeleitete Klasse des `DigitalSensor` der GrovePi-Bibliothek.
+Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `RelayActuator` -- eine abgeleitete Klasse des `DigitalSensor` der GrovePi-Bibliothek.  
 
-* Laden der Plugins (exports/processing & extends/interface)
-
-```{caption="Implementierung des Interface-Erweiterungspunkts" label="lst:relay-actuator"}
-class RelayActuator extends DigitalSensor
-
-  constructor: (@pin) ->
-    @board.pinMode @pin, @board.OUTPUT
-
-  on:  => @write 1
-  off: => @write 0
-```
+Um einen Equipment-Erweiterungspunkt zu laden ließt die Model Control alle Objekte des Pakets "Processing Extensions" (vlg. @sec:organisation) und hält sie für die Bindung zu Modellelementen bereit.
+Exemplarisch ist der `PhysicalLoadingDoorType` in @lst:physical-loading-door-type beschrieben.
+Damit die Model Control OPC UA Variablen und Methoden binden kann, werden diese mit einem Dollar-Zeichen am Anfang des Bezeichners markiert.
+Die Ladetür besitzt im Informationsmodell nach Ayatollahi et al. (vgl. @sec:modellierung-der-anlagenstruktur) eine Variable `Door_Status`, sowie die Methoden `Close_Door` und `Open_Door` die auch die Implementierung aus @lst:physical-loading-door-type deklariert (Zeilen 3, 12 und 16).
+Sie beinhaltet den `RelayActuator` aus dem Paket "Interface Extensions" (vlg. @sec:organisation), der mit den Parametern des `ConnectionIdentifier` (vlg. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur) initialisiert wird (Zeile 6[^at]).
+In Zeile acht wird die Ladetür mit dem Öffnen des Relais initialisiert.
+Die Methode `$Close_Door` -- von der Model Control aufgerufen -- delegiert die Anweisung an den `RelayActuator` und aktualisiert den Wert der Variablen `$Door_Status`.
 
 ```{caption="Implementierung des Processing-Erweiterungspunkts" label="lst:physical-loading-door-type"}
 class PhysicalLoadingDoorType
@@ -1411,6 +1407,23 @@ class PhysicalLoadingDoorType
     @DoorLock.off()
     @$Door_Status = @offState
 ```
+
+Der Equipment-Erweiterungspunkt wird durch Definition im Laufzeitmodell und Namenskonvention im Bezug auf die Implementierung an das Framework gebunden.
+"Interface Extension" durch Aggregation im jeweiligen Equipment ...
+
+* einbinden einer "Interface Extension" durch Vererbung
+
+```{caption="Implementierung des Interface-Erweiterungspunkts" label="lst:relay-actuator"}
+class RelayActuator extends DigitalSensor
+
+  constructor: (@pin) ->
+    @board.pinMode @pin, @board.OUTPUT
+
+  on:  => @write 1
+  off: => @write 0
+```
+
+[^at]: In CoffeeScript hat das "@" am Anfang eines Bezeichners die gleiche Semantik wie "this" in Java und referenziert die Instanz der umschließenden Klasse.
 
 ## Umsetzung der Komponenten
 
