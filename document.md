@@ -779,25 +779,25 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 
 \clearpage
 
-+-------------------+------+------+------+------+------+
-|                   | R1   | R2   | R3   | R4   | R5   |
-+===================+======+======+======+======+======+
-| @Ferrolho2005     | ●    | ●    | ○    | ○    | ○    |
-+-------------------+------+------+------+------+------+
-| @Ayatollahi2013   | ●    | ●    | ●    | ◐    | ○    |
-+-------------------+------+------+------+------+------+
-| @Windmann2015     | ●    | ●    | ●    | ●    | ○    |
-+-------------------+------+------+------+------+------+
-| @Wang2004         | ●    | ●    | ◐    | ◐    | ○    |
-+-------------------+------+------+------+------+------+
-| @Pauker2013       | ●    | ●    | ○    | ○    | ○    |
-+-------------------+------+------+------+------+------+
-| @Moctezuma2012    | ●    | ●    | ●    | ●    | ○    |
-+-------------------+------+------+------+------+------+
-| @Durkop2014       | ●    | ●    | ●    | ●    | ○    |
-+-------------------+------+------+------+------+------+
-| @Lee2015          | ●    | ○    | ○    | ◐    | ○    |
-+-------------------+------+------+------+------+------+
++-----------------+--------+--------+--------+--------+--------+
+|                 | **R1** | **R2** | **R3** | **R4** | **R5** |
++=================+========+========+========+========+========+
+| @Ferrolho2005   | ●      | ●      | ○      | ○      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Ayatollahi2013 | ●      | ●      | ●      | ◐      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Windmann2015   | ●      | ●      | ●      | ●      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Wang2004       | ●      | ●      | ◐      | ◐      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Pauker2013     | ●      | ●      | ○      | ○      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Moctezuma2012  | ●      | ●      | ●      | ●      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Durkop2014     | ●      | ●      | ●      | ●      | ○      |
++-----------------+--------+--------+--------+--------+--------+
+| @Lee2015        | ●      | ○      | ○      | ◐      | ○      |
++-----------------+--------+--------+--------+--------+--------+
 
 : Anforderungen bzgl. bestehender Forschungsarbeiten {#tbl:sota-req}
 
@@ -1028,7 +1028,6 @@ Bei bestehenden Informationsmodellen (S3.3) kann die Middleware als Adapter für
 Windmann et al. beschrieben einen generischen Ansatz für die Anbindung von Steuerungen, abseits industrieller Hersteller @Windmann2015.
 Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vorgestellten VMR.
 
-[^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 13.11.2016)
 [^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
 [^ignitionopc]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
 [^uagateway]: [unified-automation.com/products/wrapper-and-proxy/uagateway.html](https://www.unified-automation.com/products/wrapper-and-proxy/uagateway.html)  
@@ -1275,71 +1274,108 @@ Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
 
 Der Entwurf der virtuellen Maschinenrepräsentation (VMR) wurde im vorangegangenen Kapitel vorgestellt.
 Nach der Design Science Research Methodology (vgl. @sec:methode-und-aufbau) wird nun die Tauglichkeit des Konzepts anhand einer prototypischen Implementierung des Frameworks beschrieben.
-Neben verwendeten Technologien sind die technischen Details eines Beispiels für die Rückkopplung im Fokus.
+Neben verwendeten Technologien sind die technischen Details folgenden Beispiels im Fokus dieses Kapitels.
 
-## Selektion der Komponenten
+Die CNC-Drehmaschine aus dem Szenario S2 in @sec:szenarien bietet eine anschauliche Grundlage für die exemplarische Anwendung der prototypischen Entwicklung.
+Sie besitzt eine serielle Schnittstelle für die Direct Numeric Control (DNC) der Antriebssteuerung, soll durch die VMR gekapselt und durch cyber-physische Rückkopplung zusätzlich automatisiert werden.
+In @sec:überwachung-des-maschinenbetriebs wurden indirekte Überwachungsmethoden, auch mit Temperatursensorik, diskutiert.
+Im hier beschriebenen Beispiel sollt die CNC angehalten und die Ladetür geöffnet werden, wenn die Temperatur des Werkzeugs der Drehmaschine einen kritischen Wert überschreitet.
 
-##### Hardware.
+## Verwendete Hard- und Software
 
-##### Software.
+Benötigt werden ein Einplatinencomputer als Server für die VMR, eine Antriebssteuerung mit DNC, sowie die Hardware für einen cyber-physischen Adapter (CPA).
+Temperatursensor und Relais, für den Verriegelungsmechanismus der Ladetür, müssen analoge und digitale Signale mit der CPA-Hardware austauschen können.
+Alle Hardwarekomponenten zur Umsetzung sind in @tbl:hardwarekomponenten zusammengestellt.
 
-Der Prototyp wurde mit Server-seitigem JavaScript auf Basis von "Node.js"[^nodejs] entwickelt.
++--------------------------+------------------------------------+
+|       **Hardware**       |          **Beschreibung**          |
++==========================+====================================+
+| Einplatinencomputer      | Raspberry Pi 3 Model B[^rpi3]      |
++--------------------------+------------------------------------+
+| Antriebssteuerung        | Smoothieboard 4XC[^smoothie]       |
++--------------------------+------------------------------------+
+| cyber-physischer Adapter | GrovePi[^grovepi]                  |
++--------------------------+------------------------------------+
+| Temperatursensor         | Grove - Temperatur- und            |
+|                          | und Luftfeuchtigkeitssensor[^temp] |
++--------------------------+------------------------------------+
+| Verriegelungsrelais      | Grove - Relay[^relay]              |
++--------------------------+------------------------------------+
+
+: Verwendete Hardwarekomponenten {#tbl:hardwarekomponenten}
+
+Der Raspberry Pi ist ein Einplatinencomputer der Ethernetanschluss, Wireless LAN Modul und USB Steckplätze, auch geeignet für serielle Kommunikation, besitzt.
+Er ist via USB direkt mit dem Smoothieboard verbunden.
+Das Smoothieboard 4XC ist ein Open Source Hardware CNC-Controller der seriell CNC-Befehle, aber auch ganze Programme entgegennimmt und für vier  Schrittmotortreiber und Spindelkontrolle interpretiert (vgl. @sec:numerische-kontrolle).
+Für die CPA-Hardware wurde das GrovePi Erweiterungsboard für den Raspberry Pi verwendet.
+Es vereinheitlicht die Schnittstelle zu digitalen und analogen Sensoren und Aktuatoren des Grove-Systems für modulares, standardisiertes Prototyping[^grove].
+Die Messung der Temperatur am Werkzeug der Drehmaschine wird mit einem kombinierten Temperatur- und Luftfeuchtigkeitssensor des Grove-Systems vorgenommen.
+Der Verriegelungsmechanismus der Ladetür wird mit einem entsprechenden Relais realisiert.
+
+[^rpi3]: [raspberrypi.org/products/raspberry-pi-3-model-b](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) (abgerufen am 24.11.2016)
+[^smoothie]: [smoothieware.org/smoothieboard](http://smoothieware.org/smoothieboard) (abgerufen am 24.11.2016)
+[^grovepi]: [dexterindustries.com/grovepi](https://www.dexterindustries.com/grovepi/) (abgerufen am 24.11.2016)
+[^temp]: [seeedstudio.com/Temp-p-745.html](https://www.seeedstudio.com/Temp-p-745.html) (abgerufen am 24.11.2016)
+[^relay]: [seeedstudio.com/Relay-p-769.html](https://www.seeedstudio.com/Relay-p-769.html) (abgerufen am 24.11.2016)
+[^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 24.11.2016)
+
+Das VMR-Framework wurde mit Server-seitigem JavaScript auf Basis von "Node.js"[^nodejs] entwickelt.
 JavaScript ist, im Gegensatz zu C++ und Java, eine dynamisch typisierte Programmiersprache und wird primär für die Entwicklung von Nutzungsschnittstellen verwendet.
 Durch die serverseitige Plattform "Node.js" etablierte sie sich auch im Backend-Bereich.
 Mit der ursprünglich von Google entwickelten Laufzeitumgebung "V8"[^v8] ist sie auf einem Einplatinencomputer ausreichend leistungsfähig (vgl. @Kovatsch2012).
-Da JavaScript keine objektorientiertes Konzept verfolgt wurde mit CoffeeScript[^coffeescript] eine Skriptsprache gewählt, die in JavaScript übersetzt und damit nicht zur Laufzeit interpretiert werden muss.
+Da JavaScript kein objektorientiertes Konzept verfolgt, wurde mit CoffeeScript[^coffeescript] eine ergänzende Skriptsprache gewählt, die in JavaScript übersetzt und damit nicht zur Laufzeit interpretiert werden muss.
 Werkzeuge zur Modellierung des OPC UA Adressraums verwenden Code-Generierung für eine schablonenartige Struktur der Implementierung von Laufzeitlogik (z.B. der UaModeler[^uamodeler] von Unified Automation).
-Dieser Schritt wird durch die Verwendung von JavaScript übersprungen.  
-Durch das umfangreiche Ökosystem von "Node.js" stehen quelloffene Softwarebibliotheken zur Verfügung.
-Eine Auflistung der hier verwendeten ist in @tab:libs beschrieben.
+Dieser Schritt ist durch die Verwendung einer dynamisch typisierten Programmiersprache nicht notwendig und komprimiert das endgültige Softwareprodukt.
+Durch das umfangreiche Ökosystem von "Node.js" stehen der Node Package Manager[^npm] mit quelloffenen Softwarebibliotheken zur Verfügung.
+Eine Auflistung der wichtigsten verwendeten ist in @tbl:softwarebibliotheken beschrieben[^npmref].
 
-+==============+==========+
-| Bibliothek   | Funktion |
-+==============+==========+
-| node-opcua   |          |
-| node-grovepi |          |
-| serialport   |          |
-| watchjs      |          |
-+==============+==========+
++----------------+--------------------------+--------------------------------+
+| **Bibliothek** |     **Beschreibung**     |          **Funktion**          |
++================+==========================+================================+
+| node-opcua     | OPC UA Implementierung   | OPC UA Server-Komponente       |
+|                | für Node.js              | und Laufzeitmodell             |
++----------------+--------------------------+--------------------------------+
+| node-grovepi   | GrovePi-Anbindung für    | Software für                   |
+|                | Sensoren und Aktuatoren  | cyber-physischen Adapter       |
++----------------+--------------------------+--------------------------------+
+| serialport     | Kommunikation mit einer  | Anbindung von DNC und weiteren |
+|                | seriellen Schnittstelle  | Feldgeräte mit RS-232          |
++----------------+--------------------------+--------------------------------+
+| watchjs        | Veränderung von Objekte  | MAPE-K Monitoring in der       |
+|                | und Variablen überwachen | Feedback Control               |
++----------------+--------------------------+--------------------------------+
 
-<!--
+: Verwendete Softwarebibliotheken und deren Funktion {#tbl:softwarebibliotheken}
 
-    "debug": "^2.2.0",
-    "lodash": "^4.14.0",
-    "minimist": "^1.2.0",
-    "watchjs": "0.0.0"
-
--->
+Das Projekt node-opcua implementiert den Großteil des OPC UA Stacks in JavaScript.
+Auf dessen GitHub-Seite[^node-opcua] ist eine Tabelle mit dem Grad der Umsetzung der Spezifikationen dargestellt.
+Im Zuge dieser Arbeit wurde zu dem Projekt beigetragen.
+Zu dem GrovePi-Erweiterungsboard existiert eine Entwicklungsbibliothek für mehrere Programmiersprachen.
+JavaScript mit Node.js wird vollständig durch das Paket node-grovepi unterstützt.
+Mitgeliefert werden grundsätzliche Implementierungen für analoge und digitale Sensoren und Aktuatoren, sowie das I2C-Bussystem[^i2c] für die Kommunikation zwischen integrierten Schaltungen.
+Die Umsetzung des Prototypen der VMR wird weiterhin durch eine Bibliothek für die serielle Kommunikation (serialport) und das Überwachen von Variablen und Objekten in JavaScript (watchjs) ergänzt.
 
 [^v8]: [developers.google.com/v8](https://developers.google.com/v8/) (abgerufen am 23.11.2016)
 [^nodejs]: [nodejs.org](https://nodejs.org/en/) (abgerufen am 23.11.2016)
 [^coffeescript]: [coffeescript.org](http://coffeescript.org)
+[^npm]: [npmjs.com](https://www.npmjs.com/) (abgerufen am 24.11.2016)
+[^npmref]: Die Pakete und deren Details können unter npmjs.com/package/<Bibliothek> abgerufen werden.
+[^node-opcua]: [github.com/node-opcua/node-opcua#supported-features](https://github.com/node-opcua/node-opcua#supported-features) (abgerufen am 24.11.2016)
+[^i2c]: [mikrocontroller.net/articles/I2C](http://www.mikrocontroller.net/articles/I2C) (abgerufen am 24.11.2016)
 
-Verhalten zur Laufzeit!
+## Laufzeitmodell und Erweiterungspunkte
+
+* HasEffect statt HasPhysicalAction (Stack-Impl. unvollständig)
+
+## Umsetzung der Komponenten
 
 * Model Control nur für Initialisierung, Hook Pattern für das Binding
     - von Variablen und Methoden mit dem UA-Server
     - der Observer für die Feedback Control
-* Context Adapter mit Hard- (GrovePi) und Software (GrovePi SDK)
-* HasEffect statt HasPhysicalAction (Stack-Impl. unvollständig)
-* Smoothieboard => CNC-Kernel
-* Raspberry => Processing Element
-* GrovePi => homogene Sensor-/Aktuator-Anbindung
-* Programmiersprache: Javascript  
-  => dynamisch
-  => ohne Codegenerierung
-  => Runtime-Binding
-* Node.js als Application Framework
-    - node-opcua Stackimplementierung => noch kein WS-Transport
-    - node-grovepi Framework für GrovePi
 
-## Erweiterungspunkte
+## Softwaretests für Erweiterungspunkte
 
-### Processing
 
-### Interface
-
-## Testsuite
 
 [^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
 
@@ -1404,6 +1440,8 @@ QUANTITATIV
 
 KRITIK
 
+* keine quantitative Evaluation
+
 # Zusammenfassung
 
 ## Schlussfolgerung
@@ -1412,6 +1450,7 @@ KRITIK
 
 ## Ausblick
 
+* Eignung anderer SBC und Vergleich mit dieser Impl.
 * Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
 * externe FCL (Cyber- und Configuration-Level nach @Lee2015)
 * Prozess-Engine nach @Seiger2015
