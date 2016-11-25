@@ -246,7 +246,7 @@ Durch der DINIEC 60050-351 7-2013 sind sie definiert als eine "rechnergestützte
 Nach Heinrich et al. sind folgende Komponenten dafür notwendig.
 Ein Hardwaresystem stellte die Verbindung zum Fertigungsprozess und weiteren automatisierten Anlagen her.
 Programm- und Datenspeicher sind für die Persistenz des Anwenderprogramms, beziehungsweise der Prozessdaten verantwortlich und werden durch die Verarbeitung verändert.
-Dafür sind ein Betriebssystem, sowie ein Anwenderprogramm zuständig.
+Dafür sind ein Betriebssystem sowie ein Anwenderprogramm zuständig.
 
 Der prinzipielle Aufbau einer SPS umfasst Stromversorgungs-, Signalverarbeitungs- und vier Schnittstellenfunktionen für den Datenaustausch.
 Eine Mensch-Maschine-Schnittstelle ermöglicht dem Bediener den operativen Betrieb, z.B. durch Statusanzeigen, zu überwachen.
@@ -276,7 +276,7 @@ Neben hardwarebasierten SPS ermöglichen Software-Steuerungen (Soft-SPS) eine we
 Steuerungen mit Echtzeit-Betriebssystemen, auch in eingebetteten Recheneinheiten, übernehmen hier die Überwachung und Kontrolle des Prozesses, sind jedoch weniger verbreitet.  
 Eine Alternative zu SPS bietet die verbindungsprogrammierte Steuerung (VPS), bei der die Komponenten der Ein- und Ausgabe festverdrahtet und die Logik vordefiniert ist.
 Die speicherprogrammierbare Variante hat nicht nur den Vorteil der Flexibilität.
-Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten, sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung (vgl. zu diesem Absatz @Heinrich2015).  
+Der Funktionsumfang, die Verarbeitung analoger und digitaler Daten sowie die geringen Betriebskosten etablierten die SPS als Standard in der industriellen Fertigungsautomatisierung (vgl. zu diesem Absatz @Heinrich2015).  
 
 Die EN 61131-3 ist nicht die einzige Möglichkeit der Programmierung einer SPS.
 Zugunsten vertikaler und horizontaler Integration hat die PLCopen[^plcopen], eine Vereinigung von Steuerungsherstellern, und die OPC-Foundation Funktionsbausteine in einer Spezifikation für OPC UA abgebildet.
@@ -406,7 +406,7 @@ Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Dinge
 Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
 Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten.  
 MAPE-K ist ein geeignetes Konzept cyber-physischer Rückkopplung und besteht aus den Phasen Monitor, Analyze, Plan und Execute.
-Eine übergeordnete Wissensbasis (Knowledge-Base) beinhaltet das physische Modell, sowie Regeln und Ziele des verwalteten Elements, respektive der Fertigungsanlage.
+Eine übergeordnete Wissensbasis (Knowledge-Base) beinhaltet das physische Modell sowie Regeln und Ziele des verwalteten Elements, respektive der Fertigungsanlage.
 In @fig:mapek sind die Phasen und ihre Beziehungen zueinander dargestellt.
 
 ![MAPE-K Kontrollschleife nach @IBM2006](figures/mapek){#fig:mapek}
@@ -521,15 +521,15 @@ R3
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
 Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System.
-Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie, sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
+Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
 Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden (vgl. zu diesem Absatz @Bonomi2012).
 Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
 R4
-: Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
+: Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
 
 Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten durch die Nähe zur Maschine minimiert wird, ist weder harte noch weiche Echtzeit ein Kriterium.
-Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle, sowie die Aggregation der Daten, direkt an der Maschine geschieht.
+Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle sowie die Aggregation der Daten direkt an der Maschine geschieht.
 Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem Lokalitätskriterium @Bonomi2012.
 
 ## Integrationshardware
@@ -547,7 +547,7 @@ R5
 
 # Forschungsstand
 
-Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik, sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
+Nach der Spezifikation der Zielvorgaben werden in diesem Kapitel der aktuelle Stand der Technik sowie bereits bestehende Forschungsarbeiten zum Thema erläutert und mit den aufgestellten Kriterien für eine Lösung abgeglichen.
 
 ## Überwachung des Maschinenbetriebs
 
@@ -635,7 +635,7 @@ Durch die Zusammenarbeit des PLCopen Konsortiums und der OPC Foundation (vgl. @s
 Auf Basis von OPC UA stellte Windmann et al. das in @fig:soa-steuerung abgebildete, Service-orientierte Steuerungskonzept für die Automatisierung von Feldgeräten mit SPS vor @Windmann2015.
 Der Fokus lag dabei auf Plug & Produce, wodurch sich das Gerät eigenständig in die Infrastruktur integriert, konfiguriert und arbeitet.
 Aufgaben die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
-Die Ein- und Ausgabe, sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
+Die Ein- und Ausgabe sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
 Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren das Konzept (vgl. zu diesem Absatz @Windmann2015).
 Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) kann nach entsprechenden Anpassungen für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
 Durch die Verwendung von OPC UA sind die Anforderungen R1-3 erfüllt.
@@ -662,14 +662,14 @@ Anforderung R5 ist nicht erfüllt, da ein PC Steuerung die Steuerung übernimmt.
 Handelt es sich, wie in einem flexiblen Fertigungssystem (FFS), um einen Verbund von Maschinen, werden Rekonfigurierbarkeit und flexible Datenhaltung architektonisch relevant.
 Die Heterogenität und Austauschbarkeit der Feldgeräte (vgl. @sec:fertigung-und-automatisierung) muss zur Laufzeit berücksichtigt werden.
 Unter dieser Maßgabe entwarfen Pauker et al. eine Kommunikations- und Integrationsarchitektur für die Montage und Konfiguration einer Fertigungszelle auf Informationsebene @Pauker2013.
-Das Design beinhaltet ein Informationsmodell, sowie zentrale Datenhaltung für die Komponenten einer Zelle.
+Das Design beinhaltet ein Informationsmodell sowie zentrale Datenhaltung für die Komponenten einer Zelle.
 @fig:vgl-arch-ffz stellt den Unterschied zwischen einem herkömmlichen und dem Fertigungssystem von Pauker et al. dar.
 
 ![Vergleich der Architekturen von Fertigungszellen aus @Pauker2013](figures/vgl-arch-ffz){#fig:vgl-arch-ffz}
 
 In ihrem Konzept werden die unterschiedlichen Kommunikationskanäle, wie Feldbusse, serielle und digitale Ein-/Ausgabe-Schnittstellen, durch ein TCP/IP-Protokoll auf Ethernet-Basis vereinheitlicht.
 Aus dem Bereich der intelligenten Systeme übernahmen die Autoren das Blackboard-Konzept (vgl. @HayesRoth1985) für den Informationscache, respektive die zentrale Datenhaltung.
-Parameter für die Kommunikation, der Maschinenstatus, das aktuelle Programm, sowie Informationen zu angeschlossenen Geräten werden hierfür in einer XML-Datei abgelegt.
+Parameter für die Kommunikation, der Maschinenstatus, das aktuelle Programm sowie Informationen zu angeschlossenen Geräten werden hierfür in einer XML-Datei abgelegt.
 Eine Sequenzkontrollkomponente legt seine Forderungen (z.B. starte CNC-Programm) in dieser Datei ab, wodurch andere ihre Aufgaben eigenständig abholen und wahrnehmen können.
 Komponenten des FFS werden durch ein adaptierendes, nicht standardisiertes Protokoll angebunden.
 Dieser Ansatz reduziert die Komplexität der Gerätetopologie und führt zu einem geringen Konfigurationsaufwand (vgl. zu diesem Absatz @Pauker2013).  
@@ -682,7 +682,7 @@ Während Pauker et al. die horizontale Vereinheitlichung der Kommunikation anstr
 Dafür modernisierten die Autoren die Fastory Forschungsfertigungsstrecke.
 Wenn die zur Steuerung notwendige Echtzeit nahe der Maschine bereitgestellt wird, können Web-Services die Anlagen für den abstrakteren Informationsaustausch kapseln.
 Die ursprünglich heterogene Feldgerätelandschaft wurde durch eine Service-orientierte Architektur (SOA) ersetzt.
-Ziel des Konzept ist unter anderem die Einsparung von Energie, Flexibilisierung und Rekonfigurierbarkeit, die Fähigkeit der eigenständigen Wiederherstellung nach Ausfall und Fehler (self-recovery), sowie prädiktive Wartung (predictive Maintenance).
+Ziel des Konzept ist unter anderem die Einsparung von Energie, Flexibilisierung und Rekonfigurierbarkeit, die Fähigkeit der eigenständigen Wiederherstellung nach Ausfall und Fehler (self-recovery) sowie prädiktive Wartung (predictive Maintenance).
 Eine zentrale Anforderung an die Schnittstellen der Geräterepräsentation ist, neben Skalierbarkeit und Homogenität, die lokale Verarbeitung von Daten.
 Intelligente Remote Terminal Units, wie auf der rechten Seite der @fig:rtu-retrofitting, kapseln dazu das industrielle Equipment.
 
@@ -746,7 +746,7 @@ Dennoch erfolgen Zustandserfassung und Störfalldiagnose durch Subsysteme des CP
 Die Steuerung von industriellem Equipment ist kein Teil des Konzepts und erfüllt demnach R2 nicht.
 R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nicht integriert wurden.
 Die Verortung von Daten und Logik ist zweigeteilt.
-Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung, sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
+Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
 Die technologische Sicht wird bei dieser Architektur nicht thematisiert, wodurch Anforderung R5 nicht erfüllt wird.
 Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.
 
@@ -760,7 +760,7 @@ Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS 
 Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte.
 Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
 Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
-Die Orchestrierung der Fertigungsoperationen, sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
+Die Orchestrierung der Fertigungsoperationen sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
 Forschung im Bereich Cloud-basierter Industriesteuerung wird in Zusammenarbeit von Fraunhofer, der TU Berlin und Industriepartnern betrieben. Im Projekt pICASSO werden die Auslagerung von Steuerungsdiensten in die Cloud und Möglichkeiten einer Verteilung und Modularisierung herkömmlicher Kontrollsysteme auf CPS-Komponenten untersucht (vgl. zu diesem Absatz @piCASSO).  
 Der Schwerpunkt eines Großteils aktueller Forschung liegt auf der Vereinheitlichung der Schnittstellen und deren Durchsetzung -- meist mittels Software-Adaptern.
@@ -854,7 +854,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 -->
 
 Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch die Anwendungsfälle S1 und S2 orientiert sind (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
-Die in dieser Anlage verbauten automatisierte Werkzeugkomponenten sind Einspann-, Luftdruck- und Kühlsystem, sowie eine Türautomatik.
+Die in dieser Anlage verbauten automatisierte Werkzeugkomponenten sind Einspann-, Luftdruck- und Kühlsystem sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme in Szenario S2.
 
 ### Anwendungsfälle
@@ -975,7 +975,7 @@ Fragt eine andere Maschine oder Nutzungsschnittstelle die Struktur der Anlage hi
 ![Laufzeitmodell der Maschine der Szenarien S1/2](figures/opc4factory-runtime){#fig:opc4factory-runtime}
 
 In @fig:opc4factory-runtime ist das Laufzeitmodell der Anlage aus Sicht eines Anwendungsprogramms[^uaexpert] zu sehen.
-Durch die beispielhaften Methoden `Close_Door` und `Open_Door`, sowie die Variable `Door_Status` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
+Durch die beispielhaften Methoden `Close_Door` und `Open_Door` sowie die Variable `Door_Status` der Ladetür, kann der physische Kontext nicht nur eingesehen, sondern auch manipuliert werden.
 Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für die Konsistenz von Realität virtuellem Modell.
 Änderungen an der Struktur der automatisierte Werkzeugkomponenten werden im Modell reflektiert und dessen Struktur neu organisiert.
 In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
@@ -1022,7 +1022,7 @@ Sollte keine Ethernetanbindung mit TCP/IP existieren (S3.1) muss die SPS durch H
 Die SPS ist lediglich an ein Bussystem gekoppelt und wird mit einer Ethernet-Karte erweitert.
 Bei existierendem TCP/IP Kommunikationskanal (Szenario S3.2) repräsentiert externe Soft- und Hardware die VMR und stellt die UA-Verbindung bereit.
 Eine Komponente mit integriertem UA-Server ist die IBH Link UA[^ibhlinkua] für die Steuerungen S5 und S7 von Siemens.
-Weiterhin existieren Softwarelösung für SPS von Allen-Bradley oder Siemens, sowie verschiedenen proprietären Protokollen, wie das Ignition OPC UA Module[^ignitionopc].
+Weiterhin existieren Softwarelösungen für SPS von Allen-Bradley oder Siemens, sowie für verschiedene proprietäre Protokollen, wie das Ignition OPC UA Module[^ignitionopc].
 Dieses Softwaremodul ist ein UA-Server der mittels Treibern SPS, andere Geräte und Netzwerkprotokolle kapselt.
 Bei bestehenden Informationsmodellen (S3.3) kann die Middleware als Adapter für das Informationsmodell der SPS fungieren und eines nach @sec:informationsmodell kommunizieren (vgl. @sec:modellierung-der-anlagenstruktur).  
 Windmann et al. beschrieben einen generischen Ansatz für die Anbindung von Steuerungen, abseits industrieller Hersteller @Windmann2015.
@@ -1063,7 +1063,7 @@ Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und desse
 
 ### Vertikale Integration
 
-Durch die Anlagenanbindung (vgl. @sec:anlagenanbindung) und horizontale Integration (vgl. @sec:horizontale-integration) kapselt die virtuelle Maschinenrepräsentation (VMR) die Funktionalität, sowie den Zustand der Altanlage und ermöglicht die nahtlose Kommunikation mit anderen Feldgeräten und Nutzungsschnittstellen.
+Durch die Anlagenanbindung (vgl. @sec:anlagenanbindung) und horizontale Integration (vgl. @sec:horizontale-integration) kapselt die virtuelle Maschinenrepräsentation (VMR) die Funktionalität sowie den Zustand der Altanlage und ermöglicht die nahtlose Kommunikation mit anderen Feldgeräten und Nutzungsschnittstellen.
 Mit dem Modulkonzept von Dürkop et al. kommen Rekonfigurierbarkeit (vgl. @Pauker2013) und die Schnittstelle zu einer SOA hinzu @Durkop2014.
 Die UA ermöglicht zwar dem MES oder SCADA-System das Vordringen bis auf Feldebene (vgl. @sec:fertigung-und-automatisierung, [@OPCFoundation2014;@Bony2011]), jedoch fehlen ihr die Konzepte für eine übergeordnete Produktionsplanung und -steuerung, die in Prozessen formalisiert beschrieben (z.B. mit BPEL) und innerhalb einer SOA ausgeführt werden kann (vgl. @Durkop2014).
 Mit der Spezifikation der Device Profiles for Web Services (DPWS) wird in diesem Konzept eine Modulimplementierung verwendet, die eine industrienahe, rekonfigurierbare, vertikale Integration und Prozessebene ermöglicht.
@@ -1121,7 +1121,7 @@ In den Sequenzdiagrammen sind die Instanzen von Komponenten rechteckig und Erwei
 ### Logische Architektur
 
 Die abgeschlossene drei-Schicht-Architektur des Frameworks der virtuellen Maschinenrepräsentation (VMR) ist in @fig:framework dargestellt.
-Auf der Smart Connection, beziehungsweise Interface Ebene, wird der Signalaustausch mit der Altanlage vermittelt und eine einheitliche Schnittstelle bereitgestellt (vlg. @sec:anlagenanbindung).
+Auf der Smart Connection, beziehungsweise Interface Ebene, wird der Signalaustausch mit der Altanlage vermittelt und eine einheitliche Schnittstelle bereitgestellt (vgl. @sec:anlagenanbindung).
 Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
 Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkontrollkomponente konsumiert, prozessiert und produziert (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
 Eine MAPE-K-Rückkopplungsschleife (vgl: @sec:cyber-physische-rückkopplung) interagiert mit dieser.
@@ -1279,35 +1279,35 @@ Neben verwendeten Technologien sind die technischen Details folgenden Beispiels 
 Die CNC-Drehmaschine aus dem Szenario S2 in @sec:szenarien bietet eine anschauliche Grundlage für die exemplarische Anwendung der prototypischen Entwicklung.
 Sie besitzt eine serielle Schnittstelle für die Direct Numeric Control (DNC) der Antriebssteuerung, soll durch die VMR gekapselt und durch cyber-physische Rückkopplung zusätzlich automatisiert werden.
 In @sec:überwachung-des-maschinenbetriebs wurden indirekte Überwachungsmethoden, auch mit Temperatursensorik, diskutiert.
-Im hier beschriebenen Beispiel sollt die CNC angehalten und die Ladetür geöffnet werden, wenn die Temperatur des Werkzeugs der Drehmaschine einen kritischen Wert überschreitet.
+Im hier beschriebenen Beispiel soll die CNC angehalten und die Ladetür geöffnet werden, wenn die Temperatur des Werkzeugs der Drehmaschine einen kritischen Wert überschreitet.
 
 ## Verwendete Hard- und Software
 
-Benötigt werden ein Einplatinencomputer als Server für die VMR, eine Antriebssteuerung mit DNC, sowie die Hardware für einen cyber-physischen Adapter (CPA).
+Benötigt wird ein Einplatinencomputer als Server für die VMR, eine Antriebssteuerung mit DNC sowie die Hardware für einen cyber-physischen Adapter (CPA).
 Temperatursensor und Relais, für den Verriegelungsmechanismus der Ladetür, müssen analoge und digitale Signale mit der CPA-Hardware austauschen können.
 Alle Hardwarekomponenten zur Umsetzung sind in @tbl:hardwarekomponenten zusammengestellt.
 
-+--------------------------+------------------------------------+
-|       **Hardware**       |          **Beschreibung**          |
-+==========================+====================================+
-| Einplatinencomputer      | Raspberry Pi 3 Model B[^rpi3]      |
-+--------------------------+------------------------------------+
-| Antriebssteuerung        | Smoothieboard 4XC[^smoothie]       |
-+--------------------------+------------------------------------+
-| cyber-physischer Adapter | GrovePi[^grovepi]                  |
-+--------------------------+------------------------------------+
-| Temperatursensor         | Grove - Temperatur- und            |
-|                          | und Luftfeuchtigkeitssensor[^temp] |
-+--------------------------+------------------------------------+
-| Verriegelungsrelais      | Grove - Relay[^relay]              |
-+--------------------------+------------------------------------+
++--------------------------+--------------------------------+
+|      **Komponente**      |        **Beschreibung**        |
++==========================+================================+
+| Einplatinencomputer      | Raspberry Pi 3 Model B[^rpi3]  |
++--------------------------+--------------------------------+
+| Antriebssteuerung        | Smoothieboard 4XC[^smoothie]   |
++--------------------------+--------------------------------+
+| cyber-physischer Adapter | GrovePi[^grovepi]              |
++--------------------------+--------------------------------+
+| Temperatursensor         | Grove - Temperatur- und        |
+|                          | Luftfeuchtigkeitssensor[^temp] |
++--------------------------+--------------------------------+
+| Verriegelungsrelais      | Grove - Relay[^relay]          |
++--------------------------+--------------------------------+
 
 : Verwendete Hardwarekomponenten {#tbl:hardwarekomponenten}
 
 Der Raspberry Pi ist ein Einplatinencomputer der Ethernetanschluss, Wireless LAN Modul und USB Steckplätze, auch geeignet für serielle Kommunikation, besitzt.
 Er ist via USB direkt mit dem Smoothieboard verbunden.
-Das Smoothieboard 4XC ist ein Open Source Hardware CNC-Controller der seriell CNC-Befehle, aber auch ganze Programme entgegennimmt und für vier  Schrittmotortreiber und Spindelkontrolle interpretiert (vgl. @sec:numerische-kontrolle).
-Für die CPA-Hardware wurde das GrovePi Erweiterungsboard für den Raspberry Pi verwendet.
+Das Smoothieboard 4XC ist ein Open Source Hardware CNC-Controller, der seriell CNC-Befehle aber auch ganze Programme entgegennimmt und für vier  Schrittmotortreiber und Spindelkontrolle interpretiert (vgl. @sec:numerische-kontrolle).
+Für die CPA-Hardware ist das GrovePi Erweiterungsboard für den Raspberry Pi geeignet.
 Es vereinheitlicht die Schnittstelle zu digitalen und analogen Sensoren und Aktuatoren des Grove-Systems für modulares, standardisiertes Prototyping[^grove].
 Die Messung der Temperatur am Werkzeug der Drehmaschine wird mit einem kombinierten Temperatur- und Luftfeuchtigkeitssensor des Grove-Systems vorgenommen.
 Der Verriegelungsmechanismus der Ladetür wird mit einem entsprechenden Relais realisiert.
@@ -1319,47 +1319,51 @@ Der Verriegelungsmechanismus der Ladetür wird mit einem entsprechenden Relais r
 [^relay]: [seeedstudio.com/Relay-p-769.html](https://www.seeedstudio.com/Relay-p-769.html) (abgerufen am 24.11.2016)
 [^grove]: [wiki.seeed.cc/Grove_System](http://wiki.seeed.cc/Grove_System/) (abgerufen am 24.11.2016)
 
-Das VMR-Framework wurde mit Server-seitigem JavaScript auf Basis von "Node.js"[^nodejs] entwickelt.
+Das VMR-Framework wurde mit serverseitigem JavaScript auf Basis von "Node.js"[^nodejs] entwickelt.
 JavaScript ist, im Gegensatz zu C++ und Java, eine dynamisch typisierte Programmiersprache und wird primär für die Entwicklung von Nutzungsschnittstellen verwendet.
-Durch die serverseitige Plattform "Node.js" etablierte sie sich auch im Backend-Bereich.
+Durch die serverseitige Plattform "Node.js" etablierte sie sich auch im Backendbereich.
 Mit der ursprünglich von Google entwickelten Laufzeitumgebung "V8"[^v8] ist sie auf einem Einplatinencomputer ausreichend leistungsfähig (vgl. @Kovatsch2012).
 Da JavaScript kein objektorientiertes Konzept verfolgt, wurde mit CoffeeScript[^coffeescript] eine ergänzende Skriptsprache gewählt, die in JavaScript übersetzt und damit nicht zur Laufzeit interpretiert werden muss.
-Werkzeuge zur Modellierung des OPC UA Adressraums verwenden Code-Generierung für eine schablonenartige Struktur der Implementierung von Laufzeitlogik (z.B. der UaModeler[^uamodeler] von Unified Automation).
+Werkzeuge zur Modellierung des OPC UA Adressraums verwenden Codegenerierung für eine schablonenartige Struktur der Implementierung von Laufzeitlogik (z.B. der UaModeler[^uamodeler] von Unified Automation).
 Dieser Schritt ist durch die Verwendung einer dynamisch typisierten Programmiersprache nicht notwendig und komprimiert das endgültige Softwareprodukt.
-Durch das umfangreiche Ökosystem von "Node.js" stehen der Node Package Manager[^npm] mit quelloffenen Softwarebibliotheken zur Verfügung.
+Die aus dem Modellierungswerkzeug exportierte XML wird von der VMR gelesen und dynamisch mit den Implementierungen verbunden (vgl. @sec:umsetzung-der-komponenten).
+Durch das Ökosystem von "Node.js" steht der Node Package Manager[^npm] mit quelloffenen Softwarebibliotheken zur Verfügung.
 Eine Auflistung der wichtigsten verwendeten ist in @tbl:softwarebibliotheken beschrieben[^npmref].
 
-+----------------+--------------------------+--------------------------------+
-| **Bibliothek** |     **Beschreibung**     |          **Funktion**          |
-+================+==========================+================================+
-| node-opcua     | OPC UA Implementierung   | OPC UA Server-Komponente       |
-|                | für Node.js              | und Laufzeitmodell             |
-+----------------+--------------------------+--------------------------------+
-| node-grovepi   | GrovePi-Anbindung für    | Software für                   |
-|                | Sensoren und Aktuatoren  | cyber-physischen Adapter       |
-+----------------+--------------------------+--------------------------------+
-| serialport     | Kommunikation mit einer  | Anbindung von DNC und weiteren |
-|                | seriellen Schnittstelle  | Feldgeräte mit RS-232          |
-+----------------+--------------------------+--------------------------------+
-| watchjs        | Veränderung von Objekte  | MAPE-K Monitoring in der       |
-|                | und Variablen überwachen | Feedback Control               |
-+----------------+--------------------------+--------------------------------+
++----------------+--------------------------------------------------+
+| **Bibliothek** |                 **Beschreibung**                 |
++================+==================================================+
+| node-opcua     | Node.js OPC UA Implementierung für die           |
+|                | OPC UA Server Komponente und das Laufzeitmodell. |
++----------------+--------------------------------------------------+
+| node-grovepi   | GrovePi-Anbindung für Sensoren und Aktuatoren    |
+|                | des cyber-physischen Adapters.                   |
++----------------+--------------------------------------------------+
+| serialport     | Anbindung einer seriellen Schnittstelle          |
+|                | für DNC und Feldgeräte mit RS-232.               |
++----------------+--------------------------------------------------+
+| watchjs        | Veränderung von Objekte und Variablen überwachen |
+|                | für das MAPE-K Monitoring der Feedback Control.  |
++----------------+--------------------------------------------------+
+| mocha und chai | Test-Framework und Assertion-Bibliothek für      |
+|                | Behaviour-driven Development                     |
++----------------+--------------------------------------------------+
 
 : Verwendete Softwarebibliotheken {#tbl:softwarebibliotheken}
 
-Das Projekt node-opcua implementiert den Großteil des OPC UA Stacks in JavaScript.
+Das Projekt "node-opcua" implementiert den Großteil des OPC UA Stacks in JavaScript.
 Auf dessen GitHub-Seite[^node-opcua] ist eine Tabelle mit dem Grad der Umsetzung der Spezifikationen dargestellt.
 Im Zuge dieser Arbeit wurde zu dem Projekt beigetragen.
 Zu dem GrovePi-Erweiterungsboard existiert eine Entwicklungsbibliothek für mehrere Programmiersprachen.
-JavaScript mit Node.js wird vollständig durch das Paket node-grovepi unterstützt.
+JavaScript mit Node.js wird vollständig durch das Paket "node-grovepi" unterstützt.
 Mitgeliefert werden grundsätzliche Implementierungen für analoge und digitale Sensoren und Aktuatoren, sowie das I2C-Bussystem[^i2c] für die Kommunikation zwischen integrierten Schaltungen.
-Die Umsetzung des Prototypen der VMR wird weiterhin durch eine Bibliothek für die serielle Kommunikation (serialport) und das Überwachen von Variablen und Objekten in JavaScript (watchjs) ergänzt.
+Die Umsetzung des Prototypen der VMR wird weiterhin durch eine Bibliothek für die serielle Kommunikation (serialport), das Überwachen von Variablen und Objekten in JavaScript (watchjs) und Test-Bibliotheken (mocha, chai) ergänzt.
 
 [^v8]: [developers.google.com/v8](https://developers.google.com/v8/) (abgerufen am 23.11.2016)
 [^nodejs]: [nodejs.org](https://nodejs.org/en/) (abgerufen am 23.11.2016)
 [^coffeescript]: [coffeescript.org](http://coffeescript.org) (abgerufen am 23.11.2016)
 [^npm]: [npmjs.com](https://www.npmjs.com/) (abgerufen am 24.11.2016)
-[^npmref]: Die Pakete und deren Details können unter npmjs.com/package/&lt;Bibliothek&gt; abgerufen werden.
+[^npmref]: Die Pakete können unter npmjs.com/package/&lt;Bibliothek&gt; abgerufen werden.
 [^node-opcua]: [github.com/node-opcua/node-opcua#supported-features](https://github.com/node-opcua/node-opcua#supported-features) (abgerufen am 24.11.2016)
 [^i2c]: [mikrocontroller.net/articles/I2C](http://www.mikrocontroller.net/articles/I2C) (abgerufen am 24.11.2016)
 
@@ -1372,28 +1376,29 @@ Die für den Anwendungsfall relevanten Komponenten, Variablen und Methoden sind 
 
 Im Modell besitzt die Drehmaschine eine Ladetür, eine NC-Steuerung und einen Sensor für die Temperatur des Werkzeugs.
 Letztere ist mit der Implementierung des Equipment-Erweiterungspunkts _PhysicalToolTemperatureType_ verknüpft, die eine OPC UA Variable für die tatsächliche Temperatur am Werkzeug beschreibt.
-Unter dieser Variable organisiert ist mit `OverheatCondition` ein Bereich für diesen Werte definiert, der eine Überhitzung symbolisiert und die Aktion `Stop_NC` durch Feedback Control nach sich zieht.
-Da node-opcua noch keine Unterstützung für spezialisierte Referenzen bietet, wurde `HasEffect`, aus der Spezifikation von OPC UA, als Synonym zu `HasPhysicalAction` verwendet (vgl. @sec:modellierung-der-anlagenstruktur).
-Feedback Control reagiert auf die Veränderung des Wertebereichs der Temperatur und löst `Stop_NC` aus, sobald er überschritten wurde.
-Wurde die Methode ausgeführt ändert sich die Variable `NC_Program_Status` durch die Implementierung des `PhysicalNCType`. 
-Mit der daraufhin zutreffenden `StoppedCondition` wird wiederum `Open_Door` ausgeführt.
-Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `RelayActuator` -- eine abgeleitete Klasse des `DigitalSensor` der GrovePi-Bibliothek.  
+Unter dieser Variable organisiert ist mit `OverheatCondition` ein Bereich für diesen Wert definiert der Überhitzung symbolisiert.
+Da "node-opcua" noch keine Unterstützung für spezialisierte Referenzen bietet, wird `HasEffect`, aus der Spezifikation von OPC UA, als Synonym zu `HasPhysicalAction` verwendet (vgl. @sec:modellierung-der-anlagenstruktur).
+Feedback Control reagiert auf die Veränderung der Temperatur und löst `Stop_NC` aus, sobald die Bedingung zutrifft (vgl. @sec:umsetzung-der-komponenten).
+Nach der Methodenausführung ändert sich die Variable `NC_Program_Status` durch die Implementierung des `PhysicalNCType`. 
+Mit der daraufhin zutreffenden `StoppedCondition` wird aufgrund der `HasEffect`-Referenz `Open_Door` ausgeführt.
+Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `RelayActuator` -- eine abgeleitete Klasse des `DigitalSensor` der GrovePi-Bibliothek.
 
-Um einen Equipment-Erweiterungspunkt zu laden ließt die Model Control alle Objekte des Pakets "Processing Extensions" (vlg. @sec:organisation) und hält sie für die Bindung zu Modellelementen bereit.
-Exemplarisch ist der `PhysicalLoadingDoorType` in @lst:physical-loading-door-type beschrieben.
+Um einen Equipment-Erweiterungspunkt zu laden, liest die Model Control alle Objekte des Pakets "Processing Extensions" (vgl. @sec:organisation) und hält sie für die Bindung zu Modellelementen bereit.
+Exemplarisch ist der "PhysicalLoadingDoorType" in @lst:physical-loading-door-type beschrieben.
 Damit die Model Control OPC UA Variablen und Methoden binden kann, werden diese mit einem Dollar-Zeichen am Anfang des Bezeichners markiert.
-Die Ladetür besitzt im Informationsmodell nach Ayatollahi et al. (vgl. @sec:modellierung-der-anlagenstruktur) eine Variable `Door_Status`, sowie die Methoden `Close_Door` und `Open_Door` die auch die Implementierung aus @lst:physical-loading-door-type deklariert (Zeilen 3, 12 und 16).
-Sie beinhaltet den `RelayActuator` aus dem Paket "Interface Extensions" (vlg. @sec:organisation), der mit den Parametern des `ConnectionIdentifier` (vlg. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur) initialisiert wird (Zeile 6[^at]).
-In Zeile acht wird die Ladetür mit dem Öffnen des Relais initialisiert.
-Die Methode `$Close_Door` -- von der Model Control aufgerufen -- delegiert die Anweisung an den `RelayActuator` und aktualisiert den Wert der Variablen `$Door_Status`.
+Die Ladetür besitzt im Informationsmodell nach Ayatollahi et al. (vgl. @sec:modellierung-der-anlagenstruktur) eine Variable `Door_Status` sowie die Methoden `Close_Door` und `Open_Door`, die auch die Implementierung aus @lst:physical-loading-door-type deklariert (Zeilen 3, 12 und 16).
+Sie beinhaltet den "RelayActuator" aus dem Paket "Interface Extensions" (vgl. @sec:organisation), der mit den Parametern des `ConnectionIdentifier` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur) initialisiert wird (Zeile 6[^at]).
+In Zeile 8 wird die Ladetür mit dem Öffnen des Relais initialisiert.
+Die Methode "&dollar;Close_Door" -- von der Model Control aufgerufen -- delegiert die Anweisung an den "RelayActuator" und aktualisiert den Wert der Variablen "&dollar;Door_Status".
 
 ```{caption="Implementierung des Processing-Erweiterungspunkts" label="lst:physical-loading-door-type"}
 class PhysicalLoadingDoorType
 
   $Door_Status: null
 
-  constructor: (options) ->
-    @DoorLock = new RelayActuator options.DoorLock.pin
+  constructor: (connectionIdentifier) ->
+    @DoorLock = new RelayActuator connectionIdentifier.DoorLock.pin
+
     @onState  = 'closed'
     @offState = 'open'
 
@@ -1408,10 +1413,13 @@ class PhysicalLoadingDoorType
     @$Door_Status = @offState
 ```
 
-Der Equipment-Erweiterungspunkt wird durch Definition im Laufzeitmodell und Namenskonvention im Bezug auf die Implementierung an das Framework gebunden.
-"Interface Extension" durch Aggregation im jeweiligen Equipment ...
-
-* einbinden einer "Interface Extension" durch Vererbung
+Der Equipment-Erweiterungspunkt wird durch Definition im Modell und Namenskonvention im Paket "Equipment Extensions" an das Framework gebunden.
+Die "Interface Extension" hingegen durch Aggregation im jeweiligen Equipment und das Erben von Klassen der GrovePi-Bibliothek.
+In @lst:relay-actuator solch eine Spezialisierung von "DigitalSensor" dargestellt.
+Der "RelayActuator" ist eine Komponente der "PhysicalLoadingDoor" aus @lst:physical-loading-door-type.
+Zeile 4 deklariert den physischen Kommunikationskanal als ausgehend mit der Pin-Identifikation aus dem `ConnectionIdentifier`-Wert (vgl. @lst:physical-loading-door-type Zeile 6).
+In den Zeilen 6 und 7 sind die Möglichkeiten des Aktuators beschrieben.
+Für das Öffnen und Schließen übergeben sie ein digitales Signal an die GrovePi-Implementierung.
 
 ```{caption="Implementierung des Interface-Erweiterungspunkts" label="lst:relay-actuator"}
 class RelayActuator extends DigitalSensor
@@ -1427,13 +1435,103 @@ class RelayActuator extends DigitalSensor
 
 ## Umsetzung der Komponenten
 
-* Model Control nur für Initialisierung, Hook Pattern für das Binding
-    - von Variablen und Methoden mit dem UA-Server
-    - der Observer für die Feedback Control
+Die Implementierungen der Erweiterungspunkte müssen nun an das Modell der Maschine gebunden werden.
+Model Control initialisiert, ähnlich wie in @fig:framework-init aus @sec:verhalten-zur-laufzeit, das Modell.
+Das Binden einer automatisierten Werkzeugkomponente, zum Beispiel der Ladetür (`LoadingDoor`), mit seiner Equipment-Implementierung ist, bis auf Ausnahme- und Fehlerbehandlung, in @lst:bind-object dargestellt.
+Die bereits bekannten `PhysicalConnections` werden mit denen des Objekts abgeglichen (Zeilen 4 ff.) und der in JSON definierte `ConnectionIdentifier`-Wert geladen (Zeile 8).
+Im Beispiel ist `{"pin":7}` der Wert für die Deklaration der Nummer der Steckverbindung des GrovePi-Erweiterungsboards für das Relais.
+Der "typeNode" aus Zeile 10 beschreibt den Equipmenttyp des Laufzeitmodells, dessen Name die Implementierung (`PhysicalLoadingDoorType`) identifiziert.
+Diese wird in Zeile 13 instanziiert und durch das Objekt referenziert.
+In den Zeilen 15-19 werden nun die OPC UA Methoden und Variablen mit deren Implementierung verknüpft (vgl. @sec:laufzeitmodell-und-erweiterungspunkte).
+Für die Rückkopplung wird beim Binden der Variablen, zum Beispiel `NC_Program_Status` as @fig:implementation-model, "listenTo" der Feedback Control mit einer Referenz auf die Variable aufgerufen.
+
+```{caption="Binden einer Werkzeugkomponente mit der Implementierung" label="lst:bind-object"}
+bind: (object) =>
+  conns = {}
+
+  for conn in @physicalConnections
+    if object.nodeId == conn.parent.nodeId
+      connName = conn.browseName.name
+      connIdentifier = @valueOf conn.connectionIdentifier
+      conns[connName] = JSON.parse connIdentifier
+
+  typeNode = @addressSpace.findNode object.typeDefinition
+  typeName = typeNode.browseName.name
+
+  object.instance = new equipment[typeName](conns)
+
+  if not @methodsOf(object.instance).isEmpty()
+    @bindMethodsTo object
+
+  if not @variablesOf(object.instance).isEmpty() 
+    @bindVariablesTo object
+```
+
+Ein Auszug der Feedback Control in @lst:feedback-control beschreibt die Implementierung der Phasen von MAPE-K (vgl. @sec:cyber-physische-rückkopplung).
+Für das Monitoring werden zuerst alle Variablenzustände (`PhysicalCondition`) identifiziert.
+Besitzt die Variable mindestens einen zu verarbeitenden Zustand, wird sie mittels "watchjs" überwacht (Zeile 5).
+Der letzte Parameter der Methode "watch" ist ein Callback für den Fall der Veränderung.
+Innerhalb dessen iteriert Feedback Control über die möglichen Variablenzustände und überprüft (Analyze-Phase) ihre Qualifikation für den nächsten Schritt (Zeilen 6-7).
+In der Plan-Phase werden über die `HasEffect`-Referenz verbundene OPC UA Methoden gesucht und schlussendlich ausgeführt (Execute, Zeile 8).
+"hasBeenMet" führt eine Fallunterscheidung nach dem Typ der `PhysicalCondition` durch.
+Bei booleschem Typ, Zeichenketten und anderen direkt Werten wird ein einfacher Abgleich mit dem tatsächlichen Zustand durchgeführt -- Wert der Bedingung entspricht dem Wert der Variablen.
+Im Beispiel dieses Kapitels wird der Wert "Stop" der Variable `NC_Program_Status` mit dem Wert der `StoppedCondition` vergleichen und gegebenenfalls die Methode `Open_Door` der `LoadingDoor` aufgerufen (vgl. @fig:implementation-model).
+Der andere Ausgang der Fallunterscheidung von "hasBeenMet" ist durch den kritischen Temperaturbereich des OPC UA Typs "Range" abgedeckt.
+In diesem Fall wird überprüft, ob der tatsächliche Zustand (`Temperature`) innerhalb dieses Bereichs (`OverheatCondition`) liegt.
+
+```{caption="Rückkopplung durch Feedback Control" label="lst:feedback-control"}
+listenTo: (addressSpaceVariable, variable, equipment) =>
+  # [...] find physical conditions
+
+  if not physicalConditions.isEmpty()
+    watch equipment, variable, () => 
+      for condition in physicalConditions
+        if @hasBeenMet(condition, addressSpaceVariable)
+          @findAndExecuteActionFor condition
+```
+
+Die Implementierung der cyber-physischen Adapter und des OPC UA Servers sind delegierende Fassaden (Wrapper) um die Bibliotheken "node-grovepi" und "node-opcua" und können im Quellcode des Prototypen[^vmr-source] nachgeschlagen werden.
+
+[^vmr-source]: [github.com/phdd/diplom/tree/vmr](https://github.com/phdd/diplom/tree/vmr) (abgerufen am 25.11.2016)
 
 ## Softwaretests für Erweiterungspunkte
 
+Die Implementierung des Framework kann durch Unit- und Integrationstests überprüft werden.
+Da sie sich als Kern der virtuellen Maschinenrepräsentation (VMR) kaum verändert, werden diese Tests einmalig definiert.
+Interessanter sind die Erweiterungspunkte, die stetig wachsend, einem kontinuierlichen Testzyklus unterliegen müssen.
+Um das logische Verhalten der Implementierung von Equipment vor dem operativen Einsatz zu verifizieren, werden Unit-Tests wie in @lst:equipment-test eingesetzt.
+Mit "mocha" als JavaScript Test-Framework und "chai" für die Assertions (Annahmen) kann das Verhalten des Equipments beschrieben werden.
+Die "describe"-Funktionen der Zeilen 1-2 definieren einen Kontext für die eigentlichen Tests, welche mit "it" (Zeilen 4, 7 und 11) und einem passenden Bezeichner definiert werden.  
+Im ersten Testfall (Zeilen 4-5) des "PhysicalNCType" soll der Start der numerischen Kontrolle in einem OPC UA Status-Code für ungültige Zustände münden, falls kein Programm für die Werkzeugmaschine festgelegt wurde.
+Die Variable "its" hält dabei eine Instanz der zu testenden Implementierung.
+Im zweiten Fall (Zeilen 7-9) schlägt der Start aufgrund einer bereits laufenden Programmausführung fehl.
+Dafür wird die Variable "&dollar;NC_Program_Status" auf "Active" gesetzt, "&dollar;Start_NC" aufgerufen und der ungültige Zustand festgestellt.
+Da "PhysicalNCType" vom "SmoothieboardActuator" der "Interface Extensions" abhängt, müssen Hilfskonstruktionen zur Überwachung der internen Methodenaufrufe an andere Objekte verwendet werden.
+In Zeile 12 wird dafür ein "Spion" auf die Methode "start" des "SmoothieboardActuator" angesetzt und der aktuelle Zustand festgelegt (Zeile 13).
+Die Ausführung von "&dollar;Start_NC" (Zeile 14) muss dann in einem Aufruf der Startfunktion des Aktuators münden.
 
+```{caption="Unit-Test des PhysicalNCType" label="lst:equipment-test"}
+describe 'PhysicalNCType', ->
+  describe 'operation start', -> 
+
+    it 'should fail without a program assigned', ->
+      its.$Start_NC().statusCode.should.equal status.BadInvalidState
+
+    it 'should fail when already active', ->
+      its.$NC_Program_Status = 'Active'
+      its.$Start_NC().statusCode.should.equal status.BadInvalidState
+
+    it 'should succeed if inactive and assigned program', ->
+      start = chai.spy.on its.SmoothieboardActuator, 'start'
+      its.$NC_Program = 'test'
+      its.$Start_NC()
+      start.should.have.been.called.with 'test'
+```
+
+Dasselbe Prinzip kann auf die Implementierungen des "Interface Extension" Pakets angewendet werden.
+Da die GrovePi-Bibliothek getestete Implementierungen für die meisten Sensoren und Aktuatoren bereitstellt, reduziert sich der Aufwand und wird hier nicht näher beschrieben.
+Spezielle Erweiterungen wie der "SmoothieboardActuator" oder dessen Abhängigkeit vom "SerialPort" müssen ebenfalls validiert werden, was kein Teil der prototypischen Umsetzung ist.  
+Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete Implementierung zurück, sondern validieren das Verhalten der VMR mit der Perspektive eines OPC UA Clients.
 
 [^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
 
