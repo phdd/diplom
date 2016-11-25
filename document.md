@@ -1537,9 +1537,72 @@ Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete 
 
 # Evaluation
 
+Mit der Umsetzung des Konzepts in einem Framework mit prototypischer Entwicklung wurde eine Möglichkeit zur Integration von Altanlagen in ein cyber-physisches Produktionssystem (CPPS) aufgezeigt.
+Da bestehende Forschung Teilprobleme der in @sec:einleitung vorgestellten bereits gelöst hat, wird nun ein Vergleich gezogen um den Mehrwert dieser Arbeit herauszustellen.
+Weiterhin werden die Anforderungen und Ziele mit dem Konzept der virtuellen Maschinenrepräsentation (VMR) verglichen.
+Eine abschließende Diskussion beantwortet die Forschungsfragen und erläutert mögliche Kritik.
+
+## Vergleich zu bestehenden Konzepten
+
+Für die Steuerung der Altanlage mit Direct Numerical Control (DNC) wurde das Konzept von Ferrolho et al. vorgestellt (vgl. @sec:steuerung-von-fertigungssystemen, @Ferrolho2005).
+Sie entwarfen ein Adapter-Framework für DNC im Kontext flexibler Fertigungszellen das Ethernet-basierte Steuerung und Überwachung sowie Rückkopplung ermöglicht.
+Das hier vorgestellte Konzept geht über die numerische Kontrolle innerhalb von Fertigungszellen hinaus und nutzt Kommunikationsstandards für eine durchgängige Integration (vgl. @sec:virtuelle-maschinenrepräsentation).
+Ayatollahi et al. nutzten ebenfalls DNC für die Kontrolle der Maschine, abstrahierten aber die Steuerungskommunikation durch ein standardisiertes Protokoll mit der Möglichkeit zur Modellierung der Anlagenstruktur @Ayatollahi2013.
+Das strukturelle Modell der VMR baut auf dem von Ayatollahi et al. auf und erweitert es für CPPS (vgl. @sec:modellierung-der-anlagenstruktur).
+Ein Service-orientiertes Konzept für die abstrakte Kontrolle speicherprogrammierbarer Steuerungen (SPS) von Windmann et al. nutzt OPC UA und implementiert komplexe Logik durch einen Agenten direkt am Feldgerät @Windmann2015.
+Der von ihm vorgestellte Software-Agent ist wie die VMR für komplexe Prozesse und lokale Datenhaltung verantwortlich, beschränkt sich aber auf die Abstraktion von SPS.  
+Entfernte Kontrolle von CNC-Maschinen realisierten Wang et al. mit dem Wise-ShopFloor (vgl. @sec:architektur-flexibler-produktion, @Wang2004).
+Mit einem Publish/Subscribe Mechanismus auf einer Client/Server Architektur ermöglichen sie auch komplexe Kommunikation innerhalb einer cyber-physischen Produktionsumgebung.
+Im Gegensatz zu dieser Arbeit liegt ihr Fokus auf der Nutzungsschnittstelle und Visualisierung operativer Produktion und nicht auf der Integration der Feldgeräte.
+Für gerade diese entwarfen Pauker et al. eine Architektur unter Berücksichtigung von Rekonfigurierbarkeit in flexiblen Fertigungszellen @Pauker2013.
+Die Vereinheitlichung von Schnittstellen sowie Rekonfigurierbarkeit auf Feldebene wurde auch im horizontalen Integrationskonzept der VMR beachtet (vgl. @sec:horizontale-integration).
+Im Unterschied zu dem Blackboard-Ansatz von Pauker et al. werden die Daten am Gerät persistiert und Instruktionen dezentral auf Basis eines Standards kommuniziert.  
+Ein in die VMR eingeflossenes Konzept, mit Schwerpunkt auf Anlagenmodernisierung, entwickelten Moctezuma et al. @Moctezuma2012.
+Ihre dreischichtige Lösung wurde ein Kernaspekt des in dieser Arbeit vorgestellten Frameworks (vgl. @sec:virtuelle-maschinenrepräsentation).
+Der Unterschied zur VMR liegt in der Verwendung von OPC UA für die horizontale Integration (vgl. @sec:horizontale-integration).
+Eine Service-orientierte Architektur durch Web-Service Module ist hier Teil des Konzepts zur vertikalen Integration, wurde im Entwurf des Frameworks jedoch nicht vollständig betrachtet.
+Diese Module wurden von Dürkop et al. übernommen und setzen mit einer neuen Schicht auf der Feldebene auf @Durkop2014.
+Zwar verbindet OPC UA die beiden Ebenen, jedoch wird im Gegensatz zur VMR keine explizite Kommunikation zwischen den Modulen erlaubt.
+Weiterhin spezifiziert das hier vorgestellte Konzept die Architektur des Moduls auf Feldebene durch den Ansatz von Moctezuma et al. @Moctezuma2012.
+Die abstrakteste Perspektive auf CPPS wurde von Lee et al. entworfen @Lee2015.
+An die mehrschichtige Struktur und Richtlinien für Architekturen von CPPS ist das VMR-Konzept angelehnt (vgl. @sec:vertikale-integration).  
+Ein Unterschied zu allen betrachteten Forschungsarbeiten ist die dedizierte Verwendung von Einplatinencomputern für die VMR und das Retrofitting von Altanlagen.
+Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Maschinen, betrachten den Aspekt der Anlagenmodernisierung in CPPS jedoch nicht @Grigoriev2016.
+
+## Anforderungen und Ziele
+
+Anforderungen
+
+Ziele
+
+<!--
+* entfernte Kontrolle einer Altmaschine
+  * manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert
+  * stärker automatisiert 
+  * beschleunigt den übergeordneten Produktionsablauf.
+* zentrale Auswertung von Prozessdaten
+  * gesamtheitlichen Einblick in die Produktion
+  * Diagnosen geschehen damit nicht mehr vor Ort
+    * wodurch Wartungszyklen besser überprüft/eingehalten
+    * Planung der Fertigung vereinfacht
+    * Zeit bis zur Produktion gesenkt
+  * Störfälle wie Werkzeugbruch/-wechsel ad hoc kommuniziert
+
+* dezentrale Informations- und Kommunikationsarchitektur
+  * verbessert Resilienz, Produktionsstabilität, Skalierbarkeit
+  * M2M nicht mehr unterbrochen/einheitlich
+    * Kontrolle und Überwachung hierarchisiert/dezentralisiert
+  * Modellierung von Maschine 
+    * Standardentwicklungswerkzeuge und -austauschformate
+  * Optimierungspotential der Gesamtanlage => statistische Auswertung
+-->
+
+## Diskussion
+
 These/Behauptung?
 
 * Steigerung des Automatisierungsgrads durch Feedback Loop
+
 * physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
     - "Echtzeitanalyse" durch Werker auch entfernt mgl.
 * Laufzeitmodell für online-Monitoring
@@ -1549,11 +1612,16 @@ Umsetzung?
 * Proof of concept
 * Case-Study mgl.?
 * HIL-Simulation?
-* Argumentative Evaluation des Artefakts nach DSRM i.O.
 * Messung der Rückkopplungsgeschwindigkeit => node profiling (https://nodejs.org/en/docs/guides/simple-profiling/)
 * Tabelle mit Komponenten und deren konzeptueller und implementeller Umsetzungsgrad
 
-* Implementierung der PhysicalCondition bzgl. konstanter Variablen unvollständig; bisher String, Bool => node-opcua
+Blocking Factors/mögliche Kritik?
+
++ Horizontale und vertikale Integration für Altmaschinen
+- keine quantitative Evaluation
+- kein Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
+
+* Implementierung der PhysicalCondition bzgl. konstanter Variablen unvollständig; bisher skalare/atomare Werte + Ranges => node-opcua
 * Conditions durch UA-Datentype ausdrucksstark (Range), aber weder logisch kombinierbar noch zeitlich einzuordnen
 * Logik ist in der VMR, dennoch keine Echtzeit => Ausblick ECA RT Abbildung (RT OS + statische C/C++ Code Generierung für die Regeln beim Deployment)
     - Not-Aus etc. verbindungsorientiert anbinden
@@ -1567,8 +1635,6 @@ Umsetzung?
     - Imperativ beschreibt wie Feedback Control reagiert => alle Möglichkeiten müssen beschrieben werden
     - Deklarativ beschreibt was bei einem bestimmten Systemzustand erwartet wird und wie auf eine unerwartete Situation zu reagieren ist
 * Test-Suite auf Unit-Tests beschränkt => Integrationstests?
-
-Blocking Factors/mögliche Kritik?
 
 * Leistung von embedded computing devices => siehe @Grigoriev2016
 * Pi hat Grenzen bei CNC => Smoothieboard
@@ -1584,25 +1650,23 @@ Blocking Factors/mögliche Kritik?
     - Conditions können alle OPC UA Typen annehmen (auch Ranges)
 * Integrationskonfiguration Teil des Informationsmodells => zentrale Modellierung aller Details mit etablierten Tools
 
-## Anforderungsabdeckung
-
-## Leistungsfähigkeit
-
-QUANTITATIV
-
-* 
-
-## Diskussion
-
-KRITIK
-
-* keine quantitative Evaluation
-
 # Zusammenfassung
+
+Das Ergebnis dieser Arbeit ist ein Konzept für die Modernisierung von Altanlagen (Retrofitting).
+Neben der transparenten horizontalen und vertikalen Integration einer virtuellen Maschinenrepräsentation (VMR), ist ein generisches Software-Framework für die entfernte Überwachung und Steuerung entstanden.
+Durch die prototypische Entwicklung ... (DSRM)
 
 ## Schlussfolgerung
 
-* Forschungsfragen aufgreifen!
+<!--
+Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+ 
+    1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Steuerung und Überwachung veralteter Fertigungsanlagen im Kontext von CPPS geeignet?
+    
+    2. Wie und wo werden Informationen zu Maschinenzustand und -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+  
+    3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
+-->
 
 ## Ausblick
 
