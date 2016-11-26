@@ -26,6 +26,7 @@ ifndef DISABLE_REFS
 endif
 
 NON_LATEX_ARGS = \
+	acknowledgements.md \
 	appendix.md \
 	style/literatur.md \
 	--number-sections \
@@ -48,7 +49,7 @@ announce-figures-png:
 
 pdf: hello latex announce-figures-pdf figures-pdf build-latex
 
-latex: compile-appendix-tex fix-mendeley-bug
+latex: compile-appendix-tex compile-acknowledgements-tex fix-mendeley-bug
 	@echo -e "> \033[1mpandoc:\033[m Markdown => Latex"
 	@pandoc \
 		metadata.yml \
@@ -114,6 +115,13 @@ compile-appendix-tex:
 		--variable=documentclass:report \
 		--default-image-extension=pdf \
 		--output=appendix.tex \
+		--number-sections \
+
+compile-acknowledgements-tex:
+	@pandoc \
+		acknowledgements.md \
+		--variable=documentclass:report \
+		--output=acknowledgements.tex \
 		--number-sections \
 
 fix-mendeley-bug:

@@ -1531,7 +1531,7 @@ Da die GrovePi-Bibliothek getestete Implementierungen für die meisten Sensoren 
 Spezielle Erweiterungen wie der "SmoothieboardActuator" oder dessen Abhängigkeit vom "SerialPort" müssen ebenfalls validiert werden, was kein Teil der prototypischen Umsetzung ist.  
 Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete Implementierung zurück, sondern validieren das Verhalten der VMR mit der Perspektive eines OPC UA Clients.
 
-# Evaluation
+# Diskussion
 
 Mit der Umsetzung des Konzepts in einem Framework mit prototypischer Entwicklung wurde eine Möglichkeit zur Integration von Altanlagen in ein cyber-physisches Produktionssystem (CPPS) aufgezeigt.
 Da bestehende Forschung Teilprobleme der in @sec:einleitung vorgestellten bereits gelöst hat, wird nun ein Vergleich gezogen um den Mehrwert dieser Arbeit herauszustellen.
@@ -1602,56 +1602,54 @@ Auch das Austauschformat der Modelle unterliegt mit XML und Schemadefinition[^ua
 
 ## Abschließende Betrachtungen
 
-These/Behauptung?
+Durch die cyber-physische Rückkopplung in der VMR kann der Automatisierungsgrad erhöht werden.
 
-* Steigerung des Automatisierungsgrads durch Feedback Loop
 
-* physische Anwesenheit des Werkers technisch überwinden (Remote-Control/-Programming)
-    - "Echtzeitanalyse" durch Werker auch entfernt mgl.
-* Laufzeitmodell für online-Monitoring
+##### Informationsmodellierung.
 
-Umsetzung?
++ Laufzeitmodell für online-Monitoring
++ Conditions durch UA-Datentype ausdrucksstark (Range)
+- logisch nicht kombinierbar
+- keine zeitliche Einordnung
+- bisher skalare/atomare Werte + Ranges
+* Implementierung der PhysicalCondition bzgl. konstanter Variablen unvollständig (node-opcua)
 
-* Proof of concept
-* Case-Study mgl.?
-* HIL-Simulation?
-* Messung der Rückkopplungsgeschwindigkeit => node profiling (https://nodejs.org/en/docs/guides/simple-profiling/)
-* Tabelle mit Komponenten und deren konzeptueller und implementeller Umsetzungsgrad
+##### Anlagenanbindung.
 
-Blocking Factors/mögliche Kritik?
+* Logik ist in der VMR, dennoch keine Echtzeit
 
-+ Horizontale und vertikale Integration für Altmaschinen
-- keine quantitative Evaluation
-- kein Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
+##### Horizontale und vertikale Integration.
 
-* Implementierung der PhysicalCondition bzgl. konstanter Variablen unvollständig; bisher skalare/atomare Werte + Ranges => node-opcua
-* Conditions durch UA-Datentype ausdrucksstark (Range), aber weder logisch kombinierbar noch zeitlich einzuordnen
-* Logik ist in der VMR, dennoch keine Echtzeit => Ausblick ECA RT Abbildung (RT OS + statische C/C++ Code Generierung für die Regeln beim Deployment)
-    - Not-Aus etc. verbindungsorientiert anbinden
-* Konflikte in ECA-Regeln
-* der Action fehlen die Parameter der Methode
-* Redundanz der PhysicalConditions (Closed für Relay-Aktuator/Contact-Sensor)
+* physische Anwesenheit des Werkers technisch überwinden
+    - Remote-Control/-Programming
+    - Analyse durch Werker auch entfernt
+
+##### Rückkopplung.
+
+- keine Konfliktbehandlung in ECA-Regeln
+- Action fehlen die Parameter der Methode
+
 * imperative Regeln (NC Stopped => Open_Door()) vs. deklarative Systembeschreibung 
     - Door_Status == 'Closed' impliziert Contact_Status == 'Closed' 
         + Was, wenn nicht => Kompensationsstrategie?
     - (RelayActuatorClosed)-[HasPhysicalEffect]->(ContactSensorClosed)->?
     - Imperativ beschreibt wie Feedback Control reagiert => alle Möglichkeiten müssen beschrieben werden
     - Deklarativ beschreibt was bei einem bestimmten Systemzustand erwartet wird und wie auf eine unerwartete Situation zu reagieren ist
-* Test-Suite auf Unit-Tests beschränkt => Integrationstests?
-
-* Leistung von embedded computing devices => siehe @Grigoriev2016
-* Pi hat Grenzen bei CNC => Smoothieboard
-* Smoothieboard als Maschinen-Adapter
-    - Nachteil: Beobachten des Prozessfortschritts langsam (progress) => kann nicht in online-FB einbezogen werden
-* Industriekomponenten nicht mit Smoothieboard vergleichbar 
-* Energieverbrauch?
-* RAMI4.0-Konformität
 
 * ECA für MAPE-K FCL
-    - nur einfache Conditions im Informationsmodell abbildbar (bisher)
     - conflicts between policies can arise that are hard to detect @Huebscher2008
-    - Conditions können alle OPC UA Typen annehmen (auch Ranges)
-* Integrationskonfiguration Teil des Informationsmodells => zentrale Modellierung aller Details mit etablierten Tools
+
+##### Umsetzung.
+
+- Test-Suite auf Unit-Tests beschränkt => Integrationstests?
+* Leistung von embedded computing devices => siehe @Grigoriev2016
+* Smoothieboard als Antriebssteuerung
+    - Nachteil: Beobachten des Prozessfortschritts langsam (progress) => kann nicht in online-FB einbezogen werden
+* Industriekomponenten nicht mit Smoothieboard vergleichbar 
+
++ Integrationskonfiguration Teil des Informationsmodells  
+  zentrale Modellierung aller Details mit etablierten Tools
++ Szenarien und Anwendungsfälle für ein realitätsnahes Konzept
 
 # Zusammenfassung
 
@@ -1673,13 +1671,15 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 ## Ausblick
 
+* Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
+* prototypische Implementation für SPS
 * Eignung anderer SBC und Vergleich mit dieser Impl.
 * Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
 * externe FCL (Cyber- und Configuration-Level nach @Lee2015)
 * Prozess-Engine nach @Seiger2015
 * Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
 * TSN Ethernet trägt RT vertikal nach oben
-* Nutzungsschnittstellen (Unified Automation Android App)
+* Nutzungsschnittstellen (Unified Automation Android App, @Wang2004)
 * Wise-ShopFloor mit OPC UA horizontal integrieren
 * Steuerungsalternative OPC UA Programs (@OPCFoundation2014)
 * Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
