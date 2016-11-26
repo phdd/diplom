@@ -45,7 +45,7 @@ Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
 Im Kontext dieser Arbeit gilt eine Anlage als integriert, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. Kapitel 3) genügt.
 Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernisierung für die  Industrie 4.0 durch weitere Ziele unterstützt:
 
-* Eine dezentrale Informations- und Kommunikationsarchitektur verbessert die Resilienz, Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen.
+* Eine dezentrale Informations- und Kommunikationsarchitektur verbessert die Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen.
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig offener Schnittstellen nicht mehr unterbrochen. 
   Durch damit einheitlich mögliche Machine-To-Machine (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
@@ -980,8 +980,6 @@ Rückkopplungsmechanismen (vgl. @sec:cyber-physische-rückkopplung) sorgen für 
 Änderungen an der Struktur der automatisierte Werkzeugkomponenten werden im Modell reflektiert und dessen Struktur neu organisiert.
 In Szenario S1/2 betrifft das den Austausch des Werkzeugs der Maschine.
 
-[^uaexpert]: [unified-automation.com/products/development-tools/uaexpert.html](https://www.unified-automation.com/products/development-tools/uaexpert.html) (abgerufen am 12.11.2016)
-
 ## Virtuelle Maschinenrepräsentation
 
 Die virtuelle Maschinenrepräsentation (VMR) ist in der Verwaltungsschale einer I4.0-Komponente des RAMI4.0 Referenzmodells eingebettet und bietet fachliche Funktionalität (vgl. Bild 9 aus @Adolphs2015).
@@ -1391,7 +1389,7 @@ Sie beinhaltet den "RelayActuator" aus dem Paket "Interface Extensions" (vgl. @s
 In Zeile 8 wird die Ladetür mit dem Öffnen des Relais initialisiert.
 Die Methode "&dollar;Close_Door" -- von der Model Control aufgerufen -- delegiert die Anweisung an den "RelayActuator" und aktualisiert den Wert der Variablen "&dollar;Door_Status".
 
-```{caption="Implementierung des Processing-Erweiterungspunkts" label="lst:physical-loading-door-type"}
+```{label="lst:physical-loading-door-type" caption="Implementierung des Processing-Erweiterungspunkts"}
 class PhysicalLoadingDoorType
 
   $Door_Status: null
@@ -1421,7 +1419,7 @@ Zeile 4 deklariert den physischen Kommunikationskanal als ausgehend mit der Pin-
 In den Zeilen 6 und 7 sind die Möglichkeiten des Aktuators beschrieben.
 Für das Öffnen und Schließen übergeben sie ein digitales Signal an die GrovePi-Implementierung.
 
-```{caption="Implementierung des Interface-Erweiterungspunkts" label="lst:relay-actuator"}
+```{label="lst:relay-actuator" caption="Implementierung des Interface-Erweiterungspunkts"}
 class RelayActuator extends DigitalSensor
 
   constructor: (@pin) ->
@@ -1445,7 +1443,7 @@ Diese wird in Zeile 13 instanziiert und durch das Objekt referenziert.
 In den Zeilen 15-19 werden nun die OPC UA Methoden und Variablen mit deren Implementierung verknüpft (vgl. @sec:laufzeitmodell-und-erweiterungspunkte).
 Für die Rückkopplung wird beim Binden der Variablen, zum Beispiel `NC_Program_Status` as @fig:implementation-model, "listenTo" der Feedback Control mit einer Referenz auf die Variable aufgerufen.
 
-```{caption="Binden einer Werkzeugkomponente mit der Implementierung" label="lst:bind-object"}
+```{label="lst:bind-object" caption="Binden einer Werkzeugkomponente mit deren Implementierung"}
 bind: (object) =>
   conns = {}
 
@@ -1479,7 +1477,7 @@ Im Beispiel dieses Kapitels wird der Wert "Stop" der Variable `NC_Program_Status
 Der andere Ausgang der Fallunterscheidung von "hasBeenMet" ist durch den kritischen Temperaturbereich des OPC UA Typs "Range" abgedeckt.
 In diesem Fall wird überprüft, ob der tatsächliche Zustand (`Temperature`) innerhalb dieses Bereichs (`OverheatCondition`) liegt.
 
-```{caption="Rückkopplung durch Feedback Control" label="lst:feedback-control"}
+```{label="lst:feedback-control" caption="Rückkopplung durch Feedback Control"}
 listenTo: (addressSpaceVariable, variable, equipment) =>
   # [...] find physical conditions
 
@@ -1510,7 +1508,7 @@ Da "PhysicalNCType" vom "SmoothieboardActuator" der "Interface Extensions" abhä
 In Zeile 12 wird dafür ein "Spion" auf die Methode "start" des "SmoothieboardActuator" angesetzt und der aktuelle Zustand festgelegt (Zeile 13).
 Die Ausführung von "&dollar;Start_NC" (Zeile 14) muss dann in einem Aufruf der Startfunktion des Aktuators münden.
 
-```{caption="Unit-Test des PhysicalNCType" label="lst:equipment-test"}
+```{label="lst:equipment-test" caption="Unit-Test des PhysicalNCType"}
 describe 'PhysicalNCType', ->
   describe 'operation start', -> 
 
@@ -1532,8 +1530,6 @@ Dasselbe Prinzip kann auf die Implementierungen des "Interface Extension" Pakets
 Da die GrovePi-Bibliothek getestete Implementierungen für die meisten Sensoren und Aktuatoren bereitstellt, reduziert sich der Aufwand und wird hier nicht näher beschrieben.
 Spezielle Erweiterungen wie der "SmoothieboardActuator" oder dessen Abhängigkeit vom "SerialPort" müssen ebenfalls validiert werden, was kein Teil der prototypischen Umsetzung ist.  
 Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete Implementierung zurück, sondern validieren das Verhalten der VMR mit der Perspektive eines OPC UA Clients.
-
-[^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
 
 # Evaluation
 
@@ -1571,33 +1567,40 @@ Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Masc
 
 ## Anforderungen und Ziele
 
-Anforderungen
+Für die Modernisierung von Altanlagen wurden in @sec:anforderungen Anforderungen aufgestellt die nun mit dem vorgestellten Konzept abgeglichen werden.
 
-Ziele
+Für die Überwachung von Betriebs- und Prozessdaten der Maschine wurde Ortsunabhängigkeit gefordert (vgl. @sec:überwachung).
+Durch die Verwendung von OPC UA auf Feldebene und Web-Services für übergeordnete Dienste, kann die Anlage mittels entsprechender Clients nahtlos überwacht werden.
+Eine vollständige Anlagenstrukturabbildung im Informationsmodell erlaubt die Hierarchisierung der automatisierten Werkzeugkomponenten und liefert ein ganzheitliches Bild für Maschinenbediener und Subsysteme der cyber-physischen Produktionsumgebung (CPPS).  
+Auch die Steuerung von Altanlagen soll ortsunabhängig möglich sein (vgl. @sec:steuerung).
+Wie schon bei der Überwachung ist OPC UA das Bindeglied zwischen der VMR, Nutzungsschnittstelle und Subsystemen des CPPS.
+Mit der Erweiterung des Konzepts von Ayatollahi et al. ist die entfernte Steuerung der Maschine möglich und erlaubt zum Beispiel das Eingreifen in den operativen Betrieb von CNC-Werkzeugmaschinen.  
+Die Modernisierung der Anlage wurde auf Basis etablierter Standards ermöglicht (vgl. @sec:standardisierung).
+Horizontal wie vertikal wird die Integration durch OPC UA, beziehungsweise Web-Services bewerkstelligt.
+Damit ist die Datenaggregation und Kommunikation der Maschinen untereinander gesamtheitlich möglich.  
+Ein Großteil der Datenverarbeitung und -analyse soll den Anforderungen nach geographisch nahe der Maschine geschehen (vgl. @sec:lokalität).
+Die VMR ist in der Lage die Signale der angeschlossenen Peripherie in Informationen umzuwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen.
+Mit OPC UA ist weiterhin eine lokale Historie möglich.
+Darüber hinaus ist eine interne Rückkopplungsschleife verantwortlich für die Kapselung bestimmter Automatisierungslogik und reagiert autonom auf veränderte Bedingungen.  
+Die Ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware aufgestellt wurde (vgl. @sec:integrationshardware).
+In der Umsetzung der VMR wird der Einplatinencomputer Raspberry Pi verwendet, womit auch die letzte Anforderung dieser Arbeit vollständig erfüllt wurde (vgl. @sec:implementation).
 
-<!--
-* entfernte Kontrolle einer Altmaschine
-  * manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert
-  * stärker automatisiert 
-  * beschleunigt den übergeordneten Produktionsablauf.
-* zentrale Auswertung von Prozessdaten
-  * gesamtheitlichen Einblick in die Produktion
-  * Diagnosen geschehen damit nicht mehr vor Ort
-    * wodurch Wartungszyklen besser überprüft/eingehalten
-    * Planung der Fertigung vereinfacht
-    * Zeit bis zur Produktion gesenkt
-  * Störfälle wie Werkzeugbruch/-wechsel ad hoc kommuniziert
+Im Bezug auf die in @sec:zielsetzung beschriebenen Ziele verhält sich das vorgestellte Konzept wie folgt.
+Die entfernte Kontrolle der Altmaschine wird durch die Kapselung mit der VMR ermöglicht.
+Somit werden manuelle Tätigkeiten gemindert, die Automatisierung erweitert und schlussendlich der übergeordnete Produktionsablauf beschleunigt.
+Prozess- und Produktionsdaten können durch eine Nutzungsschnittstelle zentral ausgewertet werden.
+Die in der prototypischen Umsetzung verwendete Nutzungsschnittstelle ist der OPC UA Client UaExpert[^uaexpert] von Unified Automation.
+Diagnosen in Ausnahmesituationen und bei Störfällen können mit diesem Client ortsunabhängig und zentral gestellt werden.
+Mit OPC UA verwendet die VMR eine dezentrale Kommunikations- und Informationsarchitektur, einhergehend mit der Verbesserung von Produktionsstabilität, Skalierbarkeit und Rekonfiguration.
+Durch die starke Verbreitung von OPC UA (vgl. @OPCFoundation2014) wird die M2M-Kommunikation, beziehungsweise der Informationsaustausch der Anlagen untereinander, nahtlos gewährleistet.
+Für die Modellierung der Anlagenstruktur und Regeln für die Rückkopplung kann durchgängig ein einziges Werkzeug wie der UaModeler[^uamodeler] verwendet werden.
+Auch das Austauschformat der Modelle unterliegt mit XML und Schemadefinition[^uanodeset] der OPC Foundation einer Spezifikation der Unified Architecture.
 
-* dezentrale Informations- und Kommunikationsarchitektur
-  * verbessert Resilienz, Produktionsstabilität, Skalierbarkeit
-  * M2M nicht mehr unterbrochen/einheitlich
-    * Kontrolle und Überwachung hierarchisiert/dezentralisiert
-  * Modellierung von Maschine 
-    * Standardentwicklungswerkzeuge und -austauschformate
-  * Optimierungspotential der Gesamtanlage => statistische Auswertung
--->
+[^uaexpert]: [unified-automation.com/products/development-tools/uaexpert.html](https://www.unified-automation.com/products/development-tools/uaexpert.html) (abgerufen am 12.11.2016)
+[^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
+[^uanodeset]: [github.com/OPCFoundation/UA-Nodeset](https://github.com/OPCFoundation/UA-Nodeset) (abgerufen am 26.11.2016)
 
-## Diskussion
+## Abschließende Betrachtungen
 
 These/Behauptung?
 

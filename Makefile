@@ -38,9 +38,6 @@ hello:
 	@echo -e " \033[1mSuper awesome Thesis Builder v1.0\033[m"
 	@echo "-----------------------------------"
 
-bye:
-	@echo ""
-
 all: pdf html epub presentation
 
 announce-figures-pdf:
@@ -49,7 +46,7 @@ announce-figures-pdf:
 announce-figures-png:
 	@echo -e "> \033[1minkscape:\033[m SVG => PNG"
 
-pdf: hello latex announce-figures-pdf figures-pdf build-latex bye
+pdf: hello latex announce-figures-pdf figures-pdf build-latex
 
 latex: compile-appendix-tex fix-mendeley-bug
 	@echo -e "> \033[1mpandoc:\033[m Markdown => Latex"
@@ -61,7 +58,7 @@ latex: compile-appendix-tex fix-mendeley-bug
 		--output=document.tex \
 		--default-image-extension=pdf \
 
-html: hello fix-mendeley-bug bye
+html: hello fix-mendeley-bug
 	@echo -e "> \033[1mpandoc:\033[m Markdown => HTML"
 	@pandoc \
 		metadata.yml \
@@ -75,7 +72,7 @@ html: hello fix-mendeley-bug bye
 		--css=style/html.css \
 		--default-image-extension=svg \
 
-epub: hello announce-figures-png figures-png fix-mendeley-bug bye
+epub: hello announce-figures-png figures-png fix-mendeley-bug
 	@echo -e "> \033[1mpandoc:\033[m Markdown => EPUB"
 	@pandoc \
 		metadata.yml \
@@ -86,7 +83,7 @@ epub: hello announce-figures-png figures-png fix-mendeley-bug bye
 		--epub-stylesheet=style/epub.css \
 		--default-image-extension=png \
 
-presentation: hello announce-figures-png figures-png fix-mendeley-bug bye
+presentation: hello announce-figures-png figures-png fix-mendeley-bug
 	@echo -e "> \033[1mpandoc:\033[m Presentation"
 	@pandoc \
 		$(HTML_ARGS) \
@@ -105,7 +102,9 @@ presentation: hello announce-figures-png figures-png fix-mendeley-bug bye
 
 build-latex: 
 	@echo -e "> \033[1mxelatex:\033[m Latex => PDF"
-	@./latexrun -O . --bibtex-cmd biber --latex-cmd xelatex document
+	@./latexrun -O . \
+		-Wno-hyperref -Wno-scrextend \
+		--bibtex-cmd biber --latex-cmd xelatex document
 
 compile-appendix-tex:
 	@pandoc \

@@ -2,6 +2,10 @@
    			bibliography=totoc, listof=totoc, BCOR=12mm,
    			numbers=noenddot]{scrbook}
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \usepackage[ngerman]{babel}
 
 \usepackage[T1]{fontenc} % for correct guillemets, http://en.wikibooks.org/wiki/LaTeX/Internationalization#German
@@ -17,6 +21,8 @@
 \usepackage{nomencl}
 
 \usepackage{xspace}
+
+\usepackage{scrhack}
 
 \usepackage{stix}
 \usepackage{wasysym}
@@ -59,7 +65,7 @@
 \usepackage[sc]{mathpazo}
 \linespread{1.05}
 \usepackage{microtype}
-\usepackage{amssymb}
+%\usepackage{amssymb}
 
 \newenvironment{quoteit}
 {\begin{quote}\itshape}
@@ -68,7 +74,7 @@
 \usepackage{changebar}
 
 % Palatino als Brotschrift
-\fontfamily{ppl}\fontseries{l}\selectfont
+\fontfamily{ppl}\fontseries{m}\selectfont
 
 % AvantGarde für Überschriften
 \renewcommand{\sfdefault}{pag} % default für alles serifenlose --> AvantGarde
@@ -85,10 +91,10 @@
 \definecolor{lightgrey}{rgb}{0.9, 0.9, 0.9} 
 \definecolor{txtgreen}{rgb}{0.549, 0.749, 0.149}
 
-\usepackage{amssymb, amsmath}
+\usepackage{amsmath}
 \usepackage[final]{pdfpages}
 
-\usepackage{subfigure}
+%\usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
@@ -169,7 +175,7 @@
 \usepackage{colortbl}
 \usepackage{ltxtable, array}
 \usepackage{longtable}
-\usepackage{caption}
+%\usepackage{caption}
 \captionsetup{font=small}
 \captionsetup{labelfont=bf}
 \renewcommand{\tabularxcolumn}[1]{m{#1}} % Zellen von Tabellen immer vertikal zentrieren
