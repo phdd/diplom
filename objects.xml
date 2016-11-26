@@ -18,11 +18,11 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="Y3U1Cs4aANfx9qDIqNLXMg==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="jbLyz24OdYVbxLXmpHI5Gg==" Version="1.5.0"/>
         </Extension>
     </Extensions>
-    <UAObject NodeId="ns=1;i=5002" BrowseName="1:MillingMachine">
-        <DisplayName>MillingMachine</DisplayName>
+    <UAObject NodeId="ns=1;i=5002" BrowseName="1:Lathe">
+        <DisplayName>Lathe</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
@@ -73,19 +73,7 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6017</Reference>
         </References>
-    </UAVariable>
-    <UAVariable DataType="Boolean" NodeId="ns=1;i=6017" BrowseName="1:TrueCondition" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>TrueCondition</DisplayName>
-        <References>
-            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6010</Reference>
-        </References>
-        <Value>
-            <uax:Boolean>true</uax:Boolean>
-        </Value>
     </UAVariable>
     <UAMethod ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=7001" BrowseName="2:Reset" MethodDeclarationId="ns=2;i=7017">
         <DisplayName>Reset</DisplayName>
@@ -116,21 +104,10 @@
         <Description>may be "open", "closed" or "undefined"</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6019</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
-        </Value>
-    </UAVariable>
-    <UAVariable DataType="String" NodeId="ns=1;i=6019" BrowseName="1:ClosedCondition" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>ClosedCondition</DisplayName>
-        <References>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6013</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
-        </References>
-        <Value>
-            <uax:String>Closed</uax:String>
         </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5006" BrowseName="3:DoorLock">
@@ -155,9 +132,7 @@
         <DisplayName>Open_Door</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6017</Reference>
             <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6018</Reference>
-            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
         </References>
     </UAMethod>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5008" BrowseName="3:OpeningGear">
@@ -342,7 +317,6 @@
         <DisplayName>Reset_NC</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
         </References>
     </UAMethod>
     <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7005" BrowseName="2:Start_NC" MethodDeclarationId="ns=2;i=7007">
@@ -355,6 +329,7 @@
         <DisplayName>Stop_NC</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
         </References>
     </UAMethod>
     <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7007" BrowseName="2:Transmit_NC_Program" MethodDeclarationId="ns=2;i=7004">
@@ -427,10 +402,9 @@
     <UAVariable DataType="Range" NodeId="ns=1;i=6020" BrowseName="1:OverheatCondition" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>OverheatCondition</DisplayName>
         <References>
-            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6015</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
-            <Reference ReferenceType="HasEffect">ns=1;i=7004</Reference>
+            <Reference ReferenceType="HasEffect">ns=1;i=7006</Reference>
         </References>
         <Value>
             <uax:ExtensionObject>
