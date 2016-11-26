@@ -1567,22 +1567,22 @@ Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Masc
 
 ## Anforderungen und Ziele
 
-Für die Modernisierung von Altanlagen wurden in @sec:anforderungen Anforderungen aufgestellt die nun mit dem vorgestellten Konzept abgeglichen werden.
+Für die Modernisierung von Altanlagen wurden in @sec:anforderungen Anforderungen aufgestellt, die nun mit dem vorgestellten Konzept abgeglichen werden.
 
 Für die Überwachung von Betriebs- und Prozessdaten der Maschine wurde Ortsunabhängigkeit gefordert (vgl. @sec:überwachung).
-Durch die Verwendung von OPC UA auf Feldebene und Web-Services für übergeordnete Dienste, kann die Anlage mittels entsprechender Clients nahtlos überwacht werden.
+Durch die Verwendung von OPC UA auf Feldebene und Web-Services für übergeordnete Dienste kann die Anlage mittels entsprechender Clients nahtlos überwacht werden.
 Eine vollständige Anlagenstrukturabbildung im Informationsmodell erlaubt die Hierarchisierung der automatisierten Werkzeugkomponenten und liefert ein ganzheitliches Bild für Maschinenbediener und Subsysteme der cyber-physischen Produktionsumgebung (CPPS).  
 Auch die Steuerung von Altanlagen soll ortsunabhängig möglich sein (vgl. @sec:steuerung).
 Wie schon bei der Überwachung ist OPC UA das Bindeglied zwischen der VMR, Nutzungsschnittstelle und Subsystemen des CPPS.
 Mit der Erweiterung des Konzepts von Ayatollahi et al. ist die entfernte Steuerung der Maschine möglich und erlaubt zum Beispiel das Eingreifen in den operativen Betrieb von CNC-Werkzeugmaschinen.  
 Die Modernisierung der Anlage wurde auf Basis etablierter Standards ermöglicht (vgl. @sec:standardisierung).
-Horizontal wie vertikal wird die Integration durch OPC UA, beziehungsweise Web-Services bewerkstelligt.
+Horizontal wie vertikal wird die Integration durch OPC UA beziehungsweise Web-Services bewerkstelligt.
 Damit ist die Datenaggregation und Kommunikation der Maschinen untereinander gesamtheitlich möglich.  
 Ein Großteil der Datenverarbeitung und -analyse soll den Anforderungen nach geographisch nahe der Maschine geschehen (vgl. @sec:lokalität).
 Die VMR ist in der Lage die Signale der angeschlossenen Peripherie in Informationen umzuwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen.
 Mit OPC UA ist weiterhin eine lokale Historie möglich.
 Darüber hinaus ist eine interne Rückkopplungsschleife verantwortlich für die Kapselung bestimmter Automatisierungslogik und reagiert autonom auf veränderte Bedingungen.  
-Die Ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware aufgestellt wurde (vgl. @sec:integrationshardware).
+Die ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware aufgestellt wurde (vgl. @sec:integrationshardware).
 In der Umsetzung der VMR wird der Einplatinencomputer Raspberry Pi verwendet, womit auch die letzte Anforderung dieser Arbeit vollständig erfüllt wurde (vgl. @sec:implementation).
 
 Im Bezug auf die in @sec:zielsetzung beschriebenen Ziele verhält sich das vorgestellte Konzept wie folgt.
