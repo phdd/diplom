@@ -1579,7 +1579,7 @@ Die Modernisierung der Anlage wird auf Basis etablierter Standards ermöglicht (
 Horizontal wie vertikal wird die Integration durch OPC UA beziehungsweise Web-Services bewerkstelligt.
 Damit ist die Datenaggregation und Kommunikation der Maschinen untereinander gesamtheitlich möglich.  
 Ein Großteil der Datenverarbeitung und -analyse soll den Anforderungen nach geographisch nahe der Maschine geschehen (vgl. @sec:lokalität).
-Die VMR kann Signale der angeschlossenen Peripherie in Informationen umwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen (@vgl. sec:virtuelle-maschinenrepräsentation).
+Die VMR kann Signale der angeschlossenen Peripherie in Informationen umwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen (vgl. @sec:virtuelle-maschinenrepräsentation).
 Mit OPC UA ist weiterhin eine lokale Historie möglich.
 Darüber hinaus ist eine interne Rückkopplungsschleife verantwortlich für die Kapselung bestimmter Automatisierungslogik und reagiert autonom auf veränderte Bedingungen (vgl. @sec:cyber-physische-rückkopplung).  
 Die ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware besteht (vgl. @sec:integrationshardware).
