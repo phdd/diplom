@@ -1534,8 +1534,9 @@ Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete 
 # Evaluation
 
 Mit der Umsetzung des Konzepts in einem Framework mit prototypischer Entwicklung wird eine Möglichkeit zur Integration von Altanlagen in ein cyber-physisches Produktionssystem (CPPS) aufgezeigt.
-Nun werden die Anforderungen und Ziele mit dem Konzept der virtuellen Maschinenrepräsentation verglichen.
-Da bestehende Forschung Teilprobleme der in @sec:einleitung vorgestellten bereits gelöst hat, wird dann ein Vergleich gezogen um den Mehrwert dieser Arbeit herauszustellen.
+Die Demonstration des Entwurfs nach der Design Science Research Methodology (vgl. @Geerts2011) wurde im vorangegangenen Kapitel geschildert und benötigt eine evaluative Analyse.
+Dafür werden nun die Anforderungen und Ziele mit dem Konzept der virtuellen Maschinenrepräsentation verglichen.
+Da bestehende Forschung Teilprobleme der in @sec:einleitung vorgestellten bereits gelöst hat, wird ein Vergleich gezogen um den Mehrwert dieser Arbeit herauszustellen.
 Abschließend werden die Ergebnisse und Limitationen vor einem Ausblick auf mögliche Folgeuntersuchungen erläutert.
 
 ## Anforderungen und Ziele
@@ -1544,22 +1545,22 @@ Für die Modernisierung von Altanlagen sind in @sec:anforderungen Anforderungen 
 
 Für die Überwachung von Betriebs- und Prozessdaten der Maschine wird Ortsunabhängigkeit gefordert (vgl. @sec:überwachung).
 Durch die Verwendung von OPC UA auf Feldebene und Web-Services für übergeordnete Dienste kann die Anlage mittels entsprechender Clients nahtlos überwacht werden (vgl. @sec:horizontale-integration).
-Eine vollständige Anlagenstrukturabbildung im Informationsmodell erlaubt die Hierarchisierung der automatisierten Werkzeugkomponenten und liefert ein ganzheitliches Bild für Maschinenbediener und Subsysteme der cyber-physischen Produktionsumgebung (CPPS), beschrieben in @sec:modellierung-der-anlagenstruktur.  
+Eine vollständige Abbildung der Anlagenstruktur im Informationsmodell erlaubt die Hierarchisierung der automatisierten Werkzeugkomponenten und liefert ein ganzheitliches Bild für Maschinenbediener und Subsysteme der cyber-physischen Produktionsumgebung, beschrieben in @sec:modellierung-der-anlagenstruktur.  
 Auch die Steuerung von Altanlagen soll ortsunabhängig möglich sein (vgl. @sec:steuerung).
-Wie schon bei der Überwachung ist OPC UA das Bindeglied zwischen der VMR, Nutzungsschnittstelle und Subsystemen des CPPS.
-Mit der Erweiterung des Konzepts von Ayatollahi et al. ist die entfernte Steuerung der Maschine möglich und erlaubt zum Beispiel das Eingreifen in den operativen Betrieb von CNC-Werkzeugmaschinen.  
+Wie bei der Überwachung ist OPC UA das Bindeglied zwischen der VMR, Nutzungsschnittstelle und Subsystemen des CPPS.
+Mit der Erweiterung des Konzepts von Ayatollahi et al. ist die entfernte Steuerung der Maschine möglich und erlaubt beispielsweise das Eingreifen in den operativen Betrieb einer CNC-Werkzeugmaschine.  
 Die Modernisierung der Anlage wird auf Basis etablierter Standards ermöglicht (vgl. @sec:standardisierung).
 Horizontal wie vertikal wird die Integration durch OPC UA beziehungsweise Web-Services bewerkstelligt.
 Damit ist die Datenaggregation und Kommunikation der Maschinen untereinander gesamtheitlich möglich.  
 Ein Großteil der Datenverarbeitung und -analyse soll den Anforderungen nach geographisch nahe der Maschine geschehen (vgl. @sec:lokalität).
-Die VMR kann Signale der angeschlossenen Peripherie in Informationen umwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen (vgl. @sec:virtuelle-maschinenrepräsentation).
-Mit OPC UA ist außerdem eine lokale Historie möglich.
+Die VMR kann Signale der angeschlossenen Peripherie in Informationen umwandeln, um sie anderen Feldgeräten sowie Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen (vgl. @sec:virtuelle-maschinenrepräsentation).
+OPC UA ermöglicht außerdem eine lokale Historie.
 Darüber hinaus ist eine interne Rückkopplungsschleife verantwortlich für die Kapselung bestimmter Automatisierungslogik und reagiert autonom auf veränderte Bedingungen (vgl. @sec:cyber-physische-rückkopplung).  
-Die ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware besteht (vgl. @sec:integrationshardware).
+Ökonomische Aspekte sind relevant für Retrofitting, weswegen die Forderung nach kostengünstiger Integrationshardware besteht (vgl. @sec:integrationshardware).
 In der Umsetzung der VMR wird der Einplatinencomputer Raspberry Pi verwendet, womit auch die letzte Anforderung dieser Arbeit vollständig erfüllt ist (vgl. @sec:implementation).
 
 Im Bezug auf die in @sec:zielsetzung beschriebenen Ziele verhält sich das vorgestellte Konzept wie folgt.
-Die entfernte Kontrolle der Altmaschine wird durch die Kapselung mit der VMR ermöglicht.
+Die entfernte Kontrolle der Altmaschine wird durch die Kapselung mit einer VMR bewerkstelligt.
 Somit werden manuelle Tätigkeiten gemindert, die Automatisierung erweitert und schlussendlich der übergeordnete Produktionsablauf beschleunigt.
 Prozess- und Produktionsdaten können durch eine Nutzungsschnittstelle zentral ausgewertet werden.
 Die in der prototypischen Umsetzung verwendete Nutzungsschnittstelle ist der OPC UA Client UaExpert[^uaexpert] von Unified Automation.
@@ -1577,9 +1578,9 @@ Auch das Austauschformat der Modelle unterliegt, mit XML und Schemadefinition[^u
 
 Für die Steuerung der Altanlage mit Direct Numerical Control (DNC) wird das Konzept von Ferrolho et al. vorgestellt (vgl. @sec:steuerung-von-fertigungssystemen, @Ferrolho2005).
 Sie entwarfen ein Adapter-Framework für DNC im Kontext flexibler Fertigungszellen das Ethernet-basierte Steuerung und Überwachung sowie Rückkopplung ermöglicht.
-Das hier vorgestellte Konzept geht über die numerische Kontrolle innerhalb von Fertigungszellen hinaus und nutzt Kommunikationsstandards für eine durchgängige Integration (vgl. @sec:virtuelle-maschinenrepräsentation).
+Das in dieser Arbeit vorgestellte Konzept geht über die numerische Kontrolle innerhalb von Fertigungszellen hinaus und nutzt Kommunikationsstandards für eine durchgängige Integration (vgl. @sec:virtuelle-maschinenrepräsentation).
 Ayatollahi et al. nutzen ebenfalls DNC für die Kontrolle der Maschine, abstrahieren aber die Steuerungskommunikation durch ein standardisiertes Protokoll mit der Möglichkeit zur Modellierung der Anlagenstruktur @Ayatollahi2013.
-Das strukturelle Modell der VMR baut auf dem von Ayatollahi et al. auf und erweitert es für CPPS (vgl. @sec:modellierung-der-anlagenstruktur).
+Das strukturelle Modell der VMR erweitert die Definitionen von Ayatollahi et al. für CPPS (vgl. @sec:modellierung-der-anlagenstruktur).
 Ein Service-orientiertes Konzept für die abstrakte Kontrolle speicherprogrammierbarer Steuerungen (SPS) von Windmann et al. nutzt OPC UA und implementiert komplexe Logik durch einen Agenten direkt am Feldgerät @Windmann2015.
 Der von ihm vorgestellte Software-Agent ist wie die VMR für komplexe Prozesse und lokale Datenhaltung verantwortlich, beschränkt sich aber auf die Abstraktion von SPS.  
 Entfernte Kontrolle von CNC-Maschinen realisieren Wang et al. mit dem Wise-ShopFloor (vgl. @sec:architektur-flexibler-produktion, @Wang2004).
@@ -1602,7 +1603,7 @@ Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Masc
 
 ## Ergebnisse
 
-Neben den aufgestellten Anforderungen und Zielen wurden Fragen gestellt, die durch den aktuellen Forschungsstand nicht ganzheitlich beantwortet werden können.
+Neben den aufgestellten Anforderungen und Zielen wurden in der Einleitung Fragen formuliert, die durch den aktuellen Forschungsstand nicht ganzheitlich beantwortet werden können.
 Im Ergebnis führen die Untersuchungen dieser Arbeit zu folgendem Schluss.
 Flexibles Retrofitting für die Steuerung und Überwachung veralteter Fertigungsanlagen benötigt eine geschichtete System- und Softwarestruktur.
 Eingebettet in die 5C-Architektur von Lee et al. (vgl. @sec:architektur-flexibler-produktion) ist eine virtuelle Maschinenrepräsentation (VMR) verantwortlich für die Kapselung der Altanlage innerhalb eines ganzheitlichen cyber-physischen Produktionssystems (CPPS, vgl. @sec:virtuelle-maschinenrepräsentation).
@@ -1646,29 +1647,41 @@ Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung best
 
 ## Ausblick
 
-Aufgrund des begrenzten inhaltlichen Rahmens, der Einschränkungen des Konzepts und der Komplexität des Problemraums Retrofitting, sind die Möglichkeiten sich anschließender Forschung vielfältig.
+Aufgrund des begrenzten inhaltlichen Rahmens, der Einschränkungen des Konzepts und der Komplexität des Problemraums Retrofitting, sind die Möglichkeiten anschließender Forschung vielfältig.
+
+##### Selbstadaptive Prozesse.
+
 Produktionssysteme durch cyber-physische Rückkopplung an der Maschine stärker zu automatisieren bedarf intelligenter Lösungen und sollte über eine imperative Regelbeschreibung und Ausführung hinausgehen.
 Cyber-physische Workflows besitzen das Potenzial die Komplexität der Rückkopplung in Prozessen innerhalb einer Altmaschine abzubilden.
 Seiger et al. untersuchten Selbstadaptivität in Prozessen unter Verwendung von MAPE-K Rückkopplungsschleifen, die eine Erweiterung für automatisierte Werkzeugkomponenten darstellen kann @Seiger2016.
 Die in diesem Zusammenhang beschriebene Process-Engine kann außerdem in das Konzept der vertikalen Integration eingebunden werden @Seiger2015.
 Auch externe Rückkopplungsschleifen auf der Cyber- und Configuration-Ebene der 5C-Architektur von Lee et al. können bezüglich übergeordneter Produktionssteuerung von selbstadaptiven Prozessen profitieren (vgl. @Lee2015).
 
-Die dafür notwendige Konkretisierung des Web-Service-Moduls der virtuellen Maschinenrepräsentation (VMR) hängt an der Interoperabilität von OPC UA und dem DPWS-Standard (vgl. @sec:vertikale-integration).
+##### Vertikale Integration.
+
+Die dafür notwendige Konkretisierung des Web-Service-Moduls der virtuellen Maschinenrepräsentation (VMR) hängt von der Interoperabilität von OPC UA und dem DPWS-Standard ab (vgl. @sec:vertikale-integration).
 Bony et al. postulierten einen Ansatz für die Konvergenz der unterschiedlichen Modelle, welcher dafür detailliert beleuchtet werden kann @Bony2011.
 Eine Variante für die Interoperabilität der beiden Standards, unter Verwendung von Complex Event Processing (CEP), beschrieben Izaguirre et al. @Izaguirre2011.
 Pauker et al. verwenden modellgetriebene Softwareentwicklung und beschreiben ein UML-Metamodell als Brücke zwischen heterogenen Gerätebeschreibungsstandards, die hier eine generische Alternative bietet @Pauker2016.
-Ebenfalls die Interoperabilität betreffend, sollte AutomationML[^automationml], ein standardisiertes XML-Format für den Austausch produktionstechnischer Daten und Anlagenbeschreibungen, beleuchtet werden (vgl. @OPCFoundation2014).
+Ebenfalls die Interoperabilität betreffend sollte AutomationML[^automationml], ein standardisiertes XML-Format für den Austausch produktionstechnischer Daten und Anlagenbeschreibungen, bezüglich etwaiger Integration untersucht werden (vgl. @OPCFoundation2014).
+
+##### Anlagensteuerung.
 
 OPC UA Methoden zur Steuerung von Altanlagen sind ein elementarer, imperativer Ansatz.
 Zustandsautomaten und "Programs" der Spezifikation können den Implementierungsaufwand einer automatisierten Werkzeugkomponente gegebenenfalls verringern und den Rückkopplungsmechanismus entlasten.
 Auch für CNC-Programme existiert mit STEP-NC eine zu evaluierende Alternative (vgl. [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]).
 Leistungsfähigkeit und Optimierungspotential der Altanlage korrelieren mit der Programmierung, beziehungsweise mit dem einzelnen Befehl.
 Downey et al. verknüpfen die Befehle mit der Überwachung und ermöglichen damit die Rückkopplung parallel zum Fertigungsschritt @Downey2016.
-Zu untersuchen wäre, inwiefern die VMR diese Informationen zur Verbesserung der Selbstadaptivität nutzen kann.
+Zu untersuchen wäre, inwiefern die VMR diese Informationen zur Verbesserung 
+der Selbstadaptivität nutzen kann.
+
+##### Echtzeitfähigkeit.
 
 Die Echtzeitfähigkeit der Steuerung wird Antriebssystemen und spezialisierter Hardware überlassen.
 Seitens der OPC UA wird sie aktuell nicht unterstützt.
 Mit dem Aufkommen von Time Sensitive Networking[^tsn] (TSN) sind Standardisierungsbemühungen im Gange, die Ethernet-Echtzeitsteuerung im Bezug auf die Automatisierungspyramide nach oben bewegen könnte und einer Untersuchung der Eignung für Retrofitting bedürfen.
+
+##### Nutzungsschnittstellen.
 
 Im Laborexperiment wurde ein grafischer OPC UA Client verwendet (vgl. @sec:implementation).
 Mit diesem werden die Daten der Altanlage zentral visualisiert und der Aufruf von Methoden realisiert.
@@ -1676,6 +1689,8 @@ Doch gerade für die Analyse von Fertigungsinformationen und -überwachung müss
 Der Wise-ShopFloor von Wang et al. fokussiert genau diese @Wang2004.
 Mit einer OPC UA Schnittstelle könnte dieses Konzept mit der VMR als Informationsquelle und Steuerungsziel integriert werden.
 Aber auch andere Werkzeuge wie Kibana[^kibana] unterstützen bei der zentralisierten Visualisierung großer Informationsmengen und wären ein Zugewinn bei der Analyse von Betriebs- und Prozessdaten der Altanlage, die dafür mit Elasticsearch[^elasticsearch] indexiert werden müssten.
+
+##### Prototypische Evaluation.
 
 Bezüglich einer quantitativ vergleichenden Evaluation wäre die VMR auf andere Einplatinencomputer zu übertragen.
 Auch Laborexperimente mit speicherprogrammierbaren Steuerungen könnten die Eignung des hier vorgestellten Konzepts weiter untermauern.
@@ -1688,15 +1703,17 @@ Einen größeren Einblick in die Tauglichkeit des Retrofittings mit der VMR wär
 
 # Zusammenfassung
 
-Das Ergebnis dieser Arbeit ist ein Konzept für die Modernisierung von Altanlagen.
-Soft-/Hardwareseite?
-Neben der transparenten horizontalen und vertikalen Integration einer virtuellen Maschinenrepräsentation (VMR), ist ein generisches Softwareframework für die entfernte Überwachung und Steuerung entstanden.
-
-- Kapitel einzeln summieren
-- was war
-- was wurde gemacht 
-- was ist rausgekommen 
-- bildet die Basis für... 
-- kurzer Ausblick 
-
-
+In Anlehnung an die Design Science Research Methodology (vgl. @Geerts2011) ist in dieser Arbeit ein Konzept für die Modernisierung von Altanlagen im Kontext cyber-physischer Produktionssysteme entstanden.
+Viele Fertigungsanlagen, wie Werkzeugmaschinen und speicherprogrammierbare Steuerung besitzen keine Netzwerkanbindung oder standardisierte Kommunikationsmechanismen.
+Im Zuge der vierten industriellen Revolution müssen diese Anlagen in eine bestehende Informations- und Kommunikationsinfrastruktur eingebettet werden, um eine ganzheitlich ökonomische Produktion zu garantieren.
+Durch Komplexität und geringe Losgrößen heutiger Produktion muss ein Großteil der Überwachung und Steuerung direkt an den Maschinen gewährleistet werden.
+So müssen auch Altanlagen intelligent auf veränderte Situationen reagieren können, um die Automatisierung des Fertigungsprozesses zu unterstützen.
+Die Untersuchung aktueller Forschung ergab keine ganzheitliche Lösung zur Modernisierung im Kontext cyber-physischer Produktionssysteme.
+Jedoch wurden unter der Maßgabe definierter Anforderungen die bestehenden Konzepte evaluiert und in das Design einer System- und Softwarearchitektur eingebunden.
+Mithilfe eines Einplatinencomputers als Stellvertreter wurde eine horizontale und vertikale Integration der Maschine realisiert.
+Die Kapselung von Funktionalität und Zustand einer Altanlage durch eine virtuellen Maschinenrepräsentation verhilft intelligenten Analyseverfahren die Daten in Informationen zu überführen und anderen Systemen zur Verfügung zu stellen.
+Entsprechende Nutzungsschnittstellen zentralisieren die Informationen, geben an der Produktion beteiligten Personen einen Überblick in den laufenden Prozess und ermöglichen den Eingriff.
+Neben der Architektur und Funktionsweise der Maschinenrepräsentation wird ein Softwareframework zur Umsetzung der Modernisierungsmaßnahme beschrieben und die Implementation eines Laborexperiments erläutert.
+Eine Evaluation setzt sich kritisch mit dem Konzept auseinander und verifiziert die Lösung bezüglich der Anforderungen und eingangs formulierter Ziele.
+Der Ausblick vermittelt offene Fragen und Wege weiterführender Forschung.
+Das letztendliche Ergebnis in Form einer virtuellen Maschinenrepräsentation bildet die Basis zur kostengünstigen Eingliederung des Altanlagenbestands in die moderne IT-Infrastruktur eines cyber-physischen Produktionssystems.
