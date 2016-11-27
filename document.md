@@ -1534,7 +1534,7 @@ Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete 
 # Evaluation
 
 Mit der Umsetzung des Konzepts in einem Framework mit prototypischer Entwicklung wird eine Möglichkeit zur Integration von Altanlagen in ein cyber-physisches Produktionssystem (CPPS) aufgezeigt.
-Nun werden die Anforderungen und Ziele mit dem Konzept der virtuellen Maschinenrepräsentation (VMR) verglichen.
+Nun werden die Anforderungen und Ziele mit dem Konzept der virtuellen Maschinenrepräsentation verglichen.
 Da bestehende Forschung Teilprobleme der in @sec:einleitung vorgestellten bereits gelöst hat, wird dann ein Vergleich gezogen um den Mehrwert dieser Arbeit herauszustellen.
 Abschließend werden die Ergebnisse und Limitationen vor einem Ausblick auf mögliche Folgeuntersuchungen erläutert.
 
@@ -1611,13 +1611,13 @@ Teilautonome Handlungsfähigkeit wird durch Rückkopplung der Signale in den ope
 Mit der Standardisierung horizontaler Kommunikation durch die etablierte OPC Unified Architecture, wird eine nahtlose Informationsübertragung zwischen modernen und modernisierten Werkzeugmaschinen und Steuerungen möglich (vgl. @sec:horizontale-integration).
 Das Laufzeitmodell der Anlage ist durch das Informationsmodell der OPC UA beschrieben und mit dem Web-Service Modul nach Dürkop et al. an eine Service-orientierte Architektur gekoppelt (vgl. @sec:laufzeitmodell).
 Durch diese Form der vertikalen Integration kann eine übergeordnete Produktionssteuerung den Fertigungsprozess abbilden (vgl. @sec:vertikale-integration).
-Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentral Überwachung und Steuerung.  
+Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentrale Überwachung und Steuerung.  
 Neben Betriebsdaten und physischem Kontext der Altanlage werden Sensordaten direkt an der Maschine verarbeitet und durch das Konzept der Historie von OPC UA lokal persistiert (vgl. @sec:virtuelle-maschinenrepräsentation).
 Die Verarbeitung von Steuerungsinstruktionen in Form von OPC UA Methoden geschieht lokal und wird an cyber-physische Hardwareadapter delegiert (vgl. [@sec:modellierung-der-anlagenstruktur;@sec:softwareframework]).
 
 ## Limitationen
 
-Da die Integrationsproblematik cyber-physischer Produktionssysteme nicht durch eine wissenschaftliche Arbeit gelöst werden kann, bestehen folgende Einschränkungen in Konzept und Umsetzung.  
+Da die Integrationsproblematik cyber-physischer Produktionssysteme nicht durch eine wissenschaftliche Arbeit gelöst werden kann, bestehen folgende Einschränkungen für Konzept und Umsetzung.  
 Durch die cyber-physische Rückkopplung in der VMR wird der Automatisierungsgrad erhöht (vgl. @sec:cyber-physische-rückkopplung).
 Ein Laufzeitmodell enthält neben der Anlagenbeschreibung Regeln für die interne Rückkopplung, womit die VMR teilautonom agiert und online-Monitoring für Altmaschinen ermöglicht (vgl. @sec:laufzeitmodell).
 Diese Regeln, im Stil von Ereignis-Bedingung-Aktion (Event-Condition-Action, ECA), sind durch die Verwendung beliebiger OPC UA Datentypen sehr ausdrucksstark.
@@ -1629,7 +1629,7 @@ Logischen Verknüpfungen zischen den Zuständen von automatisierten Werkzeugkomp
 Die Verbindung von Regeln über ein logisches "und" beziehungsweise "oder" wird nicht unterstützt.
 Außerdem ist die ECA-Beschreibung imperativ.
 Wenn beispielsweise die numerische Kontrolle gestoppt wird soll die Ladetür geöffnet werden.
-Die Rückkopplung könnte dann den Wert eines Kontaktsensors auswerten um das erfolgreiche Öffnen der Tür zu prüfen.
+Die Rückkopplung könnte dann den Wert eines Kontaktsensors auswerten, um das erfolgreiche Öffnen der Tür zu prüfen.
 Eine deklarative Beschreibung dieses Problems mit einem Formalismus für Implikationen ist notwendig.
 Auch eine Kompensationsstrategie für den Fall der Inkonsistenz von Realität und virtuellem Modell, also die Verletzung einer Annahme über den Systemzustand, muss umgesetzt werden.
 Die imperativen Regeln der wenn-dann-Form, im Informationsmodell der VMR, leisten diese Art der Rückkopplung nicht.
@@ -1646,29 +1646,45 @@ Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung best
 
 ## Ausblick
 
+Aufgrund des begrenzten inhaltlichen Rahmens, der Einschränkungen des Konzepts und der Komplexität des Problemraums Retrofitting, sind die Möglichkeiten sich anschließender Forschung vielfältig.
+Produktionssysteme durch cyber-physische Rückkopplung an der Maschine stärker zu automatisieren bedarf intelligenter Lösungen und sollte über eine imperative Regelbeschreibung und Ausführung hinausgehen.
+Cyber-physische Workflows besitzen das Potenzial die Komplexität der Rückkopplung in Prozessen innerhalb einer Altmaschine abzubilden.
+Seiger et al. untersuchten Selbstadaptivität in Prozessen unter Verwendung von MAPE-K Rückkopplungsschleifen, die eine Erweiterung für automatisierte Werkzeugkomponenten darstellen kann @Seiger2016.
+Die in diesem Zusammenhang beschriebene Process-Engine kann außerdem in das Konzept der vertikalen Integration eingebunden werden @Seiger2015.
+Auch externe Rückkopplungsschleifen auf der Cyber- und Configuration-Ebene der 5C-Architektur von Lee et al. können bezüglich übergeordneter Produktionssteuerung von selbstadaptiven Prozessen profitieren (vgl. @Lee2015).
 
+Die dafür notwendige Konkretisierung des Web-Service-Moduls der virtuellen Maschinenrepräsentation (VMR) hängt an der Interoperabilität von OPC UA und dem DPWS-Standard (vgl. @sec:vertikale-integration).
+Bony et al. postulierten einen Ansatz für die Konvergenz der unterschiedlichen Modelle, welcher dafür detailliert beleuchtet werden kann @Bony2011.
+Eine Variante für die Interoperabilität der beiden Standards, unter Verwendung von Complex Event Processing (CEP), beschrieben Izaguirre et al. @Izaguirre2011.
+Pauker et al. verwenden modellgetriebene Softwareentwicklung und beschreiben ein UML-Metamodell als Brücke zwischen heterogenen Gerätebeschreibungsstandards, die hier eine generische Alternative bietet @Pauker2016.
+Ebenfalls die Interoperabilität betreffend, sollte AutomationML[^automationml], ein standardisiertes XML-Format für den Austausch produktionstechnischer Daten und Anlagenbeschreibungen, beleuchtet werden (vgl. @OPCFoundation2014).
 
-* Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
-* externe FCL (Cyber- und Configuration-Level nach @Lee2015)
-* Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
-* MDSD (OPC UA + DPWS) mit @Pauker2016
-* Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
+OPC UA Methoden zur Steuerung von Altanlagen sind ein elementarer, imperativer Ansatz.
+Zustandsautomaten und "Programs" der Spezifikation können den Implementierungsaufwand einer automatisierten Werkzeugkomponente gegebenenfalls verringern und den Rückkopplungsmechanismus entlasten.
+Auch für CNC-Programme existiert mit STEP-NC eine zu evaluierende Alternative (vgl. [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]).
+Leistungsfähigkeit und Optimierungspotential der Altanlage korrelieren mit der Programmierung, beziehungsweise mit dem einzelnen Befehl.
+Downey et al. verknüpfen die Befehle mit der Überwachung und ermöglichen damit die Rückkopplung parallel zum Fertigungsschritt @Downey2016.
+Zu untersuchen wäre, inwiefern die VMR diese Informationen zur Verbesserung der Selbstadaptivität nutzen kann.
 
-* Steuerungsalternative OPC UA Programs (@OPCFoundation2014)
-* AutomationML und OPC UA (vgl. @OPCFoundation2014)
-* Wise-ShopFloor mit OPC UA horizontal integrieren
-* Fog mit OPC UA und WS (vgl. [@Bonomi2012;@Aazam2016])
+Die Echtzeitfähigkeit der Steuerung wird Antriebssystemen und spezialisierter Hardware überlassen.
+Seitens der OPC UA wird sie aktuell nicht unterstützt.
+Mit dem Aufkommen von Time Sensitive Networking[^tsn] (TSN) sind Standardisierungsbemühungen im Gange, die Ethernet-Echtzeitsteuerung im Bezug auf die Automatisierungspyramide nach oben bewegen könnte und einer Untersuchung der Eignung für Retrofitting bedürfen.
 
-* CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
-* Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
+Im Laborexperiment wurde ein grafischer OPC UA Client verwendet (vgl. @sec:implementation).
+Mit diesem werden die Daten der Altanlage zentral visualisiert und der Aufruf von Methoden realisiert.
+Doch gerade für die Analyse von Fertigungsinformationen und -überwachung müssen Nutzungsschnittstellen abhängig vom Anwendungsfall implementiert werden.
+Der Wise-ShopFloor von Wang et al. fokussiert genau diese @Wang2004.
+Mit einer OPC UA Schnittstelle könnte dieses Konzept mit der VMR als Informationsquelle und Steuerungsziel integriert werden.
+Aber auch andere Werkzeuge wie Kibana[^kibana] unterstützen bei der zentralisierten Visualisierung großer Informationsmengen und wären ein Zugewinn bei der Analyse von Betriebs- und Prozessdaten der Altanlage, die dafür mit Elasticsearch[^elasticsearch] indexiert werden müssten.
 
-* Prozess-Engine nach @Seiger2015
-* TSN Ethernet trägt RT vertikal nach oben
+Bezüglich einer quantitativ vergleichenden Evaluation wäre die VMR auf andere Einplatinencomputer zu übertragen.
+Auch Laborexperimente mit speicherprogrammierbaren Steuerungen könnten die Eignung des hier vorgestellten Konzepts weiter untermauern.
+Einen größeren Einblick in die Tauglichkeit des Retrofittings mit der VMR wäre mit einer Fallstudie an realen Produktionsanlagen gegeben.
 
-* Nutzungsschnittstellen (Unified Automation Android App, @Wang2004)
-* prototypische Implementation für SPS
-* Eignung anderer SBC und Vergleich mit dieser Impl.
-* Case-Study!!!
+[^automationml]: [automationml.org](https://www.automationml.org) (abgerufen am 27.11.2016)
+[^tsn]: [openautomation.de/detailseite/der-mehrwert-von-ethernet-tsn.html](http://www.openautomation.de/detailseite/der-mehrwert-von-ethernet-tsn.html) (abgerufen am 27.11.2016)
+[^kibana]: [elastic.co/de/products/kibana](https://www.elastic.co/de/products/kibana) (abgerufen am 27.11.2016)
+[^elasticsearch]: [elastic.co/de/products/elasticsearch](https://www.elastic.co/de/products/elasticsearch) (abgerufen am 27.11.2016)
 
 # Zusammenfassung
 
