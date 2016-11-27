@@ -1,5 +1,5 @@
 
-# Anhang: Prototyp
+# Prototypische Umsetzung
 
 ## Installation
 

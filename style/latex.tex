@@ -57,7 +57,8 @@ $endfor$
 
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
-\setlength{\emergencystretch}{1em}
+\usepackage[defaultlines=3,all]{nowidow}
+\setlength{\emergencystretch}{0.5em}
 
 \makenomenclature
 
@@ -221,12 +222,13 @@ $endfor$
 \deffootnote[1em]{1.1em}{1.6em}{\textsuperscript{\thefootnotemark}\,}
 %\deffootnote{0em}{1.6em}{\thefootnotemark.\enskip}
 
-\usepackage[defaultlines=4,all]{nowidow}
-
 % Bib-File
 \bibliography{bibliography.bib}
 \begin{document}
 
+% ---------------------------------------------------------------------------------
+%   TITELBLATT
+% ---------------------------------------------------------------------------------
 
 \begin{titlepage}
 \begin{figure}[htbp]
@@ -279,6 +281,21 @@ $teacher$
 \end{titlepage}
 \newpage\null\thispagestyle{empty}\newpage
 
+% ---------------------------------------------------------------------------------
+%   DANKSAGUNG
+% ---------------------------------------------------------------------------------
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\section*{Danksagung}
+\input{acknowledgements.tex}
+\clearpage
+\newpage\null\thispagestyle{empty}\newpage
+
+% ---------------------------------------------------------------------------------
+%   SELBSTÄNDIGKEITSERKLÄRUNG
+% ---------------------------------------------------------------------------------
+
 \thispagestyle{empty}
 \vspace*{\fill}
 
@@ -299,18 +316,16 @@ Dresden, den $date$\\
 
 \emph{$author$}
 
-\linespread{1.13}
 \newpage\null\thispagestyle{empty}\newpage
 
-\thispagestyle{empty}
-\vspace*{\fill}
-\section*{Danksagung}
-\input{acknowledgements.tex}
-\clearpage
-\newpage\null\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------------------
+%   INHALTSVERZEICHNIS
+% ---------------------------------------------------------------------------------
 
 \setcounter{page}{1}
 \pagenumbering{roman}
+
+\linespread{1.2}
 
 \pdfbookmark[1]{Inhaltsverzeichnis}{toc}
 \tableofcontents					% create a toc
@@ -325,7 +340,9 @@ Dresden, den $date$\\
 % bei vierseitigen Inhaltsverzeichnis erst im Kapitel 1
 \pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%% Struktur %%%%%%%%%%%%%%%%%%%%%%%%
+% ---------------------------------------------------------------------------------
+%   BEGINN
+% ---------------------------------------------------------------------------------
 
 $body$
 

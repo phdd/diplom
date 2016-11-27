@@ -1553,7 +1553,7 @@ Horizontal wie vertikal wird die Integration durch OPC UA beziehungsweise Web-Se
 Damit ist die Datenaggregation und Kommunikation der Maschinen untereinander gesamtheitlich möglich.  
 Ein Großteil der Datenverarbeitung und -analyse soll den Anforderungen nach geographisch nahe der Maschine geschehen (vgl. @sec:lokalität).
 Die VMR kann Signale der angeschlossenen Peripherie in Informationen umwandeln um sie anderen Feldgeräten, Nutzungsschnittstellen und übergeordneten Diensten zur Verfügung zu stellen (vgl. @sec:virtuelle-maschinenrepräsentation).
-Mit OPC UA ist weiterhin eine lokale Historie möglich.
+Mit OPC UA ist außerdem eine lokale Historie möglich.
 Darüber hinaus ist eine interne Rückkopplungsschleife verantwortlich für die Kapselung bestimmter Automatisierungslogik und reagiert autonom auf veränderte Bedingungen (vgl. @sec:cyber-physische-rückkopplung).  
 Die ökonomischen Aspekte von Retrofitting können nicht ignoriert werden, weswegen die Forderung nach kostengünstiger Integrationshardware besteht (vgl. @sec:integrationshardware).
 In der Umsetzung der VMR wird der Einplatinencomputer Raspberry Pi verwendet, womit auch die letzte Anforderung dieser Arbeit vollständig erfüllt ist (vgl. @sec:implementation).
@@ -1602,6 +1602,8 @@ Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Masc
 
 ## Ergebnisse
 
+Neben den aufgestellten Anforderungen und Zielen wurden Fragen gestellt, die durch den aktuellen Forschungsstand nicht ganzheitlich beantwortet werden können.
+Im Ergebnis führen die Untersuchungen dieser Arbeit zu folgendem Schluss.
 Flexibles Retrofitting für die Steuerung und Überwachung veralteter Fertigungsanlagen benötigt eine geschichtete System- und Softwarestruktur.
 Eingebettet in die 5C-Architektur von Lee et al. (vgl. @sec:architektur-flexibler-produktion) ist eine virtuelle Maschinenrepräsentation (VMR) verantwortlich für die Kapselung der Altanlage innerhalb eines ganzheitlichen cyber-physischen Produktionssystems (CPPS, vgl. @sec:virtuelle-maschinenrepräsentation).
 Sie konvertiert die feingranularen, technischen Signale der Maschine in semantische Informationen und abstrahiert die Steuerung automatisierter Werkzeugkomponenten mittels eines dedizierten Softwareframeworks (vgl. @sec:softwareframework).
@@ -1615,14 +1617,14 @@ Die Verarbeitung von Steuerungsinstruktionen in Form von OPC UA Methoden geschie
 
 ## Limitationen
 
+Da die Integrationsproblematik cyber-physischer Produktionssysteme nicht durch eine wissenschaftliche Arbeit gelöst werden kann, bestehen folgende Einschränkungen in Konzept und Umsetzung.  
 Durch die cyber-physische Rückkopplung in der VMR wird der Automatisierungsgrad erhöht (vgl. @sec:cyber-physische-rückkopplung).
 Ein Laufzeitmodell enthält neben der Anlagenbeschreibung Regeln für die interne Rückkopplung, womit die VMR teilautonom agiert und online-Monitoring für Altmaschinen ermöglicht (vgl. @sec:laufzeitmodell).
 Diese Regeln, im Stil von Ereignis-Bedingung-Aktion (Event-Condition-Action, ECA), sind durch die Verwendung beliebiger OPC UA Datentypen sehr ausdrucksstark.
 Wie in der prototypischen Umsetzung gezeigt, können in der Bedingung (`PhysicalCondition`, vgl. @sec:modellierung-der-anlagenstruktur) nicht nur skalare Werte, sondern auch Wertebereiche für einen Variablenzustand beschrieben werden.
 Durch die Softwarebibliothek "node-opcua" (vgl. @sec:implementation) ist das Laden konstanter Werte aus dem Anlagenmodell bisher auf diese zwei Möglichkeiten beschränkt.
 Da OPC UA noch keine Echtzeitunterstützung bietet, wird die Formulierung zeitlicher Aspekte (z.B. numerische Kontrolle muss innerhalb einer Sekunde stoppen) nicht betrachtet.
-Bei Aufruf der Methoden hinter den `HasPhysicalAction`-Referenzen einer Bedingung, können mit der bisherigen Modellierung keine Parameter übergeben werden.
-
+Bei Aufruf der Methoden hinter den `HasPhysicalAction`-Referenzen einer Bedingung, können mit der bisherigen Modellierung keine Parameter übergeben werden.  
 Logischen Verknüpfungen zischen den Zuständen von automatisierten Werkzeugkomponenten (Equipment) können mit der vorgestellten Modellierungsmethode nicht hergestellt werden (vgl. @sec:modellierung-der-anlagenstruktur).
 Die Verbindung von Regeln über ein logisches "und" beziehungsweise "oder" wird nicht unterstützt.
 Außerdem ist die ECA-Beschreibung imperativ.
@@ -1639,10 +1641,18 @@ Der @sec:anlagenanbindung geht auf die Technologien zur Kommunikation, nicht abe
 So wird die Verortung und konkrete Verdrahtung von Sensoren und Aktuatoren in diesem Konzept nicht besprochen.
 Da dieses vielfältig untersuchte Forschungsfeld über den Rahmen dieser Arbeit hinausgeht, werden aber umfangreiche Ergebnisse in @sec:überwachung-des-maschinenbetriebs referenziert.
 Ebenfalls außerhalb dieses Rahmens liegt eine Betrachtung der übergeordneten Produktionssteuerung als Teil der vertikalen Integration.  
-Neben den vorgestellten konzeptuellen Szenarien und Anwendungsfällen wurde keine Fallstudie oder quantitative Evaluation durchgeführt.
+Neben den vorgestellten konzeptuellen Szenarien und Anwendungsfällen wurde ein Laborexperiment, aber keine Fallstudie oder quantitative Evaluation durchgeführt.
 Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung bestehender Integrationsumstände und betroffener Personen.
 
 ## Ausblick
+
+
+
+* Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
+* externe FCL (Cyber- und Configuration-Level nach @Lee2015)
+* Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
+* MDSD (OPC UA + DPWS) mit @Pauker2016
+* Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
 
 * Steuerungsalternative OPC UA Programs (@OPCFoundation2014)
 * AutomationML und OPC UA (vgl. @OPCFoundation2014)
@@ -1651,13 +1661,6 @@ Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung best
 
 * CNC ersetzen durch STEP-NC? [@Suh2003;@Xu2006;@Xu2006b;@Xu2006a]
 * Welcher G-Code Befehl korrelliert auf welche Weise mit welchen gemessenen Werten? @Downey2016
-
-* MDSD mit @Pauker2016
-* Konzept für Strukturänderungen (z.B. Werkzeugwechsel, vgl. @Pauker2014)
-
-* Regelbasierte Rückkopplung durch intelligentere ersetzen @Seiger2016
-* externe FCL (Cyber- und Configuration-Level nach @Lee2015)
-* Modulimplementierung (Dürkop) bzgl. @Bony2011 oder @Izaguirre2011 konkretisieren
 
 * Prozess-Engine nach @Seiger2015
 * TSN Ethernet trägt RT vertikal nach oben
@@ -1669,8 +1672,8 @@ Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung best
 
 # Zusammenfassung
 
-Das Ergebnis dieser Arbeit ist ein Konzept für die Modernisierung von Altanlagen (Retrofitting).
-Soft-/Hardwareseite
+Das Ergebnis dieser Arbeit ist ein Konzept für die Modernisierung von Altanlagen.
+Soft-/Hardwareseite?
 Neben der transparenten horizontalen und vertikalen Integration einer virtuellen Maschinenrepräsentation (VMR), ist ein generisches Softwareframework für die entfernte Überwachung und Steuerung entstanden.
 
 - Kapitel einzeln summieren
