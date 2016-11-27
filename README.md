@@ -15,7 +15,7 @@ Software you need is
 1. install a local Grunt with ```npm install -g grunt grunt-cli``` (as root)
 2. checkout this repository by ```git clone https://github.com/phdd/diplom.git vmr```
 3. move into the folder with ```cd vmr```
-4. and switch to the prototype branch ```git checkout surrogate```
+4. and switch to the prototype branch ```git checkout vmr```
 
 ## Build and run
 
