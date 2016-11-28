@@ -4,5 +4,5 @@ node_js:
   - '7.1'
 
 before_install:
-  - apt-get install gcc-4.8 g++-4.8
+  - apt-get install g++-5
   - npm install -g npm@'>=4.0.2'
