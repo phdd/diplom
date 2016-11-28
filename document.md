@@ -306,7 +306,7 @@ Das Konsortium berücksichtigte bei der Spezifikation folgende \mbox{Ziele}\ @OP
 * Vereinfachung durch Vereinheitlichung
 
 Konkret bietet die OPC UA (auch IEC 62541) einen semantischen Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch @Ayatollahi2013.
-Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen\ @OPCFoundation2014.
+Ein erweiterbares Meta-Modell definiert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen\ @OPCFoundation2014.
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
@@ -669,7 +669,7 @@ Das Design beinhaltet ein Informationsmodell sowie zentrale Datenhaltung für di
 
 ![Vergleich der Architekturen von Fertigungszellen aus @Pauker2013](figures/vgl-arch-ffz){#fig:vgl-arch-ffz}
 
-In ihrem Konzept werden die unterschiedlichen Kommunikationskanäle, wie Feldbusse, serielle und digitale Ein-/Ausgabe-Schnittstellen, durch ein TCP/IP-Protokoll auf Ethernet-Basis vereinheitlicht.
+In ihrem Konzept werden die unterschiedlichen Kommunikationskanäle, wie Feldbusse, serielle und digitale Ein-/Ausgabe-Schnittstellen, durch ein TCP/IP Protokoll auf Ethernet-Basis vereinheitlicht.
 Aus dem Bereich der intelligenten Systeme übernahmen die Autoren das Blackboard-Konzept (vgl. @HayesRoth1985) für den Informationscache, respektive die zentrale Datenhaltung.
 Parameter für die Kommunikation, der Maschinenstatus, das aktuelle Programm sowie Informationen zu angeschlossenen Geräten werden hierfür in einer XML-Datei abgelegt.
 Eine Sequenzkontrollkomponente legt seine Forderungen (z.B. starte CNC-Programm) in dieser Datei ab, wodurch andere ihre Aufgaben eigenständig abholen und wahrnehmen können.
@@ -906,7 +906,7 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 
 ## Informationsmodell
 
-Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt\ @Hammerstingl2015.
+Die Forderung standardisierter Informationsmodelle und Machine-to-Machine Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt\ @Hammerstingl2015.
 OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
 Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenanbindung besprochen wird @Hammerstingl2015.
 Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschreibung in einem UA-Adressraummodell hinterlegt.
@@ -991,7 +991,7 @@ Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schich
 
 ![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
 
-Die VMR entspricht der intelligenten Remote Terminal Unit von Moctezuma, kapselt die Altanlage und bietet durch die Comm-Schicht nahtlose M2M-Kommunikation auf Feldebene @Moctezuma2012.
+Die VMR entspricht der intelligenten Remote Terminal Unit von Moctezuma, kapselt die Altanlage und bietet durch die Comm-Schicht nahtlose Kommunikation auf Feldebene @Moctezuma2012.
 Sie wandelt mittels der Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
 Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
@@ -1012,7 +1012,7 @@ Der Einplatinencomputer fungiert als Integrationshardware zwischen den digitalen
 In Szenario S1 kapselt er die Antriebssteuerung der CNC und dessen interne SPS.
 Eine Software-Middleware (vgl. @sec:softwareframework) auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich und implementiert die Comm-, Processing und Interface-Schicht der Remote Terminal Unit (vgl. @fig:vmr-concept).
 Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].  
-Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
+Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et\ al., Liang et\ al. und Downey et\ al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
 Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll, wie bei Ferrolho et al., wobei die Echtzeitkontrolle der Anlagensteuerung selbst obliegt @Ferrolho2005.
 Falls die zu modernisierenden Anlagen über COM/DCOM (vgl. @sec:opc-unified-architecture) verfügen, können Gateways, wie das Unified Automation UaGateway[^uagateway] oder der MatrikonOPC UA Proxy[^matrikonopc], im Retrofitting eingesetzt werden.
 Im Szenario S1 kann Echtzeitfähigkeit nur über zusätzliche Steuerungshardware gewährleistet werden.
@@ -1391,7 +1391,7 @@ Die Instanz der `PhysicalLoadingDoor` schließt dann das Relais über den `Relay
 Um einen Equipment-Erweiterungspunkt zu laden, liest die Model Control alle Objekte des Pakets "Processing Extensions" (vgl. @sec:organisation) und hält sie für die Bindung zu Modellelementen bereit.
 Exemplarisch ist der "PhysicalLoadingDoorType" in @lst:physical-loading-door-type beschrieben.
 Damit die Model Control OPC UA Variablen und Methoden binden kann, werden diese mit einem Dollar-Zeichen am Anfang des Bezeichners markiert.
-Die Ladetür besitzt im Informationsmodell nach Ayatollahi et al. (vgl. @sec:modellierung-der-anlagenstruktur) eine Variable `Door_Status` sowie die Methoden `Close_Door` und `Open_Door`, die auch die Implementierung aus @lst:physical-loading-door-type deklariert (Zeilen 3, 12 und 16).
+Die Ladetür besitzt im Informationsmodell nach Ayatollahi et\ al. (vgl. @sec:modellierung-der-anlagenstruktur) eine Variable `Door_Status` sowie die Methoden `Close_Door` und `Open_Door`, die auch die Implementierung aus @lst:physical-loading-door-type deklariert (Zeilen 3, 12 und 16).
 Sie beinhaltet den "RelayActuator" aus dem Paket "Interface Extensions" (vgl. @sec:organisation), der mit den Parametern des `ConnectionIdentifier` (vgl. @fig:opcua-cpps in @sec:modellierung-der-anlagenstruktur) initialisiert wird (Zeile 6[^at]).
 In Zeile 8 wird die Ladetür mit dem Öffnen des Relais initialisiert.
 Die Methode "&dollar;Close_Door" -- von der Model Control aufgerufen -- delegiert die Anweisung an den "RelayActuator" und aktualisiert den Wert der Variablen "&dollar;Door_Status".
@@ -1573,9 +1573,9 @@ Prozess- und Produktionsdaten können durch eine Nutzungsschnittstelle zentral a
 Die in der prototypischen Umsetzung verwendete Nutzungsschnittstelle ist der OPC UA Client UaExpert[^uaexpert] von Unified Automation.
 Diagnosen in Ausnahmesituationen und bei Störfällen können mit diesem Client ortsunabhängig und zentral gestellt werden.
 Mit OPC UA verwendet die VMR eine dezentrale Kommunikations- und Informationsarchitektur, einhergehend mit der Verbesserung von Produktionsstabilität, Skalierbarkeit und Rekonfiguration (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
-Durch die starke Verbreitung von OPC UA (vgl. @OPCFoundation2014) wird die M2M-Kommunikation, beziehungsweise der Informationsaustausch der Anlagen untereinander, nahtlos gewährleistet.
+Durch die starke Verbreitung von OPC UA (vgl.\ @OPCFoundation2014) wird die M2M-Kommunikation, beziehungsweise der Informationsaustausch der Anlagen untereinander, nahtlos gewährleistet.
 Für die Modellierung der Anlagenstruktur und Regeln für die Rückkopplung kann durchgängig ein einziges Werkzeug, wie der UaModeler[^uamodeler], verwendet werden (vgl. @sec:modellierung-der-anlagenstruktur).
-Auch das Austauschformat der Modelle unterliegt, mit XML und Schemadefinition[^uanodeset] der OPC Foundation, einer Spezifikation der Unified Architecture.
+Auch das Austauschformat der Modelle unterliegt, mit XML und Schemadefinition[^uanodeset] der OPC Foundation, einer Spezifikation der Unified \mbox{Architecture}.
 
 [^uaexpert]: [unified-automation.com/products/development-tools/uaexpert.html](https://www.unified-automation.com/products/development-tools/uaexpert.html) (abgerufen am 12.11.2016)
 [^uamodeler]: [opcfoundation.org/products/view/uamodeler](https://opcfoundation.org/products/view/uamodeler) (abgerufen am 20.11.2016)
@@ -1620,7 +1620,7 @@ Im Ergebnis führen die Recherchen und der darauf aufbauende Entwurf der VMR zu 
 
 ##### System- und Softwarearchitektur.
 
-Flexibles Retrofitting für die Steuerung und Überwachung veralteter Fertigungsanlagen benötigt eine geschichtete System- und Softwarestruktur.
+Flexibles Retrofitting für die Steuerung und Überwachung von Fertigungsanlagen benötigt eine geschichtete System- und Softwarestruktur.
 Eingebettet in die 5C-Architektur von Lee et al. (vgl. @sec:architektur-flexibler-produktion) ist eine virtuelle Maschinenrepräsentation (VMR) verantwortlich für die Kapselung der Altanlage innerhalb eines ganzheitlichen cyber-physischen Produktionssystems (CPPS, vgl. @sec:virtuelle-maschinenrepräsentation).
 Sie konvertiert die feingranularen, technischen Signale der Maschine in semantische Informationen und abstrahiert die Steuerung automatisierter Werkzeugkomponenten mittels eines dedizierten Softwareframeworks (vgl. @sec:softwareframework).
 Teilautonome Handlungsfähigkeit wird durch Rückkopplung der Signale in den operativen Betrieb innerhalb der VMR erreicht (vgl. @sec:cyber-physische-rückkopplung).
@@ -1630,7 +1630,7 @@ Teilautonome Handlungsfähigkeit wird durch Rückkopplung der Signale in den ope
 Mit der Standardisierung horizontaler Kommunikation durch die etablierte OPC Unified Architecture, wird eine nahtlose Informationsübertragung zwischen modernen und modernisierten Werkzeugmaschinen und Steuerungen möglich (vgl. @sec:horizontale-integration).
 Das Laufzeitmodell der Anlage ist durch das Informationsmodell der OPC UA beschrieben und mit dem Web-Service Modul nach Dürkop et al. an eine Service-orientierte Architektur mit dem DPWS-Standard gekoppelt (vgl. [@sec:laufzeitmodell;@sec:vertikale-integration]).
 Durch diese Form der vertikalen Integration kann eine übergeordnete Produktionssteuerung den Fertigungsprozess abbilden (vgl. @sec:vertikale-integration).
-Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentrale Überwachung und Steuerung.
+Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentrale Überwachung und \mbox{Steuerung}.
 
 ##### Datenverarbeitung und -persistenz.
 
@@ -1656,7 +1656,7 @@ Die Rückkopplung könnte dann den Wert eines Kontaktsensors auswerten, um das e
 Eine deklarative Beschreibung dieses Problems mit einem Formalismus für Implikationen ist notwendig.
 Auch eine Kompensationsstrategie für den Fall der Inkonsistenz von Realität und virtuellem Modell, also die Verletzung einer Annahme über den Systemzustand, muss umgesetzt werden.
 Die imperativen Regeln der wenn-dann-Form im Informationsmodell der VMR leisten diese Art der Rückkopplung nicht.
-Außerdem existiert kein Konzept zur Lösung von Konflikten zwischen den ECA-Regeln, wodurch unter anderem ungewollte Schleifen auftreten können (vlg. @Huebscher2008).
+Außerdem existiert kein Konzept zur Lösung von Konflikten zwischen den ECA-Regeln, wodurch unter anderem ungewollte Schleifen auftreten können (vlg.\ @Huebscher2008).
 
 Bei der prototypischen Umsetzung werden Testfälle (vgl. @sec:softwaretests-für-erweiterungspunkte) für Erweiterungen aus den Paketen "Equipment Extension" und "Interface Extension" (vgl. @sec:organisation) exemplarisch erläutert.
 Für die Vollständigkeit der Softwaretests müssen Integrationstests ebenfalls detailliert beschrieben werden.  
@@ -1665,7 +1665,7 @@ So wird die Verortung und konkrete Verdrahtung von Sensoren und Aktuatoren in di
 Dieses vielfältige Forschungsfeld geht über den Rahmen dieser Arbeit hinaus, wird aber in @sec:überwachung-des-maschinenbetriebs referenziert.
 Ebenfalls außerhalb dieses Rahmens liegt eine Betrachtung der übergeordneten Produktionssteuerung als Teil der vertikalen Integration.  
 Neben den vorgestellten konzeptuellen Szenarien und Anwendungsfällen wurde ein Laborexperiment, aber keine Fallstudie oder quantitative Evaluation durchgeführt.
-Dennoch ermöglicht die vorliegende Arbeit eine realitätsnahe Konzeption unter Einbeziehung bestehender Integrationsumstände und betroffener Personen.
+Dennoch ermöglicht die vorliegende Arbeit eine realitätsnahe Konzeption unter Einbeziehung bestehender Integrationsumstände und betroffener \mbox{Personen}.
 
 ## Ausblick
 
@@ -1675,7 +1675,7 @@ Aufgrund des begrenzten inhaltlichen Rahmens, der Einschränkungen des Konzepts 
 
 Produktionssysteme durch cyber-physische Rückkopplung an der Maschine stärker zu automatisieren bedarf intelligenter Lösungen und sollte über eine imperative Regelbeschreibung und Ausführung hinausgehen.
 Cyber-physische Workflows besitzen das Potenzial die Komplexität der Rückkopplung in Prozessen innerhalb einer Altmaschine abzubilden.
-Seiger et al. untersuchten Selbstadaptivität in Prozessen unter Verwendung von MAPE-K Rückkopplungsschleifen, die eine Erweiterung für automatisierte Werkzeugkomponenten darstellen kann @Seiger2016.
+Seiger et al. untersuchten Selbstadaptivität in Prozessen unter Verwendung von MAPE-K Rückkopplungsschleifen, die eine Erweiterung für automatisierte Werkzeugkomponenten darstellen kann\ @Seiger2016.
 Die in diesem Zusammenhang beschriebene Process-Engine kann außerdem in das Konzept der vertikalen Integration eingebunden werden @Seiger2015.
 Auch externe Rückkopplungsschleifen auf der Cyber- und Configuration-Ebene der 5C-Architektur von Lee et al. können bezüglich übergeordneter Produktionssteuerung von selbstadaptiven Prozessen profitieren (vgl. @Lee2015).
 
@@ -1708,7 +1708,7 @@ Mit dem Aufkommen von Time Sensitive Networking[^tsn] (TSN) sind Standardisierun
 Im Laborexperiment wurde ein grafischer OPC UA Client verwendet (vgl. @sec:implementation).
 Mit diesem werden die Daten der Altanlage zentral visualisiert und der Aufruf von Methoden realisiert.
 Doch gerade für die Analyse von Fertigungsinformationen und -überwachung müssen Nutzungsschnittstellen abhängig vom Anwendungsfall implementiert werden.
-Der Wise-ShopFloor von Wang et al. fokussiert genau diese @Wang2004.
+Der Wise-ShopFloor von Wang et\ al. fokussiert genau diese @Wang2004.
 Mit einer OPC UA Schnittstelle könnte dieses Konzept mit der VMR als Informationsquelle und Steuerungsziel integriert werden.
 Aber auch andere Werkzeuge wie Kibana[^kibana] unterstützen bei der zentralisierten Visualisierung großer Informationsmengen und wären ein Zugewinn bei der Analyse von Betriebs- und Prozessdaten der Altanlage, die dafür mit Elasticsearch[^elasticsearch] indexiert werden müssten.
 
