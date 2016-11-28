@@ -1,5 +1,7 @@
 # Virtual Machine Representation (VMR)
 
+[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=vmr)](https://travis-ci.org/phdd/diplom?branch=vmr)
+
 ## Prerequisites
 
 Software you need is
