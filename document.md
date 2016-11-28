@@ -989,7 +989,7 @@ Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schich
 
 ![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
 
-Die intelligente Remote Terminal Unit, respektive VMR, kapselt die Altanlage und bietet nahtlose M2M-Kommunikation auf Feldebene durch die Comm-Schicht.
+Die VMR entspricht der intelligenten Remote Terminal Unit von Moctezuma, kapselt die Altanlage und bietet durch die Comm-Schicht nahtlose M2M-Kommunikation auf Feldebene @Moctezuma2012.
 Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
 Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
@@ -1009,7 +1009,7 @@ In den Szenario S1/2 wird diese Anbindung durch einen Einplatinencomputer auf Fe
 Der Einplatinencomputer fungiert als Integrationshardware zwischen den digitalen und analogen Signale von Sensoren und Aktuatoren und einem abstrakten Kommunikationsprotokoll wie zum Beispiel dem Representational State Transfer (REST) mit HTTP oder WebSockets.
 In Szenario S1 kapselt er die Antriebssteuerung der CNC und dessen interne SPS.
 Eine Software-Middleware (vgl. @sec:softwareframework) auf dem Einplatinencomputer ist für diese Datenvermittlung verantwortlich und implementiert die Comm-, Processing und Interface-Schicht der Remote Terminal Unit (vgl. @fig:vmr-concept).
-Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].
+Eine andere Möglichkeit der physikalischen Anbindung sind Einplatinencomputer mit vorbereiteter Middleware, wie das Grove-[^grove] oder Wio-Link-System[^wiolink].  
 Die Möglichkeiten der Verortung von Sensorik und die der Signalverarbeitung zur Überwachung des Anlagenzustands werden in den Arbeiten von Teti et al., Liang et al. und Downey et al. ausführlich diskutiert und sind auf das Retrofitting mit der VMR anwendbar [@Teti2010;@Liang2004;@Downey2016].
 Szenario S2 reduziert den Einsatz des Einplatinencomputers auf einen Software-Adapter für das Direct Numerical Control (DNC) Protokoll, wie bei Ferrolho et al., wobei die Echtzeitkontrolle der Anlagensteuerung selbst obliegt @Ferrolho2005.
 Falls die zu modernisierenden Anlagen über COM/DCOM (vgl. @sec:opc-unified-architecture) verfügen, können Gateways, wie das Unified Automation UaGateway[^uagateway] oder der MatrikonOPC UA Proxy[^matrikonopc], im Retrofitting eingesetzt werden.
@@ -1024,7 +1024,8 @@ Weiterhin existieren Softwarelösungen für SPS von Allen-Bradley oder Siemens, 
 Dieses Softwaremodul ist ein UA-Server der mittels Treibern SPS, andere Geräte und Netzwerkprotokolle kapselt.
 Bei bestehenden Informationsmodellen (S3.3) kann die Middleware als Adapter für das Informationsmodell der SPS fungieren und eines nach @sec:informationsmodell kommunizieren (vgl. @sec:modellierung-der-anlagenstruktur).  
 Windmann et al. beschrieben einen generischen Ansatz für die Anbindung von Steuerungen, abseits industrieller Hersteller @Windmann2015.
-Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vorgestellten VMR.
+Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vorgestellten VMR.  
+Alle beschriebenen Varianten der technischen Anbindung einer Altanlage dienen der Kommunikation zwischen den Feldgeräten.
 
 [^wiolink]: [wiki.seeed.cc/Wio_Link](http://wiki.seeed.cc/Wio_Link/) (abgerufen am 13.11.2016)
 [^ignitionopc]: [inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc](https://inductiveautomation.com/scada-software/scada-modules/ignition-core-modules/ignitionopc) (abgerufen am 8.11.2016)
@@ -1034,6 +1035,7 @@ Die darin vorgeschlagenen Softwareagenten implementieren das Konzept der hier vo
 
 ### Horizontale Integration
 
+Nahtlose Kommunikation zwischen den Maschinen wird durch eine horizontale Integration der Altanlage erreicht.
 Durch die Verbreitung der OPC Unified Architecture (UA) sind neben deren Informationsmodell (vgl. @sec:informationsmodell) die Kommunikationskonzepte geeignet für diese Arbeit.
 Beim Starten der Middleware auf dem Einplatinencomputer wird zuerst das  Informationsmodell der virtuellen Maschinenrepräsentation (VMR) geladen und initialisiert.
 Danach integriert sie sich selbstständig in das Fertigungssystem um mit anderem Equipment interagieren zu können.
@@ -1041,15 +1043,16 @@ Die Dienste der UA zum Auffinden von Geräten (OPC UA Discovery) werden für die
 
 ![Horizontale VMR-Integration](figures/horizontale-integration){#fig:horizontale-integration}
 
-Dafür wird ein Eintrag im Diensteverzeichnis der UA (Local Discovery Server, LDS) angelegt (linke Hälfte der @fig:horizontale-integration).
+Dafür wird ein Eintrag im Diensteverzeichnis der UA (Local Discovery Server, LDS) angelegt (Variante a der @fig:horizontale-integration).
 Der UA-Server der VMR sendet eine Nachricht an den LDS, dessen Adresse bekannt sein muss und informiert ihn damit über seine Verfügbarkeit  (@fig:horizontale-integration, a.1).
 UA-Clients können diesen Knotenpunkt nach Diensten fragen (a.2) und erhalten die jeweilige Beschreibung (a.3).
 Danach kann dieser Client die Dienste der VMR in Anspruch nehmen (a.4).
-Soll kein zentralisiertes Diensteverzeichnis verwendet werden, bietet das Multicast Domain Name System (mDNS) eine Alternative (rechte Hälfte der @fig:horizontale-integration).
+Soll kein zentralisiertes Diensteverzeichnis verwendet werden, bietet das Multicast Domain Name System (mDNS) eine Alternative (Variante b der @fig:horizontale-integration).
 Durch Multicasts im lokalen Netzwerk der VMR können Feldgeräte ad hoc die verfügbaren Dienste erfragen (b.1).
-Wird solch eine Anfrage durch ein Feldgerät abgesendet, schicken ihr die umliegenden Geräte eine Beschreibung ihrer Funktionalität (b.2).
+Wird eine solche Anfrage durch ein Feldgerät abgesendet, schicken ihr die umliegenden Geräte eine Beschreibung ihrer Funktionalität (b.2).
 Der Client entscheidet sich für die VMR und nutzt dessen Dienste (b.3).
-Nachteilig ist hierbei die Beschränkung auf das lokale Subnetz.  
+Nachteilig ist hierbei die Beschränkung auf das lokale Subnetz.
+Besteht das Produktionssystem aus mehreren Netzwerken, kann die Multicast-Anfrage die Grenzen nicht überwinden, wodurch Geräte nicht gefunden werden.  
 Für die eigentliche Verbindung zu den Diensten bestehender Feldgeräte mit der VMR, respektive die horizontale Integration, wird das binäre UA-Transportprotokoll verwendet (vgl. @sec:transportprotokolle), da die Integrationshardware mit ressourcenschonender Software betrieben werden muss.
 
 Die Anwendungsfälle eines Monteurs (A1) werden zwischen dem Module- und dem Cyber-Level des VMR-Konzepts unterstützt (vgl. @fig:vmr-concept).
@@ -1094,7 +1097,7 @@ MAPE-K bildet hier das Konzept des Adaptivitätsmechanismus und nutzt dafür Eve
 Eine gesonderte Verarbeitung von Ereignissen ist während des Monitorings nicht notwendig.
 Die VMR benötigt keinen internen Ereignismechanismus und kann in dieser Phase direkt auf die Veränderung der Variablen des Informationsmodells reagieren.
 Wurde beispielsweise die Variable `NC_Program_Status` aktualisiert, werden alle darunter organisierten Variablen vom Typ `PhysicalConditionType` im Modell lokalisiert.
-In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist `StopCondition` die gesuchte.
+In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist `StopCondition` die Instanz eines `PhysicalConditionType` der Variable `NC_Program_Status`.
 Stimmt der Wert der Bedingung (im Beispiel "Stop") mit dem neuen Wert überein wird eine Veränderungsanfrage (Change Request) bezüglich der Bedingung an die Planungsphase übergeben.
 Die Übereinstimmung, festgestellt in der Analyse, ist nicht auf die Gleichheit der Werte beschränkt.
 Mit Verwendung beliebiger Variablentypen der UA-Spezifikation, können numerische Werte, Zeichenketten und strukturelle Attribute wie Wertebereiche oder Zeitstempel verglichen werden.  
