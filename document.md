@@ -932,7 +932,7 @@ Da Standardisierung jedoch eine zentrale Anforderung der Anlagenmodernisierung i
 ![CPPS Erweiterung des Informationsmodells](figures/opcua-cpps){#fig:opcua-cpps}
 
 Cyber-physische Produktionssysteme (CPPS) stehen über Aktuatoren und Sensoren mit der realen Welt in Verbindung (vgl. @sec:cyber-physische-produktionssysteme).
-Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardware-Port und andere Initialisierungswerte notwendig.
+Um sie mit der virtuellen Maschinenrepräsentation (VMR) verknüpfen zu können, sind Konfigurationsparameter, wie physische Adresse, ein Netzwerk oder Hardwareport und andere Initialisierungswerte notwendig.
 Diese sollen im Informationsmodell festgelegt werden können.
 Dafür wird die Spezifikation von Ayatollahi et al. um physische Objekte für jede automatisierte Werkzeugkomponente ergänzt, dargestellt in @fig:opcua-cpps.
 Beispielsweise besitzt der `LoadingDoorType` aus dem OPC4Factory-Namensraum eine Unterklasse `PhysicalLoadingDoorType`.
@@ -1579,8 +1579,10 @@ Auch das Austauschformat der Modelle unterliegt, mit XML und Schemadefinition[^u
 Für die Steuerung der Altanlage mit Direct Numerical Control (DNC) wird das Konzept von Ferrolho et al. vorgestellt (vgl. @sec:steuerung-von-fertigungssystemen, @Ferrolho2005).
 Sie entwarfen ein Adapter-Framework für DNC im Kontext flexibler Fertigungszellen das Ethernet-basierte Steuerung und Überwachung sowie Rückkopplung ermöglicht.
 Das in dieser Arbeit vorgestellte Konzept geht über die numerische Kontrolle innerhalb von Fertigungszellen hinaus und nutzt Kommunikationsstandards für eine durchgängige Integration (vgl. @sec:virtuelle-maschinenrepräsentation).
+Vorteilhaft hierbei ist die Allgemeingültigkeit und nahtlose Informationsübertragung durch einen etablierten Standard.
 Ayatollahi et al. nutzen ebenfalls DNC für die Kontrolle der Maschine, abstrahieren aber die Steuerungskommunikation durch ein standardisiertes Protokoll mit der Möglichkeit zur Modellierung der Anlagenstruktur @Ayatollahi2013.
-Das strukturelle Modell der VMR erweitert die Definitionen von Ayatollahi et al. für CPPS (vgl. @sec:modellierung-der-anlagenstruktur).
+Das Modell der VMR erweitert die Definitionen von Ayatollahi et al. für CPPS (vgl. @sec:modellierung-der-anlagenstruktur).
+Neben der Maschine selbst können somit Regeln für die Rückkopplung und Teilautonomie direkt im Informationsmodell beschrieben werden.
 Ein Service-orientiertes Konzept für die abstrakte Kontrolle speicherprogrammierbarer Steuerungen (SPS) von Windmann et al. nutzt OPC UA und implementiert komplexe Logik durch einen Agenten direkt am Feldgerät @Windmann2015.
 Der von ihm vorgestellte Software-Agent ist wie die VMR für komplexe Prozesse und lokale Datenhaltung verantwortlich, beschränkt sich aber auf die Abstraktion von SPS.  
 Entfernte Kontrolle von CNC-Maschinen realisieren Wang et al. mit dem Wise-ShopFloor (vgl. @sec:architektur-flexibler-produktion, @Wang2004).
@@ -1588,62 +1590,75 @@ Mit einem Publish/Subscribe Mechanismus auf einer Client/Server Architektur erm�
 Im Gegensatz zu dieser Arbeit liegt ihr Fokus auf der Nutzungsschnittstelle und Visualisierung operativer Produktion und nicht auf der Integration der Feldgeräte.
 Für gerade diese entwarfen Pauker et al. eine Architektur unter Berücksichtigung von Rekonfigurierbarkeit in flexiblen Fertigungszellen @Pauker2013.
 Die Vereinheitlichung von Schnittstellen sowie Rekonfigurierbarkeit auf Feldebene wird auch im horizontalen Integrationskonzept der VMR beachtet (vgl. @sec:horizontale-integration).
-Im Unterschied zu dem Blackboard-Ansatz von Pauker et al. werden die Daten am Gerät persistiert und Instruktionen dezentral auf Basis eines Standards kommuniziert.  
-Ein in die VMR einfließendes Konzept, mit Schwerpunkt auf Anlagenmodernisierung, entwickelten Moctezuma et al. @Moctezuma2012.
-Ihre dreischichtige Lösung ist ein Kernaspekt des in dieser Arbeit vorgestellten Frameworks (vgl. @sec:virtuelle-maschinenrepräsentation).
+Im Unterschied zu dem Blackboard-Ansatz von Pauker et al. werden die Daten am Gerät persistiert und Instruktionen dezentral auf Basis eines Standards kommuniziert.
+Durch die dezentrale Persistenz wird die Ausfallsicherheit der Fertigungsstrecke erhöht.  
+Ein in die VMR einfließendes Konzept mit Schwerpunkt auf Anlagenmodernisierung entwickelten Moctezuma et al. @Moctezuma2012.
+Ihre dreischichtige Lösung mit Communication-, Processing- und Interface-Ebene ist ein Kernaspekt des in dieser Arbeit vorgestellten Frameworks (vgl. @sec:virtuelle-maschinenrepräsentation).
 Der Unterschied zur VMR liegt in der Verwendung von OPC UA für die horizontale Integration (vgl. @sec:horizontale-integration).
-Eine Service-orientierte Architektur durch Web-Service Module ist hier Teil des Konzepts zur vertikalen Integration, wird im Entwurf des Frameworks jedoch nicht vollständig betrachtet.
+Eine Service-orientierte Architektur durch Web-Service Module ist hier Teil des Konzepts zur vertikalen Integration, wird im Entwurf des Frameworks jedoch nicht betrachtet.
 Diese Module werden von Dürkop et al. übernommen und setzen mit einer neuen Schicht auf der Feldebene auf @Durkop2014.
 Zwar verbindet OPC UA die beiden Ebenen, jedoch wird im Gegensatz zur VMR keine explizite Kommunikation zwischen den Modulen erlaubt.
-Weiterhin spezifiziert das hier vorgestellte Konzept die Architektur des Moduls auf Feldebene durch den Ansatz von Moctezuma et al. @Moctezuma2012.
+So wird mit der VMR der Informationsaustausch zwischen den Maschinen hierarchisiert und entlastet den Kommunikationskanal der Web-Services.
 Die abstrakte Perspektive auf CPPS wurde von Lee et al. entworfen @Lee2015.
-An die mehrschichtige Struktur und Richtlinien für Architekturen von CPPS ist das VMR-Konzept angelehnt (vgl. @sec:vertikale-integration).  
-Ein Unterschied zu allen betrachteten Forschungsarbeiten ist die dedizierte Verwendung von Einplatinencomputern für die VMR und das Retrofitting von Altanlagen.
+An die mehrschichtige Struktur und Richtlinien für Architekturen von CPPS ist das VMR-Konzept angelehnt (vgl. @sec:vertikale-integration).
+Dadurch ist die VMR für den produktiven Einsatz in Kontext der Industrie 4.0 geeignet.  
+Ein Unterschied zu allen betrachteten Forschungsarbeiten besteht in der Verwendung von Einplatinencomputern für die VMR und das Retrofitting von Altanlagen.
+Die Kosten dieser Geräte sind gering und verbessern dadurch die Wirtschaftlichkeit der Modernisierungsmaßnahmen.
 Grigoriev et al. untersuchten deren Tauglichkeit für die Steuerung von CNC-Maschinen, betrachten den Aspekt der Anlagenmodernisierung in CPPS jedoch nicht @Grigoriev2016.
 
 ## Ergebnisse
 
-Neben den aufgestellten Anforderungen und Zielen wurden in der Einleitung Fragen formuliert, die durch den aktuellen Forschungsstand nicht ganzheitlich beantwortet werden können.
-Im Ergebnis führen die Untersuchungen dieser Arbeit zu folgendem Schluss.
+Neben den Anforderungen und Zielen wurden in der Einleitung Fragen formuliert, die durch den aktuellen Forschungsstand nicht ganzheitlich beantwortet werden.
+Im Ergebnis führen die Recherchen und der darauf aufbauende Entwurf der VMR zu folgendem Schluss.
+
+##### System- und Softwarearchitektur.
+
 Flexibles Retrofitting für die Steuerung und Überwachung veralteter Fertigungsanlagen benötigt eine geschichtete System- und Softwarestruktur.
 Eingebettet in die 5C-Architektur von Lee et al. (vgl. @sec:architektur-flexibler-produktion) ist eine virtuelle Maschinenrepräsentation (VMR) verantwortlich für die Kapselung der Altanlage innerhalb eines ganzheitlichen cyber-physischen Produktionssystems (CPPS, vgl. @sec:virtuelle-maschinenrepräsentation).
 Sie konvertiert die feingranularen, technischen Signale der Maschine in semantische Informationen und abstrahiert die Steuerung automatisierter Werkzeugkomponenten mittels eines dedizierten Softwareframeworks (vgl. @sec:softwareframework).
-Teilautonome Handlungsfähigkeit wird durch Rückkopplung der Signale in den operativen Betrieb innerhalb der VMR erreicht (vgl. @sec:cyber-physische-rückkopplung).  
+Teilautonome Handlungsfähigkeit wird durch Rückkopplung der Signale in den operativen Betrieb innerhalb der VMR erreicht (vgl. @sec:cyber-physische-rückkopplung).
+
+##### Protokolle und Datenstrukturen.
+
 Mit der Standardisierung horizontaler Kommunikation durch die etablierte OPC Unified Architecture, wird eine nahtlose Informationsübertragung zwischen modernen und modernisierten Werkzeugmaschinen und Steuerungen möglich (vgl. @sec:horizontale-integration).
-Das Laufzeitmodell der Anlage ist durch das Informationsmodell der OPC UA beschrieben und mit dem Web-Service Modul nach Dürkop et al. an eine Service-orientierte Architektur gekoppelt (vgl. @sec:laufzeitmodell).
+Das Laufzeitmodell der Anlage ist durch das Informationsmodell der OPC UA beschrieben und mit dem Web-Service Modul nach Dürkop et al. an eine Service-orientierte Architektur mit dem DPWS-Standard gekoppelt (vgl. [@sec:laufzeitmodell;@sec:vertikale-integration]).
 Durch diese Form der vertikalen Integration kann eine übergeordnete Produktionssteuerung den Fertigungsprozess abbilden (vgl. @sec:vertikale-integration).
-Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentrale Überwachung und Steuerung.  
+Auf Feld- und Prozessebene ermöglicht die Anbindung entsprechender Nutzungsschnittstellen die zentrale Überwachung und Steuerung.
+
+##### Datenverarbeitung und -persistenz.
+
 Neben Betriebsdaten und physischem Kontext der Altanlage werden Sensordaten direkt an der Maschine verarbeitet und durch das Konzept der Historie von OPC UA lokal persistiert (vgl. @sec:virtuelle-maschinenrepräsentation).
 Die Verarbeitung von Steuerungsinstruktionen in Form von OPC UA Methoden geschieht lokal und wird an cyber-physische Hardwareadapter delegiert (vgl. [@sec:modellierung-der-anlagenstruktur;@sec:softwareframework]).
 
 ## Limitationen
 
-Da die Integrationsproblematik cyber-physischer Produktionssysteme nicht durch eine wissenschaftliche Arbeit gelöst werden kann, bestehen folgende Einschränkungen für Konzept und Umsetzung.  
+Da die Komplexität der Integration von Altmaschinen in cyber-physische Produktionssysteme nicht durch eine wissenschaftliche Arbeit gelöst werden kann, bestehen Einschränkungen für Konzept und Umsetzung.
+Im direkt folgenden Ausblick des [Abschnitts @sec:ausblick] werden Möglichkeiten des Aufhebens der Limitationen vorgestellt.  
 Durch die cyber-physische Rückkopplung in der VMR wird der Automatisierungsgrad erhöht (vgl. @sec:cyber-physische-rückkopplung).
 Ein Laufzeitmodell enthält neben der Anlagenbeschreibung Regeln für die interne Rückkopplung, womit die VMR teilautonom agiert und online-Monitoring für Altmaschinen ermöglicht (vgl. @sec:laufzeitmodell).
 Diese Regeln, im Stil von Ereignis-Bedingung-Aktion (Event-Condition-Action, ECA), sind durch die Verwendung beliebiger OPC UA Datentypen sehr ausdrucksstark.
 Wie in der prototypischen Umsetzung gezeigt, können in der Bedingung (`PhysicalCondition`, vgl. @sec:modellierung-der-anlagenstruktur) nicht nur skalare Werte, sondern auch Wertebereiche für einen Variablenzustand beschrieben werden.
 Durch die Softwarebibliothek "node-opcua" (vgl. @sec:implementation) ist das Laden konstanter Werte aus dem Anlagenmodell bisher auf diese zwei Möglichkeiten beschränkt.
-Da OPC UA noch keine Echtzeitunterstützung bietet, wird die Formulierung zeitlicher Aspekte (z.B. numerische Kontrolle muss innerhalb einer Sekunde stoppen) nicht betrachtet.
+Da OPC UA noch keine Echtzeitunterstützung bietet, wird die Formulierung zeitlicher Aspekte (z.B. "numerische Kontrolle muss innerhalb einer Sekunde stoppen") nicht betrachtet.
 Bei Aufruf der Methoden hinter den `HasPhysicalAction`-Referenzen einer Bedingung, können mit der bisherigen Modellierung keine Parameter übergeben werden.  
-Logischen Verknüpfungen zischen den Zuständen von automatisierten Werkzeugkomponenten (Equipment) können mit der vorgestellten Modellierungsmethode nicht hergestellt werden (vgl. @sec:modellierung-der-anlagenstruktur).
+Logischen Verknüpfungen zwischen den Zuständen von automatisierten Werkzeugkomponenten (Equipment) können mit der vorgestellten Modellierungsmethode nicht hergestellt werden (vgl. @sec:modellierung-der-anlagenstruktur).
 Die Verbindung von Regeln über ein logisches "und" beziehungsweise "oder" wird nicht unterstützt.
 Außerdem ist die ECA-Beschreibung imperativ.
-Wenn beispielsweise die numerische Kontrolle gestoppt wird soll die Ladetür geöffnet werden.
+Wenn beispielsweise die numerische Kontrolle gestoppt wird, soll die Ladetür geöffnet werden.
 Die Rückkopplung könnte dann den Wert eines Kontaktsensors auswerten, um das erfolgreiche Öffnen der Tür zu prüfen.
 Eine deklarative Beschreibung dieses Problems mit einem Formalismus für Implikationen ist notwendig.
 Auch eine Kompensationsstrategie für den Fall der Inkonsistenz von Realität und virtuellem Modell, also die Verletzung einer Annahme über den Systemzustand, muss umgesetzt werden.
-Die imperativen Regeln der wenn-dann-Form, im Informationsmodell der VMR, leisten diese Art der Rückkopplung nicht.
+Die imperativen Regeln der wenn-dann-Form im Informationsmodell der VMR leisten diese Art der Rückkopplung nicht.
 Außerdem existiert kein Konzept zur Lösung von Konflikten zwischen den ECA-Regeln, wodurch unter anderem ungewollte Schleifen auftreten können (vlg. @Huebscher2008).
 
 Bei der prototypischen Umsetzung werden Testfälle (vgl. @sec:softwaretests-für-erweiterungspunkte) für Erweiterungen aus den Paketen "Equipment Extension" und "Interface Extension" (vgl. @sec:organisation) exemplarisch erläutert.
 Für die Vollständigkeit der Softwaretests müssen Integrationstests ebenfalls detailliert beschrieben werden.  
 Der @sec:anlagenanbindung geht auf die Technologien zur Kommunikation, nicht aber auf die genaue Erfassung der Daten und hardwareseitige Verknüpfung, zum Beispiel einer bestehenden Antriebssteuerung, ein.
 So wird die Verortung und konkrete Verdrahtung von Sensoren und Aktuatoren in diesem Konzept nicht besprochen.
-Da dieses vielfältig untersuchte Forschungsfeld über den Rahmen dieser Arbeit hinausgeht, werden aber umfangreiche Ergebnisse in @sec:überwachung-des-maschinenbetriebs referenziert.
+Dieses vielfältige Forschungsfeld geht über den Rahmen dieser Arbeit hinaus, wird aber in @sec:überwachung-des-maschinenbetriebs referenziert.
 Ebenfalls außerhalb dieses Rahmens liegt eine Betrachtung der übergeordneten Produktionssteuerung als Teil der vertikalen Integration.  
 Neben den vorgestellten konzeptuellen Szenarien und Anwendungsfällen wurde ein Laborexperiment, aber keine Fallstudie oder quantitative Evaluation durchgeführt.
-Dennoch ermöglichten sie eine realitätsnahe Konzeption unter Einbeziehung bestehender Integrationsumstände und betroffener Personen.
+Dennoch ermöglicht die vorliegende Arbeit eine realitätsnahe Konzeption unter Einbeziehung bestehender Integrationsumstände und betroffener Personen.
 
 ## Ausblick
 
