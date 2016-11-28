@@ -1274,7 +1274,7 @@ Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
 # Implementation
 
 Der Entwurf der virtuellen Maschinenrepräsentation (VMR) wurde im vorangegangenen Kapitel vorgestellt.
-Nach der Design Science Research Methodology (vgl. @sec:methode-und-aufbau) wird nun die Tauglichkeit des Konzepts anhand einer prototypischen Implementierung des Frameworks beschrieben.
+Nach der Design Science Research Methodology (vgl. @sec:methode-und-aufbau) wird nun die Eignung des Konzepts anhand einer prototypischen Implementierung des Frameworks beschrieben.
 Neben verwendeten Technologien sind die technischen Details folgenden Beispiels im Fokus dieses Kapitels.
 
 Die CNC-Drehmaschine aus dem Szenario S2 in @sec:szenarien bietet eine anschauliche Grundlage für die exemplarische Anwendung der prototypischen Entwicklung.
@@ -1343,8 +1343,9 @@ Eine Auflistung der wichtigsten verwendeten ist in @tbl:softwarebibliotheken bes
 | serialport     | Anbindung einer seriellen Schnittstelle          |
 |                | für DNC und Feldgeräte mit RS-232.               |
 +----------------+--------------------------------------------------+
-| watchjs        | Veränderung von Objekte und Variablen überwachen |
-|                | für das MAPE-K Monitoring der Feedback Control.  |
+| watchjs        | Veränderung von Objekten und Variablen           |
+|                | für das MAPE-K Monitoring der Feedback Control   |
+|                | überwachen.                                      |
 +----------------+--------------------------------------------------+
 | mocha und chai | Test-Framework und Assertion-Bibliothek für      |
 |                | Behaviour-driven Development                     |
@@ -1416,7 +1417,7 @@ class PhysicalLoadingDoorType
 
 Der Equipment-Erweiterungspunkt wird durch Definition im Modell und Namenskonvention im Paket "Equipment Extensions" an das Framework gebunden.
 Die "Interface Extension" hingegen durch Aggregation im jeweiligen Equipment und das Erben von Klassen der GrovePi-Bibliothek.
-In @lst:relay-actuator solch eine Spezialisierung von "DigitalSensor" dargestellt.
+In @lst:relay-actuator ist eine solche Spezialisierung von "DigitalSensor" dargestellt.
 Der "RelayActuator" ist eine Komponente der "PhysicalLoadingDoor" aus @lst:physical-loading-door-type.
 Zeile 4 deklariert den physischen Kommunikationskanal als ausgehend mit der Pin-Identifikation aus dem `ConnectionIdentifier`-Wert (vgl. @lst:physical-loading-door-type Zeile 6).
 In den Zeilen 6 und 7 sind die Möglichkeiten des Aktuators beschrieben.
@@ -1470,13 +1471,13 @@ bind: (object) =>
 
 Ein Auszug der Feedback Control in @lst:feedback-control beschreibt die Implementierung der Phasen von MAPE-K (vgl. @sec:cyber-physische-rückkopplung).
 Für das Monitoring werden zuerst alle Variablenzustände (`PhysicalCondition`) identifiziert.
-Besitzt die Variable mindestens einen zu verarbeitenden Zustand, wird sie mittels "watchjs" überwacht (Zeile 5).
+Besitzt die Variable mindestens einen zu verarbeitenden Zustand, wird sie mittels "watchjs" überwacht\ (Zeile\ 5).
 Der letzte Parameter der Methode "watch" ist ein Callback für den Fall der Veränderung.
-Innerhalb dessen iteriert Feedback Control über die möglichen Variablenzustände und überprüft (Analyze-Phase) ihre Qualifikation für den nächsten Schritt (Zeilen 6-7).
-In der Plan-Phase werden über die `HasEffect`-Referenz verbundene OPC UA Methoden gesucht und schlussendlich ausgeführt (Execute, Zeile 8).
+Innerhalb dessen iteriert Feedback Control über die möglichen Variablenzustände und überprüft (Analyze-Phase) ihre Qualifikation für den nächsten Schritt (Zeilen\ 6-7).
+In der Plan-Phase werden über die `HasEffect`-Referenz verbundene OPC UA Methoden gesucht und schlussendlich ausgeführt (Execute, Zeile\ 8).
 "hasBeenMet" führt eine Fallunterscheidung nach dem Typ der `PhysicalCondition` durch.
-Bei booleschem Typ, Zeichenketten und anderen direkt Werten wird ein einfacher Abgleich mit dem tatsächlichen Zustand durchgeführt -- Wert der Bedingung entspricht dem Wert der Variablen.
-Im Beispiel dieses Kapitels wird der Wert "Stop" der Variable `NC_Program_Status` mit dem Wert der `StoppedCondition` vergleichen und gegebenenfalls die Methode `Open_Door` der `LoadingDoor` aufgerufen (vgl. @fig:implementation-model).
+Bei booleschem Typ, Zeichenketten und anderen atomaren Werten wird ein einfacher Abgleich mit dem tatsächlichen Zustand durchgeführt -- Wert der Bedingung entspricht dem Wert der Variablen.
+Im eingangs beschriebenen Beispiel wird der Wert "Stop" der Variable `NC_Program_Status` mit dem Wert der `StoppedCondition` verglichen und gegebenenfalls die Methode `Open_Door` der `LoadingDoor` aufgerufen (vgl. @fig:implementation-model).
 Der andere Ausgang der Fallunterscheidung von "hasBeenMet" ist durch den kritischen Temperaturbereich des OPC UA Typs "Range" abgedeckt.
 In diesem Fall wird überprüft, ob der tatsächliche Zustand (`Temperature`) innerhalb dieses Bereichs (`OverheatCondition`) liegt.
 
@@ -1497,7 +1498,7 @@ Die Implementierung der cyber-physischen Adapter und des OPC UA Servers sind del
 
 ## Softwaretests für Erweiterungspunkte
 
-Die Implementierung des Framework kann durch Unit- und Integrationstests überprüft werden.
+Die Implementierung des Frameworks kann durch Unit- und Integrationstests überprüft werden.
 Da sie sich als Kern der virtuellen Maschinenrepräsentation (VMR) kaum verändert, werden diese Tests einmalig definiert.
 Interessanter sind die Erweiterungspunkte, die stetig wachsend, einem kontinuierlichen Testzyklus unterliegen müssen.
 Um das logische Verhalten der Implementierung von Equipment vor dem operativen Einsatz zu verifizieren, werden Unit-Tests wie in @lst:equipment-test eingesetzt.
@@ -1529,7 +1530,7 @@ describe 'PhysicalNCType', ->
       start.should.have.been.called.with 'test'
 ```
 
-Dasselbe Prinzip kann auf die Implementierungen des "Interface Extension" Pakets angewendet werden.
+Das oben beschriebene Prinzip kann auf die Implementierungen des "Interface Extension" Pakets angewendet werden.
 Da die GrovePi-Bibliothek getestete Implementierungen für die meisten Sensoren und Aktuatoren bereitstellt, reduziert sich der Aufwand und wird hier nicht näher beschrieben.
 Spezielle Erweiterungen wie der "SmoothieboardActuator" oder dessen Abhängigkeit vom "SerialPort" müssen ebenfalls validiert werden, was kein Teil der prototypischen Umsetzung ist.  
 Integrations- sind den Unit-Tests ähnlich, greifen aber nicht auf die konkrete Implementierung zurück, sondern validieren das Verhalten der VMR mit der Perspektive eines OPC UA Clients.
