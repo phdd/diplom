@@ -572,7 +572,7 @@ Einen konkreten Anwendungsfall zur Signalverarbeitung untersuchten Deshpande und
 Ihr Ziel war eine nicht-invasive Methode der Echtzeitüberwachung über die Stromaufnahme.
 Die in Kilowatt eingehenden Verbrauchsdaten wurden durch an Bedingungen gekoppelte Schwellwerte in Status (an, aus, Leerlauf), Energieverbrauch, Werkzeugwechsel und Werkstückdurchsatz unterschieden.
 Via TCP und UDP konnten diese Informationen zur Weiterverarbeitung an Fremdsysteme übergeben werden.
-Für die Case Study und einen anschließenden Vergleich hatten Deshpande und Pieper auch moderne Maschinen mit der UPC ausgestattet (vgl. zu diesem Absatz @Deshpande2011).  
+Für die Fallstudie und einen anschließenden Vergleich hatten Deshpande und Pieper auch moderne Maschinen mit der UPC ausgestattet (vgl. zu diesem Absatz @Deshpande2011).  
 Der abstrakte Weg vom Produktionsprozess bis zur Quantifizierung des Werkzeugzustands wurde durch Ambhore et al. beschrieben.
 Vom physischen Prozess ausgehend erfassen Sensoren unterschiedliche Werte, die durch Signalanalysen und Klassifikation zur Beschaffenheit des Werkzeugs führen (vgl. @fig:tcm-flow).
 Zu jedem dieser Schritte des Tool Condition Monitoring (TCM) erläutern die Autoren aktuelle Forschungsarbeiten und belegen die ökonomische Relevanz (vgl. zu diesem Absatz @Ambhore2015).  
@@ -636,7 +636,7 @@ Durch die Zusammenarbeit des PLCopen Konsortiums und der OPC Foundation (vgl. @s
 
 Auf Basis von OPC UA stellte Windmann et al. das in @fig:soa-steuerung abgebildete, Service-orientierte Steuerungskonzept für die Automatisierung von Feldgeräten mit SPS vor @Windmann2015.
 Der Fokus lag dabei auf Plug & Produce, wodurch sich das Gerät eigenständig in die Infrastruktur integriert, konfiguriert und arbeitet.
-Aufgaben die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
+Aufgaben, die für eine Programmierung mit IEC 61131-3 (vgl. @sec:speicherprogrammierbare-steuerung) zu komplex sind, werden mit einem Softwareagenten plattformunabhängig abgebildet.
 Die Ein- und Ausgabe sowie die Kommunikation über einen Feldbus übernimmt die Maschinensteuerung.
 Mit einer Fallstudie zur Bewegungssteuerung mit SPS verifizierten die Autoren das Konzept (vgl. zu diesem Absatz @Windmann2015).
 Die vorgestellte Schichtenarchitektur (vgl. @fig:soa-steuerung) kann nach entsprechenden Anpassungen für das Retrofitting eines Feldgerätes im Kontext cyber-physischer Produktionssysteme (CPPS) genutzt werden.
@@ -650,11 +650,11 @@ Durch die Verwendung eines Industrie-PCs zur Steuerung wird das Konzept der Anfo
 Die Software- und Systemarchitektur des Gesamtsystems nimmt damit eine zentrale Rolle bei der Integration von Altmaschinen ein.  
 Wang et al. entwickelten eine offenen Architektur für die Echtzeitüberwachung und -kontrolle von im Netzwerk befindlichen CNC-Maschinen über eine grafische Schnittstelle mit 3D Repräsentation @Wang2004.  
 Ein Web-basierter Thin-Client des Wise-ShopFloor ermöglicht die Kontrolle und Überwachung der Maschinen über ein dreidimensionales Modell der Fertigungsstrecke.
-Das darunterliegende Framework basiert auf einer Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
+Das darunterliegende Framework basiert auf dem^Client/Server-Architekturstil und verwendet seitens des Servers das MVC-Entwurfsmuster.
 Maschinen werden über das Fabriknetzwerk mit dem Server verbunden und sind somit vom Internet getrennt.
 Bei der Verwendung mehrerer Clients wird für das Routing ein Publish/Subscribe Mechanismus über HTTP-Streaming eingesetzt.
-Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Machinen beeinflusst.
-In der von Wang et al. durchgeführten Case Study wurde unter Verwendung einer CNC-Fräsmaschine die Tauglichkeit des Konzepts verifiziert.
+Mit Hilfe dessen wird das Verhalten des auf Java 3D basierenden Visualisierungsmodells durch Sensorik an den Maschinen beeinflusst.
+In der von Wang et al. durchgeführten Fallstudie wurde, unter Verwendung einer CNC-Fräsmaschine, die Tauglichkeit des Konzepts verifiziert.
 Die Schnittstelle zwischen Server und Maschine wurde durch einen Open Architecture Controller[^oac] bereitgestellt (vgl. zu diesem Absatz @Wang2004).  
 Durch Verteilung von Steuerung und Überwachung der Maschine auf im Netzwerk befindliche Clients, sowie die browserbasierte Nutzungsschnittstelle, werden die Anforderungen R1 und R2 (vgl. [@sec:überwachung;@sec:steuerung]) vollständig erfüllt.
 Ein Standard wird mit der Kommunikation via HTTP verwendet, während Informationsprotokoll und -modell nicht näher erläutert wird.
@@ -693,9 +693,9 @@ Intelligente Remote Terminal Units, wie auf der rechten Seite der @fig:rtu-retro
 Das original-Equipment besteht aus der physischen Schicht (Physical) für Aktuatoren und Sensoren.
 Darüber (Processing) werden die Daten umgewandelt -- bei einfachen Sensoren auch ohne Verarbeitung durchgereicht.
 Die Schnittstellenschicht (Interface) bindet das Gerät an ein Bussystem, digitale Ein-/Ausgabesysteme oder andere, teils proprietäre Kommunikationsmedien (vgl. @sec:fertigung-und-automatisierung).
-Mit der aufsetzenden Remote Terminal Unit wird zuerst eine, zum jeweiligen Medium kompatible Schnittstelle eingesetzt.
+Mit der aufsetzenden Remote Terminal Unit wird zuerst eine zum jeweiligen Medium kompatible Schnittstelle eingesetzt.
 Eine flexibel anpassbare Schicht für die lokale Datenverarbeitung und Logik stellt die Intelligenz der Remote Terminal Unit.
-Durch die Kommunikationsschicht werden dann Informationen, anstelle der Daten des original-Equipments weitergereicht und konsumiert.
+Durch die Kommunikationsschicht werden dann Informationen anstelle der Daten des original-Equipments weitergereicht und konsumiert.
 Eine Remote Terminal Unit kann außerdem mehrere funktional zusammengehörige Geräte zu einer logischen Einheit verbinden (vgl. zu diesem Absatz @Moctezuma2012).  
 Das Konzept von Moctezuma et al. erfüllt die Anforderungen R1-R4, basiert aber im Gegensatz zu Windmann et al. auf Web-Services.
 Lediglich R5 ist kein Teil des Konzepts.  
@@ -710,7 +710,7 @@ In vorgestellten Konzept wird daher die strikte Trennung von Web-Service Modul u
 
 Ein Modul ist eine mechatronische Einheit, die abstrakte Funktionalität, beziehungsweise Dienste, externalisiert.
 Die Implementierung der Funktionen ist gekapselt und besteht aus Sensoren, Aktuatoren und einer Kontrollkomponente.
-Echtzeitkommunikation wird zwischen den Geräten, nicht aber zwischen den Modulen bereitgestellt.
+Echtzeitkommunikation wird zwischen den Geräten, nicht aber zwischen den Modulen gewährleistet.
 Die Schnittstelle der beiden Schichten wird durch OPC UA bereitgestellt.
 Dürkop et al. erläutern einen möglichen Arbeitsablauf in dem eine Prozessdefinitionssprache, wie die Business Process Execution Language (BPEL), den übergeordneten Produktionsablauf beschreibt.
 Anhand derer ermittelt eine Orchestrierungskomponente die für den Prozess benötigten Dienste auf Modulebene.
@@ -750,17 +750,17 @@ R3 ist nicht erfüllt, da standardisierte Informationsprotokolle und Modelle nic
 Die Verortung von Daten und Logik ist zweigeteilt.
 Anforderung R4 ist teilweise erfüllt, da Zustandsüberwachung sowie Ausfall- und Leistungsvorhersage an der Maschine geschehen, jedoch die Cyber-Ebene den zentralen Knotenpunkt für die Historie aller Geräte bildet.
 Die technologische Sicht wird bei dieser Architektur nicht thematisiert, wodurch Anforderung R5 nicht erfüllt wird.
-Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der Produktion.
+Insgesamt bietet der Ansatz von Lee et al. eine architektonische Basis für CPS in der\ \mbox{Produktion}.
 
 [^oac]: Steuerungskomponente, die Modifikationen über das API hinaus zulässt @Yonglin2004
 [^dpws]: [docs.oasis-open.org/ws-dd/dpws/wsdd-dpws-1.1-spec.html](http://docs.oasis-open.org/ws-dd/dpws/wsdd-dpws-1.1-spec.html) (abgerufen am 15.11.2016)
 [^wsaddressing]: [w3.org/2002/ws/addr](https://www.w3.org/2002/ws/addr/) (abgerufen am 15.11.2016)
 [^wspolicy]: [w3.org/2002/ws/policy](https://www.w3.org/2002/ws/policy/) (abgerufen am 15.11.2016)
 
-## Zusammenfassung
+## Fazit zum derzeitigen Forschungsstand
 
 Die Überwachung und Steuerung von Produktionsmaschinen für Anwendungen in der Industrie 4.0 ist Teil unterschiedlicher Forschungsprojekte.
-Im Projekt OPC4Factory der TU Wien, wurden generische OPC UA Informationsmodelle entwickelt.
+Im Projekt OPC4Factory der TU Wien wurden generische OPC UA Informationsmodelle entwickelt.
 Diese verbessern die Konnektivität von NC-Maschinen, Industrierobotern und anderen Komponenten innerhalb einer flexibel automatisierten Fertigungszelle.
 Die Orchestrierung der Fertigungsoperationen sowie die Konfiguration der Komponenten soll durch die Lösung der Schnittstellenproblematik vereinfacht werden (vgl. zu diesem Absatz @OPC4Factory).  
 Die Integration bestehender Hardware in die intelligente Steuerung einer Fabrik ist Thema des RetroNet-Projekts. Das Fraunhofer IPK entwickelt mit Industriepartnern physische und logische Adapter für die Anbindung von bestehenden Anlagen an eine Steuerungsplattform. Maschinen-, Anlagen und Produktionsdaten werden zu diesem Zweck zentral erfasst und gespeichert. Weiterhin soll eine Middleware im Client-Server-Architekturstil Dienste und zugrunde liegende Teilsysteme miteinander verbinden und eine vermittelnde Rolle im Gesamtsystem einnehmen (vgl. zu diesem Absatz @FraunhoferIPK2016).  
