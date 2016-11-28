@@ -1,6 +1,6 @@
 # Virtual Machine Representation (VMR)
 
-[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=vmr)](https://travis-ci.org/phdd/diplom?branch=vmr)
+[![Build status](https://travis-ci.org/phdd/diplom.svg?branch=vmr)](https://travis-ci.org/phdd/diplom?branch=vmr) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Prerequisites
 
