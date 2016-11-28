@@ -117,10 +117,10 @@ Durch dieses Modell ist ein System in der Lage die Produktion und deren Schritte
 ## Fertigung und Automatisierung
 
 Fertigung, als Unterbegriff der Produktion, beschreibt Verfahren zur Umwandlung oder Erzeugung von Stoffen mit Hilfe von Energie und Informationen innerhalb eines Prozesses @Linke2015. 
-Automatisierung, nach der DIN 19233, ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet".
+Automatisierung, nach der DIN 19233, ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet" @Gerke2014.
 Eine Verknüpfung dieser beiden Konzepte ist in @fig:fertigungsautomatisierung dargestellt.
 Die Rückkopplung von Prozessdaten in eine Automatisierungseinrichtung befähigt das System, unter Berücksichtigung von Zielen, steuernd auf die Fertigung zu wirken.
-Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert - im ökonomischen Zusammenhang rationalisiert (vgl. zu diesem Absatz @Linke2015).
+Direkte Eingriffe in den Prozess, sowie dessen Beobachtung durch den Menschen, werden verringert -- im ökonomischen Zusammenhang rationalisiert (vgl. zu diesem Absatz @Linke2015).
 
 ![Automatisierte Fertigung aus @Linke2015](figures/fertigungsautomatisierung){#fig:fertigungsautomatisierung}
 
@@ -133,7 +133,7 @@ Ist sie vertikal integriert, verbindet sie Komponenten unterschiedlicher Ebenen.
 Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie folgt:
 
 * **Unternehmensleitebene**  
-  Marktrelevante Unternehmensprozesse, wie Unternehmensführung, Personal-, Investitions- und Produktionsplanung, finden unter Zuhilfenahme eines Systems für Enterprise Resource Planning (ERP) befinden sich auf dieser Ebene.
+  Unter Zuhilfenahme eines Systems für Enterprise Resource Planning (ERP) befinden sich marktrelevante Unternehmensprozesse, wie Unternehmensführung, Personal-, Investitions- und Produktionsplanung auf dieser Ebene.
 * **Betriebsleitebene**  
   Prozesse wie Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse sichern auf dieser Ebene den täglichen Fertigungsbetrieb eines Unternehmens.
   Die softwareseitige Unterstützung übernimmt beispielsweise ein Manufacturing Execution System (MES).
@@ -143,7 +143,7 @@ Die Ebenen des Beispiels der @fig:automatisierungspyramide erläuterte Linke wie
 * **Steuerungs- & Feldebene**  
   Aktuatoren und Sensoren und deren Schnittstelle zu Ein- und Ausgangssignalen befinden sich auf der Feldebene.
   Die von diesen Komponenten konsumierten, beziehungsweise erfassten Daten, werden auf der Steuerungsebene mit dem Prozess verbunden.
-  Daraus entstehende Information werden in die Reaktion des Systems einbezogen, wodurch minimale Latenzen in der Übertragung notwendig sind.
+  Daraus entstehende Information werden in die Reaktion des Systems einbezogen, weshalb minimale Latenzen in der Übertragung notwendig sind.
 
 ![Beispiel einer klassischen Automatisierungspyramide[^automatisierungspyramide]](figures/automatisierungspyramide){#fig:automatisierungspyramide}
 
@@ -152,7 +152,7 @@ Dabei fallen große Mengen von Rohdaten an, die in jeder folgenden, höheren Sch
 Die Toleranz bezüglich der Übertragungsgeschwindigkeit ist auf diesen unteren Ebenen am geringsten.
 Speicherprogrammierbare Steuerungen (SPS, vgl. @sec:speicherprogrammierbare-steuerung) und numerische Kontrolle (NC, vgl. @sec:numerische-kontrolle) erhalten Befehle in Echtzeit und automatisieren den Produktionsablauf.
 Über einen Feldbus (vgl. @sec:kommunikationssysteme) werden diese Instruktionen und Messdaten an ein Supervisory Control and Data Acquisition (SCADA) System gekoppelt.
-Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, respektive Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
+Derlei Systeme sind verantwortlich für die Überwachung und Steuerung technischer Prozesse und kontrollieren die übergeordnete Fertigungszelle, beziehungsweise Verbünde von Werkzeugmaschinen, Robotern und automatisierten Komponenten @Linke2015.
 Ein MES, beziehungsweise Fertigungsmanagementsystem bildet dann die Schnittstelle zum Ressourcenmanagementsystem (ERP) der Unternehmensleitebene.
 
 [^automatisierungspyramide]: Darstellung durch Wikipedia-Nutzer [UlrichAAB](https://de.wikipedia.org/wiki/Benutzer:UlrichAAB).
@@ -168,7 +168,7 @@ Neben dem Feldbus existieren weitere, teils veraltete Kommunikationskanäle, die
 Hammertringl und Reinhart fanden vier Klassen von Kommunikationssystemen in dieser durch eine Befragung ermittelten Struktur.
 Sensoren und Aktuatoren der ersten Klasse sind direkt verbunden und übermitteln binäre oder analoge Informationen rein physikalischer Natur, wie Strom mit 24V oder Druckluft.
 Sie stellen keine standardisierte, digitale Beschreibung ihrer Funktion bereit, wodurch dem angeschlossenen Gerät diese händisch mitgeteilt werden muss.  
-Feldgeräte mit IO-Link[^iolink]-Fähigkeit können durch die IO Device Description (IO-DD) beschrieben werden und sind Teil einer zweiten Klasse mit Direktverbindung.
+Feldgeräte mit IO-Link[^iolink]-Fähigkeit können durch die IO Device Description \mbox{(IO-DD)} beschrieben werden und sind Teil einer zweiten Klasse mit Direktverbindung.
 Innerhalb dieser können minimale Protokolle beschrieben und die Identifikation der Komponenten durchgeführt werden.
 Dadurch kann innerhalb dieser Klasse extern parametriert und eine maschinenlesbare Beschreibung übertragen werden.
 Letzteres wird in der Praxis jedoch kaum genutzt.
@@ -183,7 +183,7 @@ Trotz der Standardisierungsbemühungen durch IEC 61158, existieren unterschiedli
 Jeder Hersteller von Maschinen, Robotern und automatisierten Komponenten stellt einen anderen Busstandard, weshalb die Kommunikation der Geräte nicht garantiert werden kann.
 Für deren Verbindung mit unterschiedlichen Systemen wird ein Adapter benötigt, wodurch der Aufwand bezüglich Bereitstellung und Konfiguration steigt (vgl. zu diesem Absatz @Pauker2013).
 
-Auf den höheren Ebenen der Automatisierungspyramide (vgl. @fig:automatisierungspyramide) etablierte sich das nicht Echtzeit-fähige Ethernet.
+Auf den höheren Ebenen der Automatisierungspyramide (vgl. @fig:automatisierungspyramide) etablierte sich das nicht echtzeitfähige Ethernet.
 Die Variante des RTE verbreitet sich jedoch zunehmend auch auf den unteren Ebenen (vgl. @sec:zielsetzung) und erlaubt Kommunikation mit Remote Procedure Calls (RPC), TCP/IP-Sockets und OPC (ursprünglich OLE[^ole] for Process Control, vgl. @sec:opc-unified-architecture) @Pauker2013.
 Die Homogenisierung der Infrastruktur, vom Ressourcenmanagement im ERP über die Speicherprogrammierbare Steuerung bis zum einzelnen Sensor auf der Feldebene, vereinfacht den Informationsaustausch und trägt zur Flexibilisierung des Gesamtsystems bei.
 Weiterhin stehen damit die Daten aller Schichten für jeden anderen Netzwerkteilnehmer zur Verfügung.  
@@ -211,7 +211,7 @@ Wurde der vorverarbeitete G-Code auf eine Werkzeugmaschine mit Computer Numerica
 Derlei Maschinen besitzen mehrere durch Schrittmotoren und Servos angetriebene Bearbeitungsachsen, welche die Position des Werkzeugs relativ zum Werkstück durch Translation und Rotation (Hilfsachsen) verändern.
 Mit dieser relativen Bewegung wird sukzessiv Material entfernt, wodurch die im CAD entworfenen Bauteile physisch entstehen.
 Für das Entfernen von Material werden verschiedene Typen von Werkzeugmaschinen eingesetzt.
-Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können (vgl. zu diesem Absatz @Hirsch2000).
+Drehmaschinen und Fräsen sind hier die prominentesten Repräsentanten, wobei zum Beispiel auch spezielle Roboter mit Befehlen der CNC gesteuert werden können (vgl. zu diesem Absatz\ @Hirsch2000).
 
 ![Beispielkonstruktion und G-Code für eine Drehbank](figures/lathe-example){#fig:lathe-example}
 
@@ -230,12 +230,12 @@ DNC, verstanden als Distributed Numerical Control, ermöglicht weiterhin die Ver
 Die Vorteile der Fertigung mit CNC liegen in der Wiederholbarkeit und Genauigkeit der Operation.
 Weiterhin wird die Rüstzeit, jene zum Einstellen der Maschine, verringert und damit die Produktivität erhöht (vgl. zu diesem Absatz @Smid2008).  
 Dennoch sind auch moderne CNC-Anlagen in ihrer Funktion limitiert, da der verwendete G-Code lediglich Instruktionen und prozedurale Daten abbilden kann, wodurch ein Großteil der Konstruktionsinformationen verloren geht.
-Zwei neue Standards, namentlich STEP-NC (ISO 10303-238) und Function Blocks (IEC 61499), etablieren sich aus diesem Grund.
+Zwei neue Standards, namentlich STEP-NC (ISO 10303-238) und Function Blocks \mbox{(IEC 61499),} etablieren sich aus diesem Grund.
 Durch diese sollen CNC-Maschinen mit mehr Informationen, für intelligentere Fertigung und bessere Interoperabilität, ausgestattet werden.
 Beispielsweise wird durch STEP-NC die Abhängigkeit von Parametern reduziert. 
 Neuberechnungen zur Laufzeit beziehen unter anderem Verformungen durch Erhitzen des Werkstücks in die Fahrtenplanung ein.
 Function Blocks dagegen, sind Teil eines Standards für verteilte industrielle Prozesse und Kontrollsysteme.
-Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC. (vgl. zu diesem Absatz @Xu2006a).  
+Sie kapseln Maschinendaten, wie Werkzeugeigenschaften oder Algorithmen, für CNC\ (vgl. zu diesem Absatz @Xu2006a).  
 Darüber hinaus besitzen Anlagen spezifische, automatisierte Maschinen- und Werkzeugkomponenten, die nur indirekt durch CNC steuerbar sind.
 Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezifischen, internen speicherprogrammierbaren Steuerungen in die Fertigung integriert @Hirsch2000.
 
@@ -244,7 +244,7 @@ Schließmechanismen, Abluftsysteme oder Materialzufuhr werden von maschinenspezi
 ### Speicherprogrammierbare Steuerung
 
 Daten und Zustände automatisierter Maschinen- Werkzeug- und Fertigungsprozesskomponenten werden durch speicherprogrammierbare Steuerungen (SPS) aufgenommen, verarbeitet und verändert.
-Durch der DINIEC 60050-351 7-2013 sind sie definiert als eine "rechnergestützte programmierte Steuerung, deren logischer Ablauf über eine Programmiereinrichtung, zum Beispiel ein Bedienfeld, einen Hilfsrechner oder ein tragbares Terminal, veränderbar ist" (Zitat aus @Heinrich2015).
+Durch die \mbox{DIN IEC 60050-351 7-2013} sind sie definiert als eine "rechnergestützte programmierte Steuerung, deren logischer Ablauf über eine Programmiereinrichtung, zum Beispiel ein Bedienfeld, einen Hilfsrechner oder ein tragbares Terminal, veränderbar ist" (Zitat aus @Heinrich2015).
 Nach Heinrich et al. sind folgende Komponenten dafür notwendig.
 Ein Hardwaresystem stellte die Verbindung zum Fertigungsprozess und weiteren automatisierten Anlagen her.
 Programm- und Datenspeicher sind für die Persistenz des Anwenderprogramms, beziehungsweise der Prozessdaten verantwortlich und werden durch die Verarbeitung verändert.
@@ -255,7 +255,7 @@ Eine Mensch-Maschine-Schnittstelle ermöglicht dem Bediener den operativen Betri
 Die Programmier- und Test-Schnittstelle wird durch einen Programmierer, neben der Implementierung von Instruktionen, auch zur Fehleranalyse genutzt.
 Kommunikationsfunktionen erlauben die Anbindung an externe Systeme, automatisierte Komponenten und Datenquellen.
 Aktuatoren und Sensoren werden über die Prozessschnittstelle an eine SPS gekoppelt.
-Der konzeptuelle Aufbau wird durch ein, in @fig:sps-aufbau dargestellten, Hardwaresystem implementiert.
+Der konzeptuelle Aufbau wird durch ein, in @fig:sps-aufbau dargestelltes, Hardwaresystem implementiert.
 Die Stromversorgungseinheit liefert die für den Betrieb notwendige Energie und kann an die jeweilige Quelle angepasst werden.
 Eine Zentraleinheit mit CPU, Speicher, Verarbeitungseinheit und Anschlüssen für Programmiergeräte  und Netzwerk bildet die Steuerungslogik ab.
 Die Kopplung an digitale und analoge Datenquellen und -empfänger erfolgt über Ein-/Ausgabe-, beziehungsweise Signaleinheiten.
@@ -265,13 +265,13 @@ Die Kopplung an digitale und analoge Datenquellen und -empfänger erfolgt über 
 Signalverarbeitungsfunktionen im Anwenderprogramm werden innerhalb der Verarbeitungseinheit zyklisch ausgeführt.
 In einem ersten Schritt werden dafür die aktuellen Zustände der Eingänge erfasst, z.B. Sensordaten, und der Datenspeicher gelesen.
 Das Anwenderprogramm wird nach dem EVA-Prinzip (Eingabe, Verarbeitung, Ausgabe) abgearbeitet, woraufhin Ausgangssignale, z.B. Befehle für Aktuatoren, erzeugt werden.
-Diese Zyklen verbrauchen Zeit die kritische Aktionen verhindern können.  
+Diese Zyklen verbrauchen Zeit, die kritische Aktionen verhindern können.  
 So existieren neben den zyklusorientierten auch unterbrechungsfähige SPS.
 Das aktuell laufende Programm kann dabei durch Interrupts pausiert und später wieder aufgenommen werden.
 Programmiert werden Anwenderprogramme mit normierten Methoden der EN 61131-3.
 In textueller Form existieren Standards für Anweisungslisten und strukturierten Text.
 Grafisch wird die Logik einer SPS durch Kontaktpläne, eine Funktionsbaustein- oder Ablaufsprache implementiert.  
-Eine weitere Kategorie bilden ereignisorientierte Steuerungen bei denen das Anwenderprogramm erst bei Statusveränderungen der Eingangssignale abgearbeitet wird.
+Eine weitere Kategorie bilden ereignisorientierte Steuerungen, bei denen das Anwenderprogramm erst bei Statusveränderungen der Eingangssignale abgearbeitet wird.
 Weiterhin unterschieden werden modulare SPS, wie die _Simatic S7_-Serie von Siemens, und kompakt-SPS, wie zum Beispiel _LOGO!_.
 Letztere zeichnen sich durch fehlende Erweiterbarkeit aus.
 Neben hardwarebasierten SPS ermöglichen Software-Steuerungen (Soft-SPS) eine weitere Stufe der Flexibilisierung.
@@ -290,12 +290,12 @@ Damit kann die SPS eine aktive Rolle innerhalb der Automatisierungspyramide einn
 
 Der Austausch und die Modellierung von Daten kann in einem heterogenen Technologieraum nur durch standardisierte Beschreibungssprachen, Kommunikationsprotokolle und Modelle erreicht werden.
 Diese Aussage wird im Zusammenhang mit Industrie 4.0 durch eine Tendenzbefragung von BITKOM, VDMA und ZVEI aus dem Jahr 2013 gestützt.
-So sehen Mitarbeiter aus 278 Unternehmen, des Maschinen- und Anlagenbaus, Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
+So sehen Mitarbeiter aus 278 Unternehmen des Maschinen- und Anlagenbaus Standardisierung als größte Herausforderung für die Umsetzung von Industrie 4.0 @Kargermann2013.  
 Die OPC[^opc] Foundation ist ein Industriekonsortium, das für Entwicklung und Wartung solcher Standards verantwortlich ist.
 Sie schuf Interoperabilitätsstandards für den sicheren und zuverlässigen Austausch von Daten im Automatisierungsraum industriell produzierender Unternehmen auf Basis des Distributed Component Object Model (DCOM).
 Dieses ist ein von Microsoft definiertes System für entfernte Methodenaufrufe (Remote Procedure Calls, RPC) innerhalb eines Windows-Ökosystems, das für die heutigen heterogenen Informationssysteme ungeeignet ist.
 Neben der Plattformunabhängigkeit ist die Zusicherung des nahtlosen Übergangs von Informationen, zwischen Geräten unterschiedlicher Hersteller, die Hauptaufgabe querschnittlicher Spezifikationen im Kontext der OPC Unified Architecture (OPC UA)[^opc-def].
-Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundation2014.
+Das Konsortium berücksichtigte bei der Spezifikation folgende \mbox{Ziele}\ @OPCFoundation2014:
 
 * sicherer, zuverlässiger Informationsaustausch
 * Plattform- und Herstellerunabhängigkeit
@@ -306,7 +306,7 @@ Das Konsortium berücksichtigte bei der Spezifikation folgende Ziele @OPCFoundat
 * Vereinfachung durch Vereinheitlichung
 
 Konkret bietet die OPC UA (auch IEC 62541) einen semantischen Kommunikations- und Datenmodellierungsstandard für den Informationsaustausch @Ayatollahi2013.
-Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen @OPCFoundation2014.
+Ein erweiterbares Meta-Modell spezifiziert die Grundbausteine und Regeln für ein Informationsmodell und beinhaltet verschiedene Einstiegsknoten und Basis-Typen\ @OPCFoundation2014.
 Informationsmodelle sind Repräsentationen von Konzepten, Relationen, Beschränkungen, Regeln und Operationen zur Spezifikation der Bedeutung (Semantik) von Daten innerhalb einer bestimmten Domäne @Lee1999.
 Diese werden von Maschinen, Baugruppen und anderen Ressourcen im Adressraum angeboten, wodurch jede Entität innerhalb eines IT-Ökosystems mit der jeweilig anderen kommunizieren kann und deren strukturelle Eigenschaften kennt.
 
@@ -321,8 +321,7 @@ Eine für die Kommunikation über Firewalls taugliche Methode bietet die im Stan
 Durch einen Discovery-Mechanismus können Funktionen und Eigenschaften von OPC-UA-fähigen Teilnehmern in einem Subnetz bekannt gegeben werden.
 Doch auch Dienste für Ereignisregistrierung oder Sitzungsmanagement sind Teil der elementaren Definitionen.
 Eckpfeiler dieser Basis von OPC UA sind Fehlertoleranz und Sicherheit als zentrale Aspekte der Spezifikation.
-Auf Details zur Sicherheitsinfrastruktur wird in dieser Arbeit nicht eingegangen.
-Darauf aufbauend werden generische Informationsmodelle definiert, die unter anderem den Adressraum eines Servers repräsentieren @OPCFoundation2014:
+Darauf aufbauend werden generische Informationsmodelle definiert, die unter anderem den Adressraum eines Servers repräsentieren und durch die OPC Foundation wie folgt beschrieben sind @OPCFoundation2014:
 
 * **Data Access (DA)**  
   Daten zur Automatisierung werden durch das Data Access Modell strukturiert.
@@ -369,12 +368,13 @@ Die binär kodierte Nachricht wird hierbei in den HTTPS-Frames versendet und erm
 Dieser Abschnitt wurde der Website von ascolab[^ascolab] entnommen.
 
 [^ascolab]: [ascolab.com/de/unified-architecture/protokolle.html](http://www.ascolab.com/de/unified-architecture/protokolle.html) (abgerufen am 11.11.2016)
-[^soap]: Simple Object Access Protocol: standardisierter Datenaustausch via XML, [w3.org/TR/soap](http://www.w3.org/TR/soap/) (abgerufen am 15.11.2016)
+[^soap]: standardisierter Datenaustausch via XML, [w3.org/TR/soap](http://www.w3.org/TR/soap/) (abgerufen am 15.11.2016)
 
 ### Modularität und Erweiterbarkeit
 
-Viele bereits existierende Modelle, wie MTConnect, PLCopen, FDI und ISA95, unterscheiden sich von OPC UA durch fehlende Erweiterbarkeit.
-Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen, wie Hoppe schrieb @Hoppe2014:
+Viele bereits existierende Standards, wie MTConnect, PLCopen, FDI und ISA95, unterscheiden sich von OPC UA durch fehlende Erweiterbarkeit.
+Semantische Zusammenhänge lassen sich oft nicht ohne weiteres darstellen.
+So beschrieb Hoppe folgende Fragen @Hoppe2014:
 
 * Wie geben sich z. B. ein "Temperatursensor" oder eine "Ventilsteuerung" zu erkennen?
 * Welche Objekte, Methoden, Variablen und Ereignisse definieren die Schnittstelle für
@@ -404,7 +404,7 @@ Berechnungen bezüglich der Realität werden in Simulationen auf diesen Modellen
 Durch eingebettete Systeme (ES, [@fig:cps]b) wird der Computer in das Realweltobjekt integriert, wodurch Berechnungen in die physikalischen Systeme getragen werden.
 Mit CPS ([@fig:cps]c) existiert nicht nur ein passives Modell des Realweltsystems.
 Das Wissen um den Zustand des Realitätsausschnitts verhilft zur Steuerung der ES, wodurch neben dem realen Objekt ein synchrones, virtuelles Modellobjekt entsteht.
-Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Dingen der physischen Welt.
+Diese Konzept _dualer Realität_ von Objekten steht für die Kontrolle von Elementen der physischen Welt.
 Um die Synchronität des Modells gewährleisten zu können, müssen Rückkopplungsschleifen die Effekte physischer Prozesse auf Berechnungen und Simulationen beziehungsweise vice versa verifizieren @Lee2008.
 Weiterhin sollen derlei Systeme autonom auf Diskrepanzen reagieren und korrigierende Maßnahmen einleiten.  
 MAPE-K ist ein geeignetes Konzept cyber-physischer Rückkopplung und besteht aus den Phasen Monitor, Analyze, Plan und Execute.
@@ -432,13 +432,13 @@ Produkte, Maschinen und andere Ressourcen werden in diesen durch CPS repräsenti
 CPS sind fundamentale Elemente eines CPPS, die unmittelbaren Zugriff auf relevante Informationen, Maschinenparameter, Produktionsprozesse und deren Produkte besitzen.
 Durch die Dezentralisierung der Produktionslogik haben CPPS, im Gegensatz zu traditionellen Produktionssystemen, wesentliche Vorteile bezüglich Transparenz, Adaptivität, Ressourceneffizienz und Flexibilität.
 Auf Ebene der Automatisierung werden Informationen eines CPS-Netzwerk benötigt, um den Fertigungsprozess auf Basis von strategischen Entscheidungen erfolgreich durchzuführen.
-Für Entscheidungsfindung und Kontrolle der Fertigung werden konsistente, kohärente Informationen über die reale Welt benötigt @Bergweiler2015.
+Für Entscheidungsfindung und Kontrolle der Fertigung werden konsistente, kohärente Informationen über die reale Welt \mbox{benötigt}\ @Bergweiler2015.
 
 ![Auflösung der Automatisierungspyramide aus @VereinDeutscherIngenieuree.V.2013](figures/pyramide-cps){#fig:pyramide-cps}
 
-Diese Informationen, Dienste und Funktionen werden an jener Stelle lokalisiert, die im Sinne einer flexiblen Entwicklung und Produktion den größten Vorteil bringt @VereinDeutscherIngenieuree.V.2013. 
+Diese Informationen, Dienste und Funktionen werden an jener Stelle lokalisiert, die im Sinne einer flexiblen Entwicklung und Produktion den größten Vorteil \mbox{bringt}\ @VereinDeutscherIngenieuree.V.2013. 
 Starre Strukturen, wie die der klassischen Automatisierungspyramide, sind ungeeignet für die dezentrale Verortung der genannten Ressourcen.
-Die demnach notwendige Auflösung dieser Architektur zu einem vernetzten System von Systemen, beziehungsweise CPSoS, wir in @fig:pyramide-cps verdeutlicht.
+Die demnach notwendige Auflösung dieser Architektur zu einem vernetzten System von Systemen, beziehungsweise CPSoS, wie in @fig:pyramide-cps verdeutlicht.
 Sowohl Hard- und Software als auch die Verarbeitung der anfallenden Daten wird nicht länger in Schichten organisiert werden @Schlick2013.
 Damit sollen die Produktionsressourcen auf Knoten eines Netzwerks aufgeteilt und schrittweise auf ihre funktionale Struktur abstrahiert werden @VereinDeutscherIngenieuree.V.2013.
 Bis eine geeignete Architektur für CPPS andere Möglichkeiten bietet (vgl. [@Lee2015;@Borangiu2014]), werden Echtzeit-Steuerungen in der Feldebene verbleiben @VereinDeutscherIngenieuree.V.2013.
@@ -467,7 +467,7 @@ Im WAN problematisch @Schlechtendahl2015 => OPC4Factory
     
 # Anforderungen
 
-Für die in @sec:zielsetzung aufgestellten Ziele, werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
+Für die in @sec:zielsetzung aufgestellten Ziele werden in diesem Kapitel die spezifischen Kriterien zu deren Erfüllung erläutert.
 
 Informationssysteme in der Produktion dienen der Verbesserung der Wettbewerbsfähigkeit und müssen Innovations- und Zeitdruck standhalten. 
 Moderne Produktionsumgebungen helfen Arbeitsabläufe zu optimieren und vereinfachen Beteiligten die Ausführung ihrer Arbeit.
@@ -482,7 +482,7 @@ Im Sinne der Industrie 4.0 wird diese Form ortsgebundener Arbeitsplätze an Bede
 Damit müssen die Daten über geeignete Schnittstellen zur Verfügung stehen.
 Subsysteme können dann auch automatisiert über Zustandsänderungen der Maschine in Kenntnis gesetzt werden.
 Weiterhin braucht ein CPPS diese Informationen um adäquat reagieren zu können (vgl. @sec:cyber-physische-produktionssysteme, @Lee2008).
-Abgesehen von der notwendigen Dezentralisierung und dem Informationsgewinn für Rückkopplungsschleifen gilt es einen Werkzeugbruch zugunsten von Maschinenverfügbarkeit und Produktqualität, respektive der Ökonomie des gesamten Produktionssystems, zu verhindern @Ambhore2015.
+Abgesehen von der notwendigen Dezentralisierung und dem Informationsgewinn für Rückkopplungsschleifen gilt es einen Werkzeugbruch zugunsten von Maschinenverfügbarkeit und Produktqualität, respektive der Ökonomie des gesamten Produktionssystems, zu \mbox{verhindern}\ @Ambhore2015.
 
 R1
 : Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
@@ -495,7 +495,7 @@ Diese Befehlsketten werden entweder mit einem Speichermedium auf den Steuerungs-
 Der zeitliche Aufwand und das notwendige Personal verlangsamen die Fertigung des Endprodukts und führen zu einer suboptimalen Fertigungsstrecke @Ayatollahi2013.
 Für das Retrofitting der Anlage muss die entfernte numerische Kontrolle ermöglicht werden.
 Weiterhin sind Produktionsmaschinen mit zusätzlichen automatisierten Komponenten wie Schließmechanismen für Schutztüren, Kühl-, Entlüftungs- oder Einspannsystemen ausgestattet.
-Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen kann @Gorecky2014.
+Auch die Steuerung dieser muss ortsunabhängig sein, damit ein CPPS ganzheitlich in den Produktionsprozess eingreifen \mbox{kann}\ @Gorecky2014.
 
 R2
 : Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
@@ -523,7 +523,7 @@ R3
 CPPS müssen in geringstmöglicher Zeit Betriebs- und Prozessdaten der Maschine analysieren, bewerten und in den Produktionsprozess eingreifen können.
 Die Synchronisation des virtuellen Modells der Realität wird jedoch durch stetig wachsende Datenvolumina aufgrund steigender Geräteanzahl erschwert.
 Damit verlangsamt sich die Verarbeitung der Daten mit der geografischen Entfernung zwischen Gerät und System.
-Bei der Integration von Altmaschinen muss demnach die Datenanalyse, -persistenz und Historie sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
+Bei der Integration von Altmaschinen muss demnach die Datenanalyse,\ \mbox{-persistenz} und Historie sowie die Reaktion auf dadurch erkannte Veränderungen möglichst nahe an der Anlage geschehen.
 Läuft eine Rückkopplungsschleife direkt an der Maschine, muss außerdem nur ein Teil der anfallenden Daten veräußert und die Kontrolle nur teilweise an hierarchisch übergeordnete Systeme abgegeben werden (vgl. zu diesem Absatz @Bonomi2012).
 Durch den verminderten Austausch zwischen den Systemen werden die Sicherheit der Daten verbessert und Kommunikationsfehler minimiert (vgl. @Wang2004).
 
@@ -532,7 +532,7 @@ R4
 
 Auch wenn die Zeit für die Kommunikation von Steuerbefehlen und Sensordaten durch die Nähe zur Maschine minimiert wird, ist weder harte noch weiche Echtzeit ein Kriterium.
 Es wird davon ausgegangen, dass die Interpretation und Ausführung der Maschinenbefehle sowie die Aggregation der Daten direkt an der Maschine geschieht.
-Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem Lokalitätskriterium @Bonomi2012.
+Um in adäquater Zeit reagieren zu können, unterliegen die für CPPS erforderlichen Kontrollschleifen damit ebenfalls dem \mbox{Lokalitätskriterium}\ @Bonomi2012.
 
 ## Integrationshardware
 
