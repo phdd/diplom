@@ -4,4 +4,4 @@ node_js:
   - '7.1'
 
 before_install:
-  - if [[ `npm -v` != 4* ]]; then npm i -g npm@4; fi
+  - npm install -g npm@4
