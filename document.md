@@ -810,11 +810,11 @@ Die Gegenüberstellung von Anforderungen und bestehenden, für das folgende Konz
 
 Nach der Analyse bestehender Forschungsarbeiten folgt in diesem Kapitel die Konzeption einer Lösung zu den in @sec:einleitung beschriebenen Problemen unter Berücksichtigung der Anforderungen aus @sec:anforderungen und Konzepten aus @sec:forschungsstand.
 Ein Softwareartefakt und seine Einbettung in eine System- und Softwarearchitektur werden vorgestellt.
-Die verschiedenen Perspektiven auf den Entwurf sind an das 4+1 Software-Architekturmodell nach Kruchten angelehnt @Kruchten1995.
+Die verschiedenen Perspektiven auf den Entwurf sind an das\ 4+1 Software-Architekturmodell nach Kruchten angelehnt @Kruchten1995.
 Eine virtuelle Maschinenrepräsentation (VMR) bildet die Schnittstelle zur Altanlage, beziehungsweise zu ihren automatisierten Werkzeugkomponenten und damit den Schwerpunkt des hier vorgestellten Designs.
 Das Informations- und Kommunikationsmodell der VMR mit OPC UA ergänzt die Anlage um eine in der Industrie etablierte, semantische Schnittstelle.
 Repräsentanten der berücksichtigten Maschinen sind in Szenarien beschrieben.
-Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle skizziert.
+Die Arbeit im Kontext dieser Szenarien und die Aufteilung der Aufgaben unter den Produktionsbeteiligten wird durch Anwendungsfälle\ \mbox{skizziert}.
 
 ## Kontext
 
@@ -827,12 +827,12 @@ Die CNC ist fest mit der Antriebssteuerung verdrahtet und die maschineneigene SP
 Auch die notwendigen Daten zur Überwachung des Fertigungsprozesses können nicht durch externe Systeme bezogen werden.
 Ein serieller RS-232 oder Parallelport verbindet lediglich die Steuerungseinheit mit der SPS.
 Somit ist außer dem Lokalitätskriterium (vgl. @sec:lokalität) keine der Anforderung erfüllt.
-Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und automatisierte Werkzeugkomponenten vollständig durch die virtuelle Maschinenrepräsentation (VMR) bereitgestellt werden.
+Für solche Anlagen muss eine standardkonforme Schnittstelle und deren Anbindung an CNC und automatisierte Werkzeugkomponenten vollständig durch die virtuelle Maschinenrepräsentation (VMR) bereitgestellt\ \mbox{werden}.
 
 ##### S2 -- Werkzeugmaschine mit Direct Numerical Control.
 
 Direct Numerical Control (DNC) erlaubt das sukzessive Übertragen der CNC-Befehle an die Maschine (vgl. @sec:numerische-kontrolle).
-Trotz der damit physisch kompatiblen Datenverbindung zur Anlage, sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
+Trotz der damit physisch kompatiblen Datenverbindung zur Anlage sind unterschiedliche, meist proprietäre, Kommunikationsprotokolle für DNC üblich @Alting1994.
 Die maschineneigene SPS ist verantwortlich für automatisierte Werkzeugkomponenten wie Türautomatik oder Kühlsystem.
 Dem Entwickler steht keine Schnittstelle für diese zur Verfügung.
 Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die VMR umgesetzt werden, sofern die DNC jene nicht bereits kapselt.  
@@ -844,11 +844,11 @@ Somit muss neben Adaptern für die DNC-Protokolle eine SPS-Anbindung durch die V
 
 ##### S3 -- Speicherprogrammierbare Steuerungen.
 
-Beim Retrofitting von speicherprogrammierbaren Steuerungen (SPS) werden in dieser Arbeit drei Fälle unterschieden.
+Beim Retrofitting von SPS werden in dieser Arbeit drei Fälle unterschieden.
 Im aufwändigsten Fall besitzt die SPS keine Ethernetanbindung für Kommunikation via TCP/IP und arbeitet über einen Feldbus (S3.1).
 Der zweite Fall von zu modernisierenden SPS setzt eine Netzwerkanbindung voraus, veräußert jedoch weder ein Informationsmodell noch standardisierte Kommunikationsprotokolle (S3.2).
 Im letzten Fall verfügt die SPS bereits über ein integriertes Informationsmodell und kommuniziert durch standardisierte Protokolle.
-Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk einheitlichen überführen (S3.3).
+Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem im Netzwerk einheitlichen überführen (S3.3).
 <!-- UML => OPC UA, etc. @Pauker2016 -->
 <!-- ASK
 - Werkzeugmaschine ist im Kontext weiterer Automatisierungseinrichtungen
@@ -856,7 +856,7 @@ Gegebenenfalls müssen Adapter die Protokolle und Modelle zu einem, im Netzwerk 
 -->
 
 Sowohl Ayatollahi et al., als auch Ferrolho et al. nutzten für die Umsetzung ihres Konzepts die Drehmaschine _EMCO Concept Turn 55_, an der auch die Anwendungsfälle S1 und S2 orientiert sind (vgl. [@Ayatollahi2013;@Ferrolho2005], @sec:steuerung-von-fertigungssystemen).
-Die in dieser Anlage verbauten automatisierte Werkzeugkomponenten sind Einspann-, Luftdruck- und Kühlsystem sowie eine Türautomatik.
+Die in dieser Anlage verbauten automatisierten Werkzeugkomponenten sind \mbox{Einspann-,} \mbox{Luftdruck-} und Kühlsystem sowie eine Türautomatik.
 Ein proprietäres, serielles DNC-Protokoll ermöglicht die Anbindung externer Systeme in Szenario S2.
 
 ### Anwendungsfälle
@@ -887,7 +887,7 @@ Der Maschinenbediener richtet die Anlage ein (vgl. @fig:uc-maschinenbediener).
 Er integriert sie in den Kontext der Produktionsstrecke und bindet sie an das bestehende Automatisierungssystem.
 Kenntnis der technischen Schnittstellen für diese Integration entnimmt er dem digitalen Modell der Maschine.
 Die detaillierte Darstellung des Systemzustands hilft einem Maschinenbediener bei der Überwachung des Fertigungsschritts und der Reaktion bei Störfällen.
-Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm verantwortet.
+Auch maschinenspezifische Anpassungen von CNC-Programmen werden von ihm \mbox{verantwortet}.
 
 ![Anwendungsfälle eines Maschinenbedieners](figures/uc-maschinenbediener){#fig:uc-maschinenbediener}
 
@@ -906,7 +906,7 @@ Die Verbindung der VMR zu anderen Feldgeräten, ihre Kapselung der Altanlage und
 
 ## Informationsmodell
 
-Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt @Hammerstingl2015.
+Die Forderung standardisierter Informationsmodelle und Machine-to-Machine (M2M) Kommunikation wird durch aktuelle Forschung im industriellen Umfeld gestützt\ @Hammerstingl2015.
 OPC UA, im weiteren Verlauf als Unified Architecture (UA) abgekürzt, bietet die dafür geeigneten Werkzeuge [@Izaguirre2011;@Hammerstingl2015].
 Echtzeit und direkte Bewegungskontrolle sind nicht möglich, weshalb eine eigenständiger Schicht in @sec:anlagenanbindung besprochen wird @Hammerstingl2015.
 Bei der Modernisierung von Altanlagen wird deren strukturelle Komponentenbeschreibung in einem UA-Adressraummodell hinterlegt.
@@ -924,7 +924,7 @@ Beispielsweise komponiert ein Objekte vom Typ `LoadingDoorType` sowohl die Varia
 ![OPC UA Modellerweiterung nach @Ayatollahi2013](figures/opc4factory){#fig:opc4factory}
 
 Bei der Modellierung einer SPS wie in Szenario S3 bietet sich die Companion Specification der PLCopen an (vgl. @sec:speicherprogrammierbare-steuerung).
-Durch Abbildung von Funktionsbausteinen und Ein-/Ausgabeparametern auf den UA-Adressraum können Anwendungen die Anlagenstrukturen auf gleiche Weise erfragen und manipulieren @PLCopen.
+Durch Abbildung von Funktionsbausteinen und Ein-/Ausgabeparametern auf den UA-Adressraum können Anwendungen die Anlagenstrukturen auf gleiche Weise erfragen und manipulieren\ @PLCopen.
 Bei der Verwendung der IBH Link UA, ist die Informationsmodellierung implizit in der Variablendefinition enthalten und wird via Ethernet auf das Gerät übertragen[^ibhlinkua].
 Wird das Ignition OPC UA Softwaremodul verwendet, kann das Modell frei und damit nach der Erweiterung von Ayatollahi et al. gestaltet werden.
 Eine Alternative zu dem vorgestellten Informationsmodell für SPS ist das von Windmann (vgl. Bild 4 in @Windmann2015).
@@ -962,7 +962,7 @@ Im Beispiel der [@fig:opcua-cpps-eca]b soll demnach die Ladetür der Anlage geö
 Das Informationsmodell besteht demnach aus drei Schichten der Spezifikation.
 Allem zugrunde liegt die UA-Definition (OPC UA Part 5[^opcua5]).
 Darauf aufbauend wurden die Modellelemente von Ayatollahi et al. zur Steuerung und Überwachung der Altanlage übernommen (OPC4Factory, @Ayatollahi2013).
-Die Verbindung mit dem physikalischen Kontext und die Modellierung der Regeln für cyber-physische Rückkopplung gehen von der in diesem Konzept entworfenen UA-Erweiterung aus (CPPS).
+Die Verbindung mit dem physikalischen Kontext und die Modellierung der Regeln für cyber-physische Rückkopplung gehen von der in diesem Konzept entworfenen UA-Erweiterung aus\ (CPPS).
 
 [^opcua5]: [opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model](https://opcfoundation.org/developer-tools/specifications-unified-architecture/part-5-information-model) (abgerufen am 12.11.2016)
 
@@ -992,7 +992,7 @@ Die Architektur des Industrie 4.0 konformen Retrofittings besteht aus den Schich
 ![Konzept der virtuellen Maschinenrepräsentation](figures/vmr-concept){#fig:vmr-concept}
 
 Die VMR entspricht der intelligenten Remote Terminal Unit von Moctezuma, kapselt die Altanlage und bietet durch die Comm-Schicht nahtlose M2M-Kommunikation auf Feldebene @Moctezuma2012.
-Sie wandelt mittels die Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
+Sie wandelt mittels der Processing-Ebene die gesammelten Daten der Maschine, abgebildet durch UA-Variablen, in Informationen in Form von Fusionsvariablen und UA-Ereignissen.
 Fusionsvariablen entstehen durch den Schritt der Signalverarbeitung im Monitoring-Prozess nach Ambhore et al. und setzen sich aus vorverarbeiteten Sensorwerten zusammen (vgl. @fig:tcm-flow in @sec:überwachung-des-maschinenbetriebs)
 So werden die Daten der Altanlage zentral erfasst und vorverarbeitet, nicht aber persistiert, wie im Blackboard-Konzept von Pauker et al. @Pauker2013.
 Dennoch ist die Rekonfigurierbarkeit nach deren Konzept durch die lose gekoppelten Module gegeben.
@@ -1040,7 +1040,7 @@ Alle beschriebenen Varianten der technischen Anbindung einer Altanlage dienen de
 Nahtlose Kommunikation zwischen den Maschinen wird durch eine horizontale Integration der Altanlage erreicht.
 Durch die Verbreitung der OPC Unified Architecture (UA) sind neben deren Informationsmodell (vgl. @sec:informationsmodell) die Kommunikationskonzepte geeignet für diese Arbeit.
 Beim Starten der Middleware auf dem Einplatinencomputer wird zuerst das  Informationsmodell der virtuellen Maschinenrepräsentation (VMR) geladen und initialisiert.
-Danach integriert sie sich selbstständig in das Fertigungssystem um mit anderem Equipment interagieren zu können.
+Danach integriert sie sich selbstständig in das Fertigungssystem, um mit anderem Equipment interagieren zu können.
 Die Dienste der UA zum Auffinden von Geräten (OPC UA Discovery) werden für die automatische Eingliederung der VMR genutzt, dargestellt durch @fig:horizontale-integration.
 
 ![Horizontale VMR-Integration](figures/horizontale-integration){#fig:horizontale-integration}
@@ -1060,8 +1060,8 @@ Für die eigentliche Verbindung zu den Diensten bestehender Feldgeräte mit der 
 Die Anwendungsfälle eines Monteurs (A1) werden zwischen dem Module- und dem Cyber-Level des VMR-Konzepts unterstützt (vgl. @fig:vmr-concept).
 Mit einem UA-Client hat er die Möglichkeit die Maschinenkomponenten zu verwalten und die abgeschlossene Wartung derer zu bestätigen.
 Über diesen Client kann auch der Maschinenbediener (A3) die Altanlage auf den Betrieb vorbereiten, indem er die physikalischen Verbindungen, also Instanzen des `PhysicalConnectionType`, konfiguriert (vgl. @sec:modellierung-der-anlagenstruktur).
-Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände einsehen, die Situation einsehen und Ausnahmefälle antizipieren.
-Bevor CNC-Programme ausgeführt werden hat er die Möglichkeit sie anhand der aktuellen Situation anzupassen.
+Bei der Überwachung des Fertigungsschritts kann er die Sensorwerte und Aktuatorenzustände sowie die Situation einsehen und Ausnahmefälle antizipieren.
+Bevor CNC-Programme ausgeführt werden, hat er die Möglichkeit sie anhand der aktuellen Situation anzupassen.
 Ein Beispiel wäre das Fehlen eines vom Programm geforderten Werkzeugs und dessen programmatischer Austausch im Laufzeitmodell.
 
 ### Vertikale Integration
@@ -1081,9 +1081,9 @@ Eine Prozess-Engine ist verantwortlich für die Delegation der Fertigungsschritt
 Diese schicken dann die Methodenaufrufe an den UA-Server der VMR und steuern damit die Maschine (@fig:vertikale-integration, 7).
 Durch die Verwendung einer formalisierten Prozesssprache, wie der BPEL, ist die Dokumentation in Anwendungsfall A2 abgedeckt.
 Die gesammelten Daten der Altanlage werden permanent im Informationsmodell der VMR aktualisiert (vgl. @sec:laufzeitmodell).
-Das Modul regiert durch UA-Ereignisse auf Veränderungen des Modells und gibt diese durch DPWS-Ereignisse an übergeordnete Dienste, wie ein ERP, Mobilgerät oder Time-Machine, weiter.
+Das Modul reagiert durch UA-Ereignisse auf Veränderungen des Modells und gibt diese durch DPWS-Ereignisse an übergeordnete Dienste, wie ein ERP, Mobilgerät oder Time-Machine, weiter.
 Eine geeignete Nutzungsschnittstelle (User-Interface, UI) aggregiert diese Ereignisse und bereitet sie für den Produktionsleiter zentral auf.
-Fällt eine Anlage aus, wird dies mittels Ereignis durchgereicht und visualisiert, so das die Vergabe von Wartungsaufträgen (A2) erfolgen kann.
+Fällt eine Anlage aus, wird dies mittels Ereignis durchgereicht und visualisiert, so dass die Vergabe von Wartungsaufträgen (A2) erfolgen kann.
 Der Monteur aus Anwendungsfall A1 kann diese Aufträge einsehen und entsprechend reagieren.
 
 ### Cyber-physische Rückkopplung
@@ -1102,7 +1102,7 @@ Wurde beispielsweise die Variable `NC_Program_Status` aktualisiert, werden alle 
 In @fig:opcua-cpps-eca aus @sec:modellierung-der-anlagenstruktur ist `StopCondition` die Instanz eines `PhysicalConditionType` der Variable `NC_Program_Status`.
 Stimmt der Wert der Bedingung (im Beispiel "Stop") mit dem neuen Wert überein wird eine Veränderungsanfrage (Change Request) bezüglich der Bedingung an die Planungsphase übergeben.
 Die Übereinstimmung, festgestellt in der Analyse, ist nicht auf die Gleichheit der Werte beschränkt.
-Mit Verwendung beliebiger Variablentypen der UA-Spezifikation, können numerische Werte, Zeichenketten und strukturelle Attribute wie Wertebereiche oder Zeitstempel verglichen werden.  
+Mit Verwendung beliebiger Variablentypen der UA-Spezifikation können numerische Werte, Zeichenketten und strukturelle Attribute wie Wertebereiche oder Zeitstempel verglichen werden.  
 So kann MAPE-K beispielsweise die Temperatur eines Werkzeugs für normalen Betrieb und Störfall unterscheiden, indem die Wertebereiche (UA-Datentyp Range) in entsprechenden `PhysicalConditionType`-Variablen festgehalten werden.
 Eine Veränderungsanfrage beinhaltet die geltende Bedingung, durch die wiederum `HasPhysicalAction`-Referenzen auf UA-Methoden verweisen (vgl. @sec:modellierung-der-anlagenstruktur).
 In der Planung werden diese Referenzen aufgelöst und sich dahinter verbergenden UA-Methoden an die Ausführungsphase übergeben.
@@ -1129,7 +1129,7 @@ Dies wird durch mehrere cyber-physische Adapter (CPA) bewerkstelligt.
 Die physischen Kontextdaten und -manipulationsbefehle werden durch die Modellkontrollkomponente konsumiert, prozessiert und produziert (vgl. [@sec:horizontale-integration;@sec:vertikale-integration]).
 Eine MAPE-K-Rückkopplungsschleife (vgl: @sec:cyber-physische-rückkopplung) interagiert mit dieser.
 Für die Kommunikation der Informationen des Adapters bietet der Adressraum des Laufzeitmodells der VMR eine strukturelle Beschreibung der Anlage (vgl. @sec:informationsmodell).
-Ein UA-Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der Altanlage.
+Ein UA-Server stellt dieses Modell durch das binäre Transportprotokoll bereit und vermittelt Information und Interaktion mit der \mbox{Altanlage}.
 
 ![Framework-Schichten und -Komponenten](figures/framework){#fig:framework}
 
@@ -1184,17 +1184,18 @@ Es wird angenommen, dass die VMR in ein Netzwerk integriert ist und uneingeschr�
 Voraussetzung für die Initialisierung der VMR ist eine mit der Middleware ausgelieferte Machine Definition.
 Die Model Control startet den UA-Server mit dieser als Parameter, dargestellt in @fig:framework-init (1).
 Danach werden die cyber-physischen Adapter (CPA) instantiiert und etwaige Hardwarekomponenten für die Anbindung der Signale initialisiert (2).
-Der UA-Server kreiert den Adressraum (3), respektive das Laufzeitmodell der VMR, und lädt die Modelle (4).
+Der UA-Server kreiert den Adressraum (3), beziehungsweise das Laufzeitmodell der VMR, und lädt die Modelle (4).
 Ist das Informationsmodell vollständig geladen, sendet der Server das entsprechende Signal (5) und die Model Control sucht nach dem für die Anlage definierten Equipment (5.1).
 Für jede im Informationsmodell gefundene, automatisierte Werkzeugkomponente wird nun die Implementierung gesucht (5.3).
 Dem bereits angesprochenen Beispiel einer Ladetür (_Physical Loading Door_, vgl. @fig:framework in @sec:logische-architektur) ist wenigstens ein Relais (_Relay Actuator_) für den Schließmechanismus `Door_Lock` untergeordnet.
 Diese Ausprägungen des `PhysicalConnectionType` halten die Informationen zur Instanziierung der Implementierung in einem `ConnectionIdentifier`-Attribut und werden aus dem Modell geladen (5.4, vgl. @sec:modellierung-der-anlagenstruktur).
-Nun kann _Physical Loading Door_ geladen und dessen Logik, respektive Variablen und Methoden, an den UA-Server gebunden werden (5.6).
+Nun kann _Physical Loading Door_ instanziiert und dessen Logik, respektive Variablen und Methoden, an den UA-Server gebunden werden (5.6).
 Für die horizontale Integration der VMR muss sich der Server mit einem der in @sec:horizontale-integration vorgestellen Discovery-Mechanismen in das Produktionssystem eingliedern.
 
 ##### Methodendelegation.
 
-Durch die horizontale Integration, beschrieben in @sec:horizontale-integration, kann eine Anlage oder Nutzungsschnittstelle die Methoden der VMR aufrufen.
+Durch die horizontale Integration, beschrieben in  
+@sec:horizontale-integration, kann eine Anlage oder Nutzungsschnittstelle die Methoden der VMR aufrufen.
 Dafür nimmt der UA-Server die Anfrage des jeweiligen Clients entgegen und leitet sie an die Model Control weiter.
 Das Beispiel der Ladetür mit einem Relais für den Schließmechanismus ist in @fig:methodendelegation (1) dargestellt.
 Daraufhin wird die mit der Methode gebundene Implementation der automatisierten Werkzeugkomponente identifiziert (1.1).
@@ -1228,7 +1229,7 @@ Wird eine Variable wie `NC_Program_Status` geändert, zum Beispiel weil die CNC-
 Nach dem Einholen der Instanzen des `PhysicalConditionType` im Laufzeitmodell (1.1), wird der Wert dieser gelesen und mit dem der Variable verglichen (1.3).
 So würde das Ende der CNC-Operation durch den Wert "Stop" in `NC_Program_Status` angezeigt.
 Dieser Wert entspricht nun dem der `StopCondition`, wodurch die Bedingung erfüllt ist (vgl. @fig:opcua-cpps-eca in @sec:modellierung-der-anlagenstruktur).
-Die Feedback Control holt sich dann die Methoden hinter der `HasPhysicalAction`-Referenz im Laufzeitmodell (1.4) und überlässt der Model Control die Ausführung (1.6).
+Die Feedback Control aggregiert dann die Methoden hinter der `HasPhysicalAction`-Referenz im Laufzeitmodell (1.4) und überlässt der Model Control die Ausführung (1.6).
 Im Beispiel würde die `Open_Door`-Methode aufgerufen, womit die Ladetür nach abgeschlossener Fertigung geöffnet wird.
 
 ![Cyber-physische Rückkopplung im Framework](figures/feedback){#fig:feedback}
@@ -1240,14 +1241,14 @@ In diesem Abschnitt wird beschrieben, wie die Komponenten seitens der Softwarest
 
 ![Organisation des Frameworks](figures/organisation){#fig:organisation}
 
-Grundsätzlich bestehen die Komponenten aus Klassen einer objektorientierten Programmiersprache die auf mehrere Pakete aufgeteilt sind, dargestellt in @fig:organisation.
+Grundsätzlich bestehen die Komponenten aus Klassen einer objektorientierten Programmiersprache, die auf mehrere Pakete aufgeteilt sind, dargestellt in @fig:organisation.
 Das Framework der virtuellen Maschinenrepräsentation (VMR), als oberstes Hierarchieelement, beinhaltet die Schichten Communication, Processing und Interface.
 Erstere, zuständig für die Kommunikation mit anderen Anlagen und Nutzungsschnittstellen auf Feldebene, benötigt eine Implementierung der UA-Spezifikation Data Access (OPC UA Part 8[^opcua8]) und des binären Transportprotokolls.
 Zur Anbindung von Variablen und Methoden ist sie abhängig von der Processing-Schicht, die deren strukturelle und logische Beschreibung, beziehungsweise Implementierung, kapselt.
 Für diesen Equipment-Erweiterungspunkt existiert eine dedizierte Softwarebibliothek, in @fig:organisation "Equipment Extensions" genannt, die die Implementierungen (_Physical Loading Door_) der UA-Objecttypen (`PhysicalLoadingDoorType`) beinhaltet.
 Das Equipment (_Physical Loading Door_) besteht aus Sensoren (_Contact Sensor_) und Aktuatoren (_Relay Actuator_), die als Interface-Erweiterungspunkte in der Bibliothek "Interface Extensions" abgelegt werden.
 Da cyber-physische Adapter (CPA) zusätzliche Hardware benötigen, existiert eine Abhängigkeit zu den jeweiligen Bibliotheken im Paket "Hardware Bindings".
-Die Klassen des Equipments benamen Methoden und Variablen durch Konvention nach denen des Informationsmodells.
+Die Klassen des Equipments bezeichnen Methoden und Variablen durch Konvention analog zu denen des Informationsmodells.
 Gleiches gilt für die Namen der Klassen selbst.
 Beinhaltet beispielsweise die Instanz (`Loading_Door`) einer Ladetür (`PhysicalLoadingDoorType`) laut Modell die Methode `Open_Door`, besitzt die Klasse "PhysicalLoadingDoorType" deren gleichnamige Implementierung.  
 Eine gesonderte Rolle spielen die Pakete des Stereotyps "testSuite".
@@ -1267,7 +1268,7 @@ Zentrales Element ist ein Einplatinencomputer (Single Board Computer, SBC), der 
 Er ist starr, z.B. via USB oder serieller Schnittstelle, mit einem oder mehreren Hardwarekomponenten für die cyber-physischen Adapter (CPA) verbunden.
 Diese bieten die Schnittstellen für Sensoren, Aktuatoren oder andere Geräte mit digitaler und analoger Ein- und Ausgabe.
 Die VMR wird auf dem Einplatinencomputer gespeichert und ist auf eine Anlagendefinition angewiesen.
-Für die Ausführung wird eine, der Implementierung entsprechende Laufzeitumgebung vorausgesetzt.
+Für die Ausführung wird eine, der Implementierung entsprechende Laufzeitumgebung, vorausgesetzt.
 Das Anlagenmodell ist, je nach verwendeten Typen automatisierter Werkzeugkomponenten (`PhysicalLoadingDoorType`), abhängig von den Implementierungen des Equipments.
 Letzteres ist wiederum auf die jeweiligen Interface-Erweiterungen angewiesen.
 
@@ -1380,7 +1381,7 @@ Die für den Anwendungsfall relevanten Komponenten, Variablen und Methoden sind 
 
 Im Modell besitzt die Drehmaschine eine Ladetür, eine NC-Steuerung und einen Sensor für die Temperatur des Werkzeugs.
 Letztere ist mit der Implementierung des Equipment-Erweiterungspunkts _PhysicalToolTemperatureType_ verknüpft, die eine OPC UA Variable für die tatsächliche Temperatur am Werkzeug beschreibt.
-Unter dieser Variable organisiert ist mit `OverheatCondition` ein Bereich für diesen Wert definiert der Überhitzung symbolisiert.
+Unter dieser Variable organisiert ist mit `OverheatCondition` ein Bereich für diesen Wert definiert, der Überhitzung symbolisiert.
 Da "node-opcua" noch keine Unterstützung für spezialisierte Referenzen bietet, wird `HasEffect`, aus der Spezifikation von OPC UA, als Synonym zu `HasPhysicalAction` verwendet (vgl. @sec:modellierung-der-anlagenstruktur).
 Feedback Control reagiert auf die Veränderung der Temperatur und löst `Stop_NC` aus, sobald die Bedingung zutrifft (vgl. @sec:umsetzung-der-komponenten).
 Nach der Methodenausführung ändert sich die Variable `NC_Program_Status` durch die Implementierung des `PhysicalNCType`. 
