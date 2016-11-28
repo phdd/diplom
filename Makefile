@@ -26,7 +26,6 @@ ifndef DISABLE_REFS
 endif
 
 NON_LATEX_ARGS = \
-	acknowledgements.md \
 	appendix.md \
 	style/literatur.md \
 	--number-sections \
@@ -116,6 +115,7 @@ compile-appendix-tex:
 		--default-image-extension=pdf \
 		--output=appendix.tex \
 		--number-sections \
+		--smart
 
 compile-acknowledgements-tex:
 	@pandoc \
@@ -123,6 +123,7 @@ compile-acknowledgements-tex:
 		--variable=documentclass:report \
 		--output=acknowledgements.tex \
 		--number-sections \
+		--smart
 
 fix-mendeley-bug:
 	@echo -e "> fixing Mendeley bullshit"
