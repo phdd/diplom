@@ -58,7 +58,13 @@ $endfor$
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
 \usepackage[defaultlines=3,all]{nowidow}
-\setlength{\emergencystretch}{0.5em}
+%\hyphenpenalty=9500
+%\pretolerance=6000
+%\tolerance=1000
+\hyphenpenalty=750
+\emergencystretch=0.5em
+\lefthyphenmin=4
+\righthyphenmin=4
 
 \makenomenclature
 
@@ -298,7 +304,7 @@ $teacher$
 \thispagestyle{empty}
 \vspace*{\fill}
 
-\section*{Erklärung}
+\section*{Selbstständigkeitserklärung}
 Hiermit erkläre ich, dass ich die vorliegende Arbeit mit dem Titel
 
 \vspace*{1em}

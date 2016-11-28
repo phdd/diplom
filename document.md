@@ -2,79 +2,79 @@
 # Einleitung
 
 Seit der Mitte des 18. Jahrhunderts ist die industrielle Fertigung in stetigem Wandel.
-Mit der Entwicklung dampfgetriebener Arbeits- und Kraftmaschinen um 1750 wurde die erste industrielle Revolution eingeleitet.
-Zum Ende des 19. Jahrhunderts ermöglichte die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der fleischverarbeitenden Industrie.
+Mit der Entwicklung dampfbetriebener Arbeits- und Kraftmaschinen um 1750 wurde die erste industrielle Revolution eingeleitet.
+Zum Ende des 19. Jahrhunderts ermöglichte die Einführung arbeitsteiliger Massenproduktion und wissenschaftlicher Betriebsführung das erste Transportband in der Fleisch verarbeitenden Industrie.
 Knapp einhundert Jahre nach dieser zweiten Revolution wurden 1969 erste speicherprogrammierbare Steuerungen (SPS) zur variantenreichen Serienproduktion eingesetzt.
 Informations- und Kommunikationstechnologie sind seither der Grundstein automatisierungsgetriebener Rationalisierungen.
-Im Jahr 2011 wurde ausgehend von Lean Production der Begriff Industrie 4.0 geprägt, der die vierte Industrielle Revolution beschreibt (vgl. zu diesem Abschnitt [@Gausemeier2014]).
+Im Jahr 2011 wurde ausgehend von Lean Production der Begriff Industrie 4.0 geprägt, der die vierte industrielle Revolution beschreibt (vgl. zu diesem Abschnitt [@Gausemeier2014]).
 Sie zeichnet sich durch neue Ansätze wie das Internet of Things (IoT) und cyber-physische Systeme (CPS) im Kontext industrieller Produktion aus @Siepmann2016.
 
 ## Motivation
 
 Vor der vierten Revolution war klassische Produktionssteuerung zentralisiert und Steuerungstechnik monolithisch strukturiert.
 Zukünftig wird die Fertigung in cyber-physische Systeme von Systemen zerlegt und mit offenen Standards dezentral betrieben (vgl. zu diesem Absatz @Milberg2014).  
-Moderne Produktionseinrichtungen beherbergen jedoch Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
-Die Technologie zur numerische Kontrolle von Werkzeugmaschinen existiert bereits seit den frühen 1950er Jahren @Liang2004.
-Gerade diese älteren Anlagen besitzen häufig keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
-Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten meist keine Lösung @FraunhoferIPK2016.  
-Jedoch behindern diese vorrangig die nahtlose Machine-To-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
-Vor einigen Jahren wurden bis zu 60% der Arbeitszeit eines Werkers auf die Übertragung des Entwurfs eines Fertigungsschrittes in die Umsetzung an der Maschine verwendet @Gunasekaran2000.
+Moderne Produktionseinrichtungen beherbergen Maschinen jeden Alters, die zu einem gemeinsamen System verwachsen müssen.
+Die Technologie zur numerischen Kontrolle von Werkzeugmaschinen existiert seit den frühen 1950er Jahren @Liang2004.
+Gerade diese älteren Anlagen besitzen keine Möglichkeit der Integration in die IT-Systeme einer künftigen Fertigungsstrecke @Wang2004.
+Das schlichte Ersetzen dieser Altmaschinen ist aufgrund hoher Kosten keine Lösung @FraunhoferIPK2016.  
+Dennoch behindern sie vorrangig die nahtlose Machine-to-Machine (M2M) Kommunikation durch fehlende Infrastrukturanbindung, womit die Kette von Bearbeitungsschritten für ein Produkt zahlreiche manuelle Eingriffe erfordert.  
+Vor einigen Jahren wurden bis zu 60\ % der Arbeitszeit eines Werkers auf die Übertragung des Entwurfs eines Fertigungsschrittes in die Umsetzung an der Maschine verwendet @Gunasekaran2000.
 So besitzt eine Altmaschine als Teil des Fertigungsprozesses keine Möglichkeit externer Kommunikation und kein Application Programming Interface (API) @Deshpande2011.
 Bei jüngeren Konstruktionen treten Integrationsschwierigkeiten an anderer Stelle auf.
-So sind selbst bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung (vgl. zu diesem Absatz [@Deshpande2011;@Ferrolho2007]).
-Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und -normen die Integration der Maschinen [@Wang2004;@Hoppe2014].
+So sind auch bei bestehender Netzwerkfähigkeit geschlossene Soft- und Hardwarearchitekturen und fehlende Schnittstellen verantwortlich für eingeschränkte Überwachung und Steuerung, respektive für die Verhinderung von ökonomisch sinnvoller Automatisierung (vgl. zu diesem Absatz [@Deshpande2011;@Ferrolho2007]).
+Weiterhin erschweren die unzureichende Umsetzung von Industriestandards und\ \mbox{-normen} die Integration der Maschinen [@Wang2004;@Hoppe2014].
 
 Technische Komponenten, wie eine Netzwerkanbindung, sind nicht die einzigen Barrieren moderner Produktionsautomatisierung.
-Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme die heute gelöst werden können.
-Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und -kontrolle verteilter, rekonfigurierbarer Fertigungssysteme (vgl. zu diesem Absatz [@Wang2004;@Lay2001]).  
+Fehlerbehaftete Kommunikationsmechanismen, sowie die Gefahr der Veräußerung betriebsinterner Daten, sind Probleme, die heute gelöst werden können.
+Auch erfordern sinkende Losgrößen und steigende Produktvariabilität eine flexible Automatisierung von Echtzeitüberwachung und\ \mbox{-kontrolle} verteilter, rekonfigurierbarer Fertigungssysteme (vgl. zu diesem Absatz [@Wang2004;@Lay2001]).  
 Produktionseinrichtungen basierten bisher auf dem manuellen Sammeln und Verteilen von Daten für Überwachung, Steuerung und Wartung der Maschinen.
-Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie (vgl. zu diesem Absatz @Deshpande2011).
+Doch gegenüber hohen Kosten, menschlichen Fehlern, dem teilweise schlechten Zugang zur Anlage und Aspekten der Datensicherheit, sind Automatisierungslösungen heute günstig, sicher und attraktiv für die Fertigungsindustrie (vgl. zu diesem Absatz\ @Deshpande2011).
 
 ## Zielsetzung
 
-Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems, werden nun die Ziele dieser Arbeit beschrieben.
+Nach der Motivation und der damit einhergehenden Identifikation des Kernproblems werden nun die Ziele dieser Arbeit beschrieben.
 Den Schwierigkeiten in der industriellen Praxis wird wie folgt begegnet:
 
 * Durch die entfernte Kontrolle einer Altmaschine werden manuelle Tätigkeiten wie das Übertragen eines Maschinenprogramms gemindert.
   Der operative Einsatz einer vormals nicht integrierten Anlage kann damit stärker automatisiert werden und beschleunigt den übergeordneten Produktionsablauf.
 * Die zentrale Auswertung von Prozessdaten ermöglicht einen gesamtheitlichen Einblick in die Produktion, wobei jene Daten nicht notwendigerweise zentral zu persistieren sind.
   Diagnosen geschehen damit nicht mehr vor Ort, wodurch Wartungszyklen besser überprüft und eingehalten werden können.
-  In der Konsequent wird außerdem die Planung der Fertigung vereinfacht und die Zeit bis zur Produktion gesenkt.
-  Weiterhin sollen Störfälle wie Werkzeugbruch und -wechsel ad hoc an Verantwortliche kommuniziert werden.
+  In der Konsequenz wird außerdem die Planung der Fertigung vereinfacht und die Zeit bis zur Produktion gesenkt.
+  Weiterhin sollen Störfälle wie Werkzeugbruch und\ \mbox{-wechsel} ad hoc an Verantwortliche kommuniziert werden.
 
-Im Kontext dieser Arbeit gilt eine Anlage als integriert, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. Kapitel 3) genügt.
-Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernisierung für die  Industrie 4.0 durch weitere Ziele unterstützt:
+Im Kontext dieser Arbeit gilt eine Anlage als integriert, wenn die infrastrukturelle Einbettung in ein cyber-physisches Gesamtsystem den Anforderungen (vgl. @sec:anforderungen) genügt.
+Neben den praktisch orientierten Vorgaben wird die Forschung zur Anlagenmodernisierung für die Industrie 4.0 durch weitere Ziele unterstützt:
 
 * Eine dezentrale Informations- und Kommunikationsarchitektur verbessert die Produktionsstabilität und Skalierbarkeit von verteilten Fertigungssystemen.
 * Kommunikationskanäle zwischen einzelnen Maschinen werden aufgrund durchgängig offener Schnittstellen nicht mehr unterbrochen. 
-  Durch damit einheitlich mögliche Machine-To-Machine (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
+  Durch damit einheitlich mögliche Machine-to-Machine (M2M) Kommunikation wird die Kontrolle und Überwachung hierarchisiert und dezentralisiert. 
 * Die Modellierung von Komponenten und Funktionalität einer Maschine wird durch Standardentwicklungswerkzeuge und -austauschformate vereinfacht.
 * Das Optimierungspotential der Gesamtanlage kann durch statistische Auswertung der anfallenden Daten zu Maschinenoperation und -auslastung ausgeschöpft werden.
  
 Die Hierarchisierung von Kontrolle und Überwachung bezieht sich auf das Beispiel der flexiblen Fertigungszelle in denen ein Verbund von Maschinen eine gemeinsame Aufgabe bearbeitet (vgl. @Groover2008).
-Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wodurch eine Basis für die TCP/IP Protokollfamilie zur Verfügung steht.
+Innerhalb eines solchen Verbunds wird zunehmend über Ethernet kommuniziert, wodurch eine Basis für die TCP/IP-Protokollfamilie zur Verfügung steht.
 
-> "Aktuell sind nach einer Studie der Fachhochschule Südwestfalen 86% der 
+> "Aktuell sind nach einer Studie der Fachhochschule Südwestfalen 86\ % der 
 > SPS-Systeme über Ethernet angebunden, wobei von den verbleibenden 
-> 14% der Befragten 6% angaben, Ethernet wahrscheinlich in Zukunft einzusetzen." @Windmann2015[^QuelleWindmann2015]
+> 14\ % der Befragten 6\ % angaben, Ethernet wahrscheinlich in Zukunft einzusetzen." @Windmann2015[^QuelleWindmann2015]
 
 [^QuelleWindmann2015]: ursprüngliche Quelle: _M. Rothhöft, "Marktstudie: Industrielle Kommunikation,", VDMA, 2013_.
 
 Um nun die Ziele im Rahmen dieser Arbeit effektiv erreichen zu können, unterliegen Konzept und Implementierung verschiedenen Einschränkungen und Voraussetzungen.
 
-Eine Ethernet-basierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
+Eine ethernetbasierte Netzwerkinfrastruktur erlaubt das Einbinden eines virtuellen Maschinenabbilds in die Fertigungsstrecke.
 Zugang zur Anlage, regelungstechnische Modifikationen und das Anbringen von Sensorik und Aktuatoren sind gegeben.
 Die zu modernisierende Werkzeugmaschine wird durch rechnergestützte numerische Steuerung (CNC) kontrolliert.
 Automatisierte Werkzeugkomponenten, wie Einspannvorrichtungen oder Schutztüren, sind an eine Speicherprogrammierbare Steuerung (SPS) gekoppelt.
 Einplatinencomputer sind ausreichend leistungsfähig für die Steuerung und Überwachung von CNC-Maschinen @Grigoriev2016.
 
 Auch ist das vorgestellte Konzept der Anlagenmodernisierung auf diskrete Fertigung mit bestehender Netzwerkinfrastruktur beschränkt.
-Unter Berücksichtigung der besprochenen Ziele und Einschränkungen, wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
+Unter Berücksichtigung der besprochenen Ziele und Einschränkungen wird eine konzeptuelle und prototypische Lösung durch die folgenden Schritte erreicht. 
 
 1. Ermitteln der Anforderungen für eine Integration von Altmaschinen in moderne, verteilte Produktionsumgebungen -- im Folgenden als Retrofitting bezeichnet.
 2. Recherchen zum heutigen Stand der Technik und die Einbeziehung vorhandener Systeme.
 3. Konzeption einer virtuellen Repräsentation als Schnittstelle der zu integrierenden Anlage.
-    - Einsatz von Einplatinencomputern als Integrationsequipment
+    - Einsatz von Einplatinencomputern als Integrationshardware
 4. Ermöglichen von dezentraler Kontrolle und Überwachung im Hinblick auf cyber-physische Produktionssysteme. 
     - Transfer und Ausführung von Maschinenprogrammen.
     - Erfassen von Produktionsdaten durch angeschlossene Sensoren.
@@ -90,21 +90,23 @@ In Verbindung mit den Zielen muss die zusätzliche Hardware, für die Erweiterun
 
 Nach Klärung der Ziele, Beschränkung des Konzepts und dem Aufzeigen eines groben Lösungswegs werden in dieser Arbeit folgende Fragen zu beantworten sein.
 
-> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
+> Welchen softwaretechnologischen Konzepten müssen die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in cyber-physische Produktionssysteme (CPPS) gewährleisten zu können?
 > 
 > 1. Welche System- und Softwarearchitektur ist für ein flexibles Retrofitting zur Steuerung und Überwachung veralteter Fertigungsanlagen im Kontext von CPPS geeignet?
-> 2. Wie und wo werden Informationen zu Maschinenzustand und  
-> -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+> 2. Wie und wo werden Informationen zu Maschinenzustand  
+>    und -operation erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 > 3. Welche standardisierten Protokolle und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
 
 ## Methode und Aufbau
 
 Angelehnt an die Design Science Research Methodology wurden bisher grundlegende Probleme identifiziert und die Arbeit motiviert @Geerts2011.
-Durch die folgenden Grundlagen (Kapitel 2) werden essentielle Technologien und Konzepte beschrieben.
-Die sich anschließenden Anforderungen (Kapitel 3) spezifizieren die Zielvorgaben der darauf entwickelten Lösungskonzepte (Kapitel 4) für die Abstraktion von Maschinen in cyber-physischen Produktionssystemen.
-Durch die prototypische Implementation (Kapitel 5) des Frameworks und das virtuelle Maschinenabbild wird die prinzipielle Durchführbarkeit des Vorhabens belegt.
-Die Evaluation (Kapitel 6) hat eine qualitative und quantitative Bewertung von Konzept und Implementation des Prototyps zum Ziel.
-Schlussendlich werden in der Zusammenfassung ein Fazit und Ausblick (Kapitel 7) auf weitere Forschung gegeben.
+Durch die folgenden Grundlagen (@sec:grundlagen) werden essentielle Technologien und Konzepte beschrieben.
+Die sich anschließenden Anforderungen (@sec:anforderungen) spezifizieren Zielvorgaben für die Anlagenmodernisierung und -abstraktion in cyber-physischen Produktionssystemen.
+Ein Einblick in den aktuellen Stand der Forschung gibt @sec:forschungsstand.
+Das darauf aufbauende Lösungskonzept und Design des Frameworks sind in @sec:konzeption erläutert.
+Eine prototypische Implementation des virtuellen Maschinenabbilds belegt die prinzipielle Durchführbarkeit des Vorhabens in @sec:implementation.
+Die Evaluation in @sec:evaluation hat die Bewertung von Konzept und Implementation zum Ziel.
+Weiterhin gibt sie einen Ausblick auf sich anschließende Forschungsfragen.
 
 # Grundlagen
 
@@ -594,7 +596,7 @@ Ferrolho et al. legten den Fokus auf die Integration von Maschinen in flexible F
 Dazu untersuchten sie proprietäre DNC-Protokolle zweier CNC-Anlagen und konzeptionierten ein abstrahierendes Framework.
 Sowohl die Steuerung der CNC, als auch der über DNC verfügbare Überwachungsmechanismus, kann über ein Netzwerk und somit aus der Ferne bedient werden.
 Die anfallenden Daten werden auch für die Rückkopplung der Steuerung verwendet (vgl. zu diesem Absatz @Ferrolho2005).
-Durch die Ethernet-basierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
+Durch die ethernetbasierte Kommunikation über DNC sind die Anforderungen R1 und R2 erfüllt (vgl. @sec:anforderungen).
 Da bei der Abstraktion des DNC-Protokolls keine standardisierten Informationsmodelle und Kommunikationsmechanismen verwendet wurden, gilt R3 für dieses Konzept nicht.
 Die Verortung und Art der Persistenz eingehender Daten ist in der Arbeit von Ferrolho et al. nicht beschrieben, womit R4 ebenfalls nicht erfüllt ist.
 R5 ist nicht erfüllt, da als Integrationshardware, beziehungsweise Steuerungssysteme PCs verwendet werden. 
@@ -729,7 +731,7 @@ Sie postulieren, dass weder OPC UA noch DPWS die Anforderungen einer SOA auf Fel
 Die bisher vorgestellten Arbeiten bereiten industrielles Equipment auf den Einsatz in CPPS vor, thematisieren ihn aber nicht.
 Für die Integration von Altmaschinen in ein CPPS wird eine dedizierte Architektur benötigt.
 Die fünf-Schichten CPS-Struktur (5C-Architektur) von Lee et al. liefert eine Leitfaden zu Entwicklung und Deployment von cyber-physischen Systemen (CPS) für die Produktionsdomäne @Lee2015.
-Die unterste Ebene (Smart Connection) dient der zuverlässigen und akkuraten Erfassung von Daten der Maschinen und Komponenten, sowie deren Ethernet-basierte Kommunikation.
+Die unterste Ebene (Smart Connection) dient der zuverlässigen und akkuraten Erfassung von Daten der Maschinen und Komponenten, sowie deren ethernetbasierte Kommunikation.
 Darauf aufbauend (Data-to-Information Conversion) werden die Daten in Informationen gewandelt.
 Inferenzsysteme und intelligente Analysen dienen hier der Ausfall- und Leistungsvorhersage und führen zur Selbstwahrnehmung (self-awareness) des Equipments.
 Die folgende Cyber-Schicht bietet digitale Zwillinge der Maschinen und ihrer Komponenten.
@@ -1581,7 +1583,7 @@ Auch das Austauschformat der Modelle unterliegt, mit XML und Schemadefinition[^u
 ## Vergleich zum Forschungsstand
 
 Für die Steuerung der Altanlage mit Direct Numerical Control (DNC) wird das Konzept von Ferrolho et al. vorgestellt (vgl. @sec:steuerung-von-fertigungssystemen, @Ferrolho2005).
-Sie entwarfen ein Adapter-Framework für DNC im Kontext flexibler Fertigungszellen das Ethernet-basierte Steuerung und Überwachung sowie Rückkopplung ermöglicht.
+Sie entwarfen ein Adapter-Framework für DNC im Kontext flexibler Fertigungszellen das ethernetbasierte Steuerung und Überwachung sowie Rückkopplung ermöglicht.
 Das in dieser Arbeit vorgestellte Konzept geht über die numerische Kontrolle innerhalb von Fertigungszellen hinaus und nutzt Kommunikationsstandards für eine durchgängige Integration (vgl. @sec:virtuelle-maschinenrepräsentation).
 Vorteilhaft hierbei ist die Allgemeingültigkeit und nahtlose Informationsübertragung durch einen etablierten Standard.
 Ayatollahi et al. nutzen ebenfalls DNC für die Kontrolle der Maschine, abstrahieren aber die Steuerungskommunikation durch ein standardisiertes Protokoll mit der Möglichkeit zur Modellierung der Anlagenstruktur @Ayatollahi2013.
