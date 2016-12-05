@@ -1,43 +1,152 @@
 # Roadmap {footer=false count=false .toc}
 
-- [Einleitung](#einleitung)
-<!-- - [Anforderungen](#anforderungen) -->
-<!-- - [Forschungsstand](#forschungsstand) -->
-- [Konzeption](#konzeption)
-- [Implementation](#implementation)
-<!-- - [Status & Vorgehen](#status-vorgehen) -->
+* [Einleitung](#einleitung)
+* [Forschungsstand](#forschungsstand)
+* [Konzeption](#konzeption)
+* [Ergebnisse](#ergebnisse)
+* [Ausblick](#ausblick)
+
+<div class="notes">
+  * Einleitung: Grundlagen, Motivation, Fragen, Anforderungen
+  * 
+</div>
 
 # Einleitung {footer=false header=false count=false .center}
 
+<div class="notes">
+**Kontext: produzierende Industrie**
+
+1. ca. 1750 erste dampfbetr. Arbeitsmaschinen
+2. Ende 19. Jhd. erste Massenproduktion
+    * NC seit 1950
+3. 1969 erste SPS (beginn IT-gestützter Produktion)
+4. Schlagwort I4.0 seit 2011
+    * Kombination mit IoT/CPS
+</div>
+
+# Fertigung und Automatisierung
+
+<small style="position: absolute; top: 130pt;">aus @Linke2015, von Wikipedia-Nutzer UlrichAAB</small>
+
+<div style="position: absolute; width: 80%; margin-left: 60pt;">
+![](figures/fertigungsautomatisierung)
+</div>
+
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+  ![](figures/automatisierungspyramide)
+</div>
+
+# Cyber-physische Systeme
+
+<small style="position: absolute; top: 120pt;">aus Vortrag _Life with Cyber-Physical Systems_ von Prof. Dr. Uwe Aßmann, @VereinDeutscherIngenieuree.V.2013</small>
+
+<div style="position: absolute; width: 80%; margin-left: 60pt;">
+![](figures/cps)
+</div>
+
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+  ![](figures/pyramide-cps)
+</div>
+
+<div class="notes">
+* CPS nach Lee 2008: 
+    - Integration von Informationsverarbeitung und physischen Prozessen
+    - physische Abläufe durch Sensoren und Aktuatoren überwacht/beeinflusst
+    - Rückkopplung durch Kontrollschleifen
+* CPPS nach Bergweiler 2015:
+    - Produkte, Maschinen, Ressourcen durch CPS repräsentiert
+    - Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt
+    - Maschinenparameter, Produktionsprozesse, Produkte
+</div>
+
 # Motivation
 
-* _Industrie 4.0_ drängt CPS in die Produktion ⇒ CPPS
-* viele Maschinen ohne Infrastrukturanbindung
-    - fehlende Netzwerk- und Programmierschnittstellen
-    - geschlossene Architekturen
-    - ungenügende Sicherheitskonzepte
-</br>
-</br>
-</br>
-⇒ _Retrofitting_
+<small style="position: absolute; top: 130pt;">nach @Hammerstingl2015</small>
 
-# Aufgaben 
+<div style="position: relative; top: -70pt;"> 
+  ![](figures/automationsstruktur)
+</div>
 
-* ermitteln der Anforderungen für die Integration
-* Recherchen zu bestehenden Arbeiten
+<div class="fragment" style="position:absolute;top:65pt;width:100%;height:100%;">
+  ![](figures/automationsstruktur-retrofit)
+</div>
+
+<div class="notes">
+  * _Industrie 4.0_: CPS in die Produktion ⇒ CPPS
+  * viele CNC/SPS ohne Infrastrukturanbindung
+      - fehlende Netzwerk- und Programmierschnittstellen
+      - geschlossene Architekturen
+      - ungenügende Sicherheitskonzepte
+
+  * **Retrofitting**
+      - Erweiterung des Equipments einer Anlage durch zusätzliche Hardware
+      - funktionaler Umfang durch neue Module für Übertragung/verteilte
+Verarbeitung der Daten ausgebaut
+  * aufkommende Fragen
+</div>
+
+# Forschungsfragen
+<br><br>
+Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
+
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;background-color: white">
+1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+
+2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
+
+3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
+</div>
+
+<div class="notes">
+* Recherchen zum Forschungsstand
 * Konzeption von
     - virtueller Maschinenrepräsentation
     - erweiterbarem Framework
-
-<div class="fragment" style="position:absolute;top:134.5pt;background-color:white;width:100%;height:100%">
-* ermöglichen von Steuerung/Überwachung in CPPS
-    - Transfer und Ausführung von Maschinencode
-    - Erfassen von Produktionsdaten durch Sensoren
-    - Verwendung von Einplatinencomputern für die Implementierung  
-&nbsp;
-* prototypische Implementierung belegt Machbarkeit
-* Aufbau einer adäquaten Test-Infrastruktur
+* Steuerung/Überwachung in CPPS
+    - Transfer/Ausführung von Maschinencode
+    - Betriebs-/Prozessdaten durch Sensoren erfassen
+    - Einplatinencomputern für Integrationshardware
+* prototypische Implementierung (Machbarkeit)
+* Aufbau Test-Infrastruktur
+* **zuerst**: Anforderungen für die Integration
 </div>
+
+# Anforderungen
+
+1. ortsunabhängige **Überwachung**
+2. ortsunabhängige **Steuerung**
+3. **Standardisierung**
+    - Informations-/Kommunkationsprotokolle
+    - Informationsmodelle 
+4. **Lokalität** von Daten
+    - Erfassung
+    - Verarbeitung
+    - Persistenz
+5. **Integrationshardware**
+
+<div class="notes">
+  * Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
+  * Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
+  * Heterogenität: standardisierte Informationsprotokolle und -modelle 
+    - einheitliche M2M-Kommunikation (horizontal)
+    - übergeordnete Systeme (ERP, MES) (vertikal)
+  * erfassen/persistieren von Daten nahe der Maschine
+    - minimieren v. Latenzen, Kommunikationsaufwand
+    - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
+  * Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
+</div>
+
+# Forschungsstand
+
+
+
+# Konzeption {footer=false header=false count=false .center}
+
+# Ergebnisse {footer=false header=false count=false .center}
+
+# Ausblick {footer=false header=false count=false .center}
+
+# Demonstration der VMR {footer=false header=false count=false .center}
 
 <!--
 # Erwartungen
@@ -50,6 +159,8 @@
     - Produktionsstabilität
     - Automatisierungsgrad
 -->
+
+<!--
 # Erwartungen
 ## Praxis
 
@@ -60,7 +171,7 @@
 * Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad
 * Vereinfachung von Prozessplanung und Durchführung
 * bessere Kontrolle von Wartungszyklen und Störfällen
-
+-->
 <!--
 # Anforderungen {footer=false header=false count=false .center}
 

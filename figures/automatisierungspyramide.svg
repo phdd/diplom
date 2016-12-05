@@ -11,7 +11,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
    width="370.47763pt"
-   height="170.287pt"
+   height="218.287pt"
    id="svg2457"
    sodipodi:version="0.32"
    inkscape:version="0.91 r13725"
@@ -30,7 +30,7 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:window-height="1355"
+     inkscape:window-height="1411"
      inkscape:window-width="2560"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -41,11 +41,11 @@
      bordercolor="#666666"
      pagecolor="#ffffff"
      id="base"
-     inkscape:zoom="1.120576"
-     inkscape:cx="192.4765"
-     inkscape:cy="-67.307398"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:zoom="3.1694676"
+     inkscape:cx="98.797159"
+     inkscape:cy="107.15067"
+     inkscape:window-x="0"
+     inkscape:window-y="427"
      inkscape:current-layer="svg2457"
      showgrid="true"
      showguides="true"
@@ -61,9 +61,16 @@
      inkscape:document-units="pt" />
   <defs
      id="defs2459" />
+  <rect
+     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.25;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4151"
+     width="472.00357"
+     height="278.28018"
+     x="-3.7861249"
+     y="-3.0042868" />
   <g
      id="g6754"
-     transform="matrix(0.82379145,0,0,0.82379145,0.52425758,-6.4388396)">
+     transform="matrix(0.82379145,0,0,0.82379145,0.52425758,23.561156)">
     <path
        d="m 70.87314,230.32217 283.46455,0 0,35.43307 -283.46455,0 0,-35.43307 z m 0.0012,-8.85752 283.46205,0 L 212.61166,8.864986 70.87439,221.46465 Z"
        style="fill:#ffffff;stroke:#000000;stroke-width:0.89999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
