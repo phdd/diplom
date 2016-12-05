@@ -212,7 +212,74 @@
 </section>
 <section id="forschungsstand" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Forschungsstand</h1>
+</section>
+<section id="section" class="slide level1 center">
+<h1></h1>
+<br>
+<div style="font-size: 60%!important; position: absolute; top: 10pt">
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Überwachung</th>
+<th>Steuerung</th>
+<th>Standards</th>
+<th>Lokalität</th>
+<th>Integrations- Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Moctezuma et al. 2012</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="even">
+<td><p>Dürkop et al. 2014</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="odd">
+<td><p>Ayatollahi et al. 2013</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>◐</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="even">
+<td><p>Lee et al. 2015</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+<td><p>◐</p></td>
+<td><p>○</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <aside class="notes">
+<p><strong>Arbeiten</strong></p>
+<ul>
+<li>Moctezuma: Retrofitting mit smart Remote Terminal Unit</li>
+<li>Dürkop: Autom.-Module mit WS, Kapselung der RT</li>
+<li>Ayatollahi: OPC UA für CNC + Model</li>
+<li>Lee: übergeordnete 5C CPS-Arch. + Richtlinien</li>
+</ul>
 <p><strong>Anforderungen</strong></p>
 <ul>
 <li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
@@ -231,68 +298,49 @@
 </ul>
 </aside>
 </section>
-<section id="section" class="slide level1 center">
-<h1></h1>
-<p><br></p>
-<div style="font-size: 60%!important; position: absolute; top: 10pt">
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 14%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 23%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Überwachung</th>
-<th>Steuerung</th>
-<th>Standards</th>
-<th>Lokalität</th>
-<th>Integr.-HW</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Ayatollahi et al. 2013</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>◐</p></td>
-<td><p>○</p></td>
-</tr>
-<tr class="even">
-<td><p>Moctezuma et al. 2012</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
-</tr>
-<tr class="odd">
-<td><p>Durkop et al. 2014</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
-</tr>
-<tr class="even">
-<td><p>Lee et al. 2015</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>◐</p></td>
-<td><p>○</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Konzeption</h1>
+<aside class="notes">
+<ul>
+<li>VMR als standardisierendes Element</li>
+<li>Auf Basis von Szenarien + Anwendungsfällen</li>
+<li>Erweiterung des Modells von Ayatollahi et al.</li>
+</ul>
+</aside>
+</section>
+<section id="systemkontext" class="slide level1">
+<h1>Systemkontext</h1>
+<div style="position: absolute; top: 105pt; ">
+<figure>
+<img src="figures/systemkontext.png" />
+</figure>
+</div>
+<aside class="notes">
+<ul>
+<li>gestrichelt: ereignisbasierte WS</li>
+</ul>
+</aside>
+</section>
+<section id="vmr" class="slide level1">
+<h1>VMR</h1>
+<div style="position: absolute; top: 10pt; left: 140pt; height: 62%; width: 62%">
+<figure>
+<img src="figures/vmr-concept.png" />
+</figure>
+</div>
+</section>
+<section id="maschinenmodell" class="slide level1">
+<h1>Maschinenmodell</h1>
+<div style="position: absolute; top: 190pt; left: -20pt; height: 70%; width: 70%">
+<figure>
+<img src="figures/opcua-cpps.png" />
+</figure>
+</div>
+<div style="position: absolute; top: 200pt; right: -90pt; height: 60%; width: 60%">
+<figure>
+<img src="figures/opc4factory-runtime.png" />
+</figure>
+</div>
 </section>
 <section id="ergebnisse" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Ergebnisse</h1>
