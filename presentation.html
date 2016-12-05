@@ -72,17 +72,28 @@
 </section>
 <section id="fertigung-und-automatisierung" class="slide level1">
 <h1>Fertigung und Automatisierung</h1>
-<p><small style="position: absolute; top: 130pt;">aus <span class="citation" data-cites="Linke2015">[1]</span>, von Wikipedia-Nutzer UlrichAAB</small></p>
-<div style="position: absolute; width: 80%; margin-left: 60pt;">
+<p><small style="position: absolute; top: 120pt;">aus <span class="citation" data-cites="Linke2015">[1]</span>, von Wikipedia-Nutzer UlrichAAB</small></p>
+<div style="position: absolute; width: 80%; top: 130pt; z-index: 0; margin-left: 60pt;">
 <figure>
 <img src="figures/fertigungsautomatisierung.png" />
 </figure>
 </div>
-<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+<div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
 <figure>
 <img src="figures/automatisierungspyramide.png" />
 </figure>
 </div>
+<aside class="notes">
+<ul>
+<li><strong>SCADA</strong>: Supervisory Control and Data Acquisition<br />
+überwachen/steuern techn. Prozesse mit Computersystem</li>
+<li>Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung</li>
+<li>Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse</li>
+<li>Level 2: je nach Größe weiter unterteilt (Verb. FFZ)</li>
+<li>Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung</li>
+<li>Level 0: physikalischer Prozess</li>
+</ul>
+</aside>
 </section>
 <section id="cyber-physische-systeme" class="slide level1">
 <h1>Cyber-physische Systeme</h1>
@@ -114,9 +125,32 @@
 </ul>
 </aside>
 </section>
+<section id="opc-unified-architecture" class="slide level1">
+<h1>OPC Unified Architecture</h1>
+<p><small style="position: absolute; top: 120pt;">nach <span class="citation" data-cites="OPCFoundation2014">[3]</span></small></p>
+<figure>
+<img src="figures/opc-ua-architecture.png" />
+</figure>
+<aside class="notes">
+<ul>
+<li>OPC = Industriekonsortium</li>
+<li>semantischer Standard für Kommunikation- &amp; Datenmodellierung</li>
+<li>Erweiterung von &quot;klassischem&quot; OPC (Open Platform Communications, OLE for Process Control)
+<ul>
+<li>sicherer, zuverlässiger Informationsaustausch</li>
+<li>Plattform- und Herstellerunabhängigkeit</li>
+<li>standardisierte Kommunikation über Internet und Firewalls</li>
+<li>serviceorientierte Architektur (SOA)</li>
+<li>Schutz vor unerlaubtem Zugriff</li>
+<li>Erreichbarkeit und Zuverlässigkeit</li>
+<li>Vereinfachung durch Vereinheitlichung</li>
+</ul></li>
+</ul>
+</aside>
+</section>
 <section id="motivation" class="slide level1">
 <h1>Motivation</h1>
-<p><small style="position: absolute; top: 130pt;">nach <span class="citation" data-cites="Hammerstingl2015">[3]</span></small></p>
+<p><small style="position: absolute; top: 130pt;">nach <span class="citation" data-cites="Hammerstingl2015">[4]</span></small></p>
 <div style="position: relative; top: -70pt;">
 <figure>
 <img src="figures/automationsstruktur.png" />
@@ -156,6 +190,7 @@
 </ol>
 </div>
 <aside class="notes">
+<p><strong>Aufgaben</strong></p>
 <ul>
 <li>Recherchen zum Forschungsstand</li>
 <li>Konzeption von
@@ -175,25 +210,10 @@
 </ul>
 </aside>
 </section>
-<section id="anforderungen" class="slide level1">
-<h1>Anforderungen</h1>
-<ol type="1">
-<li>ortsunabhängige <strong>Überwachung</strong></li>
-<li>ortsunabhängige <strong>Steuerung</strong></li>
-<li><strong>Standardisierung</strong>
-<ul>
-<li>Informations-/Kommunkationsprotokolle</li>
-<li>Informationsmodelle</li>
-</ul></li>
-<li><strong>Lokalität</strong> von Daten
-<ul>
-<li>Erfassung</li>
-<li>Verarbeitung</li>
-<li>Persistenz</li>
-</ul></li>
-<li><strong>Integrationshardware</strong></li>
-</ol>
+<section id="forschungsstand" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Forschungsstand</h1>
 <aside class="notes">
+<p><strong>Anforderungen</strong></p>
 <ul>
 <li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
 <li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
@@ -211,8 +231,65 @@
 </ul>
 </aside>
 </section>
-<section id="forschungsstand" class="slide level1">
-<h1>Forschungsstand</h1>
+<section id="section" class="slide level1 center">
+<h1></h1>
+<p><br></p>
+<div style="font-size: 60%!important; position: absolute; top: 10pt">
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Überwachung</th>
+<th>Steuerung</th>
+<th>Standards</th>
+<th>Lokalität</th>
+<th>Integr.-HW</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Ayatollahi et al. 2013</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>◐</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="even">
+<td><p>Moctezuma et al. 2012</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="odd">
+<td><p>Durkop et al. 2014</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+</tr>
+<tr class="even">
+<td><p>Lee et al. 2015</p></td>
+<td><p>●</p></td>
+<td><p>○</p></td>
+<td><p>○</p></td>
+<td><p>◐</p></td>
+<td><p>○</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Konzeption</h1>
@@ -284,7 +361,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 -->
 </section>
 <section id="retrofit-legacy-toaster-ramakers2016" class="slide level1" footer="false" header="false" count="false">
-<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[4]</span></small></h1>
+<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[5]</span></small></h1>
 <figure>
 <img src="figures/retrofit-toaster.png" />
 </figure>
@@ -480,11 +557,14 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 <div id="ref-VereinDeutscherIngenieuree.V.2013">
 <p>[2] Verein Deutscher Ingenieure e.V., „Cyber-Physical Systems: Chancen und Nutzen aus Sicht der Automation“, VDI/VDE-Gesellschaft Mess- und Automatisierungstechnik, 2013. </p>
 </div>
+<div id="ref-OPCFoundation2014">
+<p>[3] OPC Foundation, „OPC Unified Architecture - Wegbereiter der 4. industriellen (R)Evolution“, 2014 [Online]. Verfügbar unter: <a href="https://opcfoundation.org/wp-content/uploads/2014/03/OPC_UA_I_4.0_Wegbereiter_DE_v2.pdf" class="uri">https://opcfoundation.org/wp-content/uploads/2014/03/OPC_UA_I_4.0_Wegbereiter_DE_v2.pdf</a></p>
+</div>
 <div id="ref-Hammerstingl2015">
-<p>[3] V. Hammerstingl und G. Reinhart, „Unified Plug&amp;Produce architecture for automatic integration of field devices in industrial environments“, <em>Proceedings of the IEEE International Conference on Industrial Technology</em>, Bde. 2015-June, Nr. June, S. 1956–1963, 2015. </p>
+<p>[4] V. Hammerstingl und G. Reinhart, „Unified Plug&amp;Produce architecture for automatic integration of field devices in industrial environments“, <em>Proceedings of the IEEE International Conference on Industrial Technology</em>, Bde. 2015-June, Nr. June, S. 1956–1963, 2015. </p>
 </div>
 <div id="ref-Ramakers2016">
-<p>[4] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
+<p>[5] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
 </div>
 </div>
 </section>
