@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Peter Heisig">
-  <title>Abstraktion verteilter Produktionsmaschinen in cyber-physischen Produktionssystemen</title>
+  <title>Abstraktion verteilter Produktionsmaschinen in CPPS</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,61 +29,202 @@
     <div class="slides">
 
 <section footer="false" count="false" class="center">
-  <h1 class="title"><p>Abstraktion verteilter Produktionsmaschinen in cyber-physischen<br />
-Produktionssystemen</p></h1>
+  <h1 class="title">Abstraktion verteilter Produktionsmaschinen in CPPS</h1>
   <h1 class="subtitle">Diplomarbeit - Verteidigung</h1>
   <hr><br>
   <h2 class="author">Peter Heisig</h2>
-  <h3 class="date">29. November 2016</h3>
+  <h3 class="date">7. Dezember 2016</h3>
 </section>
 
 <section id="roadmap" class="slide level1 toc" footer="false" count="false">
 <h1>Roadmap</h1>
 <ul>
-<li><a href="#/einleitung">Einleitung</a> <!-- - [Anforderungen](#anforderungen) --> <!-- - [Forschungsstand](#forschungsstand) --></li>
+<li><a href="#/einleitung">Einleitung</a></li>
+<li><a href="#/forschungsstand">Forschungsstand</a></li>
 <li><a href="#/konzeption">Konzeption</a></li>
-<li><a href="#/implementation">Implementation</a> <!-- - [Status & Vorgehen](#status-vorgehen) --></li>
+<li><a href="#/ergebnisse">Ergebnisse</a></li>
+<li><a href="#/ausblick">Ausblick</a></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>Einleitung: Grundlagen, Motivation, Fragen, Anforderungen</li>
+<li></li>
+</ul>
+</aside>
 </section>
 <section id="einleitung" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Einleitung</h1>
+<aside class="notes">
+<p><strong>Kontext: produzierende Industrie</strong></p>
+<ol type="1">
+<li>ca. 1750 erste dampfbetr. Arbeitsmaschinen</li>
+<li>Ende 19. Jhd. erste Massenproduktion
+<ul>
+<li>NC seit 1950</li>
+</ul></li>
+<li>1969 erste SPS (beginn IT-gestützter Produktion)</li>
+<li>Schlagwort I4.0 seit 2011
+<ul>
+<li>Kombination mit IoT/CPS</li>
+</ul></li>
+</ol>
+</aside>
+</section>
+<section id="fertigung-und-automatisierung" class="slide level1">
+<h1>Fertigung und Automatisierung</h1>
+<p><small style="position: absolute; top: 130pt;">aus <span class="citation" data-cites="Linke2015">[1]</span>, von Wikipedia-Nutzer UlrichAAB</small></p>
+<div style="position: absolute; width: 80%; margin-left: 60pt;">
+<figure>
+<img src="figures/fertigungsautomatisierung.png" />
+</figure>
+</div>
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+<figure>
+<img src="figures/automatisierungspyramide.png" />
+</figure>
+</div>
+</section>
+<section id="cyber-physische-systeme" class="slide level1">
+<h1>Cyber-physische Systeme</h1>
+<p><small style="position: absolute; top: 120pt;">aus Vortrag <em>Life with Cyber-Physical Systems</em> von Prof. Dr. Uwe Aßmann, <span class="citation" data-cites="VereinDeutscherIngenieuree.V.2013">[2]</span></small></p>
+<div style="position: absolute; width: 80%; margin-left: 60pt;">
+<figure>
+<img src="figures/cps.png" />
+</figure>
+</div>
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+<figure>
+<img src="figures/pyramide-cps.png" />
+</figure>
+</div>
+<aside class="notes">
+<ul>
+<li>CPS nach Lee 2008:
+<ul>
+<li>Integration von Informationsverarbeitung und physischen Prozessen</li>
+<li>physische Abläufe durch Sensoren und Aktuatoren überwacht/beeinflusst</li>
+<li>Rückkopplung durch Kontrollschleifen</li>
+</ul></li>
+<li>CPPS nach Bergweiler 2015:
+<ul>
+<li>Produkte, Maschinen, Ressourcen durch CPS repräsentiert</li>
+<li>Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt</li>
+<li>Maschinenparameter, Produktionsprozesse, Produkte</li>
+</ul></li>
+</ul>
+</aside>
 </section>
 <section id="motivation" class="slide level1">
 <h1>Motivation</h1>
+<p><small style="position: absolute; top: 130pt;">nach <span class="citation" data-cites="Hammerstingl2015">[3]</span></small></p>
+<div style="position: relative; top: -70pt;">
+<figure>
+<img src="figures/automationsstruktur.png" />
+</figure>
+</div>
+<div class="fragment" style="position:absolute;top:65pt;width:100%;height:100%;">
+<figure>
+<img src="figures/automationsstruktur-retrofit.png" />
+</figure>
+</div>
+<aside class="notes">
 <ul>
-<li><em>Industrie 4.0</em> drängt CPS in die Produktion ⇒ CPPS</li>
-<li>viele Maschinen ohne Infrastrukturanbindung
+<li><em>Industrie 4.0</em>: CPS in die Produktion ⇒ CPPS</li>
+<li>viele CNC/SPS ohne Infrastrukturanbindung
 <ul>
 <li>fehlende Netzwerk- und Programmierschnittstellen</li>
 <li>geschlossene Architekturen</li>
-<li>ungenügende Sicherheitskonzepte </br> </br> </br> ⇒ <em>Retrofitting</em></li>
+<li>ungenügende Sicherheitskonzepte</li>
 </ul></li>
-</ul>
-</section>
-<section id="aufgaben" class="slide level1">
-<h1>Aufgaben</h1>
+<li><strong>Retrofitting</strong>
 <ul>
-<li>ermitteln der Anforderungen für die Integration</li>
-<li>Recherchen zu bestehenden Arbeiten</li>
+<li>Erweiterung des Equipments einer Anlage durch zusätzliche Hardware</li>
+<li>funktionaler Umfang durch neue Module für Übertragung/verteilte Verarbeitung der Daten ausgebaut</li>
+</ul></li>
+<li>aufkommende Fragen</li>
+</ul>
+</aside>
+</section>
+<section id="forschungsfragen" class="slide level1">
+<h1>Forschungsfragen</h1>
+<p><br><br> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?</p>
+<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;background-color: white">
+<ol type="1">
+<li><p>Welche System- und <strong>Softwarearchitektur</strong> ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?</p></li>
+<li><p>Wie und wo werden <strong>Informationen zur Maschine</strong> erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?</p></li>
+<li>Welche <strong>standardisierten Protokolle</strong> und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?</li>
+</ol>
+</div>
+<aside class="notes">
+<ul>
+<li>Recherchen zum Forschungsstand</li>
 <li>Konzeption von
 <ul>
 <li>virtueller Maschinenrepräsentation</li>
 <li>erweiterbarem Framework</li>
 </ul></li>
-</ul>
-<div class="fragment" style="position:absolute;top:134.5pt;background-color:white;width:100%;height:100%">
+<li>Steuerung/Überwachung in CPPS
 <ul>
-<li>ermöglichen von Steuerung/Überwachung in CPPS
-<ul>
-<li>Transfer und Ausführung von Maschinencode</li>
-<li>Erfassen von Produktionsdaten durch Sensoren</li>
-<li>Verwendung von Einplatinencomputern für die Implementierung<br />
- </li>
+<li>Transfer/Ausführung von Maschinencode</li>
+<li>Betriebs-/Prozessdaten durch Sensoren erfassen</li>
+<li>Einplatinencomputern für Integrationshardware</li>
 </ul></li>
-<li>prototypische Implementierung belegt Machbarkeit</li>
-<li>Aufbau einer adäquaten Test-Infrastruktur</li>
+<li>prototypische Implementierung (Machbarkeit)</li>
+<li>Aufbau Test-Infrastruktur</li>
+<li><strong>zuerst</strong>: Anforderungen für die Integration</li>
 </ul>
-</div>
+</aside>
+</section>
+<section id="anforderungen" class="slide level1">
+<h1>Anforderungen</h1>
+<ol type="1">
+<li>ortsunabhängige <strong>Überwachung</strong></li>
+<li>ortsunabhängige <strong>Steuerung</strong></li>
+<li><strong>Standardisierung</strong>
+<ul>
+<li>Informations-/Kommunkationsprotokolle</li>
+<li>Informationsmodelle</li>
+</ul></li>
+<li><strong>Lokalität</strong> von Daten
+<ul>
+<li>Erfassung</li>
+<li>Verarbeitung</li>
+<li>Persistenz</li>
+</ul></li>
+<li><strong>Integrationshardware</strong></li>
+</ol>
+<aside class="notes">
+<ul>
+<li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
+<li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
+<li>Heterogenität: standardisierte Informationsprotokolle und -modelle
+<ul>
+<li>einheitliche M2M-Kommunikation (horizontal)</li>
+<li>übergeordnete Systeme (ERP, MES) (vertikal)</li>
+</ul></li>
+<li>erfassen/persistieren von Daten nahe der Maschine
+<ul>
+<li>minimieren v. Latenzen, Kommunikationsaufwand</li>
+<li>kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)</li>
+</ul></li>
+<li>Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware</li>
+</ul>
+</aside>
+</section>
+<section id="forschungsstand" class="slide level1">
+<h1>Forschungsstand</h1>
+</section>
+<section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Konzeption</h1>
+</section>
+<section id="ergebnisse" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Ergebnisse</h1>
+</section>
+<section id="ausblick" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Ausblick</h1>
+</section>
+<section id="demonstration-der-vmr" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Demonstration der VMR</h1>
 <!--
 # Erwartungen
 ## Forschungskontext
@@ -95,19 +236,18 @@ Produktionssystemen</p></h1>
     - Produktionsstabilität
     - Automatisierungsgrad
 -->
-</section>
-<section id="erwartungen" class="slide level1">
-<h1>Erwartungen</h1>
-<h2 id="praxis">Praxis</h2>
-<ul>
-<li>minimieren manueller Tätigkeiten<br />
-<small>z.B. Übertragen eines Programms</small></li>
-<li>Diagnosen nicht nur vor Ort<br />
-<small>z.B. zentrale Auswertung der Betriebsdaten</small></li>
-<li>Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad</li>
-<li>Vereinfachung von Prozessplanung und Durchführung</li>
-<li>bessere Kontrolle von Wartungszyklen und Störfällen</li>
-</ul>
+<!--
+# Erwartungen
+## Praxis
+
+* minimieren manueller Tätigkeiten  
+  <small>z.B. Übertragen eines Programms</small>
+* Diagnosen nicht nur vor Ort  
+  <small>z.B. zentrale Auswertung der Betriebsdaten</small>
+* Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad
+* Vereinfachung von Prozessplanung und Durchführung
+* bessere Kontrolle von Wartungszyklen und Störfällen
+-->
 <!--
 # Anforderungen {footer=false header=false count=false .center}
 
@@ -144,7 +284,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 -->
 </section>
 <section id="retrofit-legacy-toaster-ramakers2016" class="slide level1" footer="false" header="false" count="false">
-<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[1]</span></small></h1>
+<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[4]</span></small></h1>
 <figure>
 <img src="figures/retrofit-toaster.png" />
 </figure>
@@ -190,7 +330,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
   <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small>
 -->
 </section>
-<section id="konzeption" class="slide level1 center" footer="false" header="false" count="false">
+<section id="konzeption-1" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Konzeption</h1>
 </section>
 <section id="architektur" class="slide level1">
@@ -334,8 +474,17 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
 <div id="refs" class="references">
+<div id="ref-Linke2015">
+<p>[1] P. Linke, „Grundlagen zur Automatisierung“, in <em>Grundlagen Automatisierung</em>, Wiesbaden: Springer Fachmedien Wiesbaden, 2015, S. 1–28. </p>
+</div>
+<div id="ref-VereinDeutscherIngenieuree.V.2013">
+<p>[2] Verein Deutscher Ingenieure e.V., „Cyber-Physical Systems: Chancen und Nutzen aus Sicht der Automation“, VDI/VDE-Gesellschaft Mess- und Automatisierungstechnik, 2013. </p>
+</div>
+<div id="ref-Hammerstingl2015">
+<p>[3] V. Hammerstingl und G. Reinhart, „Unified Plug&amp;Produce architecture for automatic integration of field devices in industrial environments“, <em>Proceedings of the IEEE International Conference on Industrial Technology</em>, Bde. 2015-June, Nr. June, S. 1956–1963, 2015. </p>
+</div>
 <div id="ref-Ramakers2016">
-<p>[1] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
+<p>[4] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
 </div>
 </div>
 </section>
@@ -377,8 +526,7 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
             footer: {
                 size:   '60%',
                 left:   'Peter Heisig',
-                center: '<p>Abstraktion verteilter Produktionsmaschinen in cyber-physischen<br />
-Produktionssystemen</p>',
+                center: 'Abstraktion verteilter Produktionsmaschinen in CPPS',
                 right:  '#{slideNumber} / #{slideCount}'
             }
         },
