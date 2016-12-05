@@ -144,7 +144,33 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Forschungsstand {footer=false header=false count=false .center}
 
+#  {.center}
+
+<br>
+<div style="font-size: 60%!important; position: absolute; top: 10pt">
+
++------------------------+-------------+-----------+-----------+-----------+---------------+
+|                        | Überwachung | Steuerung | Standards | Lokalität | Integrations- |
+|                        |             |           |           |           |    Hardware   |
++========================+=============+===========+===========+===========+===============+
+| Moctezuma et al. 2012  | ●           | ●         | ●         | ●         | ○             |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Dürkop et al. 2014     | ●           | ●         | ●         | ●         | ○             |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Ayatollahi et al. 2013 | ●           | ●         | ●         | ◐         | ○             |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Lee et al. 2015        | ●           | ○         | ○         | ◐         | ○             |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+
+</div> 
 <div class="notes">
+**Arbeiten**
+
+  * Moctezuma: Retrofitting mit smart Remote Terminal Unit
+  * Dürkop: Autom.-Module mit WS, Kapselung der RT
+  * Ayatollahi: OPC UA für CNC + Model
+  * Lee: übergeordnete 5C CPS-Arch. + Richtlinien
+
 **Anforderungen** 
 
   * Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
@@ -158,27 +184,39 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
   * Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
 </div>
 
-#  {.center}
-
-<br>
-
-<div style="font-size: 60%!important; position: absolute; top: 10pt">
-
-+------------------------+-------------+-----------+-----------+-----------+----------------------+
-|                        | Überwachung | Steuerung | Standards | Lokalität | Integr.-HW |
-+========================+=============+===========+===========+===========+======================+
-| Ayatollahi et al. 2013 | ●           | ●         | ●         | ◐         | ○                    |
-+------------------------+-------------+-----------+-----------+-----------+----------------------+
-| Moctezuma et al. 2012  | ●           | ●         | ●         | ●         | ○                    |
-+------------------------+-------------+-----------+-----------+-----------+----------------------+
-| Durkop et al. 2014     | ●           | ●         | ●         | ●         | ○                    |
-+------------------------+-------------+-----------+-----------+-----------+----------------------+
-| Lee et al. 2015        | ●           | ○         | ○         | ◐         | ○                    |
-+------------------------+-------------+-----------+-----------+-----------+----------------------+
-
-</div> 
-
 # Konzeption {footer=false header=false count=false .center}
+
+<div class="notes">
+* VMR als standardisierendes Element
+* Auf Basis von Szenarien + Anwendungsfällen
+* Erweiterung des Modells von Ayatollahi et al. 
+</div>
+
+# Systemkontext
+
+<div style="position: absolute; top: 105pt; ">
+![](figures/systemkontext)
+</div>
+
+<div class="notes">
+* gestrichelt: ereignisbasierte WS
+</div>
+
+# VMR
+
+<div style="position: absolute; top: 10pt; left: 140pt; height: 62%; width: 62%">
+![](figures/vmr-concept)
+</div>
+
+# Maschinenmodell
+
+<div style="position: absolute; top: 190pt; left: -20pt; height: 70%; width: 70%">
+![](figures/opcua-cpps)
+</div>
+
+<div style="position: absolute; top: 200pt; right: -90pt; height: 60%; width: 60%">
+![](figures/opc4factory-runtime)
+</div>
 
 # Ergebnisse {footer=false header=false count=false .center}
 
