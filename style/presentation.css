@@ -105,4 +105,5 @@ body {
 	font-size: 35%;
   vertical-align: middle!important;
   color: #999;
+  z-index:100;
 }

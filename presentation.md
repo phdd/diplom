@@ -26,14 +26,24 @@
 
 # Fertigung und Automatisierung
 
-<small style="position: absolute; top: 130pt;">aus @Linke2015, von Wikipedia-Nutzer UlrichAAB</small>
+<small style="position: absolute; top: 120pt;">aus @Linke2015, von Wikipedia-Nutzer UlrichAAB</small>
 
-<div style="position: absolute; width: 80%; margin-left: 60pt;">
+<div style="position: absolute; width: 80%; top: 130pt; z-index: 0; margin-left: 60pt;">
 ![](figures/fertigungsautomatisierung)
 </div>
 
-<div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;">
+<div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
   ![](figures/automatisierungspyramide)
+</div>
+
+<div class="notes">
+* **SCADA**: Supervisory Control and Data Acquisition  
+  überwachen/steuern techn. Prozesse mit Computersystem
+* Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung
+* Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse
+* Level 2: je nach Größe weiter unterteilt (Verb. FFZ) 
+* Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung
+* Level 0: physikalischer Prozess
 </div>
 
 # Cyber-physische Systeme
@@ -57,6 +67,25 @@
     - Produkte, Maschinen, Ressourcen durch CPS repräsentiert
     - Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt
     - Maschinenparameter, Produktionsprozesse, Produkte
+</div>
+
+# OPC Unified Architecture
+
+<small style="position: absolute; top: 120pt;">nach @OPCFoundation2014</small>
+
+![](figures/opc-ua-architecture)
+
+<div class="notes">
+* OPC = Industriekonsortium
+* semantischer Standard für Kommunikation- &amp; Datenmodellierung
+* Erweiterung von "klassischem" OPC (Open Platform Communications, OLE for Process Control)
+    * sicherer, zuverlässiger Informationsaustausch
+    * Plattform- und Herstellerunabhängigkeit
+    * standardisierte Kommunikation über Internet und Firewalls
+    * serviceorientierte Architektur (SOA)
+    * Schutz vor unerlaubtem Zugriff
+    * Erreichbarkeit und Zuverlässigkeit
+    * Vereinfachung durch Vereinheitlichung
 </div>
 
 # Motivation
@@ -98,6 +127,8 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 </div>
 
 <div class="notes">
+**Aufgaben** 
+
 * Recherchen zum Forschungsstand
 * Konzeption von
     - virtueller Maschinenrepräsentation
@@ -111,20 +142,11 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 * **zuerst**: Anforderungen für die Integration
 </div>
 
-# Anforderungen
-
-1. ortsunabhängige **Überwachung**
-2. ortsunabhängige **Steuerung**
-3. **Standardisierung**
-    - Informations-/Kommunkationsprotokolle
-    - Informationsmodelle 
-4. **Lokalität** von Daten
-    - Erfassung
-    - Verarbeitung
-    - Persistenz
-5. **Integrationshardware**
+# Forschungsstand {footer=false header=false count=false .center}
 
 <div class="notes">
+**Anforderungen** 
+
   * Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
   * Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
   * Heterogenität: standardisierte Informationsprotokolle und -modelle 
@@ -136,9 +158,25 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
   * Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
 </div>
 
-# Forschungsstand
+#  {.center}
 
+<br>
 
+<div style="font-size: 60%!important; position: absolute; top: 10pt">
+
++------------------------+-------------+-----------+-----------+-----------+----------------------+
+|                        | Überwachung | Steuerung | Standards | Lokalität | Integr.-HW |
++========================+=============+===========+===========+===========+======================+
+| Ayatollahi et al. 2013 | ●           | ●         | ●         | ◐         | ○                    |
++------------------------+-------------+-----------+-----------+-----------+----------------------+
+| Moctezuma et al. 2012  | ●           | ●         | ●         | ●         | ○                    |
++------------------------+-------------+-----------+-----------+-----------+----------------------+
+| Durkop et al. 2014     | ●           | ●         | ●         | ●         | ○                    |
++------------------------+-------------+-----------+-----------+-----------+----------------------+
+| Lee et al. 2015        | ●           | ○         | ○         | ◐         | ○                    |
++------------------------+-------------+-----------+-----------+-----------+----------------------+
+
+</div> 
 
 # Konzeption {footer=false header=false count=false .center}
 
