@@ -42,6 +42,7 @@
 <li><a href="#/einleitung">Einleitung</a></li>
 <li><a href="#/forschungsstand">Forschungsstand</a></li>
 <li><a href="#/konzeption">Konzeption</a></li>
+<li><a href="#/implementation">Implementation</a></li>
 <li><a href="#/ergebnisse">Ergebnisse</a></li>
 <li><a href="#/ausblick">Ausblick</a></li>
 </ul>
@@ -163,6 +164,7 @@
 </div>
 <aside class="notes">
 <ul>
+<li>heterogene Automationsstrukturen</li>
 <li><em>Industrie 4.0</em>: CPS in die Produktion ⇒ CPPS</li>
 <li>viele CNC/SPS ohne Infrastrukturanbindung
 <ul>
@@ -212,11 +214,33 @@
 </section>
 <section id="forschungsstand" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Forschungsstand</h1>
+<aside class="notes">
+<ul>
+<li>beantwortet der aktuelle Stand der Technik die Fragen?</li>
+<li>welche Anforderungen sind dabei relevant?</li>
+</ul>
+<p><strong>Anforderungen</strong></p>
+<ul>
+<li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
+<li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
+<li>Heterogenität: standardisierte Informationsprotokolle und -modelle
+<ul>
+<li>einheitliche M2M-Kommunikation (horizontal)</li>
+<li>übergeordnete Systeme (ERP, MES) (vertikal)</li>
+</ul></li>
+<li>erfassen/persistieren von Daten nahe der Maschine
+<ul>
+<li>minimieren v. Latenzen, Kommunikationsaufwand</li>
+<li>kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)</li>
+</ul></li>
+<li>Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware</li>
+</ul>
+</aside>
 </section>
 <section id="section" class="slide level1 center">
 <h1></h1>
 <br>
-<div style="font-size: 60%!important; position: absolute; top: 10pt">
+<div style="font-size: 66%!important; position: absolute; top: 10pt">
 <table>
 <colgroup>
 <col style="width: 27%" />
@@ -239,62 +263,52 @@
 <tbody>
 <tr class="odd">
 <td><p>Moctezuma et al. 2012</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>○</code></p></td>
 </tr>
 <tr class="even">
 <td><p>Dürkop et al. 2014</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>○</code></p></td>
 </tr>
 <tr class="odd">
 <td><p>Ayatollahi et al. 2013</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>●</p></td>
-<td><p>◐</p></td>
-<td><p>○</p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>◐</code></p></td>
+<td><p><code>○</code></p></td>
 </tr>
 <tr class="even">
 <td><p>Lee et al. 2015</p></td>
-<td><p>●</p></td>
-<td><p>○</p></td>
-<td><p>○</p></td>
-<td><p>◐</p></td>
-<td><p>○</p></td>
+<td><p><code>●</code></p></td>
+<td><p><code>○</code></p></td>
+<td><p><code>○</code></p></td>
+<td><p><code>◐</code></p></td>
+<td><p><code>○</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <aside class="notes">
-<p><strong>Arbeiten</strong></p>
+<p><strong>Arbeiten (Auszug)</strong></p>
 <ul>
 <li>Moctezuma: Retrofitting mit smart Remote Terminal Unit</li>
 <li>Dürkop: Autom.-Module mit WS, Kapselung der RT</li>
-<li>Ayatollahi: OPC UA für CNC + Model</li>
-<li>Lee: übergeordnete 5C CPS-Arch. + Richtlinien</li>
-</ul>
-<p><strong>Anforderungen</strong></p>
+<li>Ayatollahi: OPC UA für CNC + Model, <strong>R4:</strong>
 <ul>
-<li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
-<li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
-<li>Heterogenität: standardisierte Informationsprotokolle und -modelle
-<ul>
-<li>einheitliche M2M-Kommunikation (horizontal)</li>
-<li>übergeordnete Systeme (ERP, MES) (vertikal)</li>
+<li>Erfassen Maschinendaten</li>
 </ul></li>
-<li>erfassen/persistieren von Daten nahe der Maschine
+<li>Lee: übergeordnete 5C CPS-Arch. + Richtlinien, <strong>R4</strong>:
 <ul>
-<li>minimieren v. Latenzen, Kommunikationsaufwand</li>
-<li>kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)</li>
+<li>Zustandserf./Leistungsvorhersage an Maschine; Historie zentral (Cyber-Ebene)</li>
 </ul></li>
-<li>Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware</li>
 </ul>
 </aside>
 </section>
@@ -329,8 +343,8 @@
 </figure>
 </div>
 </section>
-<section id="maschinenmodell" class="slide level1">
-<h1>Maschinenmodell</h1>
+<section id="maschinendefinition" class="slide level1">
+<h1>Maschinendefinition</h1>
 <div style="position: absolute; top: 190pt; left: -20pt; height: 70%; width: 70%">
 <figure>
 <img src="figures/opcua-cpps.png" />
@@ -342,259 +356,113 @@
 </figure>
 </div>
 </section>
+<section id="framework" class="slide level1">
+<h1>Framework</h1>
+<div style="position: absolute; top: 120pt; left: 100pt; height: 80%; width: 80%">
+<figure>
+<img src="figures/framework.png" />
+</figure>
+</div>
+</section>
+<section id="verteilung" class="slide level1">
+<h1>Verteilung</h1>
+<div style="position: absolute; top: 170pt; left: 80pt; height: 80%; width: 80%">
+<figure>
+<img src="figures/verteilung.png" />
+</figure>
+</div>
+</section>
+<section id="implementation" class="slide level1 center" footer="false" header="false" count="false">
+<h1>Implementation</h1>
+</section>
+<section id="hardware" class="slide level1">
+<h1>Hardware</h1>
+<div style="font-size: 65%!important; position: relative;">
+<table style="width:76%;">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 36%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p>Einplatinencomputer (SBC)</p></td>
+<td><p>Raspberry Pi 3 Model B</p></td>
+</tr>
+<tr class="even">
+<td><p>Antriebssteuerung (Serial)</p></td>
+<td><p>Smoothieboard 4XC</p></td>
+</tr>
+<tr class="odd">
+<td><p>cyber-physischer Adapter</p></td>
+<td><p>GrovePi</p></td>
+</tr>
+<tr class="even">
+<td><p>Temperatursensor</p></td>
+<td><p>Grove - Temperatur- und Luftfeuchtigkeitssensor</p></td>
+</tr>
+<tr class="odd">
+<td><p>Verriegelungsrelais</p></td>
+<td><p>Grove - Relay</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="software" class="slide level1">
+<h1>Software</h1>
+<div style="font-size: 50%!important; position: relative;">
+<table style="width:94%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 70%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p>node-opcua</p></td>
+<td><p>Node.js OPC UA Implementierung für die OPC UA Server Komponente und das Laufzeitmodell.</p></td>
+</tr>
+<tr class="even">
+<td><p>node-grovepi</p></td>
+<td><p>GrovePi-Anbindung für Sensoren und Aktuatoren des cyber-physischen Adapters.</p></td>
+</tr>
+<tr class="odd">
+<td><p>serialport</p></td>
+<td><p>Anbindung einer seriellen Schnittstelle für DNC und Feldgeräte mit RS-232.</p></td>
+</tr>
+<tr class="even">
+<td><p>watchjs</p></td>
+<td><p>Veränderung von Objekten und Variablen für das MAPE-K Monitoring der Feedback Control überwachen.</p></td>
+</tr>
+<tr class="odd">
+<td><p>mocha und chai</p></td>
+<td><p>Test-Framework und Assertion-Bibliothek für Behaviour-driven Development</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="demonstration" class="slide level1">
+<h1>Demonstration</h1>
+<div style="position: absolute; top: 170pt; left: 80pt; height: 80%; width: 80%">
+<figure>
+<img src="figures/cpps-eca-demo.png" />
+</figure>
+</div>
+</section>
 <section id="ergebnisse" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Ergebnisse</h1>
 </section>
 <section id="ausblick" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Ausblick</h1>
-</section>
-<section id="demonstration-der-vmr" class="slide level1 center" footer="false" header="false" count="false">
-<h1>Demonstration der VMR</h1>
-<!--
-# Erwartungen
-## Forschungskontext
-
-* unterbrechungsfreie M2M-Kommunikation und Produktionskette
-* Hierarchisierung von Steuerung/Überwachung
-* modellgetriebene Komponenten- und Funktionsstrukturabbildung
-* dezentrale Informationsarchitektur erhöht
-    - Produktionsstabilität
-    - Automatisierungsgrad
--->
-<!--
-# Erwartungen
-## Praxis
-
-* minimieren manueller Tätigkeiten  
-  <small>z.B. Übertragen eines Programms</small>
-* Diagnosen nicht nur vor Ort  
-  <small>z.B. zentrale Auswertung der Betriebsdaten</small>
-* Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad
-* Vereinfachung von Prozessplanung und Durchführung
-* bessere Kontrolle von Wartungszyklen und Störfällen
--->
-<!--
-# Anforderungen {footer=false header=false count=false .center}
-
-# Fragestellung 
-<br><br>
-Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
-
-# Teilfragen
-
-1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
-
-2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
-
-3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
-
-# REQ1 - Überwachung
-<br><br>
-Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
-
-# REQ2 - Steuerung
-<br><br>
-Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
-
-# REQ3 - Standardisierung
-<br><br>
-Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
-
-# REQ4 - Lokalität
-<br><br>
-Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
--->
-<!--
-# Forschungsstand {footer=false header=false count=false .center}
--->
-</section>
-<section id="retrofit-legacy-toaster-ramakers2016" class="slide level1" footer="false" header="false" count="false">
-<h1>  Retrofit Legacy Toaster <small><span class="citation" data-cites="Ramakers2016">[5]</span></small></h1>
-<figure>
-<img src="figures/retrofit-toaster.png" />
-</figure>
 <aside class="notes">
 <ul>
-<li>RetroFab Design Tool</li>
-<li>Retrofitting physischer Schnittstellen</li>
-<li>Aktuatoren, Sensoren, 3D-Druck</li>
-</ul>
-</aside>
-<!--
-# bestehende Arbeiten
-
-* Steuerung & Überwachung  
-  <small>Intelligent control software for industrial CNC machines @Ferrolho2005</small>
-  <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
-* Standards für Protokolle & Modelle  
-  <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
-  <small>A systematic approach to OPC UA information model design @Pauker2016</small>
-* flexible Architekturkonzepte  
-  <small>Information Architecture for Reconfigurable production systems @Pauker2013</small>
-  <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015</small>
-
-<div class="notes">
-  1. TCP-Protokoll für DNC + automatisierte Maschinenkomponenten
-  2. Wise-ShopFloor 
-    - offenen Architektur für die Echtzeitüberwachung und -kontrolle
-    - grafische Schnittstelle mit 3D Repräsentation 
-    - zentrale Datenbank
-  3. OPC UA Server als virt. Repräs. 
-    - Roboter
-    - CNC-Fräse
-  4. MDD für generische Informationsmodelle
-</div>
-
-# Forschungsprojekte
-
-* OPC4Factory<small>@OPC4Factory</small>  
-  <small>generische OPC UA Informationsmodelle</small>
-* piCASSO<small>@piCASSO</small>  
-  <small>Cloud-basierte Industriesteuerung mit CPS</small>
-* RetroNet<small>@FraunhoferIPK2016</small>  
-  <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small>
--->
-</section>
-<section id="konzeption-1" class="slide level1 center" footer="false" header="false" count="false">
-<h1>Konzeption</h1>
-</section>
-<section id="architektur" class="slide level1">
-<h1>Architektur</h1>
-<ul>
-<li>OPC UA als Informations- und Kommunikationsmodell</li>
-<li>Metamodell zu Altmaschine mit Komponenten für
-<ul>
-<li>Numerische Kontrolle</li>
-<li>Türen, Einspannvorrichtungen, etc.</li>
-</ul></li>
-<li>Modell synchron mit Realität ⇒ Laufzeitmodell</li>
-<li>Framework mit Schichtenarch. im Client/Server-Stil</li>
-<li>Microkernel: OPC UA Typen, Sensoren und Aktuatoren</li>
-<li>Verhalten der Physik via MAPE-K verifizierbar</li>
-</ul>
-<div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%">
-<div style="width:95%;height:95%;margin:auto">
-<figure>
-<img src="figures/opcua-model-layers.png" />
-</figure>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Communication Technology that merges:
-<ul>
-<li>Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)</li>
-<li>Information modelling (using an extensible meta model)</li>
-</ul></li>
-<li>Extensible meta model</li>
-<li>Platform independent (cross-platform)</li>
-<li>Scalable</li>
-<li>But not hard real-time (not yet)</li>
+<li>Zusammenfassung</li>
+<li>Danksagung</li>
 </ul>
 </aside>
 </section>
-<section id="surrogate" class="slide level1">
-<h1>Repräsentation der Maschine</h1>
-<ul>
-<li>Einplatinencomputer ⇒ CPS-Komponente</li>
-<li>Hardware CNC-Interpreter <em>festverdrahtet</em></li>
-<li>direkte Anbindung von Sensoren und Aktuatoren</li>
-<li>Datenerfassung und Verarbeitung an der Maschine</li>
-<li>Schritte zur Altmaschinenintegration
-<ol type="1">
-<li>Modellierung mit OPC UA Informationsmodell</li>
-<li>Deployment des Modells auf CPS-Komponente</li>
-<li>Initialisieren des Laufzeitmodells</li>
-<li>autonomes Registrieren im CPPS</li>
-</ol></li>
-</ul>
-</section>
-<section id="implementation" class="slide level1 center" footer="false" header="false" count="false">
-<h1>Implementation</h1>
-</section>
-<section id="bausteine" class="slide level1">
-<h1>Bausteine</h1>
-<p><br></p>
-<table>
-<thead>
-<tr class="header">
-<th>Konzept</th>
-<th>Implementation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CPS-Komponente</td>
-<td>Raspberry Pi 3</td>
-</tr>
-<tr class="even">
-<td>CNC-Interpreter</td>
-<td>Smoothieboard 4XC</td>
-</tr>
-<tr class="odd">
-<td>Peripherie</td>
-<td>GrovePi</td>
-</tr>
-<tr class="even">
-<td>OPC UA Stack</td>
-<td>node-opcua</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment" style="position:absolute;top:30pt;background-color:white;width:100%;height:100%">
-<div style="width:60%;height:60%;margin:auto">
-<figure>
-<img src="figures/cnc-surrogate.png" />
-</figure>
-</div>
-</div>
-<!--
-# Status & Vorgehen
-
-<center>
-<iframe width="1000pt" height="400pt" src="https://live.amcharts.com/mNkMz/embed/" frameborder="0"></iframe>
-<small>DSRM nach @Geerts2011</small>
-</center>
-
-<div class="notes">
-* DSRM-Schritte nach Geerts 2011 @Geerts2011
-* schriftlicher Teil inklusive
-* Bearbeitung: 1. Juni bis 30. November
-* geplante Abgabe: Anfang November
-</div>
-
-# {footer=false header=false count=false .center data-background-image=figures/end-cartoon.png data-background-size=contain}
-
-# OPC Unified Architecture {footer=false header=false count=false}
-
-![](figures/opc-ua-architecture)
-
-# Wise-Shopfloor @Wang2004 {footer=false header=false count=false}
-
-<div style="width:75%;height:75%;margin:auto">
-![](figures/wise-shopfloor)
-</div>
-
-# FFZ am IFT @Ayatollahi2013 {footer=false header=false count=false}
-
-![](figures/ift-manufacturing-cell)
-
-# Laufzeitmodell @Ayatollahi2013 {footer=false header=false count=false}
-
-![](figures/opc4factory-model)
-
-# PIM 2 PSM @Pauker2016 {footer=false header=false count=false}
-
-<div style="width:75%;height:75%;margin:auto">
-![](figures/transformation-process-pim-to-psm)
-</div>
-
-# Rekonfigurierbare Produktion @Pauker2013 {footer=false header=false count=false}
-
-<div style="width:90%;height:90%;margin:auto">
-![](figures/vgl-arch-ffz)
-</div>
--->
+<section id="thats-it.-questions" class="slide level1 center" footer="false" header="false" count="false" data-background-image="figures/stu.png" data-background-size="cover" data-background-position="right bottom">
+<h1><span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span></h1>
 </section>
 <section id="literatur" class="slide level1 unnumbered hidden" footer="false" header="false" count="false">
 <h1>Literatur</h1>
@@ -610,9 +478,6 @@ Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie di
 </div>
 <div id="ref-Hammerstingl2015">
 <p>[4] V. Hammerstingl und G. Reinhart, „Unified Plug&amp;Produce architecture for automatic integration of field devices in industrial environments“, <em>Proceedings of the IEEE International Conference on Industrial Technology</em>, Bde. 2015-June, Nr. June, S. 1956–1963, 2015. </p>
-</div>
-<div id="ref-Ramakers2016">
-<p>[5] R. Ramakers, F. Anderson, T. Grossman, und G. Fitzmaurice, „RetroFab: A Design Tool for Retrofitting Physical Interfaces Using Actuators, Sensors and 3D Printing“, <em>Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems</em>, S. 409–419, 2016. </p>
 </div>
 </div>
 </section>
