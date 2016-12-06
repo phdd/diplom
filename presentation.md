@@ -3,6 +3,7 @@
 * [Einleitung](#einleitung)
 * [Forschungsstand](#forschungsstand)
 * [Konzeption](#konzeption)
+* [Implementation](#implementation)
 * [Ergebnisse](#ergebnisse)
 * [Ausblick](#ausblick)
 
@@ -101,6 +102,7 @@
 </div>
 
 <div class="notes">
+  * heterogene Automationsstrukturen
   * _Industrie 4.0_: CPS in die Produktion ⇒ CPPS
   * viele CNC/SPS ohne Infrastrukturanbindung
       - fehlende Netzwerk- und Programmierschnittstellen
@@ -144,44 +146,51 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Forschungsstand {footer=false header=false count=false .center}
 
+<div class="notes">
+* beantwortet der aktuelle Stand der Technik die Fragen?
+* welche Anforderungen sind dabei relevant?
+
+**Anforderungen** 
+
+* Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
+* Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
+* Heterogenität: standardisierte Informationsprotokolle und -modelle 
+    - einheitliche M2M-Kommunikation (horizontal)
+    - übergeordnete Systeme (ERP, MES) (vertikal)
+* erfassen/persistieren von Daten nahe der Maschine
+    - minimieren v. Latenzen, Kommunikationsaufwand
+    - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
+* Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
+</div>
+
 #  {.center}
 
 <br>
-<div style="font-size: 60%!important; position: absolute; top: 10pt">
+<div style="font-size: 66%!important; position: absolute; top: 10pt">
 
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 |                        | Überwachung | Steuerung | Standards | Lokalität | Integrations- |
 |                        |             |           |           |           |    Hardware   |
 +========================+=============+===========+===========+===========+===============+
-| Moctezuma et al. 2012  | ●           | ●         | ●         | ●         | ○             |
+| Moctezuma et al. 2012  | `●`         | `●`       | `●`       | `●`       | `○`           |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
-| Dürkop et al. 2014     | ●           | ●         | ●         | ●         | ○             |
+| Dürkop et al. 2014     | `●`         | `●`       | `●`       | `●`       | `○`           |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
-| Ayatollahi et al. 2013 | ●           | ●         | ●         | ◐         | ○             |
+| Ayatollahi et al. 2013 | `●`         | `●`       | `●`       | `◐`       | `○`           |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
-| Lee et al. 2015        | ●           | ○         | ○         | ◐         | ○             |
+| Lee et al. 2015        | `●`         | `○`       | `○`       | `◐`       | `○`           |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 
 </div> 
 <div class="notes">
-**Arbeiten**
+**Arbeiten (Auszug)**
 
   * Moctezuma: Retrofitting mit smart Remote Terminal Unit
   * Dürkop: Autom.-Module mit WS, Kapselung der RT
-  * Ayatollahi: OPC UA für CNC + Model
-  * Lee: übergeordnete 5C CPS-Arch. + Richtlinien
-
-**Anforderungen** 
-
-  * Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
-  * Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
-  * Heterogenität: standardisierte Informationsprotokolle und -modelle 
-    - einheitliche M2M-Kommunikation (horizontal)
-    - übergeordnete Systeme (ERP, MES) (vertikal)
-  * erfassen/persistieren von Daten nahe der Maschine
-    - minimieren v. Latenzen, Kommunikationsaufwand
-    - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
-  * Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
+  * Ayatollahi: OPC UA für CNC + Model, **R4:**
+      - Erfassen Maschinendaten
+  * Lee: übergeordnete 5C CPS-Arch. + Richtlinien, **R4**:
+      - Zustandserf./Leistungsvorhersage an Maschine; Historie zentral (Cyber-Ebene)
 </div>
 
 # Konzeption {footer=false header=false count=false .center}
@@ -208,7 +217,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/vmr-concept)
 </div>
 
-# Maschinenmodell
+# Maschinendefinition
 
 <div style="position: absolute; top: 190pt; left: -20pt; height: 70%; width: 70%">
 ![](figures/opcua-cpps)
@@ -218,216 +227,78 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/opc4factory-runtime)
 </div>
 
-# Ergebnisse {footer=false header=false count=false .center}
+# Framework
 
-# Ausblick {footer=false header=false count=false .center}
-
-# Demonstration der VMR {footer=false header=false count=false .center}
-
-<!--
-# Erwartungen
-## Forschungskontext
-
-* unterbrechungsfreie M2M-Kommunikation und Produktionskette
-* Hierarchisierung von Steuerung/Überwachung
-* modellgetriebene Komponenten- und Funktionsstrukturabbildung
-* dezentrale Informationsarchitektur erhöht
-    - Produktionsstabilität
-    - Automatisierungsgrad
--->
-
-<!--
-# Erwartungen
-## Praxis
-
-* minimieren manueller Tätigkeiten  
-  <small>z.B. Übertragen eines Programms</small>
-* Diagnosen nicht nur vor Ort  
-  <small>z.B. zentrale Auswertung der Betriebsdaten</small>
-* Beschleunigung des Produktionsablaufs durch höheren Automatisierungsgrad
-* Vereinfachung von Prozessplanung und Durchführung
-* bessere Kontrolle von Wartungszyklen und Störfällen
--->
-<!--
-# Anforderungen {footer=false header=false count=false .center}
-
-# Fragestellung 
-<br><br>
-Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
-
-# Teilfragen
-
-1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
-
-2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
-
-3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
-
-# REQ1 - Überwachung
-<br><br>
-Die Überwachung von Betriebs- und Prozessdaten der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Zustandserfassung und Störfalldiagnose durch Subsysteme des CPPS erfolgen kann.
-
-# REQ2 - Steuerung
-<br><br>
-Die Steuerung der Altmaschine und ihrer automatisierten Maschinen- und Werkzeugkomponenten ist ortsunabhängig, so dass Übertragung, Ausführung und Abbruch von NC-Programmen, beziehungsweise produktionsbedingter Steuerbefehle, durch Subsysteme des CPPS erfolgen kann.
-
-# REQ3 - Standardisierung
-<br><br>
-Standardisierte Informationsprotokolle und -modelle werden für die Integration heterogener Altmaschinen eingesetzt, so dass Datenaggregation und M2M-Kommunikation gesamtheitlich gewährleistet werden kann.
-
-# REQ4 - Lokalität
-<br><br>
-Die Erfassung und Persistierung anfallender Betriebs- und Prozessdaten, sowie die Interpretation von Maschinenbefehlen geschieht geografisch nahe der Anlage, wodurch zeitliche Latenzen, Kommunikationsaufwände und -fehler minimiert werden.
--->
-
-<!--
-# Forschungsstand {footer=false header=false count=false .center}
--->
-# &nbsp;&nbsp;Retrofit Legacy Toaster <small>@Ramakers2016</small> {footer=false header=false count=false}
-
-![](figures/retrofit-toaster)
-
-<div class="notes">
-* RetroFab Design Tool 
-* Retrofitting physischer Schnittstellen
-* Aktuatoren, Sensoren, 3D-Druck
-</div>
-<!--
-# bestehende Arbeiten
-
-* Steuerung & Überwachung  
-  <small>Intelligent control software for industrial CNC machines @Ferrolho2005</small>
-  <small>Remote real-time CNC machining for web-based manufacturing @Wang2004</small>
-* Standards für Protokolle & Modelle  
-  <small>Prototype OPC UA Server for Remote Control of Machine Tools @Ayatollahi2013</small>
-  <small>A systematic approach to OPC UA information model design @Pauker2016</small>
-* flexible Architekturkonzepte  
-  <small>Information Architecture for Reconfigurable production systems @Pauker2013</small>
-  <small>Referenzarchitekturmodell Industrie 4.0 (RAMI4.0) @Adolphs2015</small>
-
-<div class="notes">
-  1. TCP-Protokoll für DNC + automatisierte Maschinenkomponenten
-  2. Wise-ShopFloor 
-    - offenen Architektur für die Echtzeitüberwachung und -kontrolle
-    - grafische Schnittstelle mit 3D Repräsentation 
-    - zentrale Datenbank
-  3. OPC UA Server als virt. Repräs. 
-    - Roboter
-    - CNC-Fräse
-  4. MDD für generische Informationsmodelle
+<div style="position: absolute; top: 120pt; left: 100pt; height: 80%; width: 80%">
+![](figures/framework)
 </div>
 
-# Forschungsprojekte
+# Verteilung
 
-* OPC4Factory<small>@OPC4Factory</small>  
-  <small>generische OPC UA Informationsmodelle</small>
-* piCASSO<small>@piCASSO</small>  
-  <small>Cloud-basierte Industriesteuerung mit CPS</small>
-* RetroNet<small>@FraunhoferIPK2016</small>  
-  <small>Integration bestehender Hardware in die intelligente Steuerung einer Fabrik</small>
--->
-# Konzeption {footer=false header=false count=false .center}
-
-# Architektur
-
-* OPC UA als Informations- und Kommunikationsmodell
-* Metamodell zu Altmaschine mit Komponenten für
-    - Numerische Kontrolle
-    - Türen, Einspannvorrichtungen, etc.
-* Modell synchron mit Realität ⇒ Laufzeitmodell
-* Framework mit Schichtenarch. im Client/Server-Stil
-* Microkernel: OPC UA Typen, Sensoren und Aktuatoren
-* Verhalten der Physik via MAPE-K verifizierbar
-
-<div class="fragment" style="position:absolute;top:50pt;background-color:white;width:100%;height:100%"> 
-<div style="width:95%;height:95%;margin:auto">
-![](figures/opcua-model-layers) 
+<div style="position: absolute; top: 170pt; left: 80pt; height: 80%; width: 80%">
+![](figures/verteilung)
 </div>
-</div>
-
-<div class="notes">
-* Communication Technology that merges:
-    - Transport mechanism (uses internet standards XML, HTTP,… and also optimized binary TCP)
-    - Information modelling (using an extensible meta model)
-* Extensible meta model
-* Platform independent (cross-platform)
-* Scalable
-* But not hard real-time (not yet)
-</div>
-
-# Repräsentation der Maschine {#surrogate}
-
-* Einplatinencomputer ⇒ CPS-Komponente
-* Hardware CNC-Interpreter _festverdrahtet_
-* direkte Anbindung von Sensoren und Aktuatoren
-* Datenerfassung und Verarbeitung an der Maschine
-* Schritte zur Altmaschinenintegration
-    1. Modellierung mit OPC UA Informationsmodell 
-    2. Deployment des Modells auf CPS-Komponente
-    4. Initialisieren des Laufzeitmodells
-    3. autonomes Registrieren im CPPS
 
 # Implementation {footer=false header=false count=false .center}
 
-# Bausteine
-<br>
+# Hardware
 
-|     Konzept     |   Implementation  |
-|-----------------|-------------------|
-| CPS-Komponente  | Raspberry Pi 3    |
-| CNC-Interpreter | Smoothieboard 4XC |
-| Peripherie      | GrovePi           |
-| OPC UA Stack    | node-opcua        |
+<div style="font-size: 65%!important; position: relative;">
 
-<div class="fragment" style="position:absolute;top:30pt;background-color:white;width:100%;height:100%"> 
-<div style="width:60%;height:60%;margin:auto">
-![](figures/cnc-surrogate) 
++----------------------------+-------------------------+
+| Einplatinencomputer (SBC)  | Raspberry Pi 3 Model B  |
++----------------------------+-------------------------+
+| Antriebssteuerung (Serial) | Smoothieboard 4XC       |
++----------------------------+-------------------------+
+| cyber-physischer Adapter   | GrovePi                 |
++----------------------------+-------------------------+
+| Temperatursensor           | Grove - Temperatur- und |
+|                            | Luftfeuchtigkeitssensor |
++----------------------------+-------------------------+
+| Verriegelungsrelais        | Grove - Relay           |
++----------------------------+-------------------------+
+
 </div>
-</div>
-<!--
-# Status & Vorgehen
 
-<center>
-<iframe width="1000pt" height="400pt" src="https://live.amcharts.com/mNkMz/embed/" frameborder="0"></iframe>
-<small>DSRM nach @Geerts2011</small>
-</center>
+# Software
+
+<div style="font-size: 50%!important; position: relative;">
+
++----------------+--------------------------------------------------+
+| node-opcua     | Node.js OPC UA Implementierung für die           |
+|                | OPC UA Server Komponente und das Laufzeitmodell. |
++----------------+--------------------------------------------------+
+| node-grovepi   | GrovePi-Anbindung für Sensoren und Aktuatoren    |
+|                | des cyber-physischen Adapters.                   |
++----------------+--------------------------------------------------+
+| serialport     | Anbindung einer seriellen Schnittstelle          |
+|                | für DNC und Feldgeräte mit RS-232.               |
++----------------+--------------------------------------------------+
+| watchjs        | Veränderung von Objekten und Variablen           |
+|                | für das MAPE-K Monitoring der Feedback Control   |
+|                | überwachen.                                      |
++----------------+--------------------------------------------------+
+| mocha und chai | Test-Framework und Assertion-Bibliothek für      |
+|                | Behaviour-driven Development                     |
++----------------+--------------------------------------------------+
+
+</div>
+
+# Demonstration
+
+<div style="position: absolute; top: 170pt; left: 80pt; height: 80%; width: 80%">
+![](figures/cpps-eca-demo)
+</div>
+
+# Ergebnisse {footer=false header=false count=false .center}
+
+
+
+# Ausblick {footer=false header=false count=false .center}
 
 <div class="notes">
-* DSRM-Schritte nach Geerts 2011 @Geerts2011
-* schriftlicher Teil inklusive
-* Bearbeitung: 1. Juni bis 30. November
-* geplante Abgabe: Anfang November
+* Zusammenfassung
+* Danksagung
 </div>
 
-# {footer=false header=false count=false .center data-background-image=figures/end-cartoon.png data-background-size=contain}
-
-# OPC Unified Architecture {footer=false header=false count=false}
-
-![](figures/opc-ua-architecture)
-
-# Wise-Shopfloor @Wang2004 {footer=false header=false count=false}
-
-<div style="width:75%;height:75%;margin:auto">
-![](figures/wise-shopfloor)
-</div>
-
-# FFZ am IFT @Ayatollahi2013 {footer=false header=false count=false}
-
-![](figures/ift-manufacturing-cell)
-
-# Laufzeitmodell @Ayatollahi2013 {footer=false header=false count=false}
-
-![](figures/opc4factory-model)
-
-# PIM 2 PSM @Pauker2016 {footer=false header=false count=false}
-
-<div style="width:75%;height:75%;margin:auto">
-![](figures/transformation-process-pim-to-psm)
-</div>
-
-# Rekonfigurierbare Produktion @Pauker2013 {footer=false header=false count=false}
-
-<div style="width:90%;height:90%;margin:auto">
-![](figures/vgl-arch-ffz)
-</div>
--->
+# <span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span> {footer=false header=false count=false .center data-background-image=figures/stu.png data-background-size=cover data-background-position="right bottom"}
