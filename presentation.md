@@ -4,7 +4,7 @@
 * [Forschungsstand](#forschungsstand)
 * [Konzeption](#konzeption)
 * [Implementation](#implementation)
-* [Ergebnisse](#ergebnisse)
+* [Evaluation](#evaluation)
 * [Ausblick](#ausblick)
 
 <div class="notes">
@@ -241,7 +241,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Implementation {footer=false header=false count=false .center}
 
-# Hardware
+# Komponenten
 
 <div style="font-size: 65%!important; position: relative;">
 
@@ -260,29 +260,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 </div>
 
-# Software
-
-<div style="font-size: 50%!important; position: relative;">
-
-+----------------+--------------------------------------------------+
-| node-opcua     | Node.js OPC UA Implementierung für die           |
-|                | OPC UA Server Komponente und das Laufzeitmodell. |
-+----------------+--------------------------------------------------+
-| node-grovepi   | GrovePi-Anbindung für Sensoren und Aktuatoren    |
-|                | des cyber-physischen Adapters.                   |
-+----------------+--------------------------------------------------+
-| serialport     | Anbindung einer seriellen Schnittstelle          |
-|                | für DNC und Feldgeräte mit RS-232.               |
-+----------------+--------------------------------------------------+
-| watchjs        | Veränderung von Objekten und Variablen           |
-|                | für das MAPE-K Monitoring der Feedback Control   |
-|                | überwachen.                                      |
-+----------------+--------------------------------------------------+
-| mocha und chai | Test-Framework und Assertion-Bibliothek für      |
-|                | Behaviour-driven Development                     |
-+----------------+--------------------------------------------------+
-
-</div>
+# {.center data-background-image=figures/software.png data-background-size=contain}
 
 # Demonstration
 
@@ -290,9 +268,13 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/cpps-eca-demo)
 </div>
 
-# Ergebnisse {footer=false header=false count=false .center}
+# Evaluation {footer=false header=false count=false .center}
 
+# Implikationen
 
+# Vergleich zum Forschungsstand
+
+# Ergebnisse
 
 # Ausblick {footer=false header=false count=false .center}
 
