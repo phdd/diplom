@@ -9,16 +9,17 @@
 
 <div class="notes">
 * Design Science Research Methodology
+* Einleitung: Grundlagen, Motivation, Forschungsfragen
 </div>
 
 # Einleitung {footer=false header=false count=false .center}
 
 <div class="notes">
-**Kontext: produzierende Industrie**
+* **Kontext: produzierende Industrie**
+* Industrielle Revolutionen
 
 1. ca. 1750 erste dampfbetr. Arbeitsmaschinen
 2. Ende 19. Jhd. erste Massenproduktion
-    * NC seit 1950
 3. 1969 erste SPS (beginn IT-gestützter Produktion)
 4. Schlagwort I4.0 seit 2011
     * Kombination mit IoT/CPS
@@ -32,18 +33,12 @@
 ![](figures/fertigungsautomatisierung)
 </div>
 
-<div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
+<!--div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
   ![](figures/automatisierungspyramide)
-</div>
+</div-->
 
 <div class="notes">
-* **SCADA**: Supervisory Control and Data Acquisition  
-  überwachen/steuern techn. Prozesse mit Computersystem
-* Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung
-* Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse
-* Level 2: je nach Größe weiter unterteilt (Verb. FFZ) 
-* Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung
-* Level 0: physikalischer Prozess
+* Autom.: DIN 19233, ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet"
 </div>
 
 # Cyber-physische Systeme
@@ -59,14 +54,18 @@
 </div>
 
 <div class="notes">
+* Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung
+* Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse
+* Level 2: je nach Größe weiter unterteilt (Verb. FFZ) 
+* Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung
+* Level 0: physikalischer Prozess
+
 * CPS nach Lee 2008: 
-    - Integration von Informationsverarbeitung und physischen Prozessen
-    - physische Abläufe durch Sensoren und Aktuatoren überwacht/beeinflusst
+    - Sensoren/Aktuatoren überwachen/beeinflussen physische Abläufe
     - Rückkopplung durch Kontrollschleifen
 * CPPS nach Bergweiler 2015:
     - Produkte, Maschinen, Ressourcen durch CPS repräsentiert
     - Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt
-    - Maschinenparameter, Produktionsprozesse, Produkte
 </div>
 
 # OPC Unified Architecture
@@ -82,9 +81,6 @@
     * sicherer, zuverlässiger Informationsaustausch
     * Plattform- und Herstellerunabhängigkeit
     * standardisierte Kommunikation über Internet und Firewalls
-    * serviceorientierte Architektur (SOA)
-    * Schutz vor unerlaubtem Zugriff
-    * Erreichbarkeit und Zuverlässigkeit
     * Vereinfachung durch Vereinheitlichung
 </div>
 
@@ -120,11 +116,11 @@ Verarbeitung der Daten ausgebaut
 Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
 
 <div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;background-color: white">
-1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter Maschinen im Kontext von CPPS geeignet?
 
 2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 
-3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
+3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für Kommunikation in einem CPPS?
 </div>
 
 <div class="notes">
@@ -189,7 +185,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 <div class="notes">
 **Arbeiten (Auszug)**
 
-  * Moctezuma: Retrofitting mit smart Remote Terminal Unit
+  * Moctezuma: Retrofitting mit smart Remote Terminal Unit (SOA)
   * Dürkop: Autom.-Module mit WS, Kapselung der RT
   * Ayatollahi: OPC UA für CNC + Model, **R4:**
       - Erfassen Maschinendaten
@@ -200,9 +196,8 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 # Konzeption {footer=false header=false count=false .center}
 
 <div class="notes">
-* VMR als standardisierendes Element
 * Auf Basis von Szenarien + Anwendungsfällen
-* Erweiterung des Modells von Ayatollahi et al. 
+* VMR als standardisierendes Element
 </div>
 
 # Systemkontext
