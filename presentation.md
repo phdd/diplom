@@ -8,8 +8,7 @@
 * [Ausblick](#ausblick)
 
 <div class="notes">
-  * Einleitung: Grundlagen, Motivation, Fragen, Anforderungen
-  * 
+* Design Science Research Methodology
 </div>
 
 # Einleitung {footer=false header=false count=false .center}
@@ -166,22 +165,27 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 #  {.center}
 
 <br>
-<div style="font-size: 66%!important; position: absolute; top: 10pt">
+<div style="font-size: 60%!important; position: absolute; top: 30pt">
 
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 |                        | Überwachung | Steuerung | Standards | Lokalität | Integrations- |
 |                        |             |           |           |           |    Hardware   |
 +========================+=============+===========+===========+===========+===============+
 | Moctezuma et al. 2012  | `●`         | `●`       | `●`       | `●`       | `○`           |
+| @Moctezuma2012         |             |           |           |           |               |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 | Dürkop et al. 2014     | `●`         | `●`       | `●`       | `●`       | `○`           |
+| @Durkop2014            |             |           |           |           |               |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 | Ayatollahi et al. 2013 | `●`         | `●`       | `●`       | `◐`       | `○`           |
+| @Ayatollahi2013        |             |           |           |           |               |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 | Lee et al. 2015        | `●`         | `○`       | `○`       | `◐`       | `○`           |
+| @Lee2015               |             |           |           |           |               |
 +------------------------+-------------+-----------+-----------+-----------+---------------+
 
 </div> 
+
 <div class="notes">
 **Arbeiten (Auszug)**
 
@@ -227,10 +231,19 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/opc4factory-runtime)
 </div>
 
+<div class="notes">
+* Lokales Kontextmodell
+* Laufzeit-Adaptionsmodell
+</div>
+
 # Framework
 
 <div style="position: absolute; top: 120pt; left: 100pt; height: 80%; width: 80%">
 ![](figures/framework)
+</div>
+
+<div class="">
+* MAPE-K!! @IBM2006
 </div>
 
 # Verteilung
@@ -260,7 +273,11 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 </div>
 
-# {.center data-background-image=figures/software.png data-background-size=contain}
+# 
+
+<div style="position: relative; top: -170pt; left: -120pt; height: 130%; width: 130%">
+![](figures/software)
+</div>
 
 # Demonstration
 
@@ -270,17 +287,98 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Evaluation {footer=false header=false count=false .center}
 
-# Implikationen
-
 # Vergleich zum Forschungsstand
+
+<div style="font-size: 70%">
+* Moctezuma et al. 2012 @Moctezuma2012
+    - Dreischichtarchitektur für lokale Datenverarbeitung
+    - Standardisierte Kommunikation durch OPC UA
+* Dürkop et al. 2014 @Durkop2014
+    - Web-Services zur vertikalen Integration
+    - Kommunikation zwischen Modulen erlaubt
+* Ayatollahi et al. 2012 @Ayatollahi2013
+    - Erweiterung des OPC UA Modells für CPPS
+    - Regeln für Autonomie im Informationsmodell
+* Lee et al. 2015 @Lee2015
+    - VMR in 5C-Schichten für CPPS integriert
+    - lokales Adaptivitätskonzept konkretisiert
+* Einplatinencomputer als Integrationshardware
+</div>
+
+<div class="notes">
+* Komm. zw. Dürkop Modulen:
+    - Hierarchisierung des Info.-Austauschs
+    - WS-Entlastung
+* lokales Adaptivitätskonzept nach Lee:
+    - Conversion + Smart-Connection Ebene implementiert
+</div>
 
 # Ergebnisse
 
-# Ausblick {footer=false header=false count=false .center}
+<div style="font-size: 80%">
+* Retrofitting bedarf geschichteter System-/Softwarearchitektur
+* Maschinenrepräsentant
+    - wandelt Daten in Informationen
+    - abstrahiert Steuerung
+* Rückkopplung für teilautonome Handlung und Adaption 
+* horizontale Kommunikation durch Standardisierung mit OPC UA
+* Service-orientierte Architektur für vertikale Integration mit DPWS
+* Datenverarbeitung/-persistenz nahe der Maschine für Hierarchisierung
+* cyber-physische Hardwareadapter bilden Schnittstelle
+</div>
+
+<div class="notes">
+* Limitationen: Rückkopplung
+    - imperativ, nicht deskriptiv
+    - keine logischen Verknüpfungen
+    - zeitliche Beschränkungen fehlen
+    - Regelkonflikte
+* Konzept für Dürkop-Module?
+* konkrete Verortung von Sensoren/Aktuatoren?
+* übergeordnete Produktionssteuerung?
+* quantitative Evaluation/Fallstudie?
+</div>
+
+# Implikationen
+
+<div style="font-size: 80%">
+* nahtlose Integration von Altanlagen
+    - horizontal: OPC Unified Architecture
+    - vertikal: Web-Services mit DPWS
+* Steuerung/Überwachung ortsunabhängig &amp; durch Subsysteme mgl.
+* Minderung manueller Tätigkeiten ⇒ Beschleunigung der Produktion
+* zentrale Auswertung von Betriebs- &amp; Prozessinformationen
+* Hierarchisierung von Datenverarbeitung und Persistenz
+* Verbesserung von Skalierbarkeit &amp; Rekonfiguration
+* einheitliche Modellierung von Anlagenstruktur &amp; Rückkopplung 
+* kostengünstige Modernisierung durch Einplatinencomputer
+</div>
+
+<div class="notes">
+* Skalierbarkeit/Rekonfiguration durch dezentrale Kommunikations- und Informationsarchitektur
+</div>
+
+# Ausblick 
+
+<div style="font-size: 80%">
+* komplexe Regeln zur Rückkopplung 
+* externe Rückkopplung auf Cyber-Ebene der 5C-Architektur @Lee2015
+* cyber-phys. Workflows &amp; PROtEUS für Produktionssteuerung @Seiger2016
+* OPC UA &amp; DPWS mit gemeinsamen Modell @Bony2011
+* MDSD und UML für gemeinsame Modelle @Pauker2016
+* Modernisierung von Werkzeugmaschinen mit STEP-NC [@Suh2003;@Xu2006]
+* OPC UA und Echtzeit mit Time Sensitive Networking
+* Nutzungsschnittstellen und Interaktion @Wang2004
+</div>
+
+# <span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span> {footer=false header=false count=false .center data-background-image=figures/stu.png data-background-size=cover data-background-position="right bottom"}
+
+<div style="position: relative; bottom: -150pt; font-size: 60%; color: #888">
+<p><i class="fa fa-envelope fa-1x"></i>&nbsp;&nbsp;peter.heisig@tu-dresden.de</p>
+<p><i class="fa fa-github-alt fa-1x"></i>&nbsp;&nbsp;github.com/phdd/diplom</p>
+</div>
 
 <div class="notes">
 * Zusammenfassung
 * Danksagung
 </div>
-
-# <span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span> {footer=false header=false count=false .center data-background-image=figures/stu.png data-background-size=cover data-background-position="right bottom"}

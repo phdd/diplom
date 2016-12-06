@@ -19,6 +19,7 @@ theme:        sky
 smart:        true
 transition:   slide
 revealjs-url: http://lab.hakim.se/reveal-js
+slidesUrl:    phdd.github.io/diplom/presentation.html
 
 # Filter
 chapPrefix: Kapitel

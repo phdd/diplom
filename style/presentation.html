@@ -51,6 +51,8 @@ $endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
+
+  <script src="https://use.fontawesome.com/1aa63dd2e7.js"></script>
 </head>
 <body>
 $for(include-before)$
@@ -69,6 +71,9 @@ $for(author)$
 $endfor$
 $if(date)$
   <h3 class="date">$date$</h3>
+$endif$
+$if(slidesUrl)$
+  <h3 class="date">$slidesUrl$</h3>
 $endif$
 </section>
 $endif$
