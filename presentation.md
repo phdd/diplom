@@ -242,7 +242,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/framework)
 </div>
 
-<div class="">
+<div class="notes">
 * MAPE-K!! @IBM2006
 </div>
 
@@ -381,4 +381,94 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 <div class="notes">
 * Zusammenfassung
 * Danksagung
+</div>
+
+# OPC UA Transportvarianten {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 80pt; height: 75%; width: 75%">
+![](figures/opcua-transport)
+</div>
+
+# MAPE-K Kontrollschleife {footer=false count=false}
+
+<div style="position: absolute; top: 110pt; left: 60pt; height: 85%; width: 85%">
+![](figures/mapek)
+</div>
+
+# Maschinenüberwachung {footer=false count=false}
+
+<div style="position: absolute; top: 160pt; left: 0pt; height: 100%; width: 100%">
+![](figures/monitoring-kategorien)
+</div>
+
+# FFZ des IFT Wien {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/ffz-ift)
+</div>
+
+# Remote Terminal Unit {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/rtu-retrofitting)
+</div>
+
+# Automatisierungsmodule {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/module-field-level)
+</div>
+
+# Modellerweiterung zur Steuerung {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/opc4factory)
+</div>
+
+# CPPS Modellerweiterung {footer=false count=false}
+
+<div style="position: absolute; top: 170pt; left: 0pt; height: 100%; width: 100%">
+![](figures/opcua-cpps)
+</div>
+
+# Horizontale Integration {footer=false count=false}
+
+<div style="position: absolute; top: 200pt; left: 0pt; height: 100%; width: 100%">
+![](figures/horizontale-integration)
+</div>
+
+# Vertikale Integration {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 85%; width: 85%">
+![](figures/vertikale-integration)
+</div>
+
+# Initialisierung des Frameworks {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 80%; width: 80%">
+![](figures/framework-init)
+</div>
+
+# Methodendelegation {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/methodendelegation)
+</div>
+
+# Kontextveränderung {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/context-update)
+</div>
+
+# Rückkopplung {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 80%; width: 80%">
+![](figures/feedback)
+</div>
+
+# Organisation des Frameworks {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 0pt; height: 100%; width: 100%">
+![](figures/organisation)
 </div>
