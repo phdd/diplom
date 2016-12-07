@@ -146,7 +146,7 @@
 </section>
 <section id="motivation" class="slide level1">
 <h1>Motivation</h1>
-<p><small style="position: absolute; top: 130pt;">nach <span class="citation" data-cites="Hammerstingl2015">[4]</span></small></p>
+<p><small style="position: absolute; top: 120pt;">nach <span class="citation" data-cites="Hammerstingl2015">[4]</span></small></p>
 <div style="position: relative; top: -70pt;">
 <figure>
 <img src="figures/automationsstruktur.png" />
@@ -203,7 +203,7 @@
 </ul></li>
 <li>prototypische Implementierung (Machbarkeit)</li>
 <li>Aufbau Test-Infrastruktur</li>
-<li><strong>zuerst</strong>: Anforderungen für die Integration</li>
+<li><strong>zuerst</strong>: Stand der Technik</li>
 </ul>
 </aside>
 </section>
@@ -213,22 +213,6 @@
 <ul>
 <li>beantwortet der aktuelle Stand der Technik die Fragen?</li>
 <li>welche Anforderungen sind dabei relevant?</li>
-</ul>
-<p><strong>Anforderungen</strong></p>
-<ul>
-<li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
-<li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
-<li>Heterogenität: standardisierte Informationsprotokolle und -modelle
-<ul>
-<li>einheitliche M2M-Kommunikation (horizontal)</li>
-<li>übergeordnete Systeme (ERP, MES) (vertikal)</li>
-</ul></li>
-<li>erfassen/persistieren von Daten nahe der Maschine
-<ul>
-<li>minimieren v. Latenzen, Kommunikationsaufwand</li>
-<li>kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)</li>
-</ul></li>
-<li>Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware</li>
 </ul>
 </aside>
 </section>
@@ -292,6 +276,22 @@
 </table>
 </div>
 <aside class="notes">
+<p><strong>Anforderungen</strong></p>
+<ul>
+<li>Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.</li>
+<li>Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation</li>
+<li>Heterogenität: standardisierte Informationsprotokolle und -modelle
+<ul>
+<li>einheitliche M2M-Kommunikation (horizontal)</li>
+<li>übergeordnete Systeme (ERP, MES) (vertikal)</li>
+</ul></li>
+<li>erfassen/persistieren von Daten nahe der Maschine
+<ul>
+<li>minimieren v. Latenzen, Kommunikationsaufwand</li>
+<li>kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)</li>
+</ul></li>
+<li>Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware</li>
+</ul>
 <p><strong>Arbeiten (Auszug)</strong></p>
 <ul>
 <li>Moctezuma: Retrofitting mit smart Remote Terminal Unit (SOA)</li>
@@ -510,11 +510,7 @@
 <h1>Implikationen</h1>
 <div style="font-size: 80%">
 <ul>
-<li>nahtlose Integration von Altanlagen
-<ul>
-<li>horizontal: OPC Unified Architecture</li>
-<li>vertikal: Web-Services mit DPWS</li>
-</ul></li>
+<li>nahtlose Integration von Altanlagen</li>
 <li>Steuerung/Überwachung ortsunabhängig &amp; durch Subsysteme mgl.</li>
 <li>Minderung manueller Tätigkeiten ⇒ Beschleunigung der Produktion</li>
 <li>zentrale Auswertung von Betriebs- &amp; Prozessinformationen</li>
@@ -564,6 +560,7 @@
 </section>
 <section id="opc-ua-transportvarianten" class="slide level1" footer="false" count="false">
 <h1>OPC UA Transportvarianten</h1>
+<p><small style="position: absolute; top: 120pt;">von ascolab.com/de/unified-architecture/protokolle.html</small></p>
 <div style="position: absolute; top: 130pt; left: 80pt; height: 75%; width: 75%">
 <figure>
 <img src="figures/opcua-transport.png" />
@@ -572,6 +569,7 @@
 </section>
 <section id="mape-k-kontrollschleife" class="slide level1" footer="false" count="false">
 <h1>MAPE-K Kontrollschleife</h1>
+<p><small style="position: absolute; top: 120pt;">nach <span class="citation" data-cites="IBM2006">[9]</span></small></p>
 <div style="position: absolute; top: 110pt; left: 60pt; height: 85%; width: 85%">
 <figure>
 <img src="figures/mapek.png" />
@@ -580,6 +578,7 @@
 </section>
 <section id="maschinenüberwachung" class="slide level1" footer="false" count="false">
 <h1>Maschinenüberwachung</h1>
+<p><small style="position: absolute; top: 120pt;">aus <span class="citation" data-cites="Teti2010">[16]</span></small></p>
 <div style="position: absolute; top: 160pt; left: 0pt; height: 100%; width: 100%">
 <figure>
 <img src="figures/monitoring-kategorien.png" />
@@ -588,6 +587,7 @@
 </section>
 <section id="ffz-des-ift-wien" class="slide level1" footer="false" count="false">
 <h1>FFZ des IFT Wien</h1>
+<p><small style="position: absolute; top: 120pt;">aus <span class="citation" data-cites="Ayatollahi2013">[7]</span></small></p>
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 <figure>
 <img src="figures/ffz-ift.png" />
@@ -596,6 +596,7 @@
 </section>
 <section id="remote-terminal-unit" class="slide level1" footer="false" count="false">
 <h1>Remote Terminal Unit</h1>
+<p><small style="position: absolute; top: 120pt;">aus <span class="citation" data-cites="Moctezuma2012">[5]</span></small></p>
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 <figure>
 <img src="figures/rtu-retrofitting.png" />
@@ -604,6 +605,7 @@
 </section>
 <section id="automatisierungsmodule" class="slide level1" footer="false" count="false">
 <h1>Automatisierungsmodule</h1>
+<p><small style="position: absolute; top: 120pt;">aus <span class="citation" data-cites="Durkop2014">[6]</span></small></p>
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 <figure>
 <img src="figures/module-field-level.png" />
@@ -612,6 +614,7 @@
 </section>
 <section id="modellerweiterung-zur-steuerung" class="slide level1" footer="false" count="false">
 <h1>Modellerweiterung zur Steuerung</h1>
+<p><small style="position: absolute; top: 120pt;">nach <span class="citation" data-cites="Ayatollahi2013">[7]</span></small></p>
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 <figure>
 <img src="figures/opc4factory.png" />
@@ -729,6 +732,9 @@
 </div>
 <div id="ref-Wang2004">
 <p>[15] L. Wang, P. Orban, A. Cunningham, und S. Lang, „Remote real-time CNC machining for web-based manufacturing“, <em>Robotics and Computer-Integrated Manufacturing</em>, Bd. 20, Nr. 6, S. 563–571, 2004. </p>
+</div>
+<div id="ref-Teti2010">
+<p>[16] R. Teti, K. Jemielniak, G. O’Donnell, und D. Dornfeld, „Advanced monitoring of machining operations“, <em>CIRP Annals - Manufacturing Technology</em>, Bd. 59, Nr. 2, S. 717–739, 2010. </p>
 </div>
 </div>
 </section>
