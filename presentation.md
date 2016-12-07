@@ -86,7 +86,7 @@
 
 # Motivation
 
-<small style="position: absolute; top: 130pt;">nach @Hammerstingl2015</small>
+<small style="position: absolute; top: 120pt;">nach @Hammerstingl2015</small>
 
 <div style="position: relative; top: -70pt;"> 
   ![](figures/automationsstruktur)
@@ -136,7 +136,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
     - Einplatinencomputern für Integrationshardware
 * prototypische Implementierung (Machbarkeit)
 * Aufbau Test-Infrastruktur
-* **zuerst**: Anforderungen für die Integration
+* **zuerst**: Stand der Technik
 </div>
 
 # Forschungsstand {footer=false header=false count=false .center}
@@ -144,18 +144,6 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 <div class="notes">
 * beantwortet der aktuelle Stand der Technik die Fragen?
 * welche Anforderungen sind dabei relevant?
-
-**Anforderungen** 
-
-* Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
-* Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
-* Heterogenität: standardisierte Informationsprotokolle und -modelle 
-    - einheitliche M2M-Kommunikation (horizontal)
-    - übergeordnete Systeme (ERP, MES) (vertikal)
-* erfassen/persistieren von Daten nahe der Maschine
-    - minimieren v. Latenzen, Kommunikationsaufwand
-    - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
-* Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
 </div>
 
 #  {.center}
@@ -183,6 +171,18 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 </div> 
 
 <div class="notes">
+**Anforderungen** 
+
+* Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
+* Subsysteme des CPPS übernehmen Zustandserfassung, Störfalldiagnose, Programmdelegation
+* Heterogenität: standardisierte Informationsprotokolle und -modelle 
+    - einheitliche M2M-Kommunikation (horizontal)
+    - übergeordnete Systeme (ERP, MES) (vertikal)
+* erfassen/persistieren von Daten nahe der Maschine
+    - minimieren v. Latenzen, Kommunikationsaufwand
+    - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
+* Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
+
 **Arbeiten (Auszug)**
 
   * Moctezuma: Retrofitting mit smart Remote Terminal Unit (SOA)
@@ -338,8 +338,6 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 <div style="font-size: 80%">
 * nahtlose Integration von Altanlagen
-    - horizontal: OPC Unified Architecture
-    - vertikal: Web-Services mit DPWS
 * Steuerung/Überwachung ortsunabhängig &amp; durch Subsysteme mgl.
 * Minderung manueller Tätigkeiten ⇒ Beschleunigung der Produktion
 * zentrale Auswertung von Betriebs- &amp; Prozessinformationen
@@ -380,11 +378,15 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # OPC UA Transportvarianten {footer=false count=false}
 
+<small style="position: absolute; top: 120pt;">von ascolab.com/de/unified-architecture/protokolle.html</small>
+
 <div style="position: absolute; top: 130pt; left: 80pt; height: 75%; width: 75%">
 ![](figures/opcua-transport)
 </div>
 
 # MAPE-K Kontrollschleife {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">nach @IBM2006</small>
 
 <div style="position: absolute; top: 110pt; left: 60pt; height: 85%; width: 85%">
 ![](figures/mapek)
@@ -392,11 +394,15 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Maschinenüberwachung {footer=false count=false}
 
+<small style="position: absolute; top: 120pt;">aus @Teti2010</small>
+
 <div style="position: absolute; top: 160pt; left: 0pt; height: 100%; width: 100%">
 ![](figures/monitoring-kategorien)
 </div>
 
 # FFZ des IFT Wien {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">aus @Ayatollahi2013</small>
 
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 ![](figures/ffz-ift)
@@ -404,17 +410,23 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Remote Terminal Unit {footer=false count=false}
 
+<small style="position: absolute; top: 120pt;">aus @Moctezuma2012</small>
+
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 ![](figures/rtu-retrofitting)
 </div>
 
 # Automatisierungsmodule {footer=false count=false}
 
+<small style="position: absolute; top: 120pt;">aus @Durkop2014</small>
+
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 ![](figures/module-field-level)
 </div>
 
 # Modellerweiterung zur Steuerung {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">nach @Ayatollahi2013</small>
 
 <div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
 ![](figures/opc4factory)
