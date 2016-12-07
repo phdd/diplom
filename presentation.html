@@ -52,19 +52,20 @@
 <aside class="notes">
 <ul>
 <li>Design Science Research Methodology</li>
+<li>Einleitung: Grundlagen, Motivation, Forschungsfragen</li>
 </ul>
 </aside>
 </section>
 <section id="einleitung" class="slide level1 center" footer="false" header="false" count="false">
 <h1>Einleitung</h1>
 <aside class="notes">
-<p><strong>Kontext: produzierende Industrie</strong></p>
+<ul>
+<li><strong>Kontext: produzierende Industrie</strong></li>
+<li>Industrielle Revolutionen</li>
+</ul>
 <ol type="1">
 <li>ca. 1750 erste dampfbetr. Arbeitsmaschinen</li>
-<li>Ende 19. Jhd. erste Massenproduktion
-<ul>
-<li>NC seit 1950</li>
-</ul></li>
+<li>Ende 19. Jhd. erste Massenproduktion</li>
 <li>1969 erste SPS (beginn IT-gestützter Produktion)</li>
 <li>Schlagwort I4.0 seit 2011
 <ul>
@@ -81,20 +82,12 @@
 <img src="figures/fertigungsautomatisierung.png" />
 </figure>
 </div>
-<div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
-<figure>
-<img src="figures/automatisierungspyramide.png" />
-</figure>
-</div>
+<!--div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
+  ![](figures/automatisierungspyramide)
+</div-->
 <aside class="notes">
 <ul>
-<li><strong>SCADA</strong>: Supervisory Control and Data Acquisition<br />
-überwachen/steuern techn. Prozesse mit Computersystem</li>
-<li>Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung</li>
-<li>Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse</li>
-<li>Level 2: je nach Größe weiter unterteilt (Verb. FFZ)</li>
-<li>Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung</li>
-<li>Level 0: physikalischer Prozess</li>
+<li>Autom.: DIN 19233, ist &quot;das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet&quot;</li>
 </ul>
 </aside>
 </section>
@@ -113,17 +106,20 @@
 </div>
 <aside class="notes">
 <ul>
+<li>Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung</li>
+<li>Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse</li>
+<li>Level 2: je nach Größe weiter unterteilt (Verb. FFZ)</li>
+<li>Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung</li>
+<li><p>Level 0: physikalischer Prozess</p></li>
 <li>CPS nach Lee 2008:
 <ul>
-<li>Integration von Informationsverarbeitung und physischen Prozessen</li>
-<li>physische Abläufe durch Sensoren und Aktuatoren überwacht/beeinflusst</li>
+<li>Sensoren/Aktuatoren überwachen/beeinflussen physische Abläufe</li>
 <li>Rückkopplung durch Kontrollschleifen</li>
 </ul></li>
 <li>CPPS nach Bergweiler 2015:
 <ul>
 <li>Produkte, Maschinen, Ressourcen durch CPS repräsentiert</li>
 <li>Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt</li>
-<li>Maschinenparameter, Produktionsprozesse, Produkte</li>
 </ul></li>
 </ul>
 </aside>
@@ -143,9 +139,6 @@
 <li>sicherer, zuverlässiger Informationsaustausch</li>
 <li>Plattform- und Herstellerunabhängigkeit</li>
 <li>standardisierte Kommunikation über Internet und Firewalls</li>
-<li>serviceorientierte Architektur (SOA)</li>
-<li>Schutz vor unerlaubtem Zugriff</li>
-<li>Erreichbarkeit und Zuverlässigkeit</li>
 <li>Vereinfachung durch Vereinheitlichung</li>
 </ul></li>
 </ul>
@@ -188,9 +181,9 @@
 <p><br><br> Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?</p>
 <div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;background-color: white">
 <ol type="1">
-<li><p>Welche System- und <strong>Softwarearchitektur</strong> ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?</p></li>
+<li><p>Welche System- und <strong>Softwarearchitektur</strong> ist für die Steuerung und Überwachung veralteter Maschinen im Kontext von CPPS geeignet?</p></li>
 <li><p>Wie und wo werden <strong>Informationen zur Maschine</strong> erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?</p></li>
-<li>Welche <strong>standardisierten Protokolle</strong> und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?</li>
+<li>Welche <strong>standardisierten Protokolle</strong> und Datenstrukturen eignen sich für Kommunikation in einem CPPS?</li>
 </ol>
 </div>
 <aside class="notes">
@@ -301,7 +294,7 @@
 <aside class="notes">
 <p><strong>Arbeiten (Auszug)</strong></p>
 <ul>
-<li>Moctezuma: Retrofitting mit smart Remote Terminal Unit</li>
+<li>Moctezuma: Retrofitting mit smart Remote Terminal Unit (SOA)</li>
 <li>Dürkop: Autom.-Module mit WS, Kapselung der RT</li>
 <li>Ayatollahi: OPC UA für CNC + Model, <strong>R4:</strong>
 <ul>
@@ -318,9 +311,8 @@
 <h1>Konzeption</h1>
 <aside class="notes">
 <ul>
-<li>VMR als standardisierendes Element</li>
 <li>Auf Basis von Szenarien + Anwendungsfällen</li>
-<li>Erweiterung des Modells von Ayatollahi et al.</li>
+<li>VMR als standardisierendes Element</li>
 </ul>
 </aside>
 </section>
