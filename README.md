@@ -6,7 +6,9 @@
 
 ## Final Documents
 
-* [30.08.2016 - Presentation: interim findings](https://github.com/phdd/diplom/raw/master/Peter%20Heisig%20-%20Abstraktion%20verteilter%20Produktionssysteme%20in%20CPPS%20-%20Zwischenpr%C3%A4sentation%20Diplomarbeit.pdf)
+* [30.08.2016 - Interim Presentation](https://github.com/phdd/diplom/raw/master/Zwischenpräsentation.final.pdf)
+* [29.11.2016 - Final Thesis](https://github.com/phdd/diplom/raw/master/Diplomarbeit.final.pdf)
+* [07.12.2016 - Defense Presentation](https://github.com/phdd/diplom/raw/master/Verteidigung.final.pdf)
 
 ## Requirements
 
