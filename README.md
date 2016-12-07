@@ -6,7 +6,7 @@
 
 ## Final Documents
 
-* [30.08.2016 - Presentation: interim findings](https://github.com/phdd/diplom/raw/master/Zwischenpräsentation.final.pdf)
+* [30.08.2016 - Interim Presentation](https://github.com/phdd/diplom/raw/master/Zwischenpräsentation.final.pdf)
 * [29.11.2016 - Final Thesis](https://github.com/phdd/diplom/raw/master/Diplomarbeit.final.pdf)
 * [07.12.2016 - Defense Presentation](https://github.com/phdd/diplom/raw/master/Verteidigung.final.pdf)
 
