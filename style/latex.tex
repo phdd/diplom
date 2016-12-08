@@ -1,10 +1,12 @@
-\documentclass[DIV10, parskip=full*, headings=big, twopage, 10.5pt, cleardoublepage=plain,
-   			bibliography=totoc, listof=totoc, BCOR=12mm,
+\documentclass[DIV10, parskip=full*, headings=big, 10.5pt,
+   			bibliography=totoc, listof=totoc, BCOR=12mm, twoside=false,
    			numbers=noenddot]{scrbook}
 
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=3cm,bmargin=3.3cm]{geometry}
 
 \usepackage[ngerman]{babel}
 
@@ -169,7 +171,7 @@ $endfor$
 	menucolor=lc,
 	urlcolor=lc,
 	pdfauthor={$author$},
-	pdftitle={$title$},
+	pdftitle={$titlePlain$},
 }
 
 \usepackage[automark, footsepline]{scrpage2}
@@ -199,8 +201,8 @@ $endfor$
 
 %%%%%%%%%% Pagina und Kolumnentitel %%%%%%%%%%%%%
 \pagestyle{scrheadings}
-\rohead{\headmark}
-\ofoot{\pagemark}
+%\rohead{\headmark}
+%\ofoot{\pagemark}
 \setheadsepline{0.5pt}
 \setfootsepline{0pt}
 
@@ -265,18 +267,15 @@ $endfor$
 \centering
 \begin{minipage}[b]{\textwidth/2-0.1cm+0.85cm}
 \begin{flushleft}
-$date$\\ \vspace{1em}
 $author$\\ \vspace{0.25em}
-Matr.-Nr.: $matrikel$
+$date$\\ \vspace{1em}
 \end{flushleft}
 \end{minipage}
 \begin{minipage}[b]{\textwidth/2-0.1cm-0.85cm}
 \begin{flushleft}
-\textbf{\textsf{Betreuer}}\\ \vspace{0.25em}
-$advisor$\\
+
 \vspace{1em}
-\textbf{\textsf{Verantwortl. Hochschullehrer}}\\ \vspace{0.25em}
-$teacher$
+
 \end{flushleft}
 \end{minipage}
 \end{figure}
@@ -284,7 +283,7 @@ $teacher$
 \end{flushleft}
 
 \end{titlepage}
-\newpage\null\thispagestyle{empty}\newpage
+\clearpage
 
 % ---------------------------------------------------------------------------------
 %   DANKSAGUNG
@@ -295,33 +294,6 @@ $teacher$
 \section*{Danksagung}
 \input{acknowledgements.tex}
 \clearpage
-\newpage\null\thispagestyle{empty}\newpage
-
-% ---------------------------------------------------------------------------------
-%   SELBSTÄNDIGKEITSERKLÄRUNG
-% ---------------------------------------------------------------------------------
-
-\thispagestyle{empty}
-\vspace*{\fill}
-
-\section*{Selbstständigkeitserklärung}
-Hiermit erkläre ich, dass ich die vorliegende Arbeit mit dem Titel
-
-\vspace*{1em}
-\begin{large}
-\textsf{\textbf{$title$}}
-\end{large}
-\vspace*{1em}
-
-unter Angabe aller Zitate und nur unter Verwendung der angegebenen Literatur
-und Hilfsmittel selbstständig angefertigt habe.
-
-Dresden, den $date$\\
-\vspace*{3em}
-
-\emph{$author$}
-
-\newpage\null\thispagestyle{empty}\newpage
 
 % ---------------------------------------------------------------------------------
 %   INHALTSVERZEICHNIS
