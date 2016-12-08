@@ -8,18 +8,18 @@
 * [Ausblick](#ausblick)
 
 <div class="notes">
-  * Einleitung: Grundlagen, Motivation, Fragen, Anforderungen
-  * 
+* Design Science Research Methodology
+* Einleitung: Grundlagen, Motivation, Forschungsfragen
 </div>
 
 # Einleitung {footer=false header=false count=false .center}
 
 <div class="notes">
-**Kontext: produzierende Industrie**
+* **Kontext: produzierende Industrie**
+* Industrielle Revolutionen
 
 1. ca. 1750 erste dampfbetr. Arbeitsmaschinen
 2. Ende 19. Jhd. erste Massenproduktion
-    * NC seit 1950
 3. 1969 erste SPS (beginn IT-gestützter Produktion)
 4. Schlagwort I4.0 seit 2011
     * Kombination mit IoT/CPS
@@ -33,18 +33,12 @@
 ![](figures/fertigungsautomatisierung)
 </div>
 
-<div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
+<!--div class="fragment" style="position:absolute;top:105pt;width:100%;height:100%;">
   ![](figures/automatisierungspyramide)
-</div>
+</div-->
 
 <div class="notes">
-* **SCADA**: Supervisory Control and Data Acquisition  
-  überwachen/steuern techn. Prozesse mit Computersystem
-* Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung
-* Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse
-* Level 2: je nach Größe weiter unterteilt (Verb. FFZ) 
-* Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung
-* Level 0: physikalischer Prozess
+* Autom.: DIN 19233, ist "das Ausrüsten einer Einrichtung, so dass sie ganz oder teilweise ohne Mitwirkung des Menschen bestimmungsgemäß arbeitet"
 </div>
 
 # Cyber-physische Systeme
@@ -60,14 +54,18 @@
 </div>
 
 <div class="notes">
+* Level 4: marktrelev. Unternehmensführung, Personal-, Produktionsplanung
+* Level 3: Auftragsbearbeitung und Produktionsplanung, Terminüberwachung und Kostenanalyse
+* Level 2: je nach Größe weiter unterteilt (Verb. FFZ) 
+* Level 1: Aktuatoren/Sensoren zur Datenerfassung/Steuerung
+* Level 0: physikalischer Prozess
+
 * CPS nach Lee 2008: 
-    - Integration von Informationsverarbeitung und physischen Prozessen
-    - physische Abläufe durch Sensoren und Aktuatoren überwacht/beeinflusst
+    - Sensoren/Aktuatoren überwachen/beeinflussen physische Abläufe
     - Rückkopplung durch Kontrollschleifen
 * CPPS nach Bergweiler 2015:
     - Produkte, Maschinen, Ressourcen durch CPS repräsentiert
     - Informationen und Dienste über Netzwerk der Produktionsstrecke geteilt
-    - Maschinenparameter, Produktionsprozesse, Produkte
 </div>
 
 # OPC Unified Architecture
@@ -83,15 +81,12 @@
     * sicherer, zuverlässiger Informationsaustausch
     * Plattform- und Herstellerunabhängigkeit
     * standardisierte Kommunikation über Internet und Firewalls
-    * serviceorientierte Architektur (SOA)
-    * Schutz vor unerlaubtem Zugriff
-    * Erreichbarkeit und Zuverlässigkeit
     * Vereinfachung durch Vereinheitlichung
 </div>
 
 # Motivation
 
-<small style="position: absolute; top: 130pt;">nach @Hammerstingl2015</small>
+<small style="position: absolute; top: 120pt;">nach @Hammerstingl2015</small>
 
 <div style="position: relative; top: -70pt;"> 
   ![](figures/automationsstruktur)
@@ -121,11 +116,11 @@ Verarbeitung der Daten ausgebaut
 Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infrastrukturelle Kontext einer Altmaschine unterliegen, um eine ganzheitliche Integration in CPPS gewährleisten zu können?
 
 <div class="fragment" style="position:absolute;top:130pt;width:100%;height:100%;background-color: white">
-1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter CNC-Maschinen im Kontext von CPPS geeignet?
+1. Welche System- und **Softwarearchitektur** ist für die Steuerung und Überwachung veralteter Maschinen im Kontext von CPPS geeignet?
 
 2. Wie und wo werden **Informationen zur Maschine** erfasst, verarbeitet, persistiert und Fremdsystemen zur Verfügung gestellt?
 
-3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für M2M-Kommunikation in einem CPPS?
+3. Welche **standardisierten Protokolle** und Datenstrukturen eignen sich für Kommunikation in einem CPPS?
 </div>
 
 <div class="notes">
@@ -141,7 +136,7 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
     - Einplatinencomputern für Integrationshardware
 * prototypische Implementierung (Machbarkeit)
 * Aufbau Test-Infrastruktur
-* **zuerst**: Anforderungen für die Integration
+* **zuerst**: Stand der Technik
 </div>
 
 # Forschungsstand {footer=false header=false count=false .center}
@@ -149,7 +144,33 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 <div class="notes">
 * beantwortet der aktuelle Stand der Technik die Fragen?
 * welche Anforderungen sind dabei relevant?
+</div>
 
+#  {.center}
+
+<br>
+<div style="font-size: 60%!important; position: absolute; top: 30pt">
+
++------------------------+-------------+-----------+-----------+-----------+---------------+
+|                        | Überwachung | Steuerung | Standards | Lokalität | Integrations- |
+|                        |             |           |           |           |    Hardware   |
++========================+=============+===========+===========+===========+===============+
+| Moctezuma et al. 2012  | `●`         | `●`       | `●`       | `●`       | `○`           |
+| @Moctezuma2012         |             |           |           |           |               |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Dürkop et al. 2014     | `●`         | `●`       | `●`       | `●`       | `○`           |
+| @Durkop2014            |             |           |           |           |               |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Ayatollahi et al. 2013 | `●`         | `●`       | `●`       | `◐`       | `○`           |
+| @Ayatollahi2013        |             |           |           |           |               |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+| Lee et al. 2015        | `●`         | `○`       | `○`       | `◐`       | `○`           |
+| @Lee2015               |             |           |           |           |               |
++------------------------+-------------+-----------+-----------+-----------+---------------+
+
+</div> 
+
+<div class="notes">
 **Anforderungen** 
 
 * Betriebs-/Prozessdatenerfassung &amp; Steuerung ortsunsabh.
@@ -161,31 +182,10 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
     - minimieren v. Latenzen, Kommunikationsaufwand
     - kapseln v. Ausnahmesituationen (Komplexität d. Gesamtsystems = Divide &amp; Conquer)
 * Ökonomie der Modernisierung: Einplatinencomputer als Integrationshardware
-</div>
 
-#  {.center}
-
-<br>
-<div style="font-size: 66%!important; position: absolute; top: 10pt">
-
-+------------------------+-------------+-----------+-----------+-----------+---------------+
-|                        | Überwachung | Steuerung | Standards | Lokalität | Integrations- |
-|                        |             |           |           |           |    Hardware   |
-+========================+=============+===========+===========+===========+===============+
-| Moctezuma et al. 2012  | `●`         | `●`       | `●`       | `●`       | `○`           |
-+------------------------+-------------+-----------+-----------+-----------+---------------+
-| Dürkop et al. 2014     | `●`         | `●`       | `●`       | `●`       | `○`           |
-+------------------------+-------------+-----------+-----------+-----------+---------------+
-| Ayatollahi et al. 2013 | `●`         | `●`       | `●`       | `◐`       | `○`           |
-+------------------------+-------------+-----------+-----------+-----------+---------------+
-| Lee et al. 2015        | `●`         | `○`       | `○`       | `◐`       | `○`           |
-+------------------------+-------------+-----------+-----------+-----------+---------------+
-
-</div> 
-<div class="notes">
 **Arbeiten (Auszug)**
 
-  * Moctezuma: Retrofitting mit smart Remote Terminal Unit
+  * Moctezuma: Retrofitting mit smart Remote Terminal Unit (SOA)
   * Dürkop: Autom.-Module mit WS, Kapselung der RT
   * Ayatollahi: OPC UA für CNC + Model, **R4:**
       - Erfassen Maschinendaten
@@ -196,9 +196,8 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 # Konzeption {footer=false header=false count=false .center}
 
 <div class="notes">
-* VMR als standardisierendes Element
 * Auf Basis von Szenarien + Anwendungsfällen
-* Erweiterung des Modells von Ayatollahi et al. 
+* VMR als standardisierendes Element
 </div>
 
 # Systemkontext
@@ -227,10 +226,19 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 ![](figures/opc4factory-runtime)
 </div>
 
+<div class="notes">
+* Lokales Kontextmodell
+* Laufzeit-Adaptionsmodell
+</div>
+
 # Framework
 
 <div style="position: absolute; top: 120pt; left: 100pt; height: 80%; width: 80%">
 ![](figures/framework)
+</div>
+
+<div class="notes">
+* MAPE-K!! @IBM2006
 </div>
 
 # Verteilung
@@ -260,7 +268,11 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 </div>
 
-# {.center data-background-image=figures/software.png data-background-size=contain}
+# 
+
+<div style="position: relative; top: -170pt; left: -120pt; height: 130%; width: 130%">
+![](figures/software)
+</div>
 
 # Demonstration
 
@@ -270,17 +282,200 @@ Welchen softwaretechnologischen Konzepten muss die Modernisierung und der infras
 
 # Evaluation {footer=false header=false count=false .center}
 
-# Implikationen
-
 # Vergleich zum Forschungsstand
+
+<div style="font-size: 70%">
+* Moctezuma et al. 2012 @Moctezuma2012
+    - Dreischichtarchitektur für lokale Datenverarbeitung
+    - Standardisierte Kommunikation durch OPC UA
+* Dürkop et al. 2014 @Durkop2014
+    - Web-Services zur vertikalen Integration
+    - Kommunikation zwischen Modulen erlaubt
+* Ayatollahi et al. 2012 @Ayatollahi2013
+    - Erweiterung des OPC UA Modells für CPPS
+    - Regeln für Autonomie im Informationsmodell
+* Lee et al. 2015 @Lee2015
+    - VMR in 5C-Schichten für CPPS integriert
+    - lokales Adaptivitätskonzept konkretisiert
+* Einplatinencomputer als Integrationshardware
+</div>
+
+<div class="notes">
+* Komm. zw. Dürkop Modulen:
+    - Hierarchisierung des Info.-Austauschs
+    - WS-Entlastung
+* lokales Adaptivitätskonzept nach Lee:
+    - Conversion + Smart-Connection Ebene implementiert
+</div>
 
 # Ergebnisse
 
-# Ausblick {footer=false header=false count=false .center}
+<div style="font-size: 80%">
+* Retrofitting bedarf geschichteter System-/Softwarearchitektur
+* Maschinenrepräsentant
+    - wandelt Daten in Informationen
+    - abstrahiert Steuerung
+* Rückkopplung für teilautonome Handlung und Adaption 
+* horizontale Kommunikation durch Standardisierung mit OPC UA
+* Service-orientierte Architektur für vertikale Integration mit DPWS
+* Datenverarbeitung/-persistenz nahe der Maschine für Hierarchisierung
+* cyber-physische Hardwareadapter bilden Schnittstelle
+</div>
+
+<div class="notes">
+* Limitationen: Rückkopplung
+    - imperativ, nicht deskriptiv
+    - keine logischen Verknüpfungen
+    - zeitliche Beschränkungen fehlen
+    - Regelkonflikte
+* Konzept für Dürkop-Module?
+* konkrete Verortung von Sensoren/Aktuatoren?
+* übergeordnete Produktionssteuerung?
+* quantitative Evaluation/Fallstudie?
+</div>
+
+# Implikationen
+
+<div style="font-size: 80%">
+* nahtlose Integration von Altanlagen
+* Steuerung/Überwachung ortsunabhängig &amp; durch Subsysteme mgl.
+* Minderung manueller Tätigkeiten ⇒ Beschleunigung der Produktion
+* zentrale Auswertung von Betriebs- &amp; Prozessinformationen
+* Hierarchisierung von Datenverarbeitung und Persistenz
+* Verbesserung von Skalierbarkeit &amp; Rekonfiguration
+* einheitliche Modellierung von Anlagenstruktur &amp; Rückkopplung 
+* kostengünstige Modernisierung durch Einplatinencomputer
+</div>
+
+<div class="notes">
+* Skalierbarkeit/Rekonfiguration durch dezentrale Kommunikations- und Informationsarchitektur
+</div>
+
+# Ausblick 
+
+<div style="font-size: 80%">
+* komplexe Regeln zur Rückkopplung 
+* externe Rückkopplung auf Cyber-Ebene der 5C-Architektur @Lee2015
+* cyber-phys. Workflows &amp; PROtEUS für Produktionssteuerung @Seiger2016
+* OPC UA &amp; DPWS mit gemeinsamen Modell @Bony2011
+* MDSD und UML für gemeinsame Modelle @Pauker2016
+* Modernisierung von Werkzeugmaschinen mit STEP-NC [@Suh2003;@Xu2006]
+* OPC UA und Echtzeit mit Time Sensitive Networking
+* Nutzungsschnittstellen und Interaktion @Wang2004
+</div>
+
+# <span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span> {footer=false header=false count=false .center data-background-image=figures/stu.png data-background-size=cover data-background-position="right bottom"}
+
+<div style="position: relative; bottom: -150pt; font-size: 60%; color: #888">
+<p><i class="fa fa-envelope fa-1x"></i>&nbsp;&nbsp;peter.heisig@tu-dresden.de</p>
+<p><i class="fa fa-github-alt fa-1x"></i>&nbsp;&nbsp;github.com/phdd/diplom</p>
+</div>
 
 <div class="notes">
 * Zusammenfassung
 * Danksagung
 </div>
 
-# <span style="color: #BBB; font-size: 60%">That's it.</span><br><span style="color: white">Questions?</span> {footer=false header=false count=false .center data-background-image=figures/stu.png data-background-size=cover data-background-position="right bottom"}
+# OPC UA Transportvarianten {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">von ascolab.com/de/unified-architecture/protokolle.html</small>
+
+<div style="position: absolute; top: 130pt; left: 80pt; height: 75%; width: 75%">
+![](figures/opcua-transport)
+</div>
+
+# MAPE-K Kontrollschleife {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">nach @IBM2006</small>
+
+<div style="position: absolute; top: 110pt; left: 60pt; height: 85%; width: 85%">
+![](figures/mapek)
+</div>
+
+# Maschinenüberwachung {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">aus @Teti2010</small>
+
+<div style="position: absolute; top: 160pt; left: 0pt; height: 100%; width: 100%">
+![](figures/monitoring-kategorien)
+</div>
+
+# FFZ des IFT Wien {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">aus @Ayatollahi2013</small>
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/ffz-ift)
+</div>
+
+# Remote Terminal Unit {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">aus @Moctezuma2012</small>
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/rtu-retrofitting)
+</div>
+
+# Automatisierungsmodule {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">aus @Durkop2014</small>
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/module-field-level)
+</div>
+
+# Modellerweiterung zur Steuerung {footer=false count=false}
+
+<small style="position: absolute; top: 120pt;">nach @Ayatollahi2013</small>
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/opc4factory)
+</div>
+
+# CPPS Modellerweiterung {footer=false count=false}
+
+<div style="position: absolute; top: 170pt; left: 0pt; height: 100%; width: 100%">
+![](figures/opcua-cpps)
+</div>
+
+# Horizontale Integration {footer=false count=false}
+
+<div style="position: absolute; top: 200pt; left: 0pt; height: 100%; width: 100%">
+![](figures/horizontale-integration)
+</div>
+
+# Vertikale Integration {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 85%; width: 85%">
+![](figures/vertikale-integration)
+</div>
+
+# Initialisierung des Frameworks {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 80%; width: 80%">
+![](figures/framework-init)
+</div>
+
+# Methodendelegation {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/methodendelegation)
+</div>
+
+# Kontextveränderung {footer=false count=false}
+
+<div style="position: absolute; top: 150pt; left: 0pt; height: 100%; width: 100%">
+![](figures/context-update)
+</div>
+
+# Rückkopplung {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 50pt; height: 80%; width: 80%">
+![](figures/feedback)
+</div>
+
+# Organisation des Frameworks {footer=false count=false}
+
+<div style="position: absolute; top: 130pt; left: 0pt; height: 100%; width: 100%">
+![](figures/organisation)
+</div>
