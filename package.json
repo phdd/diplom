@@ -13,7 +13,9 @@
     "node-grovepi": "^2.0.9",
     "node-opcua": "git+https://github.com/phdd/node-opcua.git",
     "serialport": "^4.0.1",
-    "watchjs": "0.0.0"
+    "validator": "^6.2.0",
+    "watchjs": "0.0.0",
+    "ws": "^1.1.1"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

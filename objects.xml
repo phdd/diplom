@@ -5,437 +5,111 @@
         <Uri>urn:cpps</Uri>
     </NamespaceUris>
     <Aliases>
-        <Alias Alias="Boolean">i=1</Alias>
-        <Alias Alias="Double">i=11</Alias>
+        <Alias Alias="Int16">i=4</Alias>
+        <Alias Alias="Int32">i=6</Alias>
+        <Alias Alias="Float">i=10</Alias>
         <Alias Alias="String">i=12</Alias>
         <Alias Alias="Organizes">i=35</Alias>
         <Alias Alias="HasTypeDefinition">i=40</Alias>
         <Alias Alias="HasProperty">i=46</Alias>
         <Alias Alias="HasComponent">i=47</Alias>
-        <Alias Alias="HasEffect">i=54</Alias>
-        <Alias Alias="Argument">i=296</Alias>
-        <Alias Alias="Range">i=884</Alias>
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="jbLyz24OdYVbxLXmpHI5Gg==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="wvgLNr10MxqK2T9SXFIpDw==" Version="1.5.0"/>
         </Extension>
     </Extensions>
-    <UAObject NodeId="ns=1;i=5002" BrowseName="1:Lathe">
-        <DisplayName>Lathe</DisplayName>
+    <UAObject NodeId="ns=1;i=5002" BrowseName="1:Environment">
+        <DisplayName>Environment</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5004</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=5005</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5009</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5002" NodeId="ns=1;i=5001" BrowseName="2:KillSwitch">
-        <DisplayName>KillSwitch</DisplayName>
+    <UAObject NodeId="ns=1;i=5004" BrowseName="3:Worker">
+        <DisplayName>Worker</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6009</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6010</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1003</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7001</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1007</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5002</Reference>
         </References>
     </UAObject>
-    <UAObject ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=5005" BrowseName="3:Button">
-        <DisplayName>Button</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
-            <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
-        </References>
-    </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6002" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>ConnectionIdentifier</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-        </References>
-        <Value>
-            <uax:String>{"pin":4}</uax:String>
-        </Value>
-    </UAVariable>
-    <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6009" BrowseName="2:Kill_Switch_Pressed" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>Kill_Switch_Pressed</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="Boolean" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6010" BrowseName="2:Kill_Switch_Triggered" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>Kill_Switch_Triggered</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
-        </References>
-    </UAVariable>
-    <UAMethod ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=7001" BrowseName="2:Reset" MethodDeclarationId="ns=2;i=7017">
-        <DisplayName>Reset</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
-        </References>
-    </UAMethod>
-    <UAObject ParentNodeId="ns=1;i=5002" NodeId="ns=1;i=5004" BrowseName="2:LoadingDoor">
-        <DisplayName>LoadingDoor</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=7008</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6013</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5006</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7009</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5008</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1004</Reference>
-        </References>
-    </UAObject>
-    <UAMethod ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=7008" BrowseName="2:Close_Door" MethodDeclarationId="ns=2;i=7001">
-        <DisplayName>Close_Door</DisplayName>
+    <UAVariable DataType="Int16" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6004" BrowseName="2:ambientLight" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>ambientLight</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-        </References>
-    </UAMethod>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6013" BrowseName="2:Door_Status" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>Door_Status</DisplayName>
-        <Description>may be "open", "closed" or "undefined"</Description>
-        <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
-        <Value>
-            <uax:String></uax:String>
-        </Value>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5006" BrowseName="3:DoorLock">
-        <DisplayName>DoorLock</DisplayName>
+    <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5001" BrowseName="3:WioLink">
+        <DisplayName>WioLink</DisplayName>
         <References>
             <Reference ReferenceType="HasProperty">ns=1;i=6001</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=6001" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6001" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>ConnectionIdentifier</DisplayName>
         <References>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5006</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>{"pin":7}</uax:String>
+            <uax:String>{"token":"909ad5493bfcb0d2a0c4d4b19e0f57a0","address":"ws://192.168.12.17:8080/v1/node/event"}</uax:String>
         </Value>
     </UAVariable>
-    <UAMethod ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=7009" BrowseName="2:Open_Door" MethodDeclarationId="ns=2;i=7002">
-        <DisplayName>Open_Door</DisplayName>
+    <UAObject NodeId="ns=1;i=5005" BrowseName="3:Workspace">
+        <DisplayName>Workspace</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6018</Reference>
-        </References>
-    </UAMethod>
-    <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5008" BrowseName="3:OpeningGear">
-        <DisplayName>OpeningGear</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6011</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6009</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6011</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1006</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6010</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5003</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5002</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5008" NodeId="ns=1;i=6011" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>ConnectionIdentifier</DisplayName>
+    <UAVariable DataType="Int32" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6009" BrowseName="2:airQuality" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>airQuality</DisplayName>
         <References>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5008</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
         </References>
-        <Value>
-            <uax:String>null</uax:String>
-        </Value>
     </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5002" NodeId="ns=1;i=5003" BrowseName="2:NC">
-        <DisplayName>NC</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=7002</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6005</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6006</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5007</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1005</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7003</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7004</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7005</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7006</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=7007</Reference>
-        </References>
-    </UAObject>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7002" BrowseName="2:Assign_NC_Program" MethodDeclarationId="ns=2;i=7003">
-        <DisplayName>Assign_NC_Program</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasProperty">ns=1;i=6004</Reference>
-        </References>
-    </UAMethod>
-    <UAVariable DataType="Argument" ParentNodeId="ns=1;i=7002" ValueRank="1" NodeId="ns=1;i=6004" ArrayDimensions="1" BrowseName="InputArguments">
-        <DisplayName>InputArguments</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7002</Reference>
-        </References>
-        <Value>
-            <uax:ListOfExtensionObject>
-                <uax:ExtensionObject>
-                    <uax:TypeId>
-                        <uax:Identifier>i=297</uax:Identifier>
-                    </uax:TypeId>
-                    <uax:Body>
-                        <uax:Argument>
-                            <uax:Name>name</uax:Name>
-                            <uax:DataType>
-                                <uax:Identifier>i=12</uax:Identifier>
-                            </uax:DataType>
-                            <uax:ValueRank>-1</uax:ValueRank>
-                            <uax:ArrayDimensions/>
-                            <uax:Description/>
-                        </uax:Argument>
-                    </uax:Body>
-                </uax:ExtensionObject>
-            </uax:ListOfExtensionObject>
-        </Value>
-    </UAVariable>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6005" BrowseName="2:NC_Program" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>NC_Program</DisplayName>
+    <UAVariable DataType="Float" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6011" BrowseName="2:humidity" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>humidity</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6006" BrowseName="2:NC_Program_Status" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>NC_Program_Status</DisplayName>
-        <Description>may be "Reset", "Stop" or "Active"</Description>
+    <UAVariable DataType="Float" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6010" BrowseName="2:temperature" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>temperature</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6018</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
         </References>
-        <Value>
-            <uax:String></uax:String>
-        </Value>
     </UAVariable>
-    <UAVariable SymbolicName="StoppedCondition" DataType="String" NodeId="ns=1;i=6018" BrowseName="1:StopCondition" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>StopCondition</DisplayName>
-        <References>
-            <Reference ReferenceType="HasEffect">ns=1;i=7009</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6006</Reference>
-        </References>
-        <Value>
-            <uax:String>Stop</uax:String>
-        </Value>
-    </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5007" BrowseName="3:NCInterpreter">
-        <DisplayName>NCInterpreter</DisplayName>
+    <UAObject ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=5003" BrowseName="3:WioLink">
+        <DisplayName>WioLink</DisplayName>
         <References>
             <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6003" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6003" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>ConnectionIdentifier</DisplayName>
         <References>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5007</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>{"device":"/dev/ttyACM0"}</uax:String>
-        </Value>
-    </UAVariable>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7003" BrowseName="2:Receive_NC_Program" MethodDeclarationId="ns=2;i=7005">
-        <DisplayName>Receive_NC_Program</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6007</Reference>
-            <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-        </References>
-    </UAMethod>
-    <UAVariable DataType="Argument" ParentNodeId="ns=1;i=7003" ValueRank="1" NodeId="ns=1;i=6007" ArrayDimensions="1" BrowseName="InputArguments">
-        <DisplayName>InputArguments</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7003</Reference>
-        </References>
-        <Value>
-            <uax:ListOfExtensionObject>
-                <uax:ExtensionObject>
-                    <uax:TypeId>
-                        <uax:Identifier>i=297</uax:Identifier>
-                    </uax:TypeId>
-                    <uax:Body>
-                        <uax:Argument>
-                            <uax:Name>name</uax:Name>
-                            <uax:DataType>
-                                <uax:Identifier>i=12</uax:Identifier>
-                            </uax:DataType>
-                            <uax:ValueRank>-1</uax:ValueRank>
-                            <uax:ArrayDimensions/>
-                            <uax:Description/>
-                        </uax:Argument>
-                    </uax:Body>
-                </uax:ExtensionObject>
-            </uax:ListOfExtensionObject>
-        </Value>
-    </UAVariable>
-    <UAVariable DataType="Argument" ParentNodeId="ns=1;i=7003" ValueRank="1" NodeId="ns=1;i=6008" ArrayDimensions="1" BrowseName="OutputArguments">
-        <DisplayName>OutputArguments</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7003</Reference>
-        </References>
-        <Value>
-            <uax:ListOfExtensionObject>
-                <uax:ExtensionObject>
-                    <uax:TypeId>
-                        <uax:Identifier>i=297</uax:Identifier>
-                    </uax:TypeId>
-                    <uax:Body>
-                        <uax:Argument>
-                            <uax:Name>program</uax:Name>
-                            <uax:DataType>
-                                <uax:Identifier>i=12</uax:Identifier>
-                            </uax:DataType>
-                            <uax:ValueRank>-1</uax:ValueRank>
-                            <uax:ArrayDimensions/>
-                            <uax:Description/>
-                        </uax:Argument>
-                    </uax:Body>
-                </uax:ExtensionObject>
-            </uax:ListOfExtensionObject>
-        </Value>
-    </UAVariable>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7004" BrowseName="2:Reset_NC" MethodDeclarationId="ns=2;i=7006">
-        <DisplayName>Reset_NC</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-        </References>
-    </UAMethod>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7005" BrowseName="2:Start_NC" MethodDeclarationId="ns=2;i=7007">
-        <DisplayName>Start_NC</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-        </References>
-    </UAMethod>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7006" BrowseName="2:Stop_NC" MethodDeclarationId="ns=2;i=7008">
-        <DisplayName>Stop_NC</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasEffect" IsForward="false">ns=1;i=6020</Reference>
-        </References>
-    </UAMethod>
-    <UAMethod ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=7007" BrowseName="2:Transmit_NC_Program" MethodDeclarationId="ns=2;i=7004">
-        <DisplayName>Transmit_NC_Program</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6012</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-        </References>
-    </UAMethod>
-    <UAVariable DataType="Argument" ParentNodeId="ns=1;i=7007" ValueRank="1" NodeId="ns=1;i=6012" ArrayDimensions="2" BrowseName="InputArguments">
-        <DisplayName>InputArguments</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7007</Reference>
-        </References>
-        <Value>
-            <uax:ListOfExtensionObject>
-                <uax:ExtensionObject>
-                    <uax:TypeId>
-                        <uax:Identifier>i=297</uax:Identifier>
-                    </uax:TypeId>
-                    <uax:Body>
-                        <uax:Argument>
-                            <uax:Name>name</uax:Name>
-                            <uax:DataType>
-                                <uax:Identifier>i=12</uax:Identifier>
-                            </uax:DataType>
-                            <uax:ValueRank>-1</uax:ValueRank>
-                            <uax:ArrayDimensions/>
-                            <uax:Description/>
-                        </uax:Argument>
-                    </uax:Body>
-                </uax:ExtensionObject>
-                <uax:ExtensionObject>
-                    <uax:TypeId>
-                        <uax:Identifier>i=297</uax:Identifier>
-                    </uax:TypeId>
-                    <uax:Body>
-                        <uax:Argument>
-                            <uax:Name>program</uax:Name>
-                            <uax:DataType>
-                                <uax:Identifier>i=12</uax:Identifier>
-                            </uax:DataType>
-                            <uax:ValueRank>-1</uax:ValueRank>
-                            <uax:ArrayDimensions/>
-                            <uax:Description/>
-                        </uax:Argument>
-                    </uax:Body>
-                </uax:ExtensionObject>
-            </uax:ListOfExtensionObject>
-        </Value>
-    </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5002" NodeId="ns=1;i=5009" BrowseName="2:ToolTemperature">
-        <DisplayName>ToolTemperature</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1001</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6015</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5002</Reference>
-        </References>
-    </UAObject>
-    <UAVariable DataType="Double" ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=6015" BrowseName="2:Temperature" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>Temperature</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6020</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="Range" NodeId="ns=1;i=6020" BrowseName="1:OverheatCondition" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>OverheatCondition</DisplayName>
-        <References>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6015</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=2002</Reference>
-            <Reference ReferenceType="HasEffect">ns=1;i=7006</Reference>
-        </References>
-        <Value>
-            <uax:ExtensionObject>
-                <uax:TypeId>
-                    <uax:Identifier>i=885</uax:Identifier>
-                </uax:TypeId>
-                <uax:Body>
-                    <uax:Range>
-                        <uax:Low>21</uax:Low>
-                        <uax:High>1000</uax:High>
-                    </uax:Range>
-                </uax:Body>
-            </uax:ExtensionObject>
-        </Value>
-    </UAVariable>
-    <UAObject ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=5010" BrowseName="3:TemperatureSensor">
-        <DisplayName>TemperatureSensor</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty">ns=1;i=6014</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=3;i=1002</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
-        </References>
-    </UAObject>
-    <UAVariable DataType="String" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6014" BrowseName="3:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>ConnectionIdentifier</DisplayName>
-        <References>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-        </References>
-        <Value>
-            <uax:String>{"pin":8}</uax:String>
+            <uax:String>{"token":"d617fd2d2ba219ac8063d7eaf8caefc6","address":"ws://192.168.12.17:8080/v1/node/event"}</uax:String>
         </Value>
     </UAVariable>
 </UANodeSet>

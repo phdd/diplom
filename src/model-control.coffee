@@ -76,9 +76,12 @@ class ModelControl
       do (variable, object) =>
         addressSpaceVariable = object[u.addressSpaceNameOf variable]
         bindDescription = get: =>
-          new opcua.Variant
-            value: object.instance[variable]
-            dataType: addressSpaceVariable.dataType.value
+          if object.instance[variable] is null
+            return opcua.StatusCodes.BadDataUnavailable
+          else
+            new opcua.Variant
+              value: object.instance[variable]
+              dataType: addressSpaceVariable.dataType.value
 
         addressSpaceVariable.bindVariable bindDescription, true
         @FeedbackControl.listenTo addressSpaceVariable, variable, object.instance

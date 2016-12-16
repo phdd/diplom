@@ -27,7 +27,7 @@ Software you need is
 _objects.xml_ contains the OPC UA information model for the machine definition you may replace with your own (Namespace is _urn:objects_). Prefix the run command for debug output with ```DEBUG=vmr*```
 
 <!--
-grunt && scp objects.xml pi@192.168.2.12:/home/pi/vmr/ && scp -r dist/ pi@192.168.2.12:/home/pi/vmr/ && scp package.json pi@192.168.2.12:/home/pi/vmr/ && ssh -t pi@192.168.2.12 "NODE_ENV=production DEBUG=vmr* node vmr/dist/vmr.js --machineDefinition=objects.xml"
+grunt && scp objects.xml pi@192.168.12.17:/home/pi/vmr/ && scp -r dist/ pi@192.168.12.17:/home/pi/vmr/ && scp package.json pi@192.168.12.17:/home/pi/vmr/ && ssh -t pi@192.168.12.17 "NODE_ENV=production DEBUG=vmr* node vmr/dist/vmr.js --machineDefinition=objects.xml"
 -->
 
 # License
