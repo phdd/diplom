@@ -16,7 +16,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="wvgLNr10MxqK2T9SXFIpDw==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="lDSsH1YeJOeRYFPJlRwAkg==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5002" BrowseName="1:Environment">
@@ -109,7 +109,7 @@
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>{"token":"d617fd2d2ba219ac8063d7eaf8caefc6","address":"ws://192.168.12.17:8080/v1/node/event"}</uax:String>
+            <uax:String>{"token":"ed4102ac80e1a2a8bbc0955a7c0015aa","address":"ws://192.168.12.17:8080/v1/node/event"}</uax:String>
         </Value>
     </UAVariable>
 </UANodeSet>
