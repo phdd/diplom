@@ -1,9 +1,12 @@
 AbstractPhysicalWioLinkType = require './AbstractPhysicalWioLinkType'
+debug = require('debug')('vmr:equipment:PhysicalWorkerType')
 
-class PhysicalWorkspaceType extends AbstractPhysicalWioLinkType
+class PhysicalWorkerType extends AbstractPhysicalWioLinkType
 
   $ambientLight: null
   $loudness: null
+  $airQuality: null
+  $acceleration: null
 
   loudness:
     samplingStarted: false
@@ -51,11 +54,20 @@ class PhysicalWorkspaceType extends AbstractPhysicalWioLinkType
       @loudness.rms = 0.0
       @loudness.tmp = 0
 
+  onChange_airQuality: (value) =>
+    if 0 < value and value <= 1000
+      @$airQuality = Math.round(1 / value * 10000)
+
+  onChange_acceleration: (value) =>
+    debug "got #{value} but don't know how to handle..."
+
   onClose: =>
     clearInterval @loudness.writeInterval if @loudness.writeInterval != null
 
     @$ambientLight = null
     @$loudness = null
+    @$airQuality = null
+    @$acceleration = null
 
 #noinspection JSUnresolvedVariable
-module.exports = PhysicalWorkspaceType
+module.exports = PhysicalWorkerType

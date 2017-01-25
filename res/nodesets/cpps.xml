@@ -13,7 +13,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="bjkiR7MNSjbrzUkxgSwWyw==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="+Nk5VFta+cq6ClFeNXjC0w==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAReferenceType NodeId="ns=1;i=4002" BrowseName="1:HasPhysicalAction">
@@ -39,10 +39,10 @@
     <UAObject ParentNodeId="ns=1;i=1003" NodeId="ns=1;i=5001" BrowseName="1:Button">
         <DisplayName>Button</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5001" NodeId="ns=1;i=6002" BrowseName="1:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
@@ -67,10 +67,10 @@
     <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5002" BrowseName="1:DoorLock">
         <DisplayName>DoorLock</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5002" NodeId="ns=1;i=6003" BrowseName="1:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
@@ -87,10 +87,10 @@
     <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5003" BrowseName="1:OpeningGear">
         <DisplayName>OpeningGear</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6004</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=6004" BrowseName="1:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
@@ -114,10 +114,10 @@
     <UAObject ParentNodeId="ns=1;i=1005" NodeId="ns=1;i=5004" BrowseName="1:NCInterpreter">
         <DisplayName>NCInterpreter</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6005</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1005</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6005" BrowseName="1:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
@@ -179,12 +179,13 @@
     <UAObjectType NodeId="ns=1;i=1007" BrowseName="1:PhysicalWorkerType">
         <DisplayName>PhysicalWorkerType</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=5005</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">ns=2;i=1007</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5005</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5008</Reference>
         </References>
     </UAObjectType>
-    <UAObject ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=5005" BrowseName="1:WioLink">
-        <DisplayName>WioLink</DisplayName>
+    <UAObject ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=5005" BrowseName="1:WioNodeA">
+        <DisplayName>WioNodeA</DisplayName>
         <References>
             <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -203,11 +204,31 @@
             <uax:String></uax:String>
         </Value>
     </UAVariable>
+    <UAObject ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=5008" BrowseName="1:WioNodeB">
+        <DisplayName>WioNodeB</DisplayName>
+        <References>
+            <Reference ReferenceType="HasProperty">ns=1;i=6009</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1002</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=5008" NodeId="ns=1;i=6009" BrowseName="1:ConnectionIdentifier" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>ConnectionIdentifier</DisplayName>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5008</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:String></uax:String>
+        </Value>
+    </UAVariable>
     <UAObjectType NodeId="ns=1;i=1006" BrowseName="1:PhysicalWorkspaceType">
         <DisplayName>PhysicalWorkspaceType</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=5007</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">ns=2;i=1008</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=5007</Reference>
         </References>
     </UAObjectType>
     <UAObject ParentNodeId="ns=1;i=1006" NodeId="ns=1;i=5007" BrowseName="1:WioLink">

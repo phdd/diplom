@@ -1,0 +1,34 @@
+###########################
+# UaModeler Project File  #
+# Generated at 25.01.2017 #
+###########################
+
+PROJECTNAME = model
+
+TEMPLATESET = ($TEMPLATES)/modeling/v1_0/t0/modeling.tt2set
+
+MODELS += ($MODELS)/Opc.Ua.NodeSet2.ua \
+    res/nodesets/opc4factory.ua \
+    res/nodesets/cpps.ua \
+    objects.ua \
+    model.ua
+
+COLORS = ($MODELS)/Opc.Ua.NodeSet2.ua: #0000ff\
+    res/nodesets/opc4factory.ua: #0000ff\
+    res/nodesets/cpps.ua: #0000ff\
+    objects.ua: #0000ff\
+    model.ua: #008000
+
+OUTPUTPATH = ../../../../tmp
+
+GENERATE += res/nodesets/opc4factory.ua \
+    res/nodesets/cpps.ua \
+    objects.ua \
+    model.ua
+
+NODEACCESSINFOROLES += Administrator \
+    SecurityAdmin \
+    ConfigurationAdmin \
+    Operator \
+    Observer
+

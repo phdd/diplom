@@ -1,10 +1,11 @@
 AbstractPhysicalWioLinkType = require './AbstractPhysicalWioLinkType'
+debug = require('debug')('vmr:equipment:PhysicalWorkspaceType')
 
 class PhysicalWorkspaceType extends AbstractPhysicalWioLinkType
 
-  $airQuality: null
   $temperature: null
   $humidity: null
+  $vibration: null
 
   constructor: (options) ->
     super options
@@ -18,14 +19,15 @@ class PhysicalWorkspaceType extends AbstractPhysicalWioLinkType
     if 0 <= value and value <= 100
       @$humidity = value
 
-  onChange_airQuality: (value) =>
-    if 0 < value and value <= 1000
-      @$airQuality = Math.round(1 / value * 10000)
+  onChange_vibration: (value) =>
+    debug "got #{value} but don't know how to handle..."
+    #if 0 <= value and value <= 1023
+    #  @$vibration = value
 
   onClose: =>
-    @$airQuality = null
     @$temperature = null
     @$humidity = null
+    @$vibration = null
 
 #noinspection JSUnresolvedVariable
 module.exports = PhysicalWorkspaceType

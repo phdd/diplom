@@ -18,7 +18,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="6GzGdEvl9FF9xbW/nf2Wzw==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="KJmK6sL8d+p8z0t5/NPKIg==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObjectType NodeId="ns=1;i=1005" BrowseName="1:KillSwitchType">
@@ -172,11 +172,11 @@
     <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5002" BrowseName="1:NC">
         <DisplayName>NC</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7011</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6010</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6011</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1003</Reference>
             <Reference ReferenceType="HasModellingRule">i=80</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7012</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=7013</Reference>
@@ -382,10 +382,10 @@
     <UAObject ParentNodeId="ns=1;i=1004" NodeId="ns=1;i=5005" BrowseName="1:ToolTemperature">
         <DisplayName>ToolTemperature</DisplayName>
         <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
             <Reference ReferenceType="HasModellingRule">i=80</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6022</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1004</Reference>
-            <Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6022" BrowseName="1:Temperature" UserAccessLevel="3" AccessLevel="3">
@@ -622,11 +622,29 @@
     <UAObjectType NodeId="ns=1;i=1007" BrowseName="1:WorkerType">
         <DisplayName>WorkerType</DisplayName>
         <References>
+            <Reference ReferenceType="HasComponent">ns=1;i=6027</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6019</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6025</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
         </References>
     </UAObjectType>
+    <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6027" BrowseName="1:acceleration" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>acceleration</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6026" BrowseName="1:airQuality" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>airQuality</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
+        </References>
+    </UAVariable>
     <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6019" BrowseName="1:ambientLight" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>ambientLight</DisplayName>
         <References>
@@ -652,13 +670,16 @@
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
         </References>
     </UAObjectType>
-    <UAVariable DataType="Int32" ParentNodeId="ns=1;i=1008" NodeId="ns=1;i=6020" BrowseName="1:airQuality" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>airQuality</DisplayName>
+    <UAVariable SymbolicName="airQuality" DataType="Int32" ParentNodeId="ns=1;i=1008" NodeId="ns=1;i=6020" BrowseName="1:vibration" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>vibration</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1008</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
         </References>
+        <Value>
+            <uax:Int32>0</uax:Int32>
+        </Value>
     </UAVariable>
     <UAVariable DataType="Float" ParentNodeId="ns=1;i=1008" NodeId="ns=1;i=6024" BrowseName="1:humidity" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>humidity</DisplayName>
