@@ -4,9 +4,10 @@ debug = require('debug')('vmr:equipment:AbstractPhysicalWioLinkType')
 class AbstractPhysicalWioLinkType
 
   constructor: (options) ->
-    @WioLink = new WioLinkSensors options.WioLink.address, options.WioLink.token
-    @WioLink.onChange = @_onChange
-    @WioLink.onClose = @onClose
+    for _, WioLink of options
+      node = new WioLinkSensors WioLink.address, WioLink.token
+      node.onChange = @_onChange
+      node.onClose = @onClose
 
   onClose: =>
 
