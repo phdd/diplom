@@ -15,7 +15,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="7A174O0IJvden0zvBsxlRw==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="ctRDqDgSgtLPZ4JMkJu7Vg==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5002" BrowseName="1:Environment">
@@ -68,12 +68,15 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="Int16" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6006" BrowseName="2:temperature" UserAccessLevel="3" AccessLevel="3">
+    <UAVariable DataType="Float" ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=6006" BrowseName="2:temperature" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>temperature</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
+        <Value>
+            <uax:Float>0</uax:Float>
+        </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5001" BrowseName="3:WioNodeA">
         <DisplayName>WioNodeA</DisplayName>
@@ -90,7 +93,7 @@
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>{"address":"ws://192.168.12.17:8080/v1/node/event","token":"db5b76ee31895fbd237ae759618a40d9"}</uax:String>
+            <uax:String>{"address":"ws://192.168.12.17:8080/v1/node/event","token":"b4e18299092e4beaa7a6ceabc155a802"}</uax:String>
         </Value>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5004" NodeId="ns=1;i=5006" BrowseName="3:WioNodeB">
@@ -108,7 +111,7 @@
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
         <Value>
-            <uax:String>{"address":"ws://192.168.12.17:8080/v1/node/event","token":"b4e18299092e4beaa7a6ceabc155a802"}</uax:String>
+            <uax:String>{"address":"ws://192.168.12.17:8080/v1/node/event","token":"db5b76ee31895fbd237ae759618a40d9"}</uax:String>
         </Value>
     </UAVariable>
 </UANodeSet>

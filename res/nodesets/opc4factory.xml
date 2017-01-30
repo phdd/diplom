@@ -18,7 +18,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="VQE5AgUuzb/oigXL0tPAsQ==" Version="1.5.0"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="B+65C6S4Bjzkd2v8OM6edQ==" Version="1.5.0"/>
         </Extension>
     </Extensions>
     <UAObjectType NodeId="ns=1;i=1005" BrowseName="1:KillSwitchType">
@@ -622,30 +622,14 @@
     <UAObjectType NodeId="ns=1;i=1007" BrowseName="1:WorkerType">
         <DisplayName>WorkerType</DisplayName>
         <References>
-            <Reference ReferenceType="HasComponent">ns=1;i=6028</Reference>
-            <Reference ReferenceType="HasComponent">ns=1;i=6027</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6019</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6025</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6027</Reference>
             <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
         </References>
     </UAObjectType>
-    <UAVariable DataType="Float" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6028" BrowseName="1:humidity" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>humidity</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6027" BrowseName="1:temperature" UserAccessLevel="3" AccessLevel="3">
-        <DisplayName>temperature</DisplayName>
-        <References>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasModellingRule">i=78</Reference>
-        </References>
-    </UAVariable>
     <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6026" BrowseName="1:airQuality" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>airQuality</DisplayName>
         <References>
@@ -662,6 +646,14 @@
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
         </References>
     </UAVariable>
+    <UAVariable DataType="Float" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6028" BrowseName="1:humidity" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>humidity</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+        </References>
+    </UAVariable>
     <UAVariable DataType="Int16" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6025" BrowseName="1:loudness" UserAccessLevel="3" AccessLevel="3">
         <DisplayName>loudness</DisplayName>
         <References>
@@ -669,6 +661,17 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
         </References>
+    </UAVariable>
+    <UAVariable DataType="Float" ParentNodeId="ns=1;i=1007" NodeId="ns=1;i=6027" BrowseName="1:temperature" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>temperature</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="HasModellingRule">i=78</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1007</Reference>
+        </References>
+        <Value>
+            <uax:Float>0</uax:Float>
+        </Value>
     </UAVariable>
     <UAObjectType NodeId="ns=1;i=1008" BrowseName="1:WorkspaceType">
         <DisplayName>WorkspaceType</DisplayName>
