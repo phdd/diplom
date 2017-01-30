@@ -13,7 +13,7 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
     samplingStarted: false
     writeInterval: null
     lastValue: 0
-    samples: 64
+    samples: 4
     rms: 0.0
     tmp: 0
 
@@ -30,6 +30,7 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
       @loudness.samplingStarted = true
       @loudness.writeInterval = setInterval(=>
           @$loudness = @loudness.lastValue
+          debug @$loudness
         , 50);
 
     @loudness.rms = value
@@ -51,7 +52,7 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
       else if db > 0
         @loudness.lastValue = db
 
-      @loudness.samples = 64
+      @loudness.samples = 4
       @loudness.rms = 0.0
       @loudness.tmp = 0
 
