@@ -6,7 +6,8 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
   $ambientLight: null
   $loudness: null
   $airQuality: null
-  $acceleration: null
+  $temperature: null
+  $humidity: null
 
   loudness:
     samplingStarted: false
@@ -58,16 +59,14 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
     if 0 < value and value <= 1000
       @$airQuality = Math.round(1 / value * 10000)
 
-  onChange_acceleration: (value) =>
-    debug "got #{value} but don't know how to handle..."
-
   onClose: =>
     clearInterval @loudness.writeInterval if @loudness.writeInterval != null
 
     @$ambientLight = null
     @$loudness = null
     @$airQuality = null
-    @$acceleration = null
+    @$temperature = null
+    @$humidity = null
 
 #noinspection JSUnresolvedVariable
 module.exports = PhysicalWorkerType
