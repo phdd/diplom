@@ -59,6 +59,14 @@ class PhysicalWorkerType extends AbstractPhysicalWioLinkType
     if 0 < value and value <= 1000
       @$airQuality = Math.round(1 / value * 10000)
 
+  onChange_temperature: (value) =>
+    if -50 < value and value < 1000
+      @$temperature = value
+
+  onChange_humidity: (value) =>
+    if 0 <= value and value <= 100
+      @$humidity = value
+
   onClose: =>
     clearInterval @loudness.writeInterval if @loudness.writeInterval != null
 
